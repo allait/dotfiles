@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/minibufexplpp"]
 	path = .vim/bundle/minibufexplpp
 	url = git://github.com/vim-scripts/minibufexplorerpp.git
-[submodule ".vim/bundle/nerd_tree"]
-	path = .vim/bundle/nerd_tree
-	url = git://github.com/vim-scripts/The-NERD-tree.git
 [submodule ".vim/bundle/conqueterm"]
 	path = .vim/bundle/conqueterm
 	url = git://github.com/vim-scripts/Conque-Shell.git
