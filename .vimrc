@@ -5,7 +5,7 @@
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
 filetype off
-call pathogen#hellptags()
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " VIM global options
@@ -203,4 +203,7 @@ endif
 " Minibufexplorer
 " ---------------
 
+" Pylint
+" ------
+let g:pylint_onwrite = 0
 
