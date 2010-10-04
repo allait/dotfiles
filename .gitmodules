@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/showmarks"]
 	path = .vim/bundle/showmarks
 	url = git://github.com/vim-scripts/ShowMarks.git
+[submodule ".vim/bundle/dbext"]
+	path = .vim/bundle/dbext
+	url = git://github.com/vim-scripts/dbext.vim.git
