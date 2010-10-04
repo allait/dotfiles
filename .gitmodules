@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/closetag"]
 	path = .vim/bundle/closetag
 	url = git://github.com/vim-scripts/closetag.vim.git
+[submodule ".vim/bundle/matchit"]
+	path = .vim/bundle/matchit
+	url = git://github.com/vim-scripts/matchit.zip.git
