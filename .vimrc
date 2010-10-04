@@ -20,9 +20,9 @@ set novisualbell
 " Enable xterm mouse support in all modes
 set mouse=a
 
-" Set * and + registers to system clipboard
+" Set * and + registers to system clipboard, conflicts with yankring
 " http://vim.wikia.com/wiki/VimTip984
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Code and syntax options
 " =======================
@@ -217,22 +217,22 @@ let g:pylint_onwrite = 0
 " --------
 " Bind F2 anc Ctrl+K to show/hide file browser
 map <C-k> :NERDTreeToggle<CR>
-map <F2> :NERDTreeToggle<CR>
+map <silent><F2> :NERDTreeToggle<CR>
 
 " TagList
 " -------
 " Bind F3 to show/hide tag list
-map <F3> :TlistToggle<CR>
+map <silent><F3> :TlistToggle<CR>
 
 " TaskList
 " --------
 " Bind F4 to show task list
-map <F4> :TaskList<CR>
+map <silent><F4> :TaskList<CR>
 
 " Command-T
 " ---------
 " Bind F5 and \e to start command-t file search
-map <F5> :CommandT<CR>
+map <silent><F5> :CommandT<CR>
 nnoremap <leader>e :CommandT<CR>
 
 " SuperTab
@@ -265,4 +265,8 @@ let snips_author = 'Al'
 
 " Use Django snippets in html files
 " autocmd FileType html set ft=htmldjango.html
+
+" YankRing
+" --------
+nmap <silent><F6> :YRShow<CR>
 
