@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/dbext"]
 	path = .vim/bundle/dbext
 	url = git://github.com/vim-scripts/dbext.vim.git
+[submodule ".vim/bundle/python-match"]
+	path = .vim/bundle/python-match
+	url = git://github.com/vim-scripts/python_match.vim.git
