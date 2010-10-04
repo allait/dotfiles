@@ -13,3 +13,24 @@
 [submodule ".vim/bundle/minibufexplpp"]
 	path = .vim/bundle/minibufexplpp
 	url = git://github.com/vim-scripts/minibufexplorerpp.git
+[submodule ".vim/bundle/nerd_tree"]
+	path = .vim/bundle/nerd_tree
+	url = git://github.com/vim-scripts/The-NERD-tree.git
+[submodule ".vim/bundle/conqueterm"]
+	path = .vim/bundle/conqueterm
+	url = git://github.com/vim-scripts/Conque-Shell.git
+[submodule ".vim/bundle/command_t"]
+	path = .vim/bundle/command_t
+	url = git://github.com/wincent/Command-T.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/surround"]
+	path = .vim/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/tasklist"]
+	path = .vim/bundle/tasklist
+	url = git://github.com/vim-scripts/TaskList.vim.git
