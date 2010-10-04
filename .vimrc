@@ -111,6 +111,8 @@ set cursorline
 " Always show statusline
 set laststatus=2
 
+" Status line
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Completion options
 " =======================
@@ -269,4 +271,3 @@ let snips_author = 'Al'
 " YankRing
 " --------
 nmap <silent><F6> :YRShow<CR>
-
