@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/python-match"]
 	path = .vim/bundle/python-match
 	url = git://github.com/vim-scripts/python_match.vim.git
+[submodule ".vim/bundle/pythondo"]
+	path = .vim/bundle/pythondo
+	url = git://github.com/vim-scripts/pythondo.git
