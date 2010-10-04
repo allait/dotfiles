@@ -30,8 +30,8 @@ set clipboard=unnamed
 " Set syntax highlighting
 syntax on
 
-"? Python full highliting
-"? let python_highlight_all=1
+" Python full highliting
+let python_highlight_all=1
 
 
 " History and swap options
