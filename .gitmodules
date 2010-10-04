@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/vcscommand"]
 	path = .vim/bundle/vcscommand
 	url = git://github.com/vim-scripts/vcscommand.vim.git
+[submodule ".vim/bundle/closetag"]
+	path = .vim/bundle/closetag
+	url = git://github.com/vim-scripts/closetag.vim.git
