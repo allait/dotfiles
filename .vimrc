@@ -202,8 +202,42 @@ endif
 
 " Minibufexplorer
 " ---------------
+" let g:miniBufExplMapWindowNavVim = 1
+" let g:miniBufExplMapWindowNavArrows = 1
+" let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
 
 " Pylint
 " ------
 let g:pylint_onwrite = 0
 
+" NERDTree
+" --------
+map <C-k> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
+
+" TagList
+" -------
+map <F3> :TlistToggle<CR>
+
+" TaskList
+" --------
+map <F4> :TaskList<CR>
+
+" Command-T
+" ---------
+map <F5> :CommandT<CR>
+nnoremap <leader>e :CommandT<CR>
+
+" SuperTab
+" --------
+let g:SuperTabDefaultCompletionType="context"
+
+" Syntastic
+" ---------
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statuslineu=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=0
