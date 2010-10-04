@@ -210,28 +210,34 @@ let g:miniBufExplModSelTarget = 1
 
 " Pylint
 " ------
+" Disable onwrite pylint checks
 let g:pylint_onwrite = 0
 
 " NERDTree
 " --------
+" Bind F2 anc Ctrl+K to show/hide file browser
 map <C-k> :NERDTreeToggle<CR>
 map <F2> :NERDTreeToggle<CR>
 
 " TagList
 " -------
+" Bind F3 to show/hide tag list
 map <F3> :TlistToggle<CR>
 
 " TaskList
 " --------
+" Bind F4 to show task list
 map <F4> :TaskList<CR>
 
 " Command-T
 " ---------
+" Bind F5 and \e to start command-t file search
 map <F5> :CommandT<CR>
 nnoremap <leader>e :CommandT<CR>
 
 " SuperTab
 " --------
+" Set supertab to complete depending on text before cursor
 let g:SuperTabDefaultCompletionType="context"
 
 " Syntastic
@@ -239,5 +245,24 @@ let g:SuperTabDefaultCompletionType="context"
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statuslineu=%*
+" Enable syntax error signs, disable prewiew window with error list
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
+
+" AlignMaps
+" ---------
+" Hide AlignMaps menu
+let g:DrChipTopLvlMenu= ""
+
+" SnipMate
+" --------
+
+" Set snippet directory to allow disabling built-in snippets
+" let g:snippets_dir="~/.vim/snippets/"
+
+" Set author in c) snippet
+let snips_author = 'Al'
+
+" Use Django snippets in html files
+" autocmd FileType html set ft=htmldjango.html
+
