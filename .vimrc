@@ -183,7 +183,7 @@ nnoremap ; :
 " =============
 
 " Set color scheme
-colorscheme Mustang
+colorscheme mustang
 
 " Set gui-specific options
 if has("gui_running")
