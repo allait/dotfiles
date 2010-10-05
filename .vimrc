@@ -44,7 +44,8 @@ set undolevels=1000
 set directory=/var/tmp
 " Backup files directory
 set backupdir=/var/tmp
-
+" Enable backups
+set backup
 
 " File options
 " ===================
@@ -111,8 +112,15 @@ set cursorline
 " Always show statusline
 set laststatus=2
 
+" Highlight column
+" set colorcolumn=85
+
 " Status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" Show invisible symbols
+set list
+set listchars=tab:▸\ ,eol:¬
 
 " Completion options
 " =======================
@@ -180,6 +188,15 @@ set nofoldenable
 
 " Avoid pressing shift for commands and use ; just like :
 nnoremap ; :
+
+" Clean whitespace
+map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Toggle fullscreen(MacVim only?) on F1
+set fuoptions=maxvert,maxhorz
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
 
 " Color and gui options
 " =============
