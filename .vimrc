@@ -196,6 +196,7 @@ if has("gui_running")
 else
     " Set 256-colors mode for console vim
     set t_Co=256
+    colorscheme desert
 endif
 
 
