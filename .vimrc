@@ -271,3 +271,7 @@ let snips_author = 'Al'
 " YankRing
 " --------
 nmap <silent><F6> :YRShow<CR>
+
+" ShowMarks
+" ---------
+let g:showmarks_enable=0
