@@ -85,6 +85,3 @@
 [submodule ".vim/bundle/pythondo"]
 	path = .vim/bundle/pythondo
 	url = git://github.com/vim-scripts/pythondo.git
-[submodule ".vim/bundle/rainbow-parenthesis"]
-	path = .vim/bundle/rainbow-parenthesis
-	url = git://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git

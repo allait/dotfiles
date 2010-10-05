@@ -120,7 +120,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Show invisible symbols
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ",eol:¬
 
 " Completion options
 " =======================
@@ -293,3 +293,8 @@ nmap <silent><F6> :YRShow<CR>
 " ShowMarks
 " ---------
 let g:showmarks_enable=0
+
+" Rainbows
+" --------
+nmap <leader>R :RainbowParenthesesToggle<CR>
+
