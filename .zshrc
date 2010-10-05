@@ -1,9 +1,10 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=5000
 
 fpath=(~/.zsh/functions $fpath)
+autoload ~/.zsh/functions/*(:t)
 
 # Load specific config files
 for config_file (~/.zsh/*.zsh) source $config_file
