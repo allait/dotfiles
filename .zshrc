@@ -11,3 +11,5 @@ for config_file (~/.zsh/*.zsh) source $config_file
 unset config_file
 
 export EDITOR="/usr/bin/vim"
+
+source ~/.zlocal
