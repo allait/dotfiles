@@ -1,6 +1,6 @@
 # Freeze title function, set title and stop changing it to PWD
 export KEEP_TITLE=yes
-if [[ $1 == '-u' ]] {
+if [[ $1 == '' ]] {
     unset KEEP_TITLE
 }
 title $1
