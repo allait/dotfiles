@@ -33,7 +33,9 @@ function title {
   fi
 }
 function precmd {
-  title "$USERNAME:$PWD"
+  if [[ $KEEP_TITLE != "yes" ]]; then
+      title "$USERNAME:$PWD"
+  fi
 }
 #PROMPT='%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) %% '
 PROMPT='%{$fg_bold[cyan]%}%c%{$reset_color%}$(git_prompt_info) %{$fg_bold[yellow]%}%%%{$reset_color%} '
