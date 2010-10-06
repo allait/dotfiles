@@ -192,11 +192,13 @@ nnoremap ; :
 " Clean whitespace
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" Toggle fullscreen(MacVim only?) on F1
-set fuoptions=maxvert,maxhorz
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+" Toggle fullscreen(MacVim only) on F1
+if has("gui_macvim")
+    set fuoptions=maxvert,maxhorz
+    inoremap <F1> <ESC>:set invfullscreen<CR>a
+    nnoremap <F1> :set invfullscreen<CR>
+    vnoremap <F1> :set invfullscreen<CR>
+endif
 
 " Color and gui options
 " =============
@@ -210,6 +212,14 @@ if has("gui_running")
     set guifont=Inconsolata\ Medium\ 10
     " Disable toolbar
     set guioptions-=T
+    " Disable left scrollbar
+    set guioptions-=l
+    set guioptions-=L
+    " Disable right scrollbar
+    set guioptions-=r
+    set guioptions-=R
+    " Disable bottom scrollbar
+    set guioptions-=b
 else
     " Set 256-colors mode for console vim
     set t_Co=256
