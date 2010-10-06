@@ -1,0 +1,5 @@
+--smart-case
+--type-set
+django=.py,.html
+--type-set
+front=.html,.js,.css
