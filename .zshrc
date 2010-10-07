@@ -13,3 +13,7 @@ unset config_file
 export EDITOR="/usr/bin/vim"
 
 source ~/.zlocal
+
+# Unicode environment
+export LANG=en_US.utf8
+export LC_CTYPE=en_US.UTF-8
