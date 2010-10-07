@@ -20,6 +20,9 @@ set novisualbell
 " Enable xterm mouse support in all modes
 set mouse=a
 
+" Disable modeline for security reasons
+set nomodeline
+
 " Set * and + registers to system clipboard, conflicts with yankring
 " http://vim.wikia.com/wiki/VimTip984
 " set clipboard=unnamed
@@ -52,6 +55,9 @@ set backup
 
 " Set default file encoding to UTF-8
 set encoding=utf-8
+
+" When doing tab completion, give the following files lower priority
+set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
 
 " Use UNIX (\n) line endings for new files
 set fileformat=unix
