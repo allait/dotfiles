@@ -1,3 +1,6 @@
+# Automatically detach on hangup
+autodetach on
+
 # kill startup message
 startup_message off
 
