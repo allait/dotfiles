@@ -1,5 +1,5 @@
 # Completion options
-setopt   extendedglob auto_list auto_param_slash list_packed rec_exact
+setopt   extendedglob autocd auto_list auto_param_slash list_packed rec_exact
 unsetopt beep list_beep
 
 # Vi mode
