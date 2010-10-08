@@ -46,7 +46,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}✚%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$reset_color%}"
-RPROMPT='%{$fg[black]%}%m%{$reset_color%}%B [%T]%{$reset_color%}'
+RPROMPT='%{$fg[black]%}%m%{$reset_color%} [%T]%{$reset_color%}'
 
 # Vi mode indicators
 VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
@@ -55,3 +55,12 @@ VI_INSERT_MODE=$RPROMPT
 autoload zle-line-init zle-keymap-select
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+# Colorize less
+export LESS_TERMCAP_mb=$'\E[01;36m'
+export LESS_TERMCAP_md=$'\E[01;36m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[04;32m'
