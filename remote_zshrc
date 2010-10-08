@@ -1,0 +1,17 @@
+# Created by newuser for 4.3.10
+
+autoload colors; colors;
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+
+bindkey -v
+setopt prompt_subst
+alias ls="ls --color=auto"
+alias l="ls -lAh"
+alias sudo-z="sudo -s /bin/zsh"
+
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+bindkey "^[[3~" delete-char
+
+PROMPT='%{$fg[red]%}%m%{$reset_color%} %{$fg[blue]%}%c%{$reset_color%} %{$fg[yellow]%}%%%{$reset_color%} '
+RPROMPT='[%T]'
