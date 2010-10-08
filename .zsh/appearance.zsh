@@ -40,13 +40,13 @@ function precmd {
   fi
 }
 #PROMPT='%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) %% '
-PROMPT='%{$fg_bold[cyan]%}%c%{$reset_color%}$(git_prompt_info) %{$fg_bold[yellow]%}%%%{$reset_color%} '
+PROMPT='%{$fg[blue]%}%c%{$reset_color%}$(git_prompt_info) %{$fg[yellow]%}%%%{$reset_color%} '
 ZSH_THEME_GIT_PROMPT_PREFIX="@%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}✚%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔%{$reset_color%}"
-RPROMPT='%{$fg_bold[white]%}[%T]%{$reset_color%}'
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$reset_color%}"
+RPROMPT='%{$fg[black]%}%m%{$reset_color%}%B [%T]%{$reset_color%}'
 
 # Vi mode indicators
 VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
