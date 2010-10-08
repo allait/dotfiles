@@ -1,5 +1,6 @@
 # Lines configured by zsh-newuser-install
 setopt histignorespace
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=5000
