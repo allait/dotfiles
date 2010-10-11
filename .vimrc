@@ -44,9 +44,9 @@ let python_highlight_all=1
 set undolevels=1000
 
 " Swap files location
-set directory=/var/tmp
+set directory=~/tmp/swap/
 " Backup files directory
-set backupdir=/var/tmp
+set backupdir=~/tmp/backup/
 " Enable backups
 set backup
 
@@ -305,7 +305,7 @@ let snips_author = 'Al'
 " YankRing
 " --------
 nmap <silent><F6> :YRShow<CR>
-
+let g:yankring_history_dir = "~/tmp"
 " ShowMarks
 " ---------
 let g:showmarks_enable=0
