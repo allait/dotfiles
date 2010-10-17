@@ -195,6 +195,9 @@ set nofoldenable
 " Avoid pressing shift for commands and use ; just like :
 nnoremap ; :
 
+" Set backspace behavior
+set backspace=indent,eol,start
+
 " Clean whitespace
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
