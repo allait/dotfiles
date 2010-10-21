@@ -310,8 +310,22 @@ let snips_author = 'Al'
 
 " YankRing
 " --------
+
+" Show yankring menu on F6
 nmap <silent><F6> :YRShow<CR>
+
+" Store history file in tmp folder
 let g:yankring_history_dir = "~/tmp"
+
+" Don't add one-letter deletes to history
+let g:yankring_min_element_length = 2
+
+" Don't store history between sessions
+let g:yankring_persist = 0
+
+" Limit yank history
+let g:yankring_max_history=10
+
 " ShowMarks
 " ---------
 let g:showmarks_enable=0
