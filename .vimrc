@@ -33,6 +33,9 @@ set nomodeline
 " Set syntax highlighting
 syntax on
 
+" Limit highlighting to x columns to increase speed with long lines
+set synmaxcol=160
+
 " Python full highliting
 let python_highlight_all=1
 
