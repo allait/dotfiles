@@ -336,3 +336,7 @@ let g:showmarks_enable=0
 " --------
 nmap <leader>R :RainbowParenthesesToggle<CR>
 
+" Gundo
+" -----
+
+nmap <silent> <F7> :GundoToggle<CR>
