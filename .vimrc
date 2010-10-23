@@ -15,7 +15,9 @@ call pathogen#runtime_append_all_bundles()
 set nocompatible
 
 " No bell sounds
-set novisualbell
+set noerrorbells
+set visualbell
+set t_vb=
 
 " Enable xterm mouse support in all modes
 set mouse=a
