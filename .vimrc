@@ -281,8 +281,24 @@ nnoremap <leader>e :CommandT<CR>
 
 " SuperTab
 " --------
+
 " Set supertab to complete depending on text before cursor
 let g:SuperTabDefaultCompletionType="context"
+
+" Set backwards mapping to work with snipmate's reverse tabstops
+let g:SuperTabMappingBackward ='<C-Tab>'
+
+" Disable cr to fix conflict with delimitmate
+let g:SuperTabCrMapping = '<C-CR>'
+
+" DelimitMate
+" -----------
+
+" Expand space inside empty pairs
+let g:delimitMate_expand_space = 1
+
+" Expand newlines inside empty pairs
+let g:delimitMate_expand_cr = 1
 
 " Syntastic
 " ---------
