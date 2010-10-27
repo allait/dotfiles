@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/liquid-syntax"]
 	path = .vim/bundle/liquid-syntax
 	url = git://github.com/tpope/vim-liquid.git
+[submodule ".vim/bundle/rails"]
+	path = .vim/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
