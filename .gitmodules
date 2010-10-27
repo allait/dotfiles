@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/django-template"]
 	path = .vim/bundle/django-template
 	url = git://github.com/vim-scripts/django.vim.git
+[submodule ".vim/bundle/javascript-syntax"]
+	path = .vim/bundle/javascript-syntax
+	url = git://github.com/vim-scripts/JavaScript-syntax.git
