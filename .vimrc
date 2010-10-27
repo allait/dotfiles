@@ -183,6 +183,8 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" Treat html files as Django templates. Breaks TagList.
+" autocmd FileType html set ft=html.htmldjango
 
 " Folding options
 " ===============
@@ -322,9 +324,6 @@ let g:DrChipTopLvlMenu= ""
 
 " Set author in c) snippet
 let snips_author = 'Al'
-
-" Use Django snippets in html files
-" autocmd FileType html set ft=htmldjango.html
 
 " YankRing
 " --------
