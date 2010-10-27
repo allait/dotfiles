@@ -17,7 +17,7 @@ set nocompatible
 " No bell sounds
 set noerrorbells
 set visualbell
-set t_vb=
+set vb t_vb=""
 
 " Enable xterm mouse support in all modes
 set mouse=a
