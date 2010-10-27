@@ -97,3 +97,6 @@
 [submodule ".vim/bundle/gundo"]
 	path = .vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/django-template"]
+	path = .vim/bundle/django-template
+	url = git://github.com/vim-scripts/django.vim.git
