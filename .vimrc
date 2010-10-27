@@ -14,6 +14,9 @@ call pathogen#runtime_append_all_bundles()
 " No vim compatibility
 set nocompatible
 
+" Disable intro message
+" set shortmess+=I
+
 " No bell sounds
 set noerrorbells
 set visualbell
