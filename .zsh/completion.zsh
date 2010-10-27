@@ -1,9 +1,7 @@
 # Completion options
 setopt   extendedglob autocd auto_list auto_param_slash list_packed rec_exact
+setopt correct correctall
 unsetopt beep list_beep
-
-# Vi mode
-bindkey -v
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' format '%F{white}%d%f'

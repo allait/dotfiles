@@ -5,6 +5,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=5000
 
+# There be user-defined functions
 fpath=(~/.zsh/functions $fpath)
 autoload ~/.zsh/functions/*(:t)
 
@@ -12,10 +13,11 @@ autoload ~/.zsh/functions/*(:t)
 for config_file (~/.zsh/*.zsh) source $config_file
 unset config_file
 
+# Use vim for git commits and stuff
 export EDITOR="/usr/bin/vim"
+
+# Get emacs keybindings
+bindkey -e
 
 source ~/.zlocal
 
-# Unicode environment
-# export LANG=en_US.utf8
-# export LC_CTYPE=en_US.UTF-8
