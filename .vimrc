@@ -25,6 +25,9 @@ set mouse=a
 " Disable modeline for security reasons
 set nomodeline
 
+" Keep cursor in the middle of the screen
+" set scrolloff=999
+
 " Set * and + registers to system clipboard, conflicts with yankring
 " http://vim.wikia.com/wiki/VimTip984
 " set clipboard=unnamed
