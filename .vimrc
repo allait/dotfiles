@@ -227,7 +227,7 @@ endif
 " =============
 
 " Set color scheme
-colorscheme mustang
+colorscheme molokai
 
 " Set gui-specific options
 if has("gui_running")
