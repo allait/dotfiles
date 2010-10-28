@@ -189,7 +189,7 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" Treat html files as Django templates. Breaks TagList.
+" Treat html files as Django templates. Breaks some stuff
 " autocmd FileType html set ft=html.htmldjango
 
 " Folding options
@@ -214,12 +214,12 @@ set backspace=indent,eol,start
 " Clean whitespace
 map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" Toggle fullscreen(MacVim only) on F1
+" Toggle fullscreen(MacVim only) on F11
 if has("gui_macvim")
     set fuoptions=maxvert,maxhorz
-    inoremap <F1> <ESC>:set invfullscreen<CR>a
-    nnoremap <F1> :set invfullscreen<CR>
-    vnoremap <F1> :set invfullscreen<CR>
+    inoremap <F11> <ESC>:set invfullscreen<CR>a
+    nnoremap <F11> :set invfullscreen<CR>
+    vnoremap <F11> :set invfullscreen<CR>
 endif
 
 " Color and gui options
@@ -275,6 +275,9 @@ map <silent><F2> :NERDTreeToggle<CR>
 " -------
 " Bind F3 to show/hide tag list
 map <silent><F3> :TlistToggle<CR>
+
+" Django templates setting
+let g:tlist_htmldjango_settings = 'html;a:anchor;f:javascript function'
 
 " TaskList
 " --------
@@ -359,5 +362,8 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 
 " Gundo
 " -----
-
 nmap <silent> <F7> :GundoToggle<CR>
+
+" BufExplorer
+" -----------
+nmap <F1> :BufExplorer<CR>
