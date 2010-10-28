@@ -168,8 +168,9 @@ au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js set tabstop=8
 
 " What to use for an indent.
 " Python: 4 spaces, soft-tabs
+" Html: 4-space tabs
 au BufRead,BufNewFile *.py,*pyw,*.html,*.js set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw,*.html,*.js set expandtab
+au BufRead,BufNewFile *.py,*.pyw set expandtab
 
 " Keep indentation level from previous line
 set autoindent
