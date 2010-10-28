@@ -33,7 +33,7 @@
 	url = git://github.com/vim-scripts/TaskList.vim.git
 [submodule ".vim/bundle/indexedsearch"]
 	path = .vim/bundle/indexedsearch
-	url = git://github.com/bronson/vim-indexedsearch.git
+	url = git://github.com/vim-scripts/IndexedSearch.git
 [submodule ".vim/bundle/abolish"]
 	path = .vim/bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
