@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/indexedsearch"]
 	path = .vim/bundle/indexedsearch
 	url = git://github.com/vim-scripts/IndexedSearch.git
+[submodule ".vim/bundle/repeat"]
+	path = .vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
