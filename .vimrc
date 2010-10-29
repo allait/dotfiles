@@ -58,6 +58,15 @@ set undolevels=1000
 set directory=~/tmp/swap/
 " Backup files directory
 set backupdir=~/tmp/backup/
+" Undo files directory
+set undodir=~/tmp/undo/
+
+" Enable undo file for persistent undo
+set undofile
+
+" Maximum number of lines to save for undo on buffer reload
+set undoreload=10000
+
 " Enable backups
 set backup
 
