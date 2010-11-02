@@ -108,6 +108,8 @@ noremap <C-right> :bn!<CR>
 map <C-h> :bp!<CR>
 map <C-l> :bn!<CR>
 
+nmap <Tab> :bn<CR>
+nmap <S-Tab> :bp<CR>
 
 " Search Options
 " ==============
