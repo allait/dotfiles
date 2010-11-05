@@ -5,7 +5,7 @@
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
 filetype off
-call pathogen#helptags()
+" call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " VIM global options
@@ -137,18 +137,32 @@ set nu
 " Highlight current line
 set cursorline
 
-" Always show statusline
-set laststatus=2
-
 " Highlight column
 " set colorcolumn=85
-
-" Status line
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Show invisible symbols
 set list
 set listchars=tab:▸\ ",eol:¬
+
+" Status line options
+" ===================
+
+" Always show statusline
+set laststatus=2
+
+" Status line
+if has('statusline')
+    set statusline=%<%f\  " Current file path
+    set statusline+=%m%h%r%w " File flags - modified, help buffer, readonly, preview
+    set statusline+=%y " Filetype
+    set statusline+=%{fugitive#statusline()} " File git status
+    set statusline+=%= " Indent to the right
+    set statusline+=%-20.(%4.l/%L,\ %c%V%)\  "Current line number/total, column number
+    set statusline+=%P\  "Percentage through a file
+    "set statusline+=[%{&fileformat}] " file format (unix/mac/win)
+    set statusline+=[%{(&fenc==\"\"?&enc:&fenc)}]\  "File encoding
+    set statusline+={%n} "Buffer number
+endif
 
 " Completion options
 " =======================
@@ -379,3 +393,12 @@ nmap <silent> <F7> :GundoToggle<CR>
 " BufExplorer
 " -----------
 nmap <F1> :BufExplorer<CR>
+
+" Zencoding
+" ---------
+
+"Set leader key to a more mnemonic Ctrl+z (as in 'zen')
+let g:user_zen_leader_key = '<C-z>'
+
+" Set <C-z>z shortcut(does the same thing as <c-z>,
+imap <C-z>z <C-z>,
