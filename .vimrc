@@ -402,3 +402,15 @@ let g:user_zen_leader_key = '<C-z>'
 
 " Set <C-z>z shortcut(does the same thing as <c-z>,
 imap <C-z>z <C-z>,
+
+" VCScommand
+" ----------
+
+" Switch to \v to avoid conflict with nerdcommenter
+let g:VCSCommandMapPrefix = '<Leader>v'
+
+" AlignMaps
+" ---------
+
+" Disable alignmaps bindings
+let g:loaded_AlignMapsPlugin=1
