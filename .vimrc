@@ -238,7 +238,7 @@ nnoremap ; :
 set backspace=indent,eol,start
 
 " Clean whitespace
-map <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+map <leader>W mw:%s/\s\+$//<cr>:let @/=''<CR>`w
 
 " Toggle fullscreen(MacVim only) on F11
 if has("gui_macvim")
