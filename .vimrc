@@ -314,6 +314,7 @@ map <silent><F4> :TaskList<CR>
 " ---------
 " Bind F5 and \e to start command-t file search
 map <silent><F5> :CommandT<CR>
+nnoremap <leader><CR> :CommandT<CR>
 nnoremap <leader>e :CommandT<CR>
 
 " SuperTab
