@@ -356,7 +356,7 @@ let g:DrChipTopLvlMenu= ""
 " --------
 
 " Set snippet directory to allow disabling built-in snippets
-" let g:snippets_dir="~/.vim/snippets/"
+let g:snippets_dir="~/.vim/snippets/"
 
 " Set author in c) snippet
 let snips_author = 'Al'
