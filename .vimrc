@@ -206,6 +206,7 @@ set softtabstop=4
 " Where filesize matters: html, js and css: 2-space indents
 au BufRead,BufNewFile *.html,*.js,*.css set shiftwidth=2
 au BufRead,BufNewFile *.html,*.js,*.css set softtabstop=2
+au BufRead,BufNewFile *.html,*.js,*.css set tabstop=2
 
 " Keep indentation level from previous line
 set autoindent
