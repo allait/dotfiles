@@ -188,20 +188,29 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Indentation and tab options
 " ===========================
 
-" Number of spaces that a pre-existing tab is equal to
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js set tabstop=8
+" Sane default tabstop:
+set tabstop=4
 
-" What to use for an indent.
-" Python: 4 spaces, soft-tabs
-" Html: 4-space tabs
-au BufRead,BufNewFile *.py,*pyw,*.html,*.js set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set expandtab
+" Always convert tabs to spaces
+set expandtab
+
+" Number of spaces that a pre-existing tab is equal to
+au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=8
+
+" What to use for an >> and << indent.
+set shiftwidth=4
+
+" Set soft tab length
+set softtabstop=4
+
+" Where filesize matters: html, js and css: 2-space indents
+au BufRead,BufNewFile *.html,*.js,*.css set shiftwidth=2
+au BufRead,BufNewFile *.html,*.js,*.css set softtabstop=2
 
 " Keep indentation level from previous line
 set autoindent
 
-" Set soft tab length
-set softtabstop=4
+
 
 
 " Specific highlight options
