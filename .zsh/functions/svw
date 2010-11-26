@@ -1,0 +1,3 @@
+#!/usr/bin/zsh
+
+grep -Riwh -A 2 --exclude-dir=.git "${1}" ~/vimwiki | less
