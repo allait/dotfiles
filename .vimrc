@@ -267,7 +267,9 @@ colorscheme molokai
 " Set gui-specific options
 if has("gui_running")
     " Set gui font
-    set guifont=Inconsolata\ Medium\ 10
+    if !has("gui_macvim")
+        set guifont=Droid\ Sans\ Mono\ Slashed\ 8
+    endif
     " Disable toolbar
     set guioptions-=T
     " Disable left scrollbar
