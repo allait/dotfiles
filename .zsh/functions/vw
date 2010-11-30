@@ -1,3 +1,7 @@
 #!/usr/bin/zsh
 
-vim ${1} +':VimwikiIndex'
+if [[ ${1} != '' ]]; then
+    cat ~/vimwiki/${1}/* | less
+else
+    vim ${1} +':VimwikiIndex'
+fi
