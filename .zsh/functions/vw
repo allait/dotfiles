@@ -2,6 +2,7 @@
 
 if [[ ${1} != '' ]]; then
     cat ~/vimwiki/${1}/* | less
+# elif [[ ${1} == '-g' ]]; then
 else
     vim ${1} +':VimwikiIndex'
 fi
