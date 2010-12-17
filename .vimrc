@@ -93,7 +93,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Buffer behavior options
+" Viewport behavior options (buffers and windows)
 " =======================
 
 " Do not warn when switching from unsaved buffer
@@ -111,6 +111,9 @@ map <C-l> :bn!<CR>
 nmap <Tab> :bn<CR>
 nmap <S-Tab> :bp<CR>
 
+"Switch window splits
+nmap <C-Tab> <C-w>w
+
 " Search Options
 " ==============
 
@@ -127,6 +130,13 @@ set ignorecase
 
 " Case sensitive is search string contains uppercase letters
 set smartcase
+
+" Formatting options
+" ==================
+
+" Set textwidth for long line insertion. Will break lines over n characters long on space.
+" Allows to format comments with `gq` 
+" set textwidth=100
 
 " General view options
 " ====================
@@ -238,7 +248,7 @@ set foldmethod=indent
 set nofoldenable
 
 
-" General keybindings
+" General keymappings
 " ===========================
 
 " Avoid pressing shift for commands and use ; just like :
@@ -249,6 +259,12 @@ set backspace=indent,eol,start
 
 " Clean whitespace
 map <leader>W mw:%s/\s\+$//<cr>:let @/=''<CR>`w
+
+" Call par reformater on paragraph with textwidth 100
+map <C-f> {v}!par w100<CR>
+
+" Call par reformater on selection with textwidth 100
+vmap <C-f> !par w100<CR>
 
 " Toggle fullscreen(MacVim only) on F11
 if has("gui_macvim")
