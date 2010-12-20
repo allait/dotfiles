@@ -104,12 +104,10 @@ set autoread
 " Set forced buffer rotation on Ctrl+arrows
 noremap <C-left> :bp!<CR>
 noremap <C-right> :bn!<CR>
+
 " Set forced buffer rotation on Ctrl+h, Ctrl+l
 map <C-h> :bp!<CR>
 map <C-l> :bn!<CR>
-
-nmap <Tab> :bn<CR>
-nmap <S-Tab> :bp<CR>
 
 "Switch window splits
 nmap <C-Tab> <C-w>w
@@ -311,8 +309,23 @@ endif
 " let g:miniBufExplMapWindowNavVim = 1
 " let g:miniBufExplMapWindowNavArrows = 1
 " let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
 
+" let g:miniBufExplModSelTarget = 1
+
+" Disable plugin
+let g:loaded_minibufexplorer = 1
+
+" LustyJuggler & LustyExplorer
+" ------------ - -------------
+
+" Show key hints near buffer names
+let g:LustyJugglerShowKeys = 'a'
+
+" Open buffer switching and highlight buffer
+nmap <silent> <C-q> :LustyJuggler<CR>
+
+" Instant switch to previous buffer
+nmap <silent> <Tab> :LustyJugglePrevious<CR>
 
 " Pylint
 " ------
