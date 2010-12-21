@@ -220,8 +220,6 @@ au BufRead,BufNewFile *.html,*.js,*.css set tabstop=2
 set autoindent
 
 
-
-
 " Specific highlight options
 " ==========================
 
@@ -320,9 +318,6 @@ let g:loaded_minibufexplorer = 1
 
 " Show key hints near buffer names
 let g:LustyJugglerShowKeys = 'a'
-
-" Open buffer switching and highlight buffer
-nmap <silent> <C-q> :LustyJuggler<CR>
 
 " Instant switch to previous buffer
 nmap <silent> <Tab> :LustyJugglePrevious<CR>
