@@ -67,30 +67,23 @@ module Dot
     end
 end
 
-task :default do
-    puts Dot::All
-    puts Dot.file_parts('zshrc')
-end
-
-desc "Setup common python packages"
-task :packages do
-    system 'sudo easy_install pip'
-    system 'sudo pip install -U -r requirements.txt'
-end
-
 desc "Setup vimwiki link"
-task :wiki
-# TODO setup vimwiki link
-
-desc "Update pathogen and sumbodules"
-task :update do
-    # TODO pathogen update,
-    update = `git submodule foreach git pull origin master`
-    puts `git status`
+task :wiki do
+    ln_s File.join(pwd, '..', 'wiki'), File.join(Dot::Dir[:home], 'vimwiki') if File.exists?(File.join(pwd,'..','wiki'))
 end
 
 desc "Install dotfiles"
-task :install => [:cleanup, :up]
+task :install => [:cleanup, :up, :wiki]
+
+desc "Remove symlinks and restore files from .old"
+task :uninstall => [:cleanup] do
+    if File.exists?(Dot::Dir[:old])
+        Dot::All.each do |df|
+             mv Dot.old_path(df), Dot::Dir[:home] if File.exist?(Dot.old_path(df))
+        end
+        rm_r Dot::Dir[:old]
+    end
+end
 
 desc "Quick rebuild"
 task :up => [:build] do
@@ -101,14 +94,11 @@ task :up => [:build] do
     rm_r Dot::Dir[:build]
 end
 
-desc "Remove symlinks and restore files from .old"
-task :remove => [:cleanup] do
-    if File.exists?(Dot::Dir[:old])
-        Dot::All.each do |df|
-             mv Dot.old_path(df), Dot::Dir[:home] if File.exist?(Dot.old_path(df))
-        end
-        rm_r Dot::Dir[:old]
-    end
+desc "Update pathogen and sumbodules"
+task :update do
+    # TODO pathogen update,
+    update = `git submodule foreach git pull origin master`
+    puts `git status`
 end
 
 desc "Backup existing config to .old folder"
@@ -121,13 +111,21 @@ task :backup do
     end
 end
 
+desc "Setup common python packages"
+task :packages do
+    system 'sudo easy_install pip'
+    system 'sudo pip install -U -r requirements.txt'
+end
+
 desc "Remove dotfiles from HOME dir"
 task :cleanup => [:backup] do
-    rm_r Dot::Dir[:build] if File.exists?(Dot::Dir[:build])
-    # TODO Delete wiki link and rendered folder
     Dot::All.each do |df|
         rm_rf Dot.home_path df 
     end
+    rm_r Dot::Dir[:build] if File.exists?(Dot::Dir[:build])
+    # Remove vimwiki links and html dir
+    rm_r File.join(Dot::Dir[:home], 'vimwiki_html') if File.exists?(File.join(Dot::Dir[:home], 'vimwiki_html'))
+    rm File.join(Dot::Dir[:home], 'vimwiki') if File.exists?(File.join(Dot::Dir[:home], 'vimwiki'))
 end
         
 desc "Create build dir for current machine"
