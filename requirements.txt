@@ -1,0 +1,33 @@
+# Shell tools
+ipython
+Fabric
+mercurial
+
+# Test tools
+nose
+pyflakes
+pylint
+coverage
+
+# Package installation
+distribute
+virtualenv
+virtualenvwrapper
+
+# Documentation
+docutils
+Sphinx
+
+# Vim tools
+rope
+ropemode
+ropevim
+Pygments
+
+# Common packages
+PIL
+
+# Django tools
+django-debug-toolbar
+django-devserver
+django-extensions
