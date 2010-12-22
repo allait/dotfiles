@@ -21,5 +21,3 @@ bindkey -e
 
 # Local settings are stored in ~/.zshenv, .zlocal is used for overriding 
 # settings from this config
-source ~/.zlocal
-
