@@ -15,10 +15,6 @@ module Dot
         File.join(Dir[:home], ".#{file.sub('.erb','')}")
     end
 
-    def self.build_path(file)
-        File.join(Dir[:build], ".#{file.sub('.erb','')}")
-    end
-
     def self.old_path(file)
         File.join(Dir[:old], ".#{file.sub('.erb','')}")
     end
@@ -27,71 +23,90 @@ module Dot
          FileList["#{file.sub('.erb','')}.local.#{System}", "#{home_path(file)}.local"]
     end
 
-    def self.update_from_build(file)
-        if not File.exists?(build_path(file)) or File.directory?(home_path(file))
-            touch home_path(file)
-        else
-            mv build_path(file), home_path(file)
-        end
+    def self.colorize(text, color_code)
+        "#{color_code}#{text}\e[0m"
+    end
+
+    def self.red(text)
+        colorize(text, "\e[31m")
+    end
+
+    def self.green(text)
+        colorize(text, "\e[32m")
     end
 
     def self.build_file(file)
-        parts = file_parts(file)
+        parts = file_parts(file).existing
         # If directory, symlink to build/system
-        if File.directory?(file):
-            ln_s File.join(pwd, file), build_path(file) if not File.exists?(build_path(file))
+        if File.directory?(file) 
+            if not File.exists?(home_path(file)):
+                puts "Symlinking directory .#{file}..."
+                %x[ln -s #{File.join(pwd, file)} #{home_path(file)}]
+            else
+                puts green("#{file} symlink found!")
+            end
+            return
+        end
+        if File.symlink?(home_path(file))
+            puts green(".#{file} symlink found!")
             return
         end
         # If not changed, leave as is
-        if uptodate?(build_path(file), parts.include(file)) or uptodate?(home_path(file), parts)
+        if uptodate?(home_path(file), [parts, file].flatten)
+            puts green(".#{file} is up-to-date!")
             return
         end
         # Else, delete old one
-        rm_f build_path(file) # if File.exists?(build_file)
-        puts "Building #{file}..."
+        %x[rm -f #{home_path(file)}]
         # If *.erb - render template
         if file =~ /.erb$/
             puts "Rendering #{file}..."
-            File.open(build_path(file), 'w') do |render_file|
+            File.open(home_path(file), 'w') do |render_file|
                 render_file.write ERB.new(File.read(file)).result(binding)
             end
         # Else copy base
+        elsif parts.empty?
+            puts "Symlinking file #{file}..."
+            %x[ln -s #{File.join(pwd, file)} #{home_path(file)}]
         else
-            cp file, build_path(file)
+            puts "Copying file #{file}..."
+            %x[cp #{file} #{home_path(file)}]
         end
         # Append file.local parts
-        file_parts(file).each do |part|
-            puts "Appending #{part} to #{file}"
-            system "cat #{part} >> #{build_path(file)}" if File.exists?(part)
+        parts.each do |part|
+            puts "Appending #{part} to #{file}..."
+            %x[cat #{part} >> #{home_path(file)}]
         end
     end
 end
 
-desc "Setup vimwiki link"
-task :wiki do
-    ln_s File.join(pwd, '..', 'wiki'), File.join(Dot::Dir[:home], 'vimwiki') if File.exists?(File.join(pwd,'..','wiki'))
-end
-
 desc "Install dotfiles"
-task :install => [:cleanup, :up, :wiki]
+task :install => [:cleanup, :build, :wiki] do
+    puts "Initializing vim plugins..."
+    %x[git submodule init]
+    %x[git submodule update]
+end
 
 desc "Remove symlinks and restore files from .old"
 task :uninstall => [:cleanup] do
     if File.exists?(Dot::Dir[:old])
+        puts "Restoring backup..."
         Dot::All.each do |df|
-             mv Dot.old_path(df), Dot::Dir[:home] if File.exist?(Dot.old_path(df))
+            if File.exist?(Dot.old_path(df))
+                %x[mv #{Dot.old_path(df)} #{Dot::Dir[:home]}]
+                puts "Restored #{Dot.home_path(df)}!"
+            end
         end
+        puts Dot.red("Deleting backup dir...")
         rm_r Dot::Dir[:old]
     end
 end
 
-desc "Quick rebuild"
-task :up => [:build] do
-    #  TODO submodule init, submodule update
-    Dot::All.each do |file|
-        Dot.update_from_build file
+desc "Quick dotfile rebuild"
+task :up do
+    Dot::All.each do |df|
+        Dot.build_file df
     end
-    rm_r Dot::Dir[:build]
 end
 
 desc "Update pathogen and sumbodules"
@@ -104,36 +119,52 @@ end
 desc "Backup existing config to .old folder"
 task :backup do
     if not File.exists?(Dot::Dir[:old])
-        mkdir Dot::Dir[:old]
+        puts "Starting backup to #{Dot::Dir[:old]}..."
+        %x[mkdir #{Dot::Dir[:old]}]
         Dot::All.each do |df|
-            cp_r Dot.home_path(df), Dot::Dir[:old] if File.exist?(Dot.home_path(df))
+            if File.exist?(Dot.home_path(df))
+                %x[cp -r #{Dot.home_path(df)} #{Dot::Dir[:old]}]
+                puts "Copied #{df} to backup folder"
+            end
         end
     end
 end
 
 desc "Setup common python packages"
 task :packages do
-    system 'sudo easy_install pip'
-    system 'sudo pip install -U -r requirements.txt'
+    %x[sudo easy_install pip]
+    %x[sudo pip install -U -r requirements.txt]
 end
 
 desc "Remove dotfiles from HOME dir"
 task :cleanup => [:backup] do
     Dot::All.each do |df|
-        rm_rf Dot.home_path df 
+        if File.exists?(Dot.home_path(df))
+            puts Dot.red("Deleting #{df}...")
+            %x[rm -rf #{Dot.home_path(df)}]
+        end
     end
-    rm_r Dot::Dir[:build] if File.exists?(Dot::Dir[:build])
     # Remove vimwiki links and html dir
-    rm_r File.join(Dot::Dir[:home], 'vimwiki_html') if File.exists?(File.join(Dot::Dir[:home], 'vimwiki_html'))
-    rm File.join(Dot::Dir[:home], 'vimwiki') if File.exists?(File.join(Dot::Dir[:home], 'vimwiki'))
+    if File.exists?(File.join(Dot::Dir[:home], 'vimwiki_html'))
+        puts Dot.red("Deleting wiki rendered html folder...")
+        %x[rm -r #{File.join(Dot::Dir[:home], 'vimwiki_html')}]
+    end
+    if File.exists?(File.join(Dot::Dir[:home], 'vimwiki'))
+        puts Dot.red("Deleting wiki symlink...")
+        %x[rm #{File.join(Dot::Dir[:home], 'vimwiki')}] 
+    end
 end
         
-desc "Create build dir for current machine"
-task :build do
-    mkpath Dot::Dir[:build] if not File.exists?(Dot::Dir[:build])
-    Dot::All.each do |df|
-        Dot.build_file df
-    end
+desc "Execute full build for current machine"
+task :build => [:up] do
     # TODO build command-t, move ext.so to RUBY dir rubylib/command-t/
+end
+
+desc "Setup vimwiki link"
+task :wiki do
+    if File.exists?(File.join(pwd,'..','wiki'))
+        puts "Setting up vimwiki..."
+        %x[ln -s #{File.join(pwd, '..', 'wiki')} #{File.join(Dot::Dir[:home], 'vimwiki')}]
+    end
 end
 
