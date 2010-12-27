@@ -120,8 +120,6 @@ set incsearch
 
 " Highlight search results
 set hlsearch
-" Reset highlighting on Space
-nnoremap <silent><Space> :nohlsearch<Bar>:echo<CR>
 
 " Case-insensitive search
 set ignorecase
@@ -247,6 +245,12 @@ set nofoldenable
 " General keymappings
 " ===========================
 
+" Use <Cr> as alternative mapleader
+nmap <CR> <leader>
+
+" Reset highlighting on Space
+nmap <silent><Space> :nohlsearch<Bar>:echo<CR>
+
 " Unbind <C-Q> from "visual block"
 noremap <C-q> <Nop>
 
@@ -260,7 +264,7 @@ nnoremap ; :
 set backspace=indent,eol,start
 
 " Clean whitespace
-map <leader>W mw:%s/\s\+$//<cr>:let @/=''<CR>`w
+map <C-q>w mw:%s/\s\+$//<cr>:let @/=''<CR>`w
 
 " Call par reformater on paragraph with textwidth 100
 map <C-q>f {v}!par w100<CR>
@@ -355,8 +359,7 @@ map <silent><F4> :TaskList<CR>
 " ---------
 " Bind F5 and \e to start command-t file search
 map <silent><F5> :CommandT<CR>
-nnoremap <leader><CR> :CommandT<CR>
-nnoremap <leader>e :CommandT<CR>
+nmap <silent><leader>e :CommandT<CR>
 
 " SuperTab
 " --------
@@ -383,7 +386,7 @@ let g:delimitMate_expand_cr = 1
 " ---------
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
-" set statuslineu=%*
+" set statusline+=%*
 " Enable syntax error signs, disable prewiew window with error list
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
@@ -392,6 +395,9 @@ let g:syntastic_auto_loc_list=0
 " ---------
 " Hide AlignMaps menu
 let g:DrChipTopLvlMenu= ""
+
+" Disable alignmaps bindings
+let g:loaded_AlignMapsPlugin=1
 
 " SnipMate
 " --------
@@ -450,12 +456,6 @@ imap <C-z>z <C-z>,
 
 " Switch to \v to avoid conflict with nerdcommenter
 let g:VCSCommandMapPrefix = '<Leader>v'
-
-" AlignMaps
-" ---------
-
-" Disable alignmaps bindings
-let g:loaded_AlignMapsPlugin=1
 
 " Ropevim
 " -------
