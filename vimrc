@@ -106,8 +106,8 @@ noremap <C-left> :bp!<CR>
 noremap <C-right> :bn!<CR>
 
 " Set forced buffer rotation on Ctrl+h, Ctrl+l
-map <C-h> :bp!<CR>
-map <C-l> :bn!<CR>
+" map <C-h> :bp!<CR>
+" map <C-l> :bn!<CR>
 
 "Switch window splits
 nmap <C-Tab> <C-w>w
@@ -247,6 +247,12 @@ set nofoldenable
 " General keymappings
 " ===========================
 
+" Unbind <C-Q> from "visual block"
+noremap <C-q> <Nop>
+
+" Use <C-q> in GUI and <C-c> in shell as prefix for personal commands
+nmap <C-c> <C-q>
+
 " Avoid pressing shift for commands and use ; just like :
 nnoremap ; :
 
@@ -257,10 +263,10 @@ set backspace=indent,eol,start
 map <leader>W mw:%s/\s\+$//<cr>:let @/=''<CR>`w
 
 " Call par reformater on paragraph with textwidth 100
-map <C-f> {v}!par w100<CR>
+map <C-q>f {v}!par w100<CR>
 
 " Call par reformater on selection with textwidth 100
-vmap <C-f> !par w100<CR>
+vmap <C-q>f !par w100<CR>
 
 " Toggle fullscreen(MacVim only) on F11
 if has("gui_macvim")
@@ -329,8 +335,7 @@ let g:pylint_onwrite = 0
 
 " NERDTree
 " --------
-" Bind F2 anc Ctrl+K to show/hide file browser
-map <C-k> :NERDTreeToggle<CR>
+" Bind F2 to show/hide file browser
 map <silent><F2> :NERDTreeToggle<CR>
 
 " TagList
@@ -451,3 +456,13 @@ let g:VCSCommandMapPrefix = '<Leader>v'
 
 " Disable alignmaps bindings
 let g:loaded_AlignMapsPlugin=1
+
+" Ropevim
+" -------
+
+" Change prefixes to <C-q>
+let g:ropevim_local_prefix = "<C-q>r"
+let g:ropevim_global_prefix = "<C-q>p"
+
+" Disable shorcuts
+let g:ropevim_enable_shortcuts = 0
