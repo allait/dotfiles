@@ -112,7 +112,8 @@ end
 desc "Update pathogen and sumbodules"
 task :update do
     # TODO pathogen update,
-    update = `git submodule foreach git pull origin master`
+    %x[git submodule foreach git pull origin master]
+    %x[git submodule foreach git fetch]
     puts `git status`
 end
 
