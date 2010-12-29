@@ -165,7 +165,7 @@ desc "Setup vimwiki link"
 task :wiki do
     if File.exists?(File.join(pwd,'..','wiki'))
         puts "Setting up vimwiki..."
-        %x[ln -s #{File.join(pwd, '..', 'wiki')} #{File.join(Dot::Dir[:home], 'vimwiki')}]
+        %x[ln -s #{File.join(pwd, '..', 'wiki')} #{Dot::Dir[:home] + '/vimwiki'}]
     end
 end
 
