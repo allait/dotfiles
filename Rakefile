@@ -81,10 +81,25 @@ module Dot
 end
 
 desc "Install dotfiles"
-task :install => [:cleanup, :build, :wiki] do
+task :install => [:cleanup, :build, :wiki, :clean_tmp] do
     puts "Initializing vim plugins..."
     %x[git submodule init]
     %x[git submodule update]
+end
+
+desc "Clean tmp backup and swap files"
+task :clean_tmp do
+    if File.exists?(File.join(Dot::Dir[:home], '/tmp/swap')):
+        puts "Deleting swap..."
+        %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/swap')}]
+    end
+    if File.exists?(File.join(Dot::Dir[:home], '/tmp/backup')):
+        puts "Deleting backup..."
+        %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/backup')}]
+    end
+    puts "Creating tmp dir..."
+    %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/swap')}]
+    %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/backup')}]
 end
 
 desc "Remove symlinks and restore files from .old"

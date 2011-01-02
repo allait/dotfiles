@@ -1,5 +1,6 @@
 .vim/bundle/ropevim/.hg
 tags
 .DS_Store
+.rake_tasks
 build
 *.private
