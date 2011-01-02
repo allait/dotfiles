@@ -200,23 +200,22 @@ set tabstop=4
 " Always convert tabs to spaces
 set expandtab
 
-" Number of spaces that a pre-existing tab is equal to
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=8
-
 " What to use for an >> and << indent.
 set shiftwidth=4
 
 " Set soft tab length
 set softtabstop=4
 
-" Where filesize matters: html, js and css: 2-space indents
-au BufRead,BufNewFile *.html,*.js,*.css set shiftwidth=2
-au BufRead,BufNewFile *.html,*.js,*.css set softtabstop=2
-au BufRead,BufNewFile *.html,*.js,*.css set tabstop=2
-
 " Keep indentation level from previous line
 set autoindent
 
+" Filetype-specific indentation rules
+
+" Where filesize matters: html, js and css: 2-space indents
+au BufRead,BufNewFile *.html,*.js,*.css setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
+" Number of spaces that a pre-existing tab is equal to
+au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
 
 " Specific highlight options
 " ==========================
