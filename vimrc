@@ -124,7 +124,7 @@ set hlsearch
 " Case-insensitive search
 set ignorecase
 
-" Case sensitive is search string contains uppercase letters
+" Case sensitive if search string contains uppercase letters
 set smartcase
 
 " Formatting options
@@ -165,7 +165,7 @@ if has('statusline')
     set statusline+=%y " Filetype
     set statusline+=%{fugitive#statusline()} " File git status
     set statusline+=%= " Indent to the right
-    set statusline+=%-20.(%4.l/%L,\ %c%V%)\  "Current line number/total, column number
+    set statusline+=%-20.(%4.l/%L,\ %c%V\ [x%B]%)\  "Current line number/total, column number, byte code
     set statusline+=%P\  "Percentage through a file
     "set statusline+=[%{&fileformat}] " file format (unix/mac/win)
     set statusline+=[%{(&fenc==\"\"?&enc:&fenc)}]\  "File encoding
@@ -475,6 +475,3 @@ let g:ropevim_global_prefix = "<C-q>p"
 
 " Disable shorcuts
 let g:ropevim_enable_shortcuts = 0
-
-
-
