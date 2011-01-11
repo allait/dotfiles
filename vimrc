@@ -42,7 +42,7 @@ set nomodeline
 syntax on
 
 " Limit highlighting to x columns to increase speed with long lines
-" set synmaxcol=160
+set synmaxcol=2048
 
 " Python full highliting
 let python_highlight_all=1
@@ -132,7 +132,10 @@ set smartcase
 
 " Set textwidth for long line insertion. Will break lines over n characters long on space.
 " Allows to format comments with `gq` 
-" set textwidth=100
+set textwidth=80
+
+" Configure autowrapping and auto comment leader insertion
+set formatoptions=croql
 
 " General view options
 " ====================
@@ -152,7 +155,6 @@ set listchars=tab:▸\ ",eol:¬
 
 " Status line options
 " ===================
-
 " Always show statusline
 set laststatus=2
 
@@ -278,6 +280,14 @@ if has("gui_macvim")
     nnoremap <F11> :set invfullscreen<CR>
     vnoremap <F11> :set invfullscreen<CR>
 endif
+
+" Show the name of highlightning group under cursor - usefull for syntax theme
+" editing
+nmap <silent> <C-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
+     \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
+     \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+     \ . ">"<CR>h
+
 
 " Color and gui options
 " =============
@@ -465,3 +475,6 @@ let g:ropevim_global_prefix = "<C-q>p"
 
 " Disable shorcuts
 let g:ropevim_enable_shortcuts = 0
+
+
+
