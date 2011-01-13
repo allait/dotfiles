@@ -5,7 +5,7 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
 }
 
-# Setup the prompt with pretty colors
+# Parameter expantion and substitution performed in prompts
 setopt prompt_subst
 
 ZSH_THEME_GIT_PROMPT_PREFIX="@%{$fg[yellow]%}"

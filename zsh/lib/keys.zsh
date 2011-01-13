@@ -1,3 +1,6 @@
+# Disable ^S/^Q start/stop
+unsetopt flowcontrol
+
 # Home/End/Delete keys
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
