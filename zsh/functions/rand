@@ -6,5 +6,5 @@ length=$1 # Max possible value are equal to size of $chars.
 if [[ $2 == 'sp' ]]; then
     chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?:^~@#$%&*_+=[]/";
 else
-    cat /dev/urandom | base64 | head -c$1
+    print "`cat /dev/urandom | base64 | head -c$1`"
 fi;
