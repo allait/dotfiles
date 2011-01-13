@@ -4,3 +4,23 @@ function zle-line-init zle-keymap-select {
     RPS2=$RPS1
     zle reset-prompt
 }
+
+# Setup the prompt with pretty colors
+setopt prompt_subst
+
+PROMPT='%{$fg[blue]%}$(prompt_pwd)%{$reset_color%}$(git_prompt_info) %{$fg[yellow]%}%%%{$reset_color%} '
+ZSH_THEME_GIT_PROMPT_PREFIX="@%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}✚%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$reset_color%}"
+RPROMPT='%{$fg[black]%}%m%{$reset_color%} [%T]'
+
+# Vi mode indicators
+VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
+VI_INSERT_MODE=$RPROMPT
+
+autoload zle-line-init zle-keymap-select
+zle -N zle-line-init
+zle -N zle-keymap-select
+
