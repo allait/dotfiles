@@ -34,19 +34,29 @@ function title {
     print -nR $'\033]0;'$*$'\a'
   fi
 }
+
 function precmd {
-  if [[ $KEEP_TITLE != "yes" ]]; then
-      title "$USERNAME:$PWD"
-  fi
+    if [[ $KEEP_TITLE != "yes" ]]; then
+        title "$USERNAME:$PWD"
+    fi
 }
+
+function prompt_pwd {
+    if [[ $PWD != $HOME ]]; then
+        print `echo $PWD|sed -e "s|^$HOME|~|" -e 's-/\([^/]\)\([^/]*\)-/\1-g'``echo $PWD|sed -e 's-.*/[^/]\([^/]*$\)-\1-'`
+    else
+        print '~'
+    fi
+}
+
 #PROMPT='%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) %% '
-PROMPT='%{$fg[blue]%}%c%{$reset_color%}$(git_prompt_info) %{$fg[yellow]%}%%%{$reset_color%} '
+PROMPT='%{$fg[blue]%}$(prompt_pwd)%{$reset_color%}$(git_prompt_info) %{$fg[yellow]%}%%%{$reset_color%} '
 ZSH_THEME_GIT_PROMPT_PREFIX="@%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%}✚%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}✔%{$reset_color%}"
-RPROMPT='%{$fg[black]%}%m%{$reset_color%} [%T]%{$reset_color%}'
+RPROMPT='%{$fg[black]%}%m%{$reset_color%} [%T]'
 
 # Vi mode indicators
 VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
