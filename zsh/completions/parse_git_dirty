@@ -1,16 +1,12 @@
 #!/bin/zsh
-function parse_git_dirty () {
-  gitstat=$(git status 2>/dev/null | grep '\(# Untracked\|# Changes\|# Changed but not updated:\)')
+gitstat=$(git status 2>/dev/null | grep '\(# Untracked\|# Change\)')
 
-  if [[ $(echo ${gitstat} | grep -c "^\(# Changes to be committed:\|# Changed but not updated:\)$") > 0 ]]; then
-	echo -n "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  fi
+if [[ $gitstat =~ "# Changes" ]] || [[ $gitstat =~ "# Changed" ]]; then
+    echo -n "$ZSH_THEME_GIT_PROMPT_DIRTY"
+else
+    echo -n "$ZSH_THEME_GIT_PROMPT_CLEAN"
+fi
 
-  if [[ $(echo ${gitstat} | grep -c "^# Untracked files:$") > 0 ]]; then
-	echo -n "$ZSH_THEME_GIT_PROMPT_UNTRACKED"
-  fi 
-
-  if [[ $(echo ${gitstat} | grep -v '^$' | wc -l | tr -d ' ') == 0 ]]; then
-	echo -n "$ZSH_THEME_GIT_PROMPT_CLEAN"
-  fi
-}
+if [[ $gitstat =~ "# Untracked" ]]; then
+    echo -n "$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+fi
