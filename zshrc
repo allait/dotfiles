@@ -4,6 +4,7 @@ autoload ~/.zsh/functions/*(:t)
 
 # Load and register completion functions
 fpath=(~/.zsh/completions $fpath)
+autoload ~/.zsh/completions/*(:t)
 
 # Load specific config files
 for config_file (~/.zsh/lib/*.zsh) source $config_file
