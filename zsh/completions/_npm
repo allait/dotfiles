@@ -7,7 +7,7 @@ _npm_installed() {
 }
 
 _npm_all() {
-    all_pkg=(`npm list --loglevel silent --color false --description false | grep -o "^\S\+\s"`) 
+    all_pkg=(`npm list --loglevel silent --color false --description false latest | grep -o "^\S\+\s"`) 
 }
 local -a _1st_arguments
 _1st_arguments=(
