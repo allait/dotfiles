@@ -132,7 +132,8 @@ set smartcase
 
 " Set textwidth for long line insertion. Will break lines over n characters long on space.
 " Allows to format comments with `gq` 
-set textwidth=80
+" This keeps breaking in HTML despite all fo-=t
+" set textwidth=80
 
 " Configure autowrapping and auto comment leader insertion
 set formatoptions=croql
@@ -386,10 +387,10 @@ let g:SuperTabCrMapping = '<C-CR>'
 " -----------
 
 " Expand space inside empty pairs
-let g:delimitMate_expand_space = 1
+"let g:delimitMate_expand_space = 1
 
 " Expand newlines inside empty pairs
-let g:delimitMate_expand_cr = 1
+"let g:delimitMate_expand_cr = 1
 
 " Syntastic
 " ---------
