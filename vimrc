@@ -387,10 +387,10 @@ let g:SuperTabCrMapping = '<C-CR>'
 " -----------
 
 " Expand space inside empty pairs
-"let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_space = 1
 
 " Expand newlines inside empty pairs
-"let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr = 1
 
 " Syntastic
 " ---------
