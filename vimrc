@@ -352,6 +352,15 @@ let g:pylint_onwrite = 0
 " Bind F2 to show/hide file browser
 map <silent><F2> :NERDTreeToggle<CR>
 
+" Ignore pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+" Close panel after opening file
+let NERDTreeQuitOnOpen=1
+
+" Change CWD on NERDTree root changes
+let NERDTreeChDirMode=2
+
 " TagList
 " -------
 " Bind F3 to show/hide tag list
