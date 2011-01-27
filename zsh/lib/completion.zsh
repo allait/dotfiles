@@ -38,14 +38,17 @@ alias mkdir='nocorrect mkdir'
 # Generic --help arguments completion for following commands
 compdef _gnu_generic nosetests
 compdef _gnu_generic curl
-compdef _gnu_generic ack-grep
+compdef _gnu_generic ack
 compdef _gnu_generic fab
 
 # Ignore completion functions I don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # Completion system configuration
-zstyle ':completion:*' menu select
+# Immediately show completion menu
+zstyle ':completion:*' menu yes select
+# Remove trailing slash if using directory as completion
+zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' format '%F{white}%d%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
