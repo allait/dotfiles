@@ -1,3 +1,6 @@
+autoload -U compinit
+compinit -C
+
 # Tread #~^ as part of patterns
 setopt extendedglob
 # Cd on directory name
@@ -57,6 +60,3 @@ zstyle ':completion:*' remote-access false
 
 # Zsh completion control functions
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _list
-
-autoload -U compinit
-compinit -i
