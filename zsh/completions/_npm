@@ -54,7 +54,7 @@ local -a all_pkg installed_pkg
 
 _arguments \
   '(--version)--version[Show version number and exit]' \
-  '(--key)'--key=}'[Set key=value]' \
+  '(--key)'--key='[Set key=value]' \
   '*:: :->subcmds' && return 0
 
 if (( CURRENT == 1 )); then

@@ -35,6 +35,12 @@ alias man='nocorrect man'
 alias mv='nocorrect mv'
 alias mkdir='nocorrect mkdir'
 
+# Generic --help arguments completion for following commands
+compdef _gnu_generic nosetests
+compdef _gnu_generic curl
+compdef _gnu_generic ack-grep
+compdef _gnu_generic fab
+
 # Ignore completion functions I don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
