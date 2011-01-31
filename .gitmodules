@@ -133,3 +133,6 @@
 [submodule "vim/bundle/scratch"]
 	path = vim/bundle/scratch
 	url = git://github.com/vim-scripts/scratch.vim.git
+[submodule "vim/bundle/vimerl"]
+	path = vim/bundle/vimerl
+	url = git://github.com/oscarh/vimerl.git
