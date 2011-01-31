@@ -356,15 +356,24 @@ map <silent><F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " Close panel after opening file
-let NERDTreeQuitOnOpen=1
+"let NERDTreeQuitOnOpen=1
 
 " Change CWD on NERDTree root changes
-let NERDTreeChDirMode=2
+"let NERDTreeChDirMode=2
 
 " TagList
 " -------
 " Bind F3 to show/hide tag list
 map <silent><F3> :TlistToggle<CR>
+
+" Change focus to TagList on ToggleOpen
+let g:Tlist_GainFocus_On_ToggleOpen = 1
+
+" Fold inactive buffers taglists
+let g:Tlist_File_Fold_Auto_close = 1
+
+" Show tags menu
+let g:Tlist_Show_Menu = 1
 
 " Django templates setting
 let g:tlist_htmldjango_settings = 'html;a:anchor;f:javascript function'
@@ -459,7 +468,14 @@ nmap <silent> <F7> :GundoToggle<CR>
 
 " BufExplorer
 " -----------
-nmap <F1> :BufExplorer<CR>
+
+" Mapp F1 to BufExplorer in all modes
+nnoremap <silent><F1> :BufExplorer<CR>
+
+" Disable help string
+let g:bufExplorerDefaultHelp=0
+
+
 
 " Zencoding
 " ---------
