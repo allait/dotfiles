@@ -322,17 +322,6 @@ endif
 " Plugin-specific settings
 " ===============
 
-" Minibufexplorer
-" ---------------
-" let g:miniBufExplMapWindowNavVim = 1
-" let g:miniBufExplMapWindowNavArrows = 1
-" let g:miniBufExplMapCTabSwitchBufs = 1
-
-" let g:miniBufExplModSelTarget = 1
-
-" Disable plugin
-let g:loaded_minibufexplorer = 1
-
 " LustyJuggler & LustyExplorer
 " ------------ - -------------
 
