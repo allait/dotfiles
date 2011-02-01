@@ -490,3 +490,7 @@ let g:ropevim_global_prefix = "<C-q>p"
 
 " Disable shorcuts
 let g:ropevim_enable_shortcuts = 0
+
+" VimErl
+" ------
+"let g:erlangCompletionDisplayDoc = 0
