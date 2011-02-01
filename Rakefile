@@ -118,6 +118,7 @@ task :uninstall => [:cleanup] do
     end
 end
 
+
 desc "Quick dotfile rebuild"
 task :up do
     Dot::All.each do |df|
@@ -154,7 +155,7 @@ task :packages do
 end
 
 desc "Remove dotfiles from HOME dir"
-task :cleanup => [:backup] do
+task :cleanup => [:backup, :clean_tmp] do
     Dot::All.each do |df|
         if File.exists?(Dot.home_path(df))
             puts Dot.red("Deleting #{df}...")
@@ -173,8 +174,7 @@ task :cleanup => [:backup] do
 end
         
 desc "Execute full build for current machine"
-task :build => [:up] do
-    # TODO build command-t, move ext.so to RUBY dir rubylib/command-t/
+task :build => [:up, :update, :cmdt_build] do
 end
 
 desc "Setup vimwiki link"
@@ -187,9 +187,13 @@ end
 
 desc "Build command-t ruby extension"
 task :cmdt_build do
+    puts "Building command-t..."
     cmdt_path = File.join(Dot::Dir[:bundle], 'command_t/ruby/command-t/')
     %x[cd #{cmdt_path}; ruby extconf.rb]
+    # Default Makefile installs into site_ruby/ isntead of site_ruby/command-t, which
+    # breaks the import.
     %x[sed -i "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
-    %x[cd #{cmdt_path}; make && sudo make install && make realclean]
+    puts %x[cd #{cmdt_path}; make && sudo make install && make realclean]
+    
 end
 
