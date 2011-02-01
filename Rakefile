@@ -9,6 +9,7 @@ module Dot
         :build => File.join(pwd, 'build/', System),
         :old => File.join(ENV['HOME'], '.old/'),
         :home => ENV["HOME"],
+        :bundle => File.join(pwd, 'vim/bundle/'),
     }
 
     def self.home_path(file)
@@ -182,5 +183,13 @@ task :wiki do
         puts "Setting up vimwiki..."
         %x[ln -s #{File.join(pwd, '..', 'wiki')} #{Dot::Dir[:home] + '/vimwiki'}]
     end
+end
+
+desc "Build command-t ruby extension"
+task :cmdt_build do
+    cmdt_path = File.join(Dot::Dir[:bundle], 'command_t/ruby/command-t/')
+    %x[cd #{cmdt_path}; ruby extconf.rb]
+    %x[sed -i "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
+    %x[cd #{cmdt_path}; make && sudo make install && make realclean]
 end
 
