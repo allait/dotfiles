@@ -388,30 +388,68 @@ function! javascriptcomplete#CompleteJS(findstart, base)
         let xdomerror = ['errorCode', 'reason', 'line', 'linepos', 'srcText', 'url', 'filepos']
 
         " Jquery
-        let jquery = ['init', 'selector', 'jquery', 'length', 'size', 'toArray', 'get',
-                    \ 'pushStack', 'each', 'ready', 'eq', 'first', 'last', 'slice', 'map',
-                    \ 'end', 'push', 'sort', 'splice', 'extend', 'data', 'removeData', 'queue',
-                    \ 'dequeue', 'delay', 'clearQueue', 'attr', 'removeAttr', 'addClass',
-                    \ 'removeClass', 'toggleClass', 'hasClass', 'val', 'bind', 'one', 'unbind',
-                    \ 'delegate', 'undelegate', 'trigger', 'triggerHandler', 'toggle', 'hover',
-                    \ 'live', 'die', 'blur', 'focus', 'focusin', 'focusout', 'load', 'resize',
-                    \ 'scroll', 'unload', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
-                    \ 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change',
-                    \ 'select', 'submit', 'keydown', 'keypress', 'keyup', 'error', 'find',
-                    \ 'has', 'not', 'filter', 'is', 'closest', 'index', 'add', 'andSelf',
-                    \ 'parent', 'parents', 'parentsUntil', 'next', 'prev', 'nextAll', 'prevAll',
-                    \ 'nextUntil', 'prevUntil', 'siblings', 'children', 'contents', 'text',
-                    \ 'wrapAll', 'wrapInner', 'wrap', 'unwrap',
-                    \ 'append', 'prepend', 'before', 'after', 'remove', 'empty', 'clone', 'html',
-                    \ 'replaceWith', 'detach', 'domManip', 'appendTo', 'prependTo', 'insertBefore',
-                    \ 'insertAfter', 'replaceAll', 'css', 'serialize', 'serializeArray',
-                    \ 'ajaxStart', 'ajaxStop', 'ajaxComplete', 'ajaxError', 'ajaxSuccess',
-                    \ 'ajaxSend', 'show', 'hide', '_toggle', 'fadeTo', 'animate', 'stop',
-                    \ 'slideDown', 'slideUp', 'slideToggle', 'fadeIn', 'fadeOut', 'fadeToggle',
-                    \ 'offset', 'position', 'offsetParent', 'scrollLeft', 'scrollTop',
-                    \ 'innerHeight', 'outerHeight', 'height', 'innerWidth', 'outerWidth', 'width']
+        let jqueryfunc = ['add', 'addClass', 'after', 'ajaxComplete', 'ajaxError',
+                \ 'ajaxSend', 'ajaxStart', 'ajaxStop', 'ajaxSuccess', 'andSelf',
+                \ 'animate', 'append', 'appendTo', 'attr', 'before',
+                \ 'bind', 'blur', 'change', 'children', 'clearQueue',
+                \ 'click', 'clone', 'closest', 'contents', 'css',
+                \ 'data', 'dblclick', 'delay', 'delegate', 'dequeue',
+                \ 'detach', 'die', 'domManip', 'each', 'empty',
+                \ 'end', 'eq', 'error', 'extend', 'fadeIn',
+                \ 'fadeOut', 'fadeTo', 'fadeToggle', 'filter', 'find',
+                \ 'first', 'focus', 'focusin', 'focusout', 'get',
+                \ 'has', 'hasClass', 'height', 'hide', 'hover',
+                \ 'html', 'index', 'init', 'innerHeight', 'innerWidth',
+                \ 'insertAfter', 'insertBefore', 'is', 'keydown', 'keypress',
+                \ 'keyup', 'last', 'live', 'load', 'map',
+                \ 'mousedown', 'mouseenter', 'mouseleave', 'mousemove', 'mouseout',
+                \ 'mouseover', 'mouseup', 'next', 'nextAll', 'nextUntil',
+                \ 'not', 'offset', 'offsetParent', 'one', 'outerHeight',
+                \ 'outerWidth', 'parent', 'parents', 'parentsUntil', 'position',
+                \ 'prepend', 'prependTo', 'prev', 'prevAll', 'prevUntil',
+                \ 'pushStack', 'queue', 'ready', 'remove', 'removeAttr',
+                \ 'removeClass', 'removeData', 'replaceAll', 'replaceWith', 'resize',
+                \ 'scroll', 'scrollLeft', 'scrollTop', 'select', 'serialize',
+                \ 'serializeArray', 'show', 'siblings', 'size', 'slice',
+                \ 'slideDown', 'slideToggle', 'slideUp', 'stop', 'submit',
+                \ 'text', 'toArray', 'toggle', 'toggleClass', 'trigger',
+                \ 'triggerHandler', 'unbind', 'undelegate', 'unload', 'unwrap',
+                \ 'val', 'width', 'wrap', 'wrapAll', 'wrapInner']
+        call map(jqueryfunc, 'v:val."("')
 
-        call map(jquery, 'v:val."("')
+        let jqueryparam = ['length', 'selector']
+        let jquery = jqueryfunc + jqueryparam
+
+        " jQuery object functions
+        let jqueryobjfunc = ['ajax', 'ajaxSetup', 'contains', 'data', 'dequeue',
+                \ 'each', 'error', 'extend', 'get', 'getJSON',
+                \ 'getScript', 'globalEval', 'grep', 'inArray', 'isArray',
+                \ 'isEmptyObject', 'isFunction', 'isPlainObject', 'isWindow', 'isXMLDoc',
+                \ 'makeArray', 'noConflict', 'noop', 'param', 'parseJSON',
+                \ 'parseXML', 'post', 'proxy', 'queue', 'removeData',
+                \ 'sub', 'trim', 'type', 'unique', 'when'] 
+        call map(jqueryobjfunc, 'v:val."("')
+
+        let jqueryobjparam = ['fx.interval', 'fx.off', 'support'] 
+        let jqueryobj = jqueryobjfunc + jqueryobjparam
+
+        " jQuery event object
+        let jqueryeventfunc = ['isDefaultPrevented', 'isImmediatePropagationStopped', 
+                \ 'isPropagationStopped', 'stopImmediatePropagation', 'stopPropagation',
+                \ 'preventDefault']
+        call map(jqueryeventfunc, 'v:val."("')
+
+        let jqueryeventparam = ['currentTarget', 'data', 'metaKey', 'namespace', 'pageX',
+                \ 'pageY', 'relatedTarget', 'result', 'target', 'timeStamp',
+                \ 'type', 'which']
+        let jqueryevent = jqueryeventfunc + jqueryeventparam
+
+
+        " jQuery 1.5 XHR objects on $.ajax, $.get etc..
+        let jqueryxhr = ['error', 'success', 'complete', 'done', 'fail', 'isRejected',
+            \ 'isResolved', 'reject', 'rejectWith', 'resolve', 'resolveWith', 'then']
+        call map(jqueryxhr, 'v:val."("')
+
         " Underscore.js
         let underscorejs = ['forEach', 'each', 'map', 'inject', 'foldl', 'reduce', 'foldr',
             \ 'reduceRight', 'detect', 'find', 'select', 'filter', 'reject', 'all', 'every',
@@ -478,6 +516,8 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             let values = maths
         elseif object_type == 'jQuery'
             let values = jquery
+        elseif object_type == 'jQueryEvent'
+            let values = jqueryevent
         endif
 
         if !exists('values')
@@ -530,11 +570,15 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             let values = xdomerror
         elseif shortcontext =~ 'attributes\[\d\+\]\.$'
             let values = xdomattrprop
-        " Jquery object call
-        elseif shortcontext =~ '\$(.*).*$'
+        " Jquery selector object call
+        elseif shortcontext =~ '\(\$\|jQuery\)(.*)\.*$'
             let values = jquery
-        elseif shortcontext =~ 'jQuery(.*).*$'
-            let values = jquery
+        " jQuery object call
+        elseif shortcontext =~ '\(\$\|jQuery\)\.$'
+            let values = jqueryobj
+        " jQuery XHR object
+        elseif shortcontext =~ '\(\$\|jQuery\)\.\(ajax\|get\)(.*)\.$'
+            let values = jqueryxhr
         " Underscore.js object call
         elseif shortcontext =~ '_\.$'
             let values = underscorejs
@@ -691,9 +735,15 @@ function! s:javascriptParseObjectType(object)
     
     " jQuery cached selector, var a = $(selector)
     " Will not match $(selector).function() to avoid problems with .val() etc.
-    let decl_line = search('var\s*'.a:object.'\s*=\s*\$([^)]*)$', 'bn')
+    let decl_line = search('var\s*'.a:object.'\s*=\s*\(\$\|jQuery\)([^)]*);\=\s*$', 'bn')
     if decl_line > 0
         return 'jQuery'
+    endif
+
+    " jQuery event object
+    let decl_line = search('var\s*'.a:object.'\s*=\s*\(\$\|jQuery\)\.Event', 'bn')
+    if decl_line > 0
+        return 'jQueryEvent'
     endif
 
     " Nothing found
