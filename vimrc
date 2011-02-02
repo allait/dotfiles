@@ -493,4 +493,4 @@ let g:ropevim_enable_shortcuts = 0
 
 " VimErl
 " ------
-"let g:erlangCompletionDisplayDoc = 0
+let g:erlangCompletionDisplayDoc = 0

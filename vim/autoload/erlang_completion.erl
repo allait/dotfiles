@@ -1,0 +1,1 @@
+../bundle/vimerl/autoload/erlang_completion.erl
