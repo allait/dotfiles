@@ -94,9 +94,6 @@
 [submodule "vim/bundle/django-template"]
 	path = vim/bundle/django-template
 	url = git://github.com/vim-scripts/django.vim.git
-[submodule "vim/bundle/javascript-syntax"]
-	path = vim/bundle/javascript-syntax
-	url = git://github.com/vim-scripts/JavaScript-syntax.git
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = git://github.com/vim-scripts/bufexplorer.zip.git
@@ -130,6 +127,3 @@
 [submodule "vim/bundle/scratch"]
 	path = vim/bundle/scratch
 	url = git://github.com/vim-scripts/scratch.vim.git
-[submodule "vim/bundle/vimerl"]
-	path = vim/bundle/vimerl
-	url = git://github.com/oscarh/vimerl.git
