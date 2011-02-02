@@ -411,6 +411,7 @@ function! javascriptcomplete#CompleteJS(findstart, base)
                     \ 'offset', 'position', 'offsetParent', 'scrollLeft', 'scrollTop',
                     \ 'innerHeight', 'outerHeight', 'height', 'innerWidth', 'outerWidth', 'width']
 
+        call map(jquery, 'v:val."("')
         " Underscore.js
         let underscorejs = ['forEach', 'each', 'map', 'inject', 'foldl', 'reduce', 'foldr',
             \ 'reduceRight', 'detect', 'find', 'select', 'filter', 'reject', 'all', 'every',
@@ -423,6 +424,7 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             \ 'isFunction', 'isString', 'isNumber', 'isNaN', 'isBoolean', 'isDate', 'isRegExp',
             \ 'isNull', 'isUndefined', 'noConflict', 'identity', 'times', 'mixin', 'uniqueId',
             \ 'templateSettings', 'template']
+        call map(underscorejs, 'v:val."("')
 
         " Find object type declaration to reduce number of suggestions. {{{
         " 1. Get object name
