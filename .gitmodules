@@ -127,3 +127,6 @@
 [submodule "vim/bundle/scratch"]
 	path = vim/bundle/scratch
 	url = git://github.com/vim-scripts/scratch.vim.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
