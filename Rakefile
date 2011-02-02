@@ -197,3 +197,15 @@ task :cmdt_build do
     
 end
 
+desc "Install common tools from homebrew packages"
+task :brew_tools do
+    puts "Installing Homebrew packages..."
+    # TODO fill this from installed packages
+    packages = [
+        "gnu-sed", 
+        "ack",
+        "git",
+    ]
+    %x[brew install #{packages.join(" ")}]
+    %x[brew cleanup]
+end
