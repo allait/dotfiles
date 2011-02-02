@@ -192,7 +192,7 @@ task :cmdt_build do
     %x[cd #{cmdt_path}; ruby extconf.rb]
     # Default Makefile installs into site_ruby/ isntead of site_ruby/command-t, which
     # breaks the import.
-    %x[sed -i "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
+    %x[gsed -i "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
     puts %x[cd #{cmdt_path}; make && sudo make install && make realclean]
     
 end
