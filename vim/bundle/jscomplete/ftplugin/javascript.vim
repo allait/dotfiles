@@ -612,22 +612,35 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 endfunction
 
 function! s:javascriptParseObjectType(object)
+    " * = new Object() declaration
     let decl_line = search(a:object.'.\{-}=\s*new\s*', 'bn')
     if decl_line > 0
         let object_type = matchstr(getline(decl_line), a:object.'.\{-}=\s*new\s*\zs\k\+\ze')
         if object_type == 'ActiveXObject' && matchstr(getline(decl_line), a:object.'.\{-}=\s*new\s*ActiveXObject\s*(.Microsoft\.XMLHTTP.)') != ''
                 return 'XMLHttpRequest'
         endif
-    else
-        let decl_line = search('var\s*'.a:object.'\s*=\s*\/', 'bn')
-        if decl_line > 0
-            return 'RegExp'
-        endif
-    endif
-    if exists("object_type")
         return object_type
-    else
-        return 0
     endif
+    
+    " Regexp declaration with var * = /
+    let decl_line = search('var\s*'.a:object.'\s*=\s*\/', 'bn')
+    if decl_line > 0
+        return 'RegExp'
+    endif
+
+    " Array var * = [ declaration
+    let decl_line = search('var\s*'.a:object.'\s*=\s*[', 'bn')
+    if decl_line > 0
+        return 'Array'
+    endif
+
+    " String var * = [ declaration
+    let decl_line = search('var\s*'.a:object.'\s*=\s*"', 'bn')
+    if decl_line > 0
+        return 'String'
+    endif
+
+    " Nothing found
+    return 0
 endfunction
 " vim:set foldmethod=marker:
