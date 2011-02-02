@@ -387,6 +387,43 @@ function! javascriptcomplete#CompleteJS(findstart, base)
         " Error - parseError.
         let xdomerror = ['errorCode', 'reason', 'line', 'linepos', 'srcText', 'url', 'filepos']
 
+        " Jquery
+        let jquery = ['init', 'selector', 'jquery', 'length', 'size', 'toArray', 'get',
+                    \ 'pushStack', 'each', 'ready', 'eq', 'first', 'last', 'slice', 'map',
+                    \ 'end', 'push', 'sort', 'splice', 'extend', 'data', 'removeData', 'queue',
+                    \ 'dequeue', 'delay', 'clearQueue', 'attr', 'removeAttr', 'addClass',
+                    \ 'removeClass', 'toggleClass', 'hasClass', 'val', 'bind', 'one', 'unbind',
+                    \ 'delegate', 'undelegate', 'trigger', 'triggerHandler', 'toggle', 'hover',
+                    \ 'live', 'die', 'blur', 'focus', 'focusin', 'focusout', 'load', 'resize',
+                    \ 'scroll', 'unload', 'click', 'dblclick', 'mousedown', 'mouseup', 'mousemove',
+                    \ 'mouseover', 'mouseout', 'mouseenter', 'mouseleave', 'change',
+                    \ 'select', 'submit', 'keydown', 'keypress', 'keyup', 'error', 'find',
+                    \ 'has', 'not', 'filter', 'is', 'closest', 'index', 'add', 'andSelf',
+                    \ 'parent', 'parents', 'parentsUntil', 'next', 'prev', 'nextAll', 'prevAll',
+                    \ 'nextUntil', 'prevUntil', 'siblings', 'children', 'contents', 'text',
+                    \ 'wrapAll', 'wrapInner', 'wrap', 'unwrap',
+                    \ 'append', 'prepend', 'before', 'after', 'remove', 'empty', 'clone', 'html',
+                    \ 'replaceWith', 'detach', 'domManip', 'appendTo', 'prependTo', 'insertBefore',
+                    \ 'insertAfter', 'replaceAll', 'css', 'serialize', 'serializeArray',
+                    \ 'ajaxStart', 'ajaxStop', 'ajaxComplete', 'ajaxError', 'ajaxSuccess',
+                    \ 'ajaxSend', 'show', 'hide', '_toggle', 'fadeTo', 'animate', 'stop',
+                    \ 'slideDown', 'slideUp', 'slideToggle', 'fadeIn', 'fadeOut', 'fadeToggle',
+                    \ 'offset', 'position', 'offsetParent', 'scrollLeft', 'scrollTop',
+                    \ 'innerHeight', 'outerHeight', 'height', 'innerWidth', 'outerWidth', 'width']
+
+        " Underscore.js
+        let underscorejs = ['forEach', 'each', 'map', 'inject', 'foldl', 'reduce', 'foldr',
+            \ 'reduceRight', 'detect', 'find', 'select', 'filter', 'reject', 'all', 'every',
+            \ 'any', 'some', 'contains', 'include', 'invoke', 'pluck', 'max', 'min', 'sortBy',
+            \ 'sortedIndex', 'toArray', 'size', 'head', 'first', 'tail', 'rest', 'last',
+            \ 'compact', 'flatten', 'without', 'unique', 'uniq', 'intersect', 'zip', 'indexOf',
+            \ 'lastIndexOf', 'range', 'bind', 'bindAll', 'memoize', 'delay', 'defer', 'throttle',
+            \ 'debounce', 'wrap', 'compose', 'keys', 'values', 'methods', 'functions', 'extend',
+            \ 'clone', 'tap', 'isEqual', 'isEmpty', 'isElement', 'isArray', 'isArguments',
+            \ 'isFunction', 'isString', 'isNumber', 'isNaN', 'isBoolean', 'isDate', 'isRegExp',
+            \ 'isNull', 'isUndefined', 'noConflict', 'identity', 'times', 'mixin', 'uniqueId',
+            \ 'templateSettings', 'template']
+
         " Find object type declaration to reduce number of suggestions. {{{
         " 1. Get object name
         " 2. Find object declaration line
@@ -399,7 +436,7 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             let object_type = s:javascriptParseObjectType(object)
             " We didn't find var declaration in current file but we may have
             " something in external files.
-            if object_type == 0 && exists("b:js_extfiles")
+            if object_type == '' && exists("b:js_extfiles")
                 let dext_line = filter(copy(b:js_extfiles), 'v:val =~ "'.object.'.\\{-}=\\s*new\\s*"')
                 if len(dext_line) > 0
                     let object_type = matchstr(dext_line[-1], object.'.\{-}=\s*new\s*\zs\k\+\ze')
@@ -415,7 +452,7 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             endif
         endif
         " }}}
-
+        "
         if !exists('object_type')
             let object_type = ''
         endif
@@ -437,6 +474,8 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             let values = reges
         elseif object_type == 'Math'
             let values = maths
+        elseif object_type == 'jQuery'
+            let values = jquery
         endif
 
         if !exists('values')
@@ -489,6 +528,14 @@ function! javascriptcomplete#CompleteJS(findstart, base)
             let values = xdomerror
         elseif shortcontext =~ 'attributes\[\d\+\]\.$'
             let values = xdomattrprop
+        " Jquery object call
+        elseif shortcontext =~ '\$(.*).*$'
+            let values = jquery
+        elseif shortcontext =~ 'jQuery(.*).*$'
+            let values = jquery
+        " Underscore.js object call
+        elseif shortcontext =~ '_\.$'
+            let values = underscorejs
         else
             let values = user_props + arrays + dates + funcs + maths + numbs + objes + reges + stris
             let values += doms + anths + areas + bases + bodys + docus + forms + frams + fsets + hists
@@ -639,8 +686,15 @@ function! s:javascriptParseObjectType(object)
     if decl_line > 0
         return 'String'
     endif
+    
+    " jQuery cached selector, var a = $(selector)
+    " Will not match $(selector).function() to avoid problems with .val() etc.
+    let decl_line = search('var\s*'.a:object.'\s*=\s*\$([^)]*)$', 'bn')
+    if decl_line > 0
+        return 'jQuery'
+    endif
 
     " Nothing found
-    return 0
+    return ''
 endfunction
 " vim:set foldmethod=marker:
