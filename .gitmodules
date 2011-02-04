@@ -34,9 +34,6 @@
 [submodule "vim/bundle/python-menu"]
 	path = vim/bundle/python-menu
 	url = git://github.com/vim-scripts/python.vim.git
-[submodule "vim/bundle/align"]
-	path = vim/bundle/align
-	url = git://github.com/vim-scripts/Align.git
 [submodule "vim/bundle/pylint"]
 	path = vim/bundle/pylint
 	url = git://github.com/vim-scripts/pylint.vim.git
