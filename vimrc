@@ -410,14 +410,6 @@ let g:delimitMate_expand_cr = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
 
-" AlignMaps
-" ---------
-" Hide AlignMaps menu
-let g:DrChipTopLvlMenu= ""
-
-" Disable alignmaps bindings
-let g:loaded_AlignMapsPlugin=1
-
 " SnipMate
 " --------
 
