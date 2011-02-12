@@ -214,8 +214,8 @@ set autoindent
 
 " Filetype-specific indentation rules
 
-" Where filesize matters: html, js and css: 2-space indents
-au BufRead,BufNewFile *.html,*.js,*.css setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" Where filesize matters: html and css: 2-space indents
+au BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " Number of spaces that a pre-existing tab is equal to
 au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
@@ -409,6 +409,9 @@ let g:delimitMate_expand_cr = 1
 " Enable syntax error signs, disable prewiew window with error list
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
+
+" Bind :Errors to hotkey
+nmap <silent> <leader>E :Errors<CR>
 
 " SnipMate
 " --------
