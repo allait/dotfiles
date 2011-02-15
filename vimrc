@@ -192,6 +192,9 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" Racket is scheme, and we have only syntax completion for scheme
+au BufRead,BufNewFile *.rkt set filetype=scheme
+autocmd FileType scheme set omnifunc=syntaxcomplete#Complete
 
 
 " Indentation and tab options
@@ -258,9 +261,6 @@ noremap <C-q> <Nop>
 
 " Use <C-q> in GUI and <C-c> in shell as prefix for personal commands
 nmap <C-c> <C-q>
-
-" Avoid pressing shift for commands and use ; just like :
-nnoremap ; :
 
 " Set backspace behavior
 set backspace=indent,eol,start
