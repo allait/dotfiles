@@ -209,3 +209,14 @@ task :brew_tools do
     %x[brew install #{packages.join(" ")}]
     %x[brew cleanup]
 end
+
+desc "Install common tools from npm packages"
+task :npm_tools do
+    puts "Installing npm packages..."
+    # TODO fill this from installed packages
+    packages = [
+        "http-console", 
+        "nodelint",
+    ]
+    %x[npm install #{packages.join(" ")}]
+end
