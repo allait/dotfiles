@@ -1,5 +1,5 @@
 autoload -U compinit
-compinit -C
+compinit -Ci
 
 # Tread #~^ as part of patterns
 setopt extendedglob
