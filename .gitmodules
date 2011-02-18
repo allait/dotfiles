@@ -139,3 +139,6 @@
 [submodule "vim/bundle/autoclose"]
 	path = vim/bundle/autoclose
 	url = git://github.com/vim-scripts/AutoClose--Alves.git
+[submodule "vim/bundle/slime"]
+	path = vim/bundle/slime
+	url = git://github.com/jpalardy/vim-slime.git
