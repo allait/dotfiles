@@ -49,9 +49,6 @@
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
-[submodule "vim/bundle/delimit-mate"]
-	path = vim/bundle/delimit-mate
-	url = git://github.com/Raimondi/delimitMate.git
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
@@ -136,9 +133,6 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
-[submodule "vim/bundle/autoclose"]
-	path = vim/bundle/autoclose
-	url = git://github.com/vim-scripts/AutoClose--Alves.git
 [submodule "vim/bundle/slime"]
 	path = vim/bundle/slime
 	url = git://github.com/jpalardy/vim-slime.git

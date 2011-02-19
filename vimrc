@@ -392,18 +392,6 @@ let g:SuperTabMappingBackward ='<C-Tab>'
 " Disable cr to fix conflict with delimitmate
 let g:SuperTabCrMapping = '<C-CR>'
 
-" DelimitMate
-" -----------
-
-" Disable delimitmate for breaking undo
-let g:loaded_delimitMate = 1
-
-" Expand space inside empty pairs
-let g:delimitMate_expand_space = 1
-
-" Expand newlines inside empty pairs
-let g:delimitMate_expand_cr = 1
-
 " Syntastic
 " ---------
 " set statusline+=%#warningmsg#
