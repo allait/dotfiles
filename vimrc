@@ -492,3 +492,6 @@ let g:erlangCompletionDisplayDoc = 0
 if &term[:4] == "xterm"
     inoremap <silent> <C-[>OC <RIGHT>
 endif
+
+" Set AutoClose Pairs
+let g:AutoClosePairs = {'"': '"', "{": "}", "(": ")", "[": "]"}
