@@ -1,7 +1,7 @@
 require 'erb'
 
 module Dot
-    All = FileList['*'].exclude('Rakefile', 'build', "*.[^e]*")
+    All = FileList['*'].exclude('Rakefile', 'build', "*.[^ed]*")
     Build = All.map {|x| '.' + x.sub('.erb','')}
     System = `uname -s`.strip.downcase
     Home = Build.map{|x| File.join(ENV['HOME'], x)}

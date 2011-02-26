@@ -4,3 +4,5 @@ tags
 .rake_tasks
 build
 *.private
+*.elc
+*~
