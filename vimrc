@@ -386,8 +386,11 @@ nmap <silent><leader>e :CommandT<CR>
 " Set supertab to complete depending on text before cursor
 let g:SuperTabDefaultCompletionType="context"
 
-" Context completion fallback to omnicompletion
-let g:SuperTabContextDefaultCompletionType="<c-x><c-o>"
+" Try omnifunc and completefunc if ContextText failed
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+
 " Set backwards mapping to work with snipmate's reverse tabstops
 let g:SuperTabMappingBackward ='<C-Tab>'
 
