@@ -182,6 +182,8 @@ set wildmenu
 set wildmode=list:longest,full
 
 " Set competion menu behavior, preview window disabled
+" Complete only common letters among possible completions, not the while first
+" option
 set completeopt=menu,longest ",preview
 
 " Autohide preview window after selection
