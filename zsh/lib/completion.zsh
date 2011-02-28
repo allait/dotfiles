@@ -49,7 +49,7 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # Completion system configuration
 # Immediately show completion menu
-zstyle ':completion:*' menu yes select
+zstyle ':completion:*' menu select
 # Remove trailing slash if using directory as completion
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' format '%F{white}%d%f'
