@@ -182,7 +182,7 @@ set wildmenu
 set wildmode=list:longest,full
 
 " Set competion menu behavior, preview window disabled
-set completeopt=menu ",preview
+set completeopt=menu,longest ",preview
 
 " Autohide preview window after selection
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -421,9 +421,6 @@ nmap <silent><F6> :YRShow<CR>
 
 " Store history file in tmp folder
 let g:yankring_history_dir = "~/tmp"
-
-" Don't add one-letter deletes to history
-let g:yankring_min_element_length = 2
 
 " Don't store history between sessions
 let g:yankring_persist = 0
