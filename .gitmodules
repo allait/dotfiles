@@ -139,3 +139,6 @@
 [submodule "vim/bundle/autoclose"]
 	path = vim/bundle/autoclose
 	url = git://github.com/mtvee/vim-autoclose.git
+[submodule "vim/bundle/indent-object"]
+	path = vim/bundle/indent-object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
