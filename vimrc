@@ -105,10 +105,6 @@ set autoread
 noremap <C-left> :bp!<CR>
 noremap <C-right> :bn!<CR>
 
-" Set forced buffer rotation on Ctrl+h, Ctrl+l
-" map <C-h> :bp!<CR>
-" map <C-l> :bn!<CR>
-
 "Switch window splits
 nmap <C-Tab> <C-w>w
 
@@ -156,6 +152,7 @@ set listchars=tab:▸\ ",eol:¬
 
 " Status line options
 " ===================
+
 " Always show statusline
 set laststatus=2
 
