@@ -16,11 +16,12 @@ snippet docs
 	File: ${1:`Filename('$1.py', 'foo.py')`}
 	Author: ${2:`g:snips_author`}
 	Description: ${3}
+
 	"""
 	${4}
 # ----------------
 # Loops
-snippet wh
+snippet while
 	while ${1:condition}:
 		${2:# code...}
 snippet for
@@ -28,12 +29,22 @@ snippet for
 		${3:# code...}
 # ----------------
 # Classes
+# Simple short class
 snippet cl
-	class
+	class ${1:ClassName}(${2:object}):
+		"""
+		${3:docstring for $1}
+
+		"""
+		${4:pass}
 # New Class
+# Class with __init__
 snippet class
 	class ${1:ClassName}(${2:object}):
-		"""${3:docstring for $1}"""
+		"""
+		${3:docstring for $1}
+
+		"""
 		def __init__(self, ${4:arg}):
 			${5:super($1, self).__init__()}
 			self.$4 = $4
@@ -42,12 +53,18 @@ snippet class
 # Functions
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
-		"""${3:docstring for $1}"""
+		"""
+		${3:docstring for $1}
+
+		"""
 		${4:pass}
 # New Method
 snippet defs
 	def ${1:mname}(self${2:, arg}):
-		"""${3: docstring for $1}"""
+		"""
+		${3:docstring for $1}
+
+		"""
 		${4:pass}
 # New Property
 snippet property
