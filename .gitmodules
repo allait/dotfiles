@@ -31,9 +31,6 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
-[submodule "vim/bundle/python-menu"]
-	path = vim/bundle/python-menu
-	url = git://github.com/vim-scripts/python.vim.git
 [submodule "vim/bundle/pylint"]
 	path = vim/bundle/pylint
 	url = git://github.com/vim-scripts/pylint.vim.git
