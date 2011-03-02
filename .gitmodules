@@ -139,3 +139,6 @@
 [submodule "vim/bundle/indent-object"]
 	path = vim/bundle/indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/zoomwin"]
+	path = vim/bundle/zoomwin
+	url = git://github.com/vim-scripts/ZoomWin.git
