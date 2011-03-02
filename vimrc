@@ -494,3 +494,15 @@ endif
 
 " Set AutoClose Pairs
 let g:AutoClosePairs = {'"': '"', "{": "}", "(": ")", "[": "]"}
+
+" UltiSnips
+" ---------
+
+" Set jump forward key
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+
+" Set jump backward key
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+
+" Set UltiSnips directory
+let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
