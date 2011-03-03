@@ -484,13 +484,6 @@ let g:erlangCompletionDisplayDoc = 0
 
 " Autoclose
 " ---------
-" Fix arrow keys in terminal, broken by AutoClose ExtraMappings
-" the following simply creates an ambiguous mapping so vim fully
-" processes the escape sequence for terminal keys, see 'ttimeout' for a
-" rough explanation, this just forces it to work
-if &term[:4] == "xterm"
-    inoremap <silent> <C-[>OC <RIGHT>
-endif
 
 " Set AutoClose Pairs
 let g:AutoClosePairs = {'"': '"', "{": "}", "(": ")", "[": "]"}
