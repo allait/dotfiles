@@ -504,5 +504,8 @@ let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 " Set jump backward key
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
+" List all available snippets
+let g:UltiSnipsListSnippets = "<F1>"
+
 " Set UltiSnips directory
-let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
