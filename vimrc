@@ -509,3 +509,14 @@ let g:UltiSnipsListSnippets = "<F1>"
 
 " Set UltiSnips directory
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+
+" Vimwiki
+" -------
+
+" Default wiki with .md files and vimwiki_markdown syntax file
+let g:vimwiki_list = [{'ext': '.md', 'syntax':'markdown'}]
+
+" Set up folding
+let g:vimwiki_folding = 1
+let g:vimwiki_fold_lists = 1
+au FileType vimwiki set com=fb:*,fb:-,fb:+,n:>
