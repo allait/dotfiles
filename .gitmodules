@@ -142,3 +142,9 @@
 [submodule "vim/bundle/vim-voom"]
 	path = vim/bundle/vim-voom
 	url = git://github.com/vim-scripts/VOoM.git
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = git://github.com/allait/ultisnips.git
+[submodule "vim/bundle/autoclose"]
+	path = vim/bundle/autoclose
+	url = git://github.com/allait/vim-autoclose.git
