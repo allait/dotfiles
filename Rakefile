@@ -98,8 +98,13 @@ task :clean_tmp do
         puts "Deleting backup..."
         %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/backup')}]
     end
+    if File.exists?(File.join(Dot::Dir[:home], '/tmp/undo')):
+        puts "Deleting undo..."
+        %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/undo')}]
+    end
     puts "Creating tmp dir..."
     %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/swap')}]
+    %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/undo')}]
     %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/backup')}]
 end
 
