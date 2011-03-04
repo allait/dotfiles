@@ -503,6 +503,9 @@ let g:UltiSnipsListSnippets = "<F1>"
 " Set UltiSnips directory
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
+" Use hardtabs in snippets for agile sw handling
+au FileType snippets setl noexpandtab
+
 " Vimwiki
 " -------
 
@@ -512,4 +515,4 @@ let g:vimwiki_list = [{'ext': '.md', 'syntax':'markdown'}]
 " Set up folding
 let g:vimwiki_folding = 1
 let g:vimwiki_fold_lists = 1
-au FileType vimwiki set com=fb:*,fb:-,fb:+,n:>
+au FileType vimwiki setl com=fb:*,fb:-,fb:+,n:>
