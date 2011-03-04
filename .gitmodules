@@ -130,9 +130,6 @@
 [submodule "vim/bundle/slime"]
 	path = vim/bundle/slime
 	url = git://github.com/jpalardy/vim-slime.git
-[submodule "vim/bundle/autoclose"]
-	path = vim/bundle/autoclose
-	url = git://github.com/mtvee/vim-autoclose.git
 [submodule "vim/bundle/indent-object"]
 	path = vim/bundle/indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
@@ -142,9 +139,6 @@
 [submodule "vim/bundle/extradite"]
 	path = vim/bundle/extradite
 	url = git://github.com/int3/vim-extradite.git
-[submodule "vim/bundle/ultisnips"]
-	path = vim/bundle/ultisnips
-	url = git://github.com/rygwdn/ultisnips.git
 [submodule "vim/bundle/vim-voom"]
 	path = vim/bundle/vim-voom
 	url = git://github.com/vim-scripts/VOoM.git
