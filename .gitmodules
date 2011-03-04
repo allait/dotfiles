@@ -52,9 +52,6 @@
 [submodule "vim/bundle/indentpython"]
 	path = vim/bundle/indentpython
 	url = git://github.com/vim-scripts/indentpython.vim.git
-[submodule "vim/bundle/python-fold"]
-	path = vim/bundle/python-fold
-	url = git://github.com/vim-scripts/python_fold.git
 [submodule "vim/bundle/dbext"]
 	path = vim/bundle/dbext
 	url = git://github.com/vim-scripts/dbext.vim.git
