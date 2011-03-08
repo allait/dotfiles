@@ -512,6 +512,8 @@ au FileType snippets setl noexpandtab
 " Default wiki with .md files and vimwiki_markdown syntax file
 let g:vimwiki_list = [{'ext': '.md', 'syntax':'markdown'}]
 
+let g:tlist_vimwiki_settings = 'markdown;h:Headers'
+
 " Set up folding
 let g:vimwiki_folding = 1
 let g:vimwiki_fold_lists = 1
