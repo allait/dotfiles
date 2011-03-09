@@ -30,6 +30,13 @@
 ;; No startup message
 (setq inhibit-startup-message t)
 
+;; Activate Org-mode
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
 ;;; interfacing with ELPA, the package archive.
