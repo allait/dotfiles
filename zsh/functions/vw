@@ -1,8 +1,7 @@
 #!/usr/bin/zsh
 
-if [[ ${1} != '' ]]; then
-    cat ~/vimwiki/${1}/* | less
-# elif [[ ${1} == '-g' ]]; then
-else
-    vim ${1} +':VimwikiIndex'
+if [[ ${1} == '-g' || ${1} == '' ]]; then
+   vim ${1} +':VimwikiIndex' 
+elif [[ ${1} != '' ]]; then
+    cat ~/vimwiki/${1}* | less
 fi
