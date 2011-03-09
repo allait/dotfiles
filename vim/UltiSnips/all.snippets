@@ -1,0 +1,20 @@
+# Global snippets
+
+# (c) holds no legal value ;)
+snippet c)
+Copyright `!v &enc[:2] == "utf" ? "©" : "(c)"` `!v strftime("%Y")` ${1:Author}. All Rights Reserved.$0
+endsnippet
+
+snippet date
+`!v strftime("%Y-%m-%d")`
+endsnippet
+
+snippet ddate
+`!v strftime("%B %d, %Y")`
+endsnippet
+
+snippet {
+{
+    $0
+}
+endsnippet

@@ -1,0 +1,21 @@
+# Paste Encoding string
+snippet #utf8
+# -*- coding: utf-8 -*-
+endsnippet
+
+# Launch debugger
+snippet ipython "Launch ipython" b
+import IPython
+IPython.Shell.IPShell(user_ns=locals(), user_global_ns=globals()).mainloop(sys_exit=1)
+endsnippet
+
+snippet pdb "Launch pdb" b
+import pdb; pdf.set_trace()
+endsnippet
+
+# Simple nose test function
+snippet test "Create a simple nose test" b
+def test_${1:function}():
+	${2:assert}
+endsnippet
+

@@ -1,0 +1,11 @@
+snippet mod "Module" !b
+-module(${1:`!p snip.rv = fn if fn else 'my'`}).
+
+-compile([export_all]).
+
+start() ->
+	${2}
+
+stop() ->
+	ok.
+endsnippet
