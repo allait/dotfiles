@@ -191,9 +191,13 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
 " Racket is scheme, and we have only syntax completion for scheme
 au BufRead,BufNewFile *.rkt set filetype=scheme
 autocmd FileType scheme set omnifunc=syntaxcomplete#Complete
+
+" We're using chicken scheme
+let g:is_chicken = 1
 
 
 " Indentation and tab options
