@@ -3,9 +3,15 @@ function(${1}) {${2}};
 endsnippet
 
 snippet for "For loop" !b
-for (var ${2:i}=0; $2 < ${1:Things}.length; $2${3:++}) {
-	${4:$1[$2]}
+for (var ${2:i}=0; $2 < ${1:list}.length; $2${3:++}) {
+	$0
 };
+endsnippet
+
+snippet foreach
+for(var i = 0, l = ${1:list}.length; i < l; i++) {
+    $0
+}
 endsnippet
 
 snippet closure
