@@ -528,3 +528,7 @@ au FileType vimwiki setl com=fb:*,fb:-,fb:+,n:>
 
 " Disable Tab mapping for table formatting
 let g:vimwiki_table_auto_fmt = 0
+
+" Disable wikiwords
+
+let g:vimwiki_camel_case = 0
