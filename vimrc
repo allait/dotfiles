@@ -526,6 +526,9 @@ let g:vimwiki_fold_lists = 1
 " Set up lists
 au FileType vimwiki setl com=fb:*,fb:-,fb:+,n:>
 
+" Set up text wrapping
+au FileType vimwiki setl tw=100
+
 " Disable Tab mapping for table formatting
 let g:vimwiki_table_auto_fmt = 0
 
