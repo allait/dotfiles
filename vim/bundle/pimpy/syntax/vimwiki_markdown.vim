@@ -5,35 +5,35 @@
 " text: *strong*
 " let g:vimwiki_rxBold = '\*[^*]\+\*'
 let g:vimwiki_rxBold = '\%(^\|\s\|[[:punct:]]\)\@<='.
-      \'\*'.
-      \'\%([^*`[:space:]][^*`]*[^*`[:space:]]\|[^*`[:space:]]\)'.
-      \'\*'.
+      \'\(\*\*\|__\)'.
+      \'\%([^_*`[:space:]][^_*`]*[^_*`[:space:]]\|[^_*`[:space:]]\)'.
+      \'\(\*\*\|__\)'.
       \'\%([[:punct:]]\|\s\|$\)\@='
-let g:vimwiki_char_bold = '*'
+let g:vimwiki_char_bold = '**'
 
 " text: _emphasis_
 " let g:vimwiki_rxItalic = '_[^_]\+_'
 let g:vimwiki_rxItalic = '\%(^\|\s\|[[:punct:]]\)\@<='.
-      \'_'.
-      \'\%([^_`[:space:]][^_`]*[^_`[:space:]]\|[^_`[:space:]]\)'.
-      \'_'.
+      \'\(\*\|_\)'.
+      \'\%([^_*`[:space:]][^_*`]*[^_*`[:space:]]\|[^_*`[:space:]]\)'.
+      \'\(\*\|_\)'.
       \'\%([[:punct:]]\|\s\|$\)\@='
-let g:vimwiki_char_italic = '_'
+let g:vimwiki_char_italic = '*'
 
 " text: *_bold italic_* or _*italic bold*_
 let g:vimwiki_rxBoldItalic = '\%(^\|\s\|[[:punct:]]\)\@<='.
-      \'\*_'.
+      \'\(\*\*\*\|___\)'.
       \'\%([^*_`[:space:]][^*_`]*[^*_`[:space:]]\|[^*_`[:space:]]\)'.
-      \'_\*'.
+      \'\(___\|\*\*\*\)'.
       \'\%([[:punct:]]\|\s\|$\)\@='
-let g:vimwiki_char_bolditalic = '\*_'
+let g:vimwiki_char_bolditalic = '\*\*\*'
 
 let g:vimwiki_rxItalicBold = '\%(^\|\s\|[[:punct:]]\)\@<='.
-      \'_\*'.
+      \'\(___\|\*\*\*\)'.
       \'\%([^*_`[:space:]][^*_`]*[^*_`[:space:]]\|[^*_`[:space:]]\)'.
-      \'\*_'.
+      \'\(\*\*\*\|___\)'.
       \'\%([[:punct:]]\|\s\|$\)\@='
-let g:vimwiki_char_italicbold = '_\*'
+let g:vimwiki_char_italicbold = '___'
 
 " text: `code`
 let g:vimwiki_rxCode = '`[^`]\+`'
@@ -52,12 +52,12 @@ let g:vimwiki_rxSubScript = ',,[^,`]\+,,'
 let g:vimwiki_char_subscript = ',,'
 
 " Header levels, 1-6
-let g:vimwiki_rxH1 = '^#\{1}.*$'
-let g:vimwiki_rxH2 = '^#\{2}.*$'
-let g:vimwiki_rxH3 = '^#\{3}.*$'
-let g:vimwiki_rxH4 = '^#\{4}.*$'
-let g:vimwiki_rxH5 = '^#\{5}.*$'
-let g:vimwiki_rxH6 = '^#\{6}.*$'
+let g:vimwiki_rxH1 = '\(^#\{1}\s\+.*$\|^.\+\n=\+$\)'
+let g:vimwiki_rxH2 = '\(^#\{2}\s\+.*$\|^.\+\n-\+$\)'
+let g:vimwiki_rxH3 = '^#\{3}\s\+.*$'
+let g:vimwiki_rxH4 = '^#\{4}\s\+.*$'
+let g:vimwiki_rxH5 = '^#\{5}\s\+.*$'
+let g:vimwiki_rxH6 = '^#\{6}\s\+.*$'
 let g:vimwiki_rxHeader = '\%('.g:vimwiki_rxH1.'\)\|'.
       \ '\%('.g:vimwiki_rxH2.'\)\|'.
       \ '\%('.g:vimwiki_rxH3.'\)\|'.
@@ -65,10 +65,10 @@ let g:vimwiki_rxHeader = '\%('.g:vimwiki_rxH1.'\)\|'.
       \ '\%('.g:vimwiki_rxH5.'\)\|'.
       \ '\%('.g:vimwiki_rxH6.'\)'
 
-let g:vimwiki_char_header = '\%(^\s*=\+\)\|\%(=\+\s*$\)'
+let g:vimwiki_char_header = ''
 
 " <hr>, horizontal rule
-let g:vimwiki_rxHR = '^----.*$'
+let g:vimwiki_rxHR = '^---.*$'
 
 " List items start with optional whitespace(s) then '* ' or '+'
 let g:vimwiki_rxListBullet = '^\s*\%(\*\|-\|+\)\s'

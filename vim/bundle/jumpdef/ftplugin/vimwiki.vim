@@ -6,6 +6,6 @@ let g:loaded_jumpdef_vimwiki = 1
 
 function! JumpDef_vimwiki(obj)
     if (a:obj == "function")
-        return "^#\\+\\s"
+        return '\(^#\+\s\|^.*\n-\+$\|^.*\n=\+$\)'
     endif
 endfunction
