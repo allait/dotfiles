@@ -292,6 +292,15 @@ nmap <silent> <C-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name"
      \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
      \ . ">"<CR>h
 
+" No more arrows
+map <up> <nop>
+map <left> <nop>
+map <right> <nop>
+map <down> <nop>
+imap <up> <nop>
+imap <left> <nop>
+imap <right> <nop>
+imap <down> <nop>
 
 " Color and gui options
 " =============
