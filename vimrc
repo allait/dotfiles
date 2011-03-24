@@ -306,7 +306,7 @@ imap <down> <nop>
 " =============
 
 " Set color scheme
-colorscheme molokai
+colorscheme prefect
 
 " Set gui-specific options
 if has("gui_running")
