@@ -10,12 +10,12 @@ endif
 let g:colors_name = "prefect"
 
 hi Cursor                       guifg=#000000   guibg=#fffd00   gui=NONE
-hi Visual                       guifg=NONE      guibg=#000000   gui=NONE
+hi Visual                       guifg=NONE      guibg=#333333   gui=NONE
 hi CursorLine                   guifg=NONE      guibg=#1b1b1b   gui=NONE
 hi CursorColumn                 guifg=NONE      guibg=#1b1b1b   gui=NONE
 hi LineNr                       guifg=#868686   guibg=#141414   gui=NONE
 hi VertSplit                    guifg=#3f3f3f   guibg=#3f3f3f   gui=NONE
-hi MatchParen                   guifg=#728aa2   guibg=NONE      gui=NONE
+hi MatchParen                   guifg=#000000   guibg=#999700     gui=NONE
 hi StatusLine                   guifg=#f8f8f8   guibg=#3f3f3f   gui=bold
 hi StatusLineNC                 guifg=#f8f8f8   guibg=#3f3f3f   gui=NONE
 hi Pmenu                        guifg=#cf6a4c   guibg=NONE      gui=NONE
@@ -101,3 +101,5 @@ hi cssClassName                 guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssValueLength               guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssCommonAttr                guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssBraces                    guifg=NONE      guibg=NONE      gui=NONE
+
+hi link                         pythonFunction  Identifier
