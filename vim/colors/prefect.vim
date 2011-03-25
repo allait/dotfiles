@@ -102,4 +102,5 @@ hi cssValueLength               guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssCommonAttr                guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssBraces                    guifg=NONE      guibg=NONE      gui=NONE
 
-hi link                         pythonFunction  Identifier
+hi link                         pythonFunction                  Identifier
+hi link                         pythonBuiltinFunc               Statement
