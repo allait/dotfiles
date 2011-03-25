@@ -37,7 +37,7 @@ hi ErrorMsg                     guifg=NONE      guibg=NONE      gui=NONE
 hi WarningMsg                   guifg=NONE      guibg=NONE      gui=NONE
 hi Float                        guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi Function                     guifg=#cf6a4c   guibg=NONE      gui=NONE
-hi Identifier                   guifg=#f9ee98   guibg=NONE      gui=NONE
+hi Identifier                   guifg=#b1d631   guibg=NONE      gui=NONE
 hi Keyword                      guifg=#728aa2   guibg=NONE      gui=NONE
 hi Label                        guifg=#8f9d6a   guibg=NONE      gui=NONE
 hi NonText                      guifg=#4f4f4f   guibg=#1b1b1b   gui=NONE
