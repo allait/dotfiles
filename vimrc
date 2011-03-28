@@ -389,6 +389,10 @@ map <silent><F4> :TaskList<CR>
 " Bind F5 and \e to start command-t file search
 map <silent><F5> :CommandT<CR>
 nmap <silent><leader>e :CommandT<CR>
+" \q to search for buffer name
+nmap <silent><leader>q :CommandTBuffer<CR>
+" Use Esc to close command-t window
+let g:CommandTCancelMap = ['<C-c>', '<ESC>']
 
 " SuperTab
 " --------
