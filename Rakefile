@@ -207,9 +207,14 @@ task :brew_tools do
     puts "Installing Homebrew packages..."
     # TODO fill this from installed packages
     packages = [
-        "gnu-sed", 
         "ack",
+        "ctags",
+        "gnu-sed",
         "git",
+        "irssi",
+        "proctools",
+        "wget",
+        "w3m"
     ]
     %x[brew install #{packages.join(" ")}]
     %x[brew cleanup]
