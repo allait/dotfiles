@@ -43,10 +43,13 @@ compdef _gnu_generic nosetests
 compdef _gnu_generic curl
 compdef _gnu_generic ack
 compdef _gnu_generic fab
+compdef _gnu_generic csi
+compdef _gnu_generic R
 compdef _gnu_generic psql
 compdef _gnu_generic createdb
 compdef _gnu_generic dropdb
 compdef _gnu_generic pg_dump
+compdef _gnu_generic pg_config
 
 # Ignore completion functions I don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
