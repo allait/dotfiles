@@ -93,7 +93,7 @@ endsnippet
 ##################
 
 # Module Docstring
-snippet docs
+snippet docs "Module docstring" b
 """
 File: ${1:`!p snip.rv = fn`}
 Author: ${2:Author}
@@ -104,17 +104,21 @@ $0
 endsnippet
 
 # Loops
-snippet while
+snippet while "While loop" b
 while ${1:True}:
 	${2:pass}
 endsnippet
 
-snippet for
+snippet for "For loop" b
 for ${1:item} in ${2:xrange(${3:10})}:
 	${4:pass}
 endsnippet
 
-snippet with
+snippet with "Context manager" b
 with ${1:open(${2:file})} as ${3:f}:
 	$0
+endsnippet
+
+snippet super "Create super object" b
+super(${1:ClassName}, ${2:self}).$0
 endsnippet
