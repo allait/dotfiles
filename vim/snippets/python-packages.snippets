@@ -1,0 +1,20 @@
+# psycopg2
+
+snippet psql:djcon "Create Django database connection" b
+${1:connection} = psycopg2.connect(database=${2:settings.DATABASE_NAME},
+					user=${3:settings.DATABASE_USER},
+					password=${4:settings.DATABASE_PASSWORD},
+					host=${5:settings.DATABASE_HOST})
+endsnippet
+
+snippet psql:con "Create database connection" b
+${1:connection} = psycopg2.connect(database="${2:test}",
+					user="${3:postgres}",
+					password="$4",
+					host="${5:localhost}")
+endsnippet
+
+snippet psql:exec
+${1:cursor} = ${2:connection}.cursor()
+$1.execute(${3:${4:"SELECT * FROM (%s)"}, (${5:"test"},)})
+endsnippet
