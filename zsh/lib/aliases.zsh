@@ -10,3 +10,6 @@ alias pdt='python -m doctest -v'
 
 alias pu='pushd'
 alias po='popd'
+
+# Git alias
+alias g='git'

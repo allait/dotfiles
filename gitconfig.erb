@@ -6,18 +6,20 @@
 [http]
     sslverify = false
 
-[giggle]
-    main-window-maximized = false
-    main-window-geometry = 1242x781+312+65
-    history-view-vpane-position = 455
-    main-window-view = HistoryView
-    file-view-vpane-position = 385
+[advice]
+    pushNonFastForForward = false
+    statusHints = false
+
+[diff]
+    renames = copies
+    mnemonicprefix = true
+
+[merge]
+    stat = true
 
 [core]
     editor = vim
     filemode = false
-[merge]
-    tool = diffuse
 
 [color]
     status = auto
@@ -25,12 +27,14 @@
     interactive = auto
     diff = auto
     ui = true
-[format]
-    short =  %Cred%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
 
 [alias]
     st = status
+    d = diff
+    ds = diff --staged
+    sm = submodule
+    smu = submodule update --init
     ci = commit
     co = checkout
-    glog = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    gl = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     l = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
