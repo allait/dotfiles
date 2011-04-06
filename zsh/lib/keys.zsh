@@ -9,6 +9,7 @@ bindkey "^[[3~" delete-char
 bindkey ' ' magic-space
 
 bindkey "^R" history-incremental-search-backward
+bindkey "^U" backward-kill-line
 
 # Edit command in default editor
 # http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
