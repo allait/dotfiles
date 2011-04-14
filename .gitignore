@@ -1,7 +1,6 @@
-.vim/bundle/ropevim/.hg
+vim/spell
 tags
 .DS_Store
-.rake_tasks
 build
 *.private
 *.elc
