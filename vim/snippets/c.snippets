@@ -1,5 +1,6 @@
 snippet fun "Function" b
-${1:int} ${2:function_name}($3) {
+${1:int} ${2:function_name}($3)
+{
 	${4:/* code */}
 }
 endsnippet
@@ -23,3 +24,17 @@ else {
 	$0
 }
 endsnippet
+
+snippet if "if .. (if)" !b
+if (${1:1}) {
+	${0:/* code */}
+}
+endsnippet
+
+snippet st "struct" !b
+struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
+	${0:/* data */}
+};
+endsnippet
+
+# vim:ft=snippets:
