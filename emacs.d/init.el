@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/")
 
 ;; Load Vimpulse 
-(require 'vimpulse)
+;(require 'vimpulse)
 
 ;; Load paredit
 (autoload 'enable-paredit-mode "paredit"
@@ -36,6 +36,13 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+
+;; Associate markdown-mode with md files
+(autoload 'markdown-mode "markdown-mode.el"
+ "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
