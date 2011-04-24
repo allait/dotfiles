@@ -72,9 +72,9 @@ case $state in
 	(pname)
 		if (( ${+opt_args[-x]} )) && (( ${+opt_args[-f]} ))
 		then
-			compadd ${(u)${(f)"$(ps -A o cmd=)"}}
+			compadd ${(u)${(f)"$(ps Ao comm=)"}}
 		else
-			compadd ${(u)${(f)"$(ps -A co cmd=)"}}
+			compadd ${(u)${(f)"$(ps Aco comm=)"}}
 		fi
 		;;
 	
