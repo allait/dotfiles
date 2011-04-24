@@ -1,7 +1,7 @@
 autoload -U compinit
 compinit -Ci
 
-# Tread #~^ as part of patterns
+# Treat #~^ as part of patterns
 setopt extendedglob
 # Cd on directory name
 setopt autocd
