@@ -67,3 +67,7 @@ zstyle ':completion:*' remote-access false
 
 # Zsh completion control functions
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _list
+
+# kill complete all processes with color
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
