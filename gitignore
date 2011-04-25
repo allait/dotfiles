@@ -1,0 +1,5 @@
+# Global OS X
+.DS_Store
+
+# Python
+*.py[co]

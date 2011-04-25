@@ -17,9 +17,13 @@
 [merge]
     stat = true
 
+[apply]
+    whitespace = fix
+
 [core]
     editor = vim
     filemode = false
+    excludefile = ~/.gitignore
 
 [color]
     status = auto
@@ -27,6 +31,7 @@
     interactive = auto
     diff = auto
     ui = true
+    pager = true
 
 [alias]
     st = status
