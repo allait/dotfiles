@@ -1,0 +1,46 @@
+#compdef puppet
+#autoload
+
+# puppet zsh completion
+
+_puppet_resources() {
+    puppet_types=(`puppet resource --types`)
+}
+_puppet_filebucket() {
+    filebucket_modes=(backup get restore)
+}
+local -a _1st_arguments
+_1st_arguments=(
+    'agent:Retrieve the client configuration from the puppet master and apply it'
+    'apply:Run a stand-alone puppet manifest'
+    'cert:Stand-alone certificate authority'
+    'describe:Print help about puppet types on the console'
+    'doc:Generate a reference for all Puppet types'
+    'filebucket:A stand-alone Puppet filebucket client'
+    'inspect:Prepare and submit an inspection report to the puppet master'
+    'kick:Trigger a puppet agent run on a set of hosts'
+    'master:The central puppet server'
+    'queue:Retrieve serialized records from a queue and process them in order'
+    'resource:Use the Puppet RAL to directly interact with the system'
+)
+
+_arguments -C \
+    '(--version)--version[Show version number]' \
+    '*:: :->subcmds' && return 0
+
+local expl
+local -a ptype puppet_types
+
+if (( CURRENT == 1 )); then
+    _describe -t commands "puppet subcommand" _1st_arguments
+    return
+fi
+
+case "$words[1]" in
+  describe|resource)
+      _puppet_resources
+      _wanted puppet_types expl 'puppet types' compadd -a puppet_types ;;
+  filebucket)
+      _puppet_filebucket
+      _wanted filebucket_modes expl 'filebucket modes' compadd -a filebucket_modes ;;
+esac
