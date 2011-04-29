@@ -139,3 +139,6 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = git://github.com/allait/ultisnips.git
+[submodule "vim/bundle/pairtools"]
+	path = vim/bundle/pairtools
+	url = git://github.com/vim-scripts/PairTools.git
