@@ -334,15 +334,6 @@ endif
 " Plugin-specific settings
 " ===============
 
-" LustyJuggler & LustyExplorer
-" ------------ - -------------
-
-" Show key hints near buffer names
-let g:LustyJugglerShowKeys = 'a'
-
-" Instant switch to previous buffer
-nmap <silent> <Tab> :LustyJugglePrevious<CR>
-
 " Pylint
 " ------
 " Disable onwrite pylint checks

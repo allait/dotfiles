@@ -100,9 +100,6 @@
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/lusty"]
-	path = vim/bundle/lusty
-	url = git://github.com/sjbach/lusty.git
 [submodule "vim/bundle/json"]
 	path = vim/bundle/json
 	url = git://github.com/leshill/vim-json.git
