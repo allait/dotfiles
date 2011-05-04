@@ -446,8 +446,8 @@ function! javascriptcomplete#CompleteJS(findstart, base)
 
 
         " jQuery 1.5 XHR objects on $.ajax, $.get etc..
-        let jqueryxhr = ['error', 'success', 'complete', 'done', 'fail', 'isRejected',
-            \ 'isResolved', 'reject', 'rejectWith', 'resolve', 'resolveWith', 'then']
+        let jqueryxhr = ['error', 'success', 'complete', 'done', 'fail', 'isRejected', 'pipe'
+            \ 'isResolved', 'reject', 'rejectWith', 'resolve', 'resolveWith', 'then', 'always']
         call map(jqueryxhr, 'v:val."("')
 
         " Underscore.js
