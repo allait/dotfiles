@@ -133,7 +133,7 @@ end
 
 desc "Update pathogen and sumbodules"
 task :update do
-    # TODO pathogen update,
+    %x[curl https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim > vim/autoload/pathogen.vim]
     %x[git submodule foreach git pull origin master]
     %x[git submodule foreach git fetch]
     puts `git status`
@@ -154,7 +154,7 @@ task :backup do
 end
 
 desc "Setup common python packages"
-task :packages do
+task :pip_tools do
     %x[sudo easy_install pip]
     %x[sudo pip install -U -r requirements.txt]
 end
