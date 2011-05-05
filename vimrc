@@ -31,10 +31,6 @@ set nomodeline
 " Keep cursor in the middle of the screen
 " set scrolloff=999
 
-" Set * and + registers to system clipboard, conflicts with yankring
-" http://vim.wikia.com/wiki/VimTip984
-" set clipboard=unnamed
-
 " Code and syntax options
 " =======================
 
@@ -161,7 +157,6 @@ if has('statusline')
     set statusline=%<%f\  " Current file path
     set statusline+=%m%h%r%w " File flags - modified, help buffer, readonly, preview
     set statusline+=%y " Filetype
-    set statusline+=%{fugitive#statusline()} " File git status
     set statusline+=%= " Indent to the right
     set statusline+=%-20.(%4.l/%L,\ %c%V\ [x%B]%)\  "Current line number/total, column number, byte code
     set statusline+=%P\  "Percentage through a file
@@ -220,8 +215,8 @@ set autoindent
 
 " Filetype-specific indentation rules
 
-" Where filesize matters: html and css: 2-space indents
-au BufRead,BufNewFile *.html,*.css setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" Where filesize matters: js, html and css: 2-space indents
+au BufRead,BufNewFile *.html,*.css,*.js setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " Number of spaces that a pre-existing tab is equal to
 au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
@@ -380,8 +375,10 @@ map <silent><F4> :TaskList<CR>
 " Bind F5 and \e to start command-t file search
 map <silent><F5> :CommandT<CR>
 nmap <silent><leader>e :CommandT<CR>
+
 " \q to search for buffer name
 nmap <silent><leader>q :CommandTBuffer<CR>
+
 " Use Esc to close command-t window
 let g:CommandTCancelMap = ['<C-c>', '<ESC>']
 
@@ -404,24 +401,13 @@ let g:SuperTabCrMapping = '<C-CR>'
 
 " Syntastic
 " ---------
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+
 " Enable syntax error signs, disable prewiew window with error list
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
 
 " Bind :Errors to hotkey
 nmap <silent> <leader>E :Errors<CR>
-
-" SnipMate
-" --------
-
-" Set snippet directory to allow disabling built-in snippets
-let g:snippets_dir="~/.vim/snippets/"
-
-" Set author in c) snippet
-let snips_author = 'Al'
 
 " YankRing
 " --------
@@ -446,20 +432,14 @@ let g:showmarks_enable=0
 " --------
 nmap <leader>R :RainbowParenthesesToggle<CR>
 
-" Gundo
-" -----
-nmap <silent> <F7> :GundoToggle<CR>
-
 " BufExplorer
 " -----------
 
-" Mapp F1 to BufExplorer in all modes
+" Map F1 to BufExplorer in all modes
 nnoremap <silent><F1> :BufExplorer<CR>
 
 " Disable help string
 let g:bufExplorerDefaultHelp=0
-
-
 
 " Zencoding
 " ---------
@@ -489,12 +469,6 @@ let g:ropevim_enable_shortcuts = 0
 " VimErl
 " ------
 let g:erlangCompletionDisplayDoc = 0
-
-" Autoclose
-" ---------
-
-" Set AutoClose Pairs
-let g:AutoClosePairs = {'"': '"', "{": "}", "(": ")", "[": "]"}
 
 " UltiSnips
 " ---------
