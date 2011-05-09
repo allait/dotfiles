@@ -1,7 +1,7 @@
 require 'erb'
 
 module Dot
-    All = FileList['*'].exclude('Rakefile', 'build', "*.[^ed]*")
+    All = FileList['*'].exclude('Rakefile', 'build', "*.[^e]*")
     Build = All.map {|x| '.' + x.sub('.erb','')}
     System = `uname -s`.strip.downcase
     Home = Build.map{|x| File.join(ENV['HOME'], x)}
@@ -64,6 +64,7 @@ module Dot
             File.open(home_path(file), 'w') do |render_file|
                 render_file.write ERB.new(File.read(file)).result(binding)
             end
+
         # Else copy base
         elsif parts.empty?
             puts "Symlinking file #{file}..."
@@ -232,6 +233,16 @@ task :macvim_build => [:build_dir] do
     puts "Building MacVim..."
     %x[cd #{macvim_path}/src; make]
     %x[open #{macvim_path}/src/MacVim/build/Release/]
+end
+
+desc "Install iTerm2 config"
+task :iterm_config do
+    if Dot::System == "darwin"
+        file = "com.googlecode.iterm2.plist"
+        puts "Copying file #{file}..."
+        %x[cp #{file} ~/Library/Preferences/]
+        %x[plutil -convert binary1 ~/Library/Preferences/#{file}]
+    end 
 end
 
 desc "Install common tools from homebrew packages"
