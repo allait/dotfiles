@@ -6,7 +6,7 @@ module Dot
     System = `uname -s`.strip.downcase
     Home = Build.map{|x| File.join(ENV['HOME'], x)}
     Dir = {
-        :build => File.join(pwd, 'build/', System),
+        :build => File.join(pwd, 'build/'),
         :old => File.join(ENV['HOME'], '.old/'),
         :home => ENV["HOME"],
         :bundle => File.join(pwd, 'vim/bundle/'),
@@ -38,7 +38,6 @@ module Dot
 
     def self.build_file(file)
         parts = file_parts(file).existing
-        # If directory, symlink to build/system
         if File.directory?(file) 
             if not File.exists?(home_path(file)):
                 puts "Symlinking directory .#{file}..."
@@ -195,11 +194,44 @@ task :cmdt_build do
     puts "Building command-t..."
     cmdt_path = File.join(Dot::Dir[:bundle], 'command_t/ruby/command-t/')
     %x[cd #{cmdt_path}; ruby extconf.rb]
-    # Default Makefile installs into site_ruby/ isntead of site_ruby/command-t, which
+    # Default Makefile installs into site_ruby/ instead of site_ruby/command-t, which
     # breaks the import.
     %x[sed -i '' "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
     puts %x[cd #{cmdt_path}; make && sudo make install && make realclean]
     
+end
+
+desc "Create build dir"
+task :build_dir do
+    if not File.exists?(Dot::Dir[:build])
+        puts "Creating build directory..."
+        %x[mkdir #{Dot::Dir[:build]}]
+    end
+end
+
+desc "Build latest macvim from github"
+task :macvim_build => [:build_dir] do
+    puts "Cloning macvim..."
+    macvim_path = File.join(Dot::Dir[:build], 'macvim')
+    if File.exists?(macvim_path)
+        %x[cd #{macvim_path}; git pull]
+    else
+        %x[git clone git://github.com/b4winckler/macvim.git  #{macvim_path}]
+    end
+    puts "Configuring macvim..."
+    %x[cd #{macvim_path}/src; ./configure --with-features=huge \
+          --enable-rubyinterp \
+          --enable-pythoninterp \
+          --enable-perlinterp \
+          --enable-cscope \
+          --with-python-config-dir=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config \
+          --with-macarchs=x86_64 \
+          --with-macsdk=10.6 ]
+    puts "Downloading icons..."
+    %x[cd #{macvim_path}/src/MacVim/icons; curl http://cloud.github.com/downloads/b4winckler/macvim/MacVim-docicon-pack.tbz | tar xj]
+    puts "Building MacVim..."
+    %x[cd #{macvim_path}/src; make]
+    %x[open #{macvim_path}/src/MacVim/build/Release/]
 end
 
 desc "Install common tools from homebrew packages"
