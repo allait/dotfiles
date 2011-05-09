@@ -260,5 +260,5 @@ task :npm_tools do
         "http-console", 
         "nodelint",
     ]
-    %x[npm install #{packages.join(" ")}]
+    %x[npm install -g #{packages.join(" ")}]
 end
