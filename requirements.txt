@@ -20,9 +20,6 @@ docutils
 Sphinx
 
 # Vim tools
-rope
-ropemode
-ropevim
 Pygments
 
 # Common packages
