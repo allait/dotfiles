@@ -1,5 +1,3 @@
-# Created by newuser for 4.3.10
-
 autoload colors; colors;
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
