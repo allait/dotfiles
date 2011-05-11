@@ -142,3 +142,6 @@
 [submodule "vim/bundle/rope-vim"]
 	path = vim/bundle/rope-vim
 	url = git://github.com/sontek/rope-vim.git
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
