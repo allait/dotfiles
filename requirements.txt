@@ -5,7 +5,7 @@ mercurial
 
 # Test tools
 nose
-rudolf
+rednose
 pyflakes
 pylint
 coverage
