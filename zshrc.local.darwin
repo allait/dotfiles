@@ -1,6 +1,8 @@
-pypath=/Library/Frameworks/Python.framework/Versions/2.7/
 export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+
+pypath=/Library/Frameworks/Python.framework/Versions/2.7/
 export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENV_USE_DISTRIBUTE=true
 source ${pypath}bin/virtualenvwrapper.sh
 export NODE_PATH=/usr/local/lib/node
 export ERL_LIBS=$HOME/erl_libs
