@@ -319,6 +319,8 @@ if has("gui_running")
     set guioptions-=R
     " Disable bottom scrollbar
     set guioptions-=b
+    " Set gui window size
+    set lines=80 columns=100
 else
     " Set 256-colors mode for console vim
     " set t_Co=256
