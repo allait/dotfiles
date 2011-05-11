@@ -218,6 +218,8 @@ task :macvim_build => [:build_dir] do
         %x[cd #{macvim_path}; git pull]
     else
         %x[git clone git://github.com/b4winckler/macvim.git  #{macvim_path}]
+        puts "Downloading icons..."
+        %x[cd #{macvim_path}/src/MacVim/icons; curl http://cloud.github.com/downloads/b4winckler/macvim/MacVim-docicon-pack.tbz | tar xj]
     end
     puts "Configuring macvim..."
     %x[cd #{macvim_path}/src; ./configure --with-features=huge \
@@ -228,8 +230,6 @@ task :macvim_build => [:build_dir] do
           --with-python-config-dir=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config \
           --with-macarchs=x86_64 \
           --with-macsdk=10.6 ]
-    puts "Downloading icons..."
-    %x[cd #{macvim_path}/src/MacVim/icons; curl http://cloud.github.com/downloads/b4winckler/macvim/MacVim-docicon-pack.tbz | tar xj]
     puts "Building MacVim..."
     %x[cd #{macvim_path}/src; make]
     %x[open #{macvim_path}/src/MacVim/build/Release/]
