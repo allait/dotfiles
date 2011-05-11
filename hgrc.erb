@@ -1,0 +1,23 @@
+[ui]
+username = <%= print("Name: "); STDOUT.flush; STDIN.gets.chomp %> <<%= print("Email: "); STDOUT.flush; STDIN.gets.chomp %>>
+editor = vim
+
+[extensions]
+color =
+mq =
+pager =
+graphlog =
+fetch =
+transplant =
+bookmarks =
+bisect =
+
+
+[pager]
+pager = LESS='FSRX' less
+
+[alias]
+l = log
+
+[diff]
+git = True
