@@ -333,6 +333,9 @@ endif
 
 " Pylint
 " ------
+
+autocmd FileType python compiler pylint
+
 " Disable onwrite pylint checks
 let g:pylint_onwrite = 0
 
