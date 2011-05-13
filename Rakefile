@@ -253,6 +253,7 @@ task :brew_tools do
         "ack",
         "ctags",
         "gnu-sed",
+        "par",
         "git",
         "irssi",
         "proctools",
@@ -260,6 +261,8 @@ task :brew_tools do
         "w3m"
     ]
     %x[brew install #{packages.join(" ")}]
+    puts "Linking packages..."
+    %x[brew link ctags]
     %x[brew cleanup]
 end
 
