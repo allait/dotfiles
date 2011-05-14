@@ -153,12 +153,6 @@ task :backup do
     end
 end
 
-desc "Setup common python packages"
-task :pip_tools do
-    %x[sudo easy_install pip]
-    %x[sudo pip install -U -r requirements.txt]
-end
-
 desc "Remove dotfiles from HOME dir"
 task :cleanup => [:backup, :clean_tmp] do
     Dot::All.each do |df|
@@ -179,7 +173,7 @@ task :cleanup => [:backup, :clean_tmp] do
 end
         
 desc "Execute full build for current machine"
-task :build => [:up, :update, :cmdt_build] do
+task :build => [:up, :update, :build_cmdt] do
 end
 
 desc "Setup vimwiki link"
@@ -191,7 +185,7 @@ task :wiki do
 end
 
 desc "Build command-t ruby extension"
-task :cmdt_build do
+task :build_cmdt do
     puts "Building command-t..."
     cmdt_path = File.join(Dot::Dir[:bundle], 'command_t/ruby/command-t/')
     %x[cd #{cmdt_path}; ruby extconf.rb]
@@ -203,7 +197,7 @@ task :cmdt_build do
 end
 
 desc "Create build dir"
-task :build_dir do
+task :create_build_dir do
     if not File.exists?(Dot::Dir[:build])
         puts "Creating build directory..."
         %x[mkdir #{Dot::Dir[:build]}]
@@ -211,7 +205,7 @@ task :build_dir do
 end
 
 desc "Build latest macvim from github"
-task :macvim_build => [:build_dir] do
+task :install_macvim => [:build_dir] do
     puts "Cloning macvim..."
     macvim_path = File.join(Dot::Dir[:build], 'macvim')
     if File.exists?(macvim_path)
@@ -227,16 +221,17 @@ task :macvim_build => [:build_dir] do
           --enable-pythoninterp \
           --enable-perlinterp \
           --enable-cscope \
-          --with-python-config-dir=/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config \
           --with-macarchs=x86_64 \
           --with-macsdk=10.6 ]
     puts "Building MacVim..."
     %x[cd #{macvim_path}/src; make]
+    puts "Copying mvim script..."
+    %x[cp #{macvim_path}/src/MacVim/mvim /usr/local/bin/]
     %x[open #{macvim_path}/src/MacVim/build/Release/]
 end
 
 desc "Install iTerm2 config"
-task :iterm_config do
+task :setup_iterm_config do
     if Dot::System == "darwin"
         file = "com.googlecode.iterm2.plist"
         puts "Copying file #{file}..."
@@ -245,34 +240,91 @@ task :iterm_config do
     end 
 end
 
+desc "Setup common python packages"
+task :install_pip_tools do
+    %x[pip install -U -r requirements.txt]
+end
+
 desc "Install common tools from homebrew packages"
-task :brew_tools do
+task :install_brew_tools do
     puts "Installing Homebrew packages..."
-    # TODO fill this from installed packages
     packages = [
+        "git",
         "ack",
         "ctags",
         "gnu-sed",
         "par",
-        "git",
         "irssi",
         "proctools",
         "wget",
-        "w3m"
+        "w3m",
     ]
-    %x[brew install #{packages.join(" ")}]
-    puts "Linking packages..."
+    packages.each do |pack|
+        puts "Installing #{pack}..."
+        %x[brew install #{pack}]
+    end
+    puts "Linking..."
     %x[brew link ctags]
+    puts "Cleaning up..."
     %x[brew cleanup]
 end
 
 desc "Install common tools from npm packages"
-task :npm_tools do
+task :install_npm_tools do
     puts "Installing npm packages..."
-    # TODO fill this from installed packages
     packages = [
         "http-console", 
         "nodelint",
+        "coffee-script"
     ]
-    %x[npm install -g #{packages.join(" ")}]
+    packages.each do |pack|
+        puts "Installing #{pack}..."
+        %x[npm install -g #{pack}]
+    end
+end
+
+desc "Install common gems"
+task :install_gems do
+    packages = [
+        "cheat",
+        "facter"
+    ]
+    packages.each do |pack|
+        puts "Installing #{pack}..."
+        %x[gem install #{pack}]
+    end
+end
+
+desc "Install python interpreter"
+task :install_python do
+    puts "Installing python..."
+    puts %x[brew install python --framework]
+    puts "Linking python framework..."
+    puts %x[sudo ln -is $(find /usr/local/Cellar/python -type l -name Current) /Library/Frameworks/Python.framework/Versions]
+    puts "Installing pip..."
+    puts %x[/usr/local/share/python/easy_install pip]
+    puts "Upgrading distribute..."
+    puts %x[/usr/local/share/python/pip install --upgrade distribute]
+    puts "Cleaning up..."
+    %x[brew cleanup]
+end
+
+desc "Install rvm and ruby"
+task :install_ruby do
+    puts "Installing rvm..."
+    puts %x[curl -sk https://rvm.beginrescueend.com/install/rvm | bash]
+    %x[source ~/.rvm/scripts/rvm]
+    puts "installing ruby..."
+    puts %x[rvm install 1.8.7]
+    puts %x[rvm use --default 1.8.7]
+end
+
+desc "Install node.js and npm"
+task :install_node do
+    puts "Installing node..."
+    puts %x[brew install node]
+    puts "Installing npm..."
+    puts %x[curl http://npmjs.org/install.sh | sh]
+    puts "Cleaning up..."
+    %x[brew cleanup]
 end
