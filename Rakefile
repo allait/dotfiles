@@ -205,7 +205,7 @@ task :create_build_dir do
 end
 
 desc "Build latest macvim from github"
-task :install_macvim => [:build_dir] do
+task :install_macvim => [:create_build_dir] do
     puts "Cloning macvim..."
     macvim_path = File.join(Dot::Dir[:build], 'macvim')
     if File.exists?(macvim_path)
