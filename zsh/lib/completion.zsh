@@ -18,8 +18,6 @@ setopt chase_dots
 
 # Make completion list smaller
 setopt list_packed
-# Recognize exact matches
-setopt rec_exact
 
 # Show menu on second TAB
 setopt auto_menu
@@ -39,13 +37,12 @@ alias mv='nocorrect mv'
 alias mkdir='nocorrect mkdir'
 
 # Generic --help arguments completion for following commands
+compdef _gnu_generic curl
 compdef _gnu_generic nosetests
 compdef _gnu_generic mkvirtualenv
-compdef _gnu_generic curl
 compdef _gnu_generic ack
 compdef _gnu_generic fab
 compdef _gnu_generic csi
-compdef _gnu_generic R
 compdef _gnu_generic psql
 compdef _gnu_generic createdb
 compdef _gnu_generic dropdb
