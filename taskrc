@@ -1,0 +1,15 @@
+# Taskwarrior program configuration file.
+
+# Files
+data.location=~/vimwiki/tasks
+edit.verbose=no
+
+# Date
+weekstart=Monday
+dateformat=d/m/Y
+dateformat.annotation=d/m/Y
+dateformat.report=d/m/Y
+
+# Color theme
+include /usr/local/share/doc/task/rc/dark-256.theme
+
