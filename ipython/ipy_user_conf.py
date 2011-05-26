@@ -22,7 +22,7 @@ def main():
 def import_all(modules):
     """ Usage: import_all("os sys") """
     for m in modules.split():
-        ip.ex("from %s import *" % m)
+        ip.ex("import %s" % m)
 
 def execf(fname):
     """ Execute a file in user namespace """
