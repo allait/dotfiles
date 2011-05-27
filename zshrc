@@ -24,7 +24,7 @@ export EDITOR="vim"
 export PAGER=less
 
 # Setup default less options
-export LESS="-eirX"
+export LESS="-eiRX"
 
 # Get emacs keybindings
 bindkey -e
