@@ -73,9 +73,6 @@
 [submodule "vim/bundle/django-template"]
 	path = vim/bundle/django-template
 	url = git://github.com/vim-scripts/django.vim.git
-[submodule "vim/bundle/bufexplorer"]
-	path = vim/bundle/bufexplorer
-	url = git://github.com/vim-scripts/bufexplorer.zip.git
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
