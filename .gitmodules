@@ -67,9 +67,6 @@
 [submodule "vim/bundle/ragtag"]
 	path = vim/bundle/ragtag
 	url = git://github.com/tpope/vim-ragtag.git
-[submodule "vim/bundle/vimwiki"]
-	path = vim/bundle/vimwiki
-	url = git://github.com/vim-scripts/vimwiki.git
 [submodule "vim/bundle/django-template"]
 	path = vim/bundle/django-template
 	url = git://github.com/vim-scripts/django.vim.git
@@ -148,3 +145,6 @@
 [submodule "vim/bundle/vim-virtualenv"]
 	path = vim/bundle/vim-virtualenv
 	url = git://github.com/jmcantrell/vim-virtualenv.git
+[submodule "vim/bundle/vimwiki"]
+	path = vim/bundle/vimwiki
+	url = git://github.com/allait/vimwiki.git
