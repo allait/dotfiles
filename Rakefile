@@ -5,19 +5,19 @@ module Dot
     Build = All.map {|x| '.' + x.sub('.erb','')}
     System = `uname -s`.strip.downcase
     Home = Build.map{|x| File.join(ENV['HOME'], x)}
-    Dir = {
-        :build => File.join(pwd, 'build/'),
+    Dirs = {
+        :build => File.join(Dir.pwd, 'build/'),
         :old => File.join(ENV['HOME'], '.old/'),
         :home => ENV["HOME"],
-        :bundle => File.join(pwd, 'vim/bundle/'),
+        :bundle => File.join(Dir.pwd, 'vim/bundle/'),
     }
 
     def self.home_path(file)
-        File.join(Dir[:home], ".#{file.sub('.erb','')}")
+        File.join(Dirs[:home], ".#{file.sub('.erb','')}")
     end
 
     def self.old_path(file)
-        File.join(Dir[:old], ".#{file.sub('.erb','')}")
+        File.join(Dirs[:old], ".#{file.sub('.erb','')}")
     end
 
     def self.file_parts(file)
@@ -41,7 +41,7 @@ module Dot
         if File.directory?(file) 
             if not File.exists?(home_path(file)):
                 puts "Symlinking directory .#{file}..."
-                %x[ln -s #{File.join(pwd, file)} #{home_path(file)}]
+                %x[ln -s #{File.join(Dir.pwd, file)} #{home_path(file)}]
             else
                 puts green("#{file} symlink found!")
             end
@@ -52,7 +52,7 @@ module Dot
             return
         end
         # If not changed, leave as is
-        if uptodate?(home_path(file), [parts, file].flatten)
+        if FileUtils.uptodate?(home_path(file), [parts, file].flatten)
             puts green(".#{file} is up-to-date!")
             return
         end
@@ -68,7 +68,7 @@ module Dot
         # Else copy base
         elsif parts.empty?
             puts "Symlinking file #{file}..."
-            %x[ln -s #{File.join(pwd, file)} #{home_path(file)}]
+            %x[ln -s #{File.join(Dir.pwd, file)} #{home_path(file)}]
         else
             puts "Copying file #{file}..."
             %x[cp #{file} #{home_path(file)}]
@@ -90,36 +90,36 @@ end
 
 desc "Clean tmp backup and swap files"
 task :clean_tmp do
-    if File.exists?(File.join(Dot::Dir[:home], '/tmp/swap')):
+    if File.exists?(File.join(Dot::Dirs[:home], '/tmp/swap')):
         puts "Deleting swap..."
-        %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/swap')}]
+        %x[rm -rf #{File.join(Dot::Dirs[:home], '/tmp/swap')}]
     end
-    if File.exists?(File.join(Dot::Dir[:home], '/tmp/backup')):
+    if File.exists?(File.join(Dot::Dirs[:home], '/tmp/backup')):
         puts "Deleting backup..."
-        %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/backup')}]
+        %x[rm -rf #{File.join(Dot::Dirs[:home], '/tmp/backup')}]
     end
-    if File.exists?(File.join(Dot::Dir[:home], '/tmp/undo')):
+    if File.exists?(File.join(Dot::Dirs[:home], '/tmp/undo')):
         puts "Deleting undo..."
-        %x[rm -rf #{File.join(Dot::Dir[:home], '/tmp/undo')}]
+        %x[rm -rf #{File.join(Dot::Dirs[:home], '/tmp/undo')}]
     end
     puts "Creating tmp dir..."
-    %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/swap')}]
-    %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/undo')}]
-    %x[mkdir -p #{File.join(Dot::Dir[:home], '/tmp/backup')}]
+    %x[mkdir -p #{File.join(Dot::Dirs[:home], '/tmp/swap')}]
+    %x[mkdir -p #{File.join(Dot::Dirs[:home], '/tmp/undo')}]
+    %x[mkdir -p #{File.join(Dot::Dirs[:home], '/tmp/backup')}]
 end
 
 desc "Remove symlinks and restore files from .old"
 task :uninstall => [:cleanup] do
-    if File.exists?(Dot::Dir[:old])
+    if File.exists?(Dot::Dirs[:old])
         puts "Restoring backup..."
         Dot::All.each do |df|
             if File.exist?(Dot.old_path(df))
-                %x[mv #{Dot.old_path(df)} #{Dot::Dir[:home]}]
+                %x[mv #{Dot.old_path(df)} #{Dot::Dirs[:home]}]
                 puts "Restored #{Dot.home_path(df)}!"
             end
         end
         puts Dot.red("Deleting backup dir...")
-        rm_r Dot::Dir[:old]
+        rm_r Dot::Dirs[:old]
     end
 end
 
@@ -141,12 +141,12 @@ end
 
 desc "Backup existing config to .old folder"
 task :backup do
-    if not File.exists?(Dot::Dir[:old])
-        puts "Starting backup to #{Dot::Dir[:old]}..."
-        %x[mkdir #{Dot::Dir[:old]}]
+    if not File.exists?(Dot::Dirs[:old])
+        puts "Starting backup to #{Dot::Dirs[:old]}..."
+        %x[mkdir #{Dot::Dirs[:old]}]
         Dot::All.each do |df|
             if File.exist?(Dot.home_path(df))
-                %x[cp -r #{Dot.home_path(df)} #{Dot::Dir[:old]}]
+                %x[cp -r #{Dot.home_path(df)} #{Dot::Dirs[:old]}]
                 puts "Copied #{df} to backup folder"
             end
         end
@@ -162,13 +162,13 @@ task :cleanup => [:backup, :clean_tmp] do
         end
     end
     # Remove vimwiki links and html dir
-    if File.exists?(File.join(Dot::Dir[:home], 'vimwiki_html'))
+    if File.exists?(File.join(Dot::Dirs[:home], 'vimwiki_html'))
         puts Dot.red("Deleting wiki rendered html folder...")
-        %x[rm -r #{File.join(Dot::Dir[:home], 'vimwiki_html')}]
+        %x[rm -r #{File.join(Dot::Dirs[:home], 'vimwiki_html')}]
     end
-    if File.exists?(File.join(Dot::Dir[:home], 'vimwiki'))
+    if File.exists?(File.join(Dot::Dirs[:home], 'vimwiki'))
         puts Dot.red("Deleting wiki symlink...")
-        %x[rm #{File.join(Dot::Dir[:home], 'vimwiki')}] 
+        %x[rm #{File.join(Dot::Dirs[:home], 'vimwiki')}] 
     end
 end
         
@@ -178,16 +178,16 @@ end
 
 desc "Setup vimwiki link"
 task :wiki do
-    if File.exists?(File.join(pwd,'..','wiki'))
+    if File.exists?(File.join(Dir.pwd,'..','wiki'))
         puts "Setting up vimwiki..."
-        %x[ln -s #{File.join(pwd, '..', 'wiki')} #{Dot::Dir[:home] + '/vimwiki'}]
+        %x[ln -s #{File.join(Dir.pwd, '..', 'wiki')} #{Dot::Dirs[:home] + '/vimwiki'}]
     end
 end
 
 desc "Build command-t ruby extension"
 task :build_cmdt do
     puts "Building command-t..."
-    cmdt_path = File.join(Dot::Dir[:bundle], 'command_t/ruby/command-t/')
+    cmdt_path = File.join(Dot::Dirs[:bundle], 'command_t/ruby/command-t/')
     %x[cd #{cmdt_path}; ruby extconf.rb]
     # Default Makefile installs into site_ruby/ instead of site_ruby/command-t, which
     # breaks the import.
@@ -198,16 +198,16 @@ end
 
 desc "Create build dir"
 task :create_build_dir do
-    if not File.exists?(Dot::Dir[:build])
+    if not File.exists?(Dot::Dirs[:build])
         puts "Creating build directory..."
-        %x[mkdir #{Dot::Dir[:build]}]
+        %x[mkdir #{Dot::Dirs[:build]}]
     end
 end
 
 desc "Build latest macvim from github"
 task :install_macvim => [:create_build_dir] do
     puts "Cloning macvim..."
-    macvim_path = File.join(Dot::Dir[:build], 'macvim')
+    macvim_path = File.join(Dot::Dirs[:build], 'macvim')
     if File.exists?(macvim_path)
         %x[cd #{macvim_path}; git pull]
     else
