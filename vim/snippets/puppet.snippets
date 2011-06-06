@@ -1,3 +1,29 @@
+# Conditionals
+
+snippet ?
+${1:$var} = ${2:$operatingsystem}? {
+	${3: linux} => ${4: val},$0
+}
+endsnippet
+
+snippet case
+case ${1:$operatingsystem} {
+	${2:'linux'}: {${3:include linux}}$0
+}
+endsnippet
+
+snippet if
+if ${1:$var > 0} {
+	${2:# code}
+}
+endsnippet
+
+snippet else
+else {
+	${1:# code}
+}
+endsnippet
+
 # Resource collections
 
 snippet class
@@ -10,11 +36,12 @@ snippet stage
 stage { "${1:stagename}": ${2:before|require} => Stage[${3:main}]}$0
 endsnippet
 
-snippet def
+snippet define
 define ${1:typename}(${2:$path="/var/$name"}) {
 	${3:# code}
 }
 endsnippet
+
 # Nodes
 
 snippet node
@@ -31,7 +58,7 @@ file { "${1:filename}":
 	ensure => ${3:file},
 	owner => ${4:root},
 	group => ${5:root},
-	mode => ${6:0755};
+	mode => ${6:0755},
 }
 endsnippet
 
@@ -46,13 +73,13 @@ endsnippet
 
 snippet encap
 encap { "${1:package_name}":
-	ensure => ${2:package_version};
+	ensure => ${2:package_version},
 }
 endsnippet
 
 snippet package
 package { "${1:package_name}":
-	ensure => ${2:package_version};
+	ensure => ${2:package_version},
 }
 endsnippet
 
@@ -61,7 +88,7 @@ tidy { "${1:directory}":
 	age => ${2:0},
 	matches => [ "${3:pattern}" ],
 	recurse => ${4:true},
-	rmdirs => ${5:true};
+	rmdirs => ${5:true},
 }
 endsnippet
 
@@ -70,6 +97,6 @@ cron { "${1:name}":
 	command => "${2:command}",
 	hour => ${3:hour},
 	minute => ${4:minute},
-	day => ${5:day};
+	day => ${5:day},
 }
 endsnippet
