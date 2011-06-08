@@ -1,7 +1,7 @@
 # gitconfig
 [user]
-    name = <%= print("Name: "); STDOUT.flush; STDIN.gets.chomp %>
-    email = <%= print("Email: "); STDOUT.flush; STDIN.gets.chomp %>
+    name = <%= `cat ~/tmp/info/name`.chomp %>
+    email = <%= `cat ~/tmp/info/email`.chomp %>
 
 [http]
     sslverify = false

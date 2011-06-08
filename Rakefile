@@ -108,6 +108,20 @@ task :clean_tmp do
     %x[mkdir -p #{File.join(Dot::Dirs[:home], '/tmp/backup')}]
 end
 
+desc "Create info files"
+task :create_info do
+    if not File.exists?(File.join(Dot::Dirs[:home], '/tmp/info')):
+        %x[mkdir -p #{File.join(Dot::Dirs[:home], '/tmp/info')}]
+        print "Name: " 
+        name = STDIN.gets.chomp
+        %x[echo '#{name}' > ~/tmp/info/name]
+        print "Email: " 
+        email = STDIN.gets.chomp
+        %x[echo '#{email}' > ~/tmp/info/email]
+    end
+end
+    
+
 desc "Remove symlinks and restore files from .old"
 task :uninstall => [:cleanup] do
     if File.exists?(Dot::Dirs[:old])
@@ -125,7 +139,7 @@ end
 
 
 desc "Quick dotfile rebuild"
-task :up do
+task :up => [:create_info] do
     Dot::All.each do |df|
         Dot.build_file df
     end
@@ -169,6 +183,11 @@ task :cleanup => [:backup, :clean_tmp] do
     if File.exists?(File.join(Dot::Dirs[:home], 'vimwiki'))
         puts Dot.red("Deleting wiki symlink...")
         %x[rm #{File.join(Dot::Dirs[:home], 'vimwiki')}] 
+    end
+    # Remove info files
+    if File.exists?(File.join(Dot::Dirs[:home], 'tmp/info'))
+        puts Dot.red("Deleting info files...") 
+        %x[rm -rf #{File.join(Dot::Dirs[:home], 'tmp/info')}] 
     end
 end
         

@@ -1,5 +1,5 @@
 [ui]
-username = <%= print("Name: "); STDOUT.flush; STDIN.gets.chomp %> <<%= print("Email: "); STDOUT.flush; STDIN.gets.chomp %>>
+username = <%= `cat ~/tmp/info/name`.chomp %> <<%= `cat ~/tmp/info/email`.chomp %>>
 
 [extensions]
 color =
