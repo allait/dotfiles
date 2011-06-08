@@ -1,0 +1,212 @@
+" Vimrc for remote servers. No plugins.
+
+" VIM global options
+" ==================
+
+" No vim compatibility
+set nocompatible
+
+" No bell sounds
+set noerrorbells
+set visualbell
+set vb t_vb=""
+
+" Enable xterm mouse support in all modes
+set mouse=a
+
+" Disable modeline for security reasons
+set nomodeline
+
+" Code and syntax options
+" =======================
+
+" Set syntax highlighting
+syntax on
+
+" Limit highlighting to x columns to increase speed with long lines
+set synmaxcol=2048
+
+" Python full highliting
+let python_highlight_all=1
+
+
+" History and swap options
+" ========================
+
+"Set maximum undo levels
+set undolevels=1000
+
+" Disable backups
+set nobackup
+set noswapfile
+
+" File options
+" ===================
+
+" Set default file encoding to UTF-8
+set encoding=utf-8
+
+" When doing tab completion, give the following files lower priority
+set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
+
+" Use UNIX (\n) line endings for new files
+set fileformat=unix
+
+" Enable filetype plugin
+filetype plugin on
+
+" Indent depending on filetype
+filetype indent on
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Viewport behavior options (buffers and windows)
+" =======================
+
+" Do not warn when switching from unsaved buffer
+set hidden
+" Autoreload file when changed outside of vim
+set autoread
+
+" Search Options
+" ==============
+
+" Incremental search
+set incsearch
+
+" Highlight search results
+set hlsearch
+
+" Case-insensitive search
+set ignorecase
+
+" Case sensitive if search string contains uppercase letters
+set smartcase
+
+" Formatting options
+" ==================
+
+" Configure autowrapping and auto comment leader insertion
+set formatoptions=croql
+
+" General view options
+" ====================
+
+" Show line numbers
+set nu
+
+" Highlight current line
+set cursorline
+
+" Show invisible symbols
+set list
+set listchars=tab:▸\ ",eol:¬
+
+" Status line options
+" ===================
+
+" Always show statusline
+set laststatus=2
+
+" Completion options
+" =======================
+
+" Filetype-specific omnicompletion
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" Indentation and tab options
+" ===========================
+
+" Sane default tabstop:
+set tabstop=4
+
+" Always convert tabs to spaces
+set expandtab
+
+" What to use for an >> and << indent.
+set shiftwidth=4
+
+" Set soft tab length
+set softtabstop=4
+
+" Keep indentation level from previous line
+set autoindent
+
+" Filetype-specific indentation rules
+
+" Where filesize matters: js, html and css: 2-space indents
+au BufRead,BufNewFile *.html,*.css,*.js setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
+" Number of spaces that a pre-existing tab is equal to
+au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
+
+" Specific highlight options
+" ==========================
+
+" Highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Folding options
+" ===============
+
+" Folding based on indentation: 
+set foldmethod=indent
+
+" Make folds open by default
+set nofoldenable
+
+
+" General keymappings
+" ===========================
+
+" Use <Cr> as alternative mapleader
+nmap <CR> <leader>
+
+" Reset highlighting on Space
+nmap <silent><Space> :nohlsearch<Bar>:echo<CR>
+
+" Unbind <C-Q> from "visual block"
+noremap <C-q> <Nop>
+
+" Use <C-q> in GUI and <C-c> in shell as prefix for personal commands
+nmap <C-c> <C-q>
+
+" Set backspace behavior
+set backspace=indent,eol,start
+
+" Clean whitespace
+map <C-q>w mw:%s/\s\+$//<cr>:let @/=''<CR>`w
+
+" Call par reformater on paragraph with textwidth 100
+map <C-q>f {v}!par w100<CR>
+
+" Call par reformater on selection with textwidth 100
+vmap <C-q>f !par w100<CR>
+
+" No more arrows
+map <up> <nop>
+map <left> <nop>
+map <right> <nop>
+map <down> <nop>
+imap <up> <nop>
+imap <left> <nop>
+imap <right> <nop>
+imap <down> <nop>
+
+" Color options
+" =============
+
+" Set 256-colors mode for console vim
+" set t_Co=256
+colorscheme default
