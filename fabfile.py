@@ -1,5 +1,5 @@
 import os
-from StringIO import StringIO
+import StringIO
 
 from fabric.api import local, env, run, put
 from fabric.context_managers import cd
@@ -22,6 +22,10 @@ def install_remote_dotfiles():
     put("zshrc.remote", ".zshrc")
     put("vimrc.remote", ".vimrc")
     put("screenrc", ".screenrc")
+    gitconfig = local("erb gitconfig.erb", capture=True)
+    put(StringIO.StringIO(gitconfig), ".gitconfig")
+    hgrc = local("erb hgrc.erb", capture=True)
+    put(StringIO.StringIO(hgrc), ".hgrc")
 
 # Hosts
 
