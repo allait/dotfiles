@@ -5,3 +5,4 @@ build
 *.private
 *.elc
 *~
+*.pyc
