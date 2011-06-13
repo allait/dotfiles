@@ -130,9 +130,6 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = git://github.com/allait/ultisnips.git
-[submodule "vim/bundle/pairtools"]
-	path = vim/bundle/pairtools
-	url = git://github.com/vim-scripts/PairTools.git
 [submodule "vim/bundle/rope-vim"]
 	path = vim/bundle/rope-vim
 	url = git://github.com/sontek/rope-vim.git
@@ -148,3 +145,6 @@
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
 	url = git://github.com/allait/vimwiki.git
+[submodule "vim/bundle/pairtools"]
+	path = vim/bundle/pairtools
+	url = git://github.com/allait/vim-PairTools.git
