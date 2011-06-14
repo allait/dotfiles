@@ -319,6 +319,7 @@ task :install_python do
     puts "Installing python..."
     puts %x[brew install python --framework]
     puts "Linking python framework..."
+    puts %x[sudo rm /Library/Frameworks/Python.framework/Versions]
     puts %x[sudo ln -is $(find /usr/local/Cellar/python -type l -name Current) /Library/Frameworks/Python.framework/Versions]
     puts "Installing pip..."
     puts %x[/usr/local/share/python/easy_install pip]
