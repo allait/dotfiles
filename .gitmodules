@@ -148,3 +148,6 @@
 [submodule "vim/bundle/pairtools"]
 	path = vim/bundle/pairtools
 	url = git://github.com/allait/vim-PairTools.git
+[submodule "vim/bundle/Rename"]
+	path = vim/bundle/Rename
+	url = git://github.com/vim-scripts/Rename.git
