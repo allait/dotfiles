@@ -11,20 +11,20 @@ setopt prompt_subst
 # Load vcs_info
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable hg git
-zstyle ':vcs_info:*' formats '@%F{yellow}%b%F{reset}'
+zstyle ':vcs_info:*' formats '@%F{yellow}%b%f'
 
 # Execute function before every command
 function precmd () {
     vcs_info
 }
 
-VCS_PROMPT_UNTRACKED="%F{yellow}●%F{reset}"
-VCS_PROMPT_UNSTAGED="%F{red}●%F{reset}"
-VCS_PROMPT_UNCOMMITED="%F{yellow}●%F{reset}"
-VCS_PROMPT_CLEAN="%F{green}●%F{reset"
+VCS_PROMPT_UNTRACKED="%F{blue}● %f"
+VCS_PROMPT_UNSTAGED="%B%F{red}● %b%f"
+VCS_PROMPT_UNCOMMITED="%F{red}● %f"
+VCS_PROMPT_CLEAN="%F{green}● %f"
 
-RPROMPT='$(vcs_prompt_info) [%T]'
-PROMPT='%F{blue}$(prompt_pwd)%F{reset}${vcs_info_msg_0_} %F{yellow}%%%F{reset} '
+RPROMPT='$(vcs_prompt_info)[%T]'
+PROMPT='%F{blue}$(prompt_pwd)%f${vcs_info_msg_0_} %F{yellow}%%%f '
 
 # Vi mode indicators
 VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
