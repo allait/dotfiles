@@ -23,8 +23,8 @@ VCS_PROMPT_UNSTAGED="%F{red}●%F{reset}"
 VCS_PROMPT_UNCOMMITED="%F{yellow}●%F{reset}"
 VCS_PROMPT_CLEAN="%F{green}●%F{reset"
 
-RPROMPT='%F{black}%m%F{reset} [%T]'
-PROMPT='%F{blue}$(prompt_pwd)%F{reset}${vcs_info_msg_0_}$(vcs_prompt_info) %F{yellow}%%%F{reset} '
+RPROMPT='$(vcs_prompt_info) [%T]'
+PROMPT='%F{blue}$(prompt_pwd)%F{reset}${vcs_info_msg_0_} %F{yellow}%%%F{reset} '
 
 # Vi mode indicators
 VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
