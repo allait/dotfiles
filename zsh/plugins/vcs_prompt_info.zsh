@@ -13,11 +13,13 @@ git_parse_status() {
     if [[ -z $vcs_status ]]; then
         echo "$VCS_PROMPT_CLEAN"
         return
-    elif [[ ! $vcs_status =~ '^\?\?' ]]; then
-        echo "$VCS_PROMPT_UNSTAGED"
-    else
-        echo "$VCS_PROMPT_UNTRACKED"
     fi
+    vcs_files=("${(f)vcs_status}")
+    STATUS=""
+    if [[ -n ${vcs_files[(r)\?\?*]} ]] STATUS="$VCS_PROMPT_UNTRACKED$STATUS"
+    if [[ -n ${vcs_files[(r)[MADRCU][MADRCU ]*]} ]] STATUS="$VCS_PROMPT_UNCOMMITED$STATUS"
+    if [[ -n ${vcs_files[(r)[MADRCU ][MADRCU]*]} ]] STATUS="$VCS_PROMPT_UNSTAGED$STATUS"
+    echo $STATUS
 }
 
 hg_parse_status() {
@@ -25,9 +27,11 @@ hg_parse_status() {
     if [[ -z $vcs_status ]]; then
         echo "$VCS_PROMPT_CLEAN"
         return
-    elif [[ ! $vcs_status =~ '^\?' ]]; then
-        echo "$VCS_PROMPT_UNSTAGED"
-    else
-        echo "$VCS_PROMPT_UNTRACKED"
     fi
+    vcs_files=("${(f)vcs_status}")
+    STATUS=""
+    if [[ -n ${vcs_files[(r)\? *]} ]] STATUS="$VCS_PROMPT_UNTRACKED$STATUS"
+    if [[ -n ${vcs_files[(r)[MARC] *]} ]] STATUS="$VCS_PROMPT_UNCOMMITED$STATUS"
+    if [[ -n ${vcs_files[(r)! *]} ]] STATUS="$VCS_PROMPT_UNSTAGED$STATUS"
+    echo $STATUS
 }
