@@ -1,4 +1,4 @@
-#compdef curl -
+#compdef curl
 
 _arguments : \
     '(-# --progress-bar)'{-#,--progress-bar}'[Display transfer progress as a progress bar]' \
@@ -134,3 +134,4 @@ _arguments : \
     --trace-ascii'[Like --trace but without the hex output]' \
     --trace-time'[Add time stamps to trace/verbose output]' \
     --url'[Set URL to work with]' \
+    '*':'URL': \
