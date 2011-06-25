@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 vcs_prompt_info() {
-    if [[ -d ".git" ]]; then
+    if [[ -d ".git" ]] || [[ -n $(git symbolic-ref HEAD 2> /dev/null) ]]; then
         git_parse_status
-    elif [[ -d ".hg" ]]; then
+    elif [[ -d ".hg" ]] || [[ -n $(hg branch 2> /dev/null) ]]; then
         hg_parse_status
     fi
 }
