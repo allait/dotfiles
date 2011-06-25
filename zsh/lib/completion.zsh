@@ -42,11 +42,15 @@ compdef _gnu_generic mkvirtualenv
 compdef _gnu_generic ack
 compdef _gnu_generic fab
 compdef _gnu_generic csi
+compdef _gnu_generic clang
 compdef _gnu_generic psql
 compdef _gnu_generic createdb
 compdef _gnu_generic dropdb
 compdef _gnu_generic pg_dump
 compdef _gnu_generic pg_config
+
+# Complete MacVim alias and mvim
+compdef _vim Vim mvim
 
 # Ignore completion functions I don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
