@@ -449,11 +449,8 @@ let g:bufExplorerDefaultHelp=0
 " Zencoding
 " ---------
 
-"Set leader key to a more mnemonic Ctrl+z (as in 'zen')
-let g:user_zen_leader_key = '<C-z>'
-
-" Set <C-z>z shortcut(does the same thing as <c-z>,
-imap <C-z>z <C-z>,
+" Set <C-z> for insert mode only
+imap <C-z> <C-y>
 
 " VCScommand
 " ----------
