@@ -8,7 +8,7 @@ setopt autocd
 # Show list on ambiguous completion
 setopt auto_list
 # Add trailing slash to directory names
-# setopt auto_param_slash
+setopt auto_param_slash
 
 # pushd on cd
 setopt auto_pushd
