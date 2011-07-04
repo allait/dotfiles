@@ -14,6 +14,12 @@ bindkey "^[[3~" delete-char
 PROMPT='%{$fg[red]%}%m%{$reset_color%} %{$fg[blue]%}%c%{$reset_color%} %{$fg[yellow]%}%%%{$reset_color%} '
 RPROMPT='[%T]'
 
+export WORKON_HOME=$HOME/.virtualenvs/
+export VIRTUALENV_USE_DISTRIBUTE=true
+if $(which virtualenvwrapper.sh 2>/dev/null); then
+    source $(which virtualenvwrapper.sh)
+fi
+
 # Unicode environment
 # export LANG=en_US.utf8
 # export LC_CTYPE=en_US.UTF-8
