@@ -254,6 +254,9 @@ nmap <CR> <leader>
 " Reset highlighting on Space
 nmap <silent><Space> :nohlsearch<Bar>:echo<CR>
 
+" Use <M-CR> to continue current line
+imap <M-CR> \<CR>
+
 " Unbind <C-Q> from "visual block"
 noremap <C-q> <Nop>
 
