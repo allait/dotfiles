@@ -326,6 +326,13 @@ highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
 match BadWhitespace /\s\+$/
+" Highlight whitespace on open buffer
+autocmd BufWinEnter * match BadWhitespace /\s\+$/
+" Don't highlight while typing
+autocmd InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match BadWhitespace /\s\+$/
+" Clear match when leaving buffer to avoid memory leaks
+autocmd BufWinLeave * call clearmatches()
 
 " Treat html files as Django templates. Breaks some stuff
 " autocmd FileType html set ft=html.htmldjango
