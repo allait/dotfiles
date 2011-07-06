@@ -221,20 +221,6 @@ au BufRead,BufNewFile *.html,*.css,*.js setlocal shiftwidth=2 softtabstop=2 tabs
 " Number of spaces that a pre-existing tab is equal to
 au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
 
-" Specific highlight options
-" ==========================
-
-" Highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
-
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Treat html files as Django templates. Breaks some stuff
-" autocmd FileType html set ft=html.htmldjango
-
 " Folding options
 " ===============
 
@@ -330,6 +316,19 @@ else
     colorscheme default
 endif
 
+" Specific highlight options
+" ==========================
+
+" Highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+match BadWhitespace /\s\+$/
+
+" Treat html files as Django templates. Breaks some stuff
+" autocmd FileType html set ft=html.htmldjango
 
 " Plugin-specific settings
 " ===============
