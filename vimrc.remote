@@ -146,21 +146,10 @@ au BufRead,BufNewFile *.html,*.css,*.js setlocal shiftwidth=2 softtabstop=2 tabs
 " Number of spaces that a pre-existing tab is equal to
 au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
 
-" Specific highlight options
-" ==========================
-
-" Highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
-
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 " Folding options
 " ===============
 
-" Folding based on indentation: 
+" Folding based on indentation:
 set foldmethod=indent
 
 " Make folds open by default
@@ -210,3 +199,14 @@ imap <down> <nop>
 " Set 256-colors mode for console vim
 " set t_Co=256
 colorscheme default
+
+" Specific highlight options
+" ==========================
+
+" Highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile * match BadWhitespace /\s\+$/
