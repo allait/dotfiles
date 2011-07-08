@@ -4,7 +4,6 @@ autoload ~/.zsh/functions/*(:t)
 
 # Load and register completion functions
 fpath=(~/.zsh/completions $fpath)
-autoload ~/.zsh/completions/*(:t)
 
 # Load config files, if we're not in vim or some other terminal
 if [[ $TERM != "dumb" ]]; then
@@ -29,5 +28,5 @@ export LESS="-eiRX"
 # Get emacs keybindings
 bindkey -e
 
-# Local settings are stored in ~/.zshenv, .zlocal is used for overriding 
+# Local settings are stored in ~/.zshenv, .zlocal is used for overriding
 # settings from this config
