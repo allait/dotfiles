@@ -1,3 +1,1 @@
-#!/usr/bin/zsh
-
-(cd ~/wiki; git grep -iwh -C 2 "${1}" | less)
+(cd ~/wiki; git grep -iwh -C 3 "${1}") | less
