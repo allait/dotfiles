@@ -1,7 +1,7 @@
 # Taskwarrior program configuration file.
 
 # Files
-data.location=~/vimwiki/tasks
+data.location=~/wiki/tasks
 edit.verbose=no
 
 # Date

@@ -38,7 +38,7 @@ module Dot
 
     def self.build_file(file)
         parts = file_parts(file).existing
-        if File.directory?(file) 
+        if File.directory?(file)
             if not File.exists?(home_path(file)):
                 puts "Symlinking directory .#{file}..."
                 %x[ln -s #{File.join(Dir.pwd, file)} #{home_path(file)}]
@@ -112,15 +112,15 @@ desc "Create info files"
 task :create_info do
     if not File.exists?(File.join(Dot::Dirs[:home], '/tmp/info')):
         %x[mkdir -p #{File.join(Dot::Dirs[:home], '/tmp/info')}]
-        print "Name: " 
+        print "Name: "
         name = STDIN.gets.chomp
         %x[echo '#{name}' > ~/tmp/info/name]
-        print "Email: " 
+        print "Email: "
         email = STDIN.gets.chomp
         %x[echo '#{email}' > ~/tmp/info/email]
     end
 end
-    
+
 
 desc "Remove symlinks and restore files from .old"
 task :uninstall => [:cleanup] do
@@ -175,31 +175,31 @@ task :cleanup => [:backup, :clean_tmp] do
             %x[rm -rf #{Dot.home_path(df)}]
         end
     end
-    # Remove vimwiki links and html dir
-    if File.exists?(File.join(Dot::Dirs[:home], 'vimwiki_html'))
+    # Remove wiki links and html dir
+    if File.exists?(File.join(Dot::Dirs[:home], '*wiki_html'))
         puts Dot.red("Deleting wiki rendered html folder...")
-        %x[rm -r #{File.join(Dot::Dirs[:home], 'vimwiki_html')}]
+        %x[rm -r #{File.join(Dot::Dirs[:home], '*wiki_html')}]
     end
-    if File.exists?(File.join(Dot::Dirs[:home], 'vimwiki'))
+    if File.exists?(File.join(Dot::Dirs[:home], 'wiki'))
         puts Dot.red("Deleting wiki symlink...")
-        %x[rm #{File.join(Dot::Dirs[:home], 'vimwiki')}] 
+        %x[rm #{File.join(Dot::Dirs[:home], 'wiki')}]
     end
     # Remove info files
     if File.exists?(File.join(Dot::Dirs[:home], 'tmp/info'))
-        puts Dot.red("Deleting info files...") 
-        %x[rm -rf #{File.join(Dot::Dirs[:home], 'tmp/info')}] 
+        puts Dot.red("Deleting info files...")
+        %x[rm -rf #{File.join(Dot::Dirs[:home], 'tmp/info')}]
     end
 end
-        
+
 desc "Execute full build for current machine"
 task :build => [:up, :update, :build_cmdt] do
 end
 
-desc "Setup vimwiki link"
+desc "Setup wiki link"
 task :wiki do
     if File.exists?(File.join(Dir.pwd,'..','wiki'))
-        puts "Setting up vimwiki..."
-        %x[ln -s #{File.join(Dir.pwd, '..', 'wiki')} #{Dot::Dirs[:home] + '/vimwiki'}]
+        puts "Setting up wiki..."
+        %x[ln -s #{File.join(Dir.pwd, '..', 'wiki')} #{Dot::Dirs[:home] + '/wiki'}]
     end
 end
 
@@ -212,7 +212,7 @@ task :build_cmdt do
     # breaks the import.
     %x[sed -i '' "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
     puts %x[cd #{cmdt_path}; make && sudo make install && make realclean]
-    
+
 end
 
 desc "Create build dir"
@@ -256,7 +256,7 @@ task :setup_iterm_config do
         puts "Copying file #{file}..."
         %x[cp #{file} ~/Library/Preferences/]
         %x[plutil -convert binary1 ~/Library/Preferences/#{file}]
-    end 
+    end
 end
 
 desc "Setup common python packages"
@@ -292,7 +292,7 @@ desc "Install common tools from npm packages"
 task :install_npm_tools do
     puts "Installing npm packages..."
     packages = [
-        "http-console", 
+        "http-console",
         "nodelint",
         "coffee-script"
     ]
