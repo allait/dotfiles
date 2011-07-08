@@ -1,0 +1,21 @@
+# taskwarrior wrapper function
+
+typeset active_project
+
+if [[ -n $VIRTUAL_ENV ]]
+then
+    active_project=$(basename $VIRTUAL_ENV)
+else
+    active_project=$(basename $PWD)
+fi
+
+if [[ -z $1 ]]
+then
+    task ls pro:$active_project
+else
+    case $1 in
+        (add) task $1 pro:$active_project ;;
+    esac
+fi
+
+
