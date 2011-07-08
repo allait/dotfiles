@@ -14,7 +14,8 @@ then
     task ls pro:$active_project
 else
     case $1 in
-        (add) task $1 pro:$active_project ;;
+        (add|list|ls) task pro:$active_project $* ;;
+        (*) task $* ;;
     esac
 fi
 
