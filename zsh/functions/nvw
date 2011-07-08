@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-vim +":VimwikiMakeDiaryNote" ${1}
