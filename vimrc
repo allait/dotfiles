@@ -261,14 +261,6 @@ map <C-q>f {v}!par w100<CR>
 " Call par reformater on selection with textwidth 100
 vmap <C-q>f !par w100<CR>
 
-" Toggle fullscreen(MacVim only) on F11
-if has("gui_macvim")
-    set fuoptions=maxvert,maxhorz
-    inoremap <F11> <ESC>:set invfullscreen<CR>a
-    nnoremap <F11> :set invfullscreen<CR>
-    vnoremap <F11> :set invfullscreen<CR>
-endif
-
 " Show the name of highlightning group under cursor - usefull for syntax theme
 " editing
 nmap <silent> <C-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
