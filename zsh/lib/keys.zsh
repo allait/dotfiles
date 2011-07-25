@@ -8,14 +8,13 @@ bindkey "^[[3~" delete-char
 
 bindkey ' ' magic-space
 
-bindkey "^R" history-incremental-search-backward
 bindkey "^U" backward-kill-line
 
 # Edit command in default editor
 # http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
 autoload edit-command-line
 zle -N edit-command-line
-bindkey '^Xe' edit-command-line 
+bindkey '^Xe' edit-command-line
 
 # Restore normal history behavior in vi-mode
 [[ -z "$terminfo[kcuu1]" ]] || bindkey -M viins "$terminfo[kcuu1]" up-line-or-history
