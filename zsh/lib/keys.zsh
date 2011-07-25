@@ -8,7 +8,12 @@ bindkey "^[[3~" delete-char
 
 bindkey ' ' magic-space
 
+# ^U to delete line to beginning instead of whole line
 bindkey "^U" backward-kill-line
+
+# Search history for current line contents
+bindkey "\er" history-beginning-search-backward
+bindkey "\es" history-beginning-search-forward
 
 # Edit command in default editor
 # http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
