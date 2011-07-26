@@ -15,6 +15,9 @@ bindkey "^U" backward-kill-line
 bindkey "\er" history-beginning-search-backward
 bindkey "\es" history-beginning-search-forward
 
+# Push multiline commands too
+bindkey "^Q" push-input
+
 # Edit command in default editor
 # http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
 autoload edit-command-line
