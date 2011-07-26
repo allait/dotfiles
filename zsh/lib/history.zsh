@@ -3,8 +3,8 @@ HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 
-# Ignore consecutive duplicates
-setopt hist_ignore_dups
+# Ignore all duplicates
+setopt hist_ignore_all_dups
 # Don't autoexecute command found with history search
 setopt hist_verify
 # Each session will append to history each command
