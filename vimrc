@@ -500,6 +500,9 @@ au FileType snippets setl noexpandtab
 " Default wiki with .md files and vimwiki_markdown syntax file
 let g:vimwiki_list = [{'path': '~/wiki', 'ext': '.md', 'syntax':'markdown'}]
 
+" Use markdown filetype for files outside wiki path
+let g:vimwiki_global_ext = 0
+
 " Enable ctags markdown headers listing
 let g:tlist_vimwiki_settings = 'markdown;h:Headers'
 
@@ -517,5 +520,4 @@ au FileType vimwiki setl tw=100
 let g:vimwiki_table_auto_fmt = 0
 
 " Disable wikiwords
-
 let g:vimwiki_camel_case = 0
