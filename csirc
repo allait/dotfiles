@@ -1,4 +1,4 @@
 (use readline regex)
 (current-input-port (make-gnu-readline-port))
 (gnu-history-install-file-manager
-  (string-append (or (getenv "HOME") ".") "/.csi.history"))
+    (string-append (or (get-environment-variable "HOME") ".") "/.csi.history"))
