@@ -9,13 +9,27 @@ else
     active_project=$(basename $PWD)
 fi
 
+# If first arg contains a number, swap it with command
+if (( $1 )); then
+    typeset task_number=$1
+    typeset cmd=$2
+    shift 2
+    set $cmd $task_number $*
+fi
+
 if [[ -z $1 ]]
 then
-    task ls pro:$active_project
+    command task ls pro:$active_project
 else
     case $1 in
-        (add|list|ls|completed|new|old) task pro:$active_project $* ;;
-        (*) task $* ;;
+        (open)
+            if (( $2 )); then
+                command task $2 | grep -o " http.*" | xargs open
+            fi
+        ;;
+        (add|list|ls|completed|new|old)
+            command task pro:$active_project $* ;;
+        (*) command task $* ;;
     esac
 fi
 
