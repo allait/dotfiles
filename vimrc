@@ -308,6 +308,11 @@ else
     colorscheme default
 endif
 
+" Stretch window in fullscreen mode
+if has("gui_macvim")
+   set fuoptions=maxvert,maxhorz
+endif
+
 " Specific highlight options
 " ==========================
 
