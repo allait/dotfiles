@@ -16,8 +16,6 @@ setopt chase_dots
 # Make completion list smaller
 setopt list_packed
 
-# Show menu on second TAB
-setopt auto_menu
 # Complete from within word
 setopt complete_in_word
 # Jump to word end on successful completion
@@ -29,11 +27,7 @@ setopt correct correctall
 # Keep silent, literally
 unsetopt beep list_beep
 
-alias man='nocorrect man'
-alias mv='nocorrect mv'
-alias mkdir='nocorrect mkdir'
-
-# Generic --help arguments completion for following commands
+# Parse --help arguments completion for following commands
 compdef _gnu_generic nosetests
 compdef _gnu_generic mkvirtualenv
 compdef _gnu_generic ack
@@ -59,13 +53,16 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' format '%F{white}%d%f'
 zstyle ':completion:*' group-name ''
+# Perform case-insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
+# Disallow remote connections for completion functions
 zstyle ':completion:*' remote-access false
+# Complete options for commands after directory stack for cd, pushd, ...
+zstyle ':completion:*' complete-options true
+# Cache completions for commands that support it
+zstyle ':completion:*' use-cache true
+
 
 # Zsh completion control functions
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _list
-
-# kill complete all processes with color
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
