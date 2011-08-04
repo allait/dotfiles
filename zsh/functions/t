@@ -27,7 +27,7 @@ else
                 command task $2 | grep -o " http.*" | xargs open
             fi
         ;;
-        (add|list|ls|completed|new|old)
+        (a*|l*s*|next|com*|cou*|new*|old*|)
             command task pro:$active_project $* ;;
         (*) command task $* ;;
     esac
