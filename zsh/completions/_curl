@@ -1,48 +1,46 @@
 #compdef curl
 
 _arguments : \
-    '(-# --progress-bar)'{-#,--progress-bar}'[Display transfer progress as a progress bar]' \
-    '(-0 --http1.0)'{-0,--http1.0}'[Use HTTP 1.0 (H)]' \
-    '(-1 --tlsv1)'{-1,--tlsv1}'[Use TLSv1 (SSL)]' \
-    '(-2 --sslv2)'{-2,--sslv2}'[Use SSLv2 (SSL)]' \
-    '(-3 --sslv3)'{-3,--sslv3}'[Use SSLv3 (SSL)]' \
+    '(-# --progress-bar)'{'-#',--progress-bar}'[Display transfer progress as a progress bar]' \
+    '(-0 --http1.0)'{-0,--http1.0}'[Use HTTP 1.0]' \
+    '(-1 --tlsv1)'{-1,--tlsv1}'[Use TLSv1]' \
+    '(-2 --sslv2)'{-2,--sslv2}'[Use SSLv2]' \
+    '(-3 --sslv3)'{-3,--sslv3}'[Use SSLv3]' \
     '(-4 --ipv4)'{-4,--ipv4}'[Resolve name to IPv4 address]' \
     '(-6 --ipv6)'{-6,--ipv6}'[Resolve name to IPv6 address]' \
-    '(-A --user-agent)'{-A,--user-agent}'[User-Agent to send to server (H)]' \
+    '(-A --user-agent)'{-A,--user-agent}'[User-Agent to send to server]' \
     '(-B --use-ascii)'{-B,--use-ascii}'[Use ASCII/text transfer]' \
     '(-C --continue-at)'{-C,--continue-at}'[Resumed transfer offset]' \
     '(-D --dump-header)'{-D,--dump-header}'[Write the headers to this file]' \
-    '(-E --cert)'{-E,--cert}'[Client certificate file and password (SSL)]' \
-    '(-F --form)'{-F,--form}'[Specify HTTP multipart POST data (H)]' \
-    '(-G --get)'{-G,--get}'[Send the -d data with a HTTP GET (H)]' \
-    '(-H --header)'{-H,--header}'[Custom header to pass to server (H)]' \
+    '(-E --cert)'{-E,--cert}'[Client certificate file and password]' \
+    '(-F --form)'{-F,--form}'[Specify HTTP multipart POST data]' \
+    '(-G --get)'{-G,--get}'[Send the -d data with a HTTP GET]' \
+    '(-H --header)'{-H,--header}'[Custom header to pass to server]' \
     '(-I --head)'{-I,--head}'[Show document info only]' \
     '(-K --config)'{-K,--config}'[Specify which config file to read]' \
-    '(-L --location)'{-L,--location}'[Follow Location: hints (H)]' \
+    '(-L --location)'{-L,--location}'[Follow Location: hints]' \
     '(-M --manual)'{-M,--manual}'[Display the full manual]' \
     '(-N --no-buffer)'{-N,--no-buffer}'[Disable buffering of the output stream]' \
     '(-O --remote-name)'{-O,--remote-name}'[Write output to a file named as the remote file]' \
-    '(-P --ftp-port)'{-P,--ftp-port}'[Use PORT with address instead of PASV (F)]' \
-    '(-Q --quote)'{-Q,--quote}'[Send command(s) to server before file transfer (F/SFTP)]' \
+    '(-P --ftp-port)'{-P,--ftp-port}'[Use PORT with address instead of PASV]' \
+    '(-Q --quote)'{-Q,--quote}'[Send command(s) to server before file transfer]' \
     '(-R --remote-time)'{-R,--remote-time}'[Set the remote file`s time on the local output]' \
     '(-S --show-error)'{-S,--show-error}'[Show error.]' \
     '(-T --upload-file)'{-T,--upload-file}'[to remote site]' \
     '(-U --proxy-user)'{-U,--proxy-user}'[Set proxy user and password]' \
-    '(-V --version)'{-V,--version}'[Show version number and quit]' \
-    '(-X --request)'{-X,--request}'[Specify request command to use]' \
+    '(-X --request)'{-X,--request}'[Specify request method]':method:'(GET HEAD POST PUT DELETE )' \
     '(-Y --speed-limit)'{-Y,--speed-limit}'[Stop transfer if below speed-limit]' \
-    '(-a --append)'{-a,--append}'[Append to target file when uploading (F/SFTP)]' \
-    '(-b --cookie)'{-b,--cookie}'[Cookie string or file to read cookies from (H)]' \
-    '(-c --cookie-jar)'{-c,--cookie-jar}'[Write cookies to this file after operation (H)]' \
-    '(-d --data)'{-d,--data}'[HTTP POST data (H)]' \
-    '(-e --referer)'{-e,--referer}'[Referer URL (H)]' \
-    '(-f --fail)'{-f,--fail}'[Fail silently (no output at all) on HTTP errors (H)]' \
+    '(-a --append)'{-a,--append}'[Append to target file when uploading]' \
+    '(-b --cookie)'{-b,--cookie}'[Cookie string or file to read cookies from]' \
+    '(-c --cookie-jar)'{-c,--cookie-jar}'[Write cookies to this file after operation]' \
+    '(-d --data)'{-d,--data}'[HTTP POST data]' \
+    '(-e --referer)'{-e,--referer}'[Referer URL]' \
+    '(-f --fail)'{-f,--fail}'[Fail silently (no output at all) on HTTP errors]' \
     '(-g --globoff)'{-g,--globoff}'[Disable URL sequences and ranges]' \
-    '(-h --help)'{-h,--help}'[This help text]' \
-    '(-i --include)'{-i,--include}'[Include protocol headers in the output (H/F)]' \
+    '(-i --include)'{-i,--include}'[Include protocol headers in the output]' \
     '(-j --junk-session-cookies)'{-j,--junk-session-cookies}'[Ignore session cookies]' \
-    '(-k --insecure)'{-k,--insecure}'[Allow connections to SSL sites without certs (H)]' \
-    '(-l --list-only)'{-l,--list-only}'[List only names of an FTP directory (F)]' \
+    '(-k --insecure)'{-k,--insecure}'[Allow connections to SSL sites without certs]' \
+    '(-l --list-only)'{-l,--list-only}'[List only names of an FTP directory]' \
     '(-m --max-time)'{-m,--max-time}'[Maximum time allowed for the transfer]' \
     '(-n --netrc)'{-n,--netrc}'[Must read .netrc for user name and password]' \
     '(-o --output)'{-o,--output}'[instead of stdout]' \
@@ -56,82 +54,17 @@ _arguments : \
     '(-x --proxy)'{-x,--proxy}'[Use HTTP proxy on given port]' \
     '(-y --speed-time)'{-y,--speed-time}'[Time needed to trig speed-limit abort]' \
     '(-z --time-cond)'{-z,--time-cond}'[Transfer based on a time condition]' \
-    --anyauth'[Pick "any" authentication method (H)]' \
-    --basic'[Use HTTP Basic Authentication (H)]' \
-    --cacert'[CA certificate to verify peer against (SSL)]' \
-    --capath'[CA directory to verify peer against (SSL)]' \
-    --cert-type'[Certificate file type (DER/PEM/ENG) (SSL)]' \
-    --ciphers'[SSL ciphers to use (SSL)]' \
-    --compressed'[Request compressed response (using deflate or gzip)]' \
-    --connect-timeout'[Maximum time allowed for connection]' \
-    --create-dirs'[Create necessary local directory hierarchy]' \
-    --crlf'[Convert LF to CRLF in upload]' \
-    --crlfile'[Get a CRL list in PEM format from the given file]' \
-    --data-ascii'[HTTP POST ASCII data (H)]' \
-    --data-binary'[HTTP POST binary data (H)]' \
-    --data-urlencode'[HTTP POST data url encoded (H)]' \
-    --digest'[Use HTTP Digest Authentication (H)]' \
-    --disable-eprt'[Inhibit using EPRT or LPRT (F)]' \
-    --disable-epsv'[Inhibit using EPSV (F)]' \
-    --egd-file'[EGD socket path for random data (SSL)]' \
-    --engine'[Crypto engine to use (SSL). "--engine list" for list]' \
-    --form-string'[Specify HTTP multipart POST data (H)]' \
-    --ftp-account'[Account data to send when requested by server (F)]' \
-    --ftp-alternative-to-user'[String to replace "USER" (F)]' \
-    --ftp-create-dirs'[Create the remote dirs if not present (F)]' \
-    --ftp-method'[Control CWD usage (F)]' \
-    --ftp-pasv'[Use PASV/EPSV instead of PORT (F)]' \
-    --ftp-skip-pasv-ip'[Skip the IP address for PASV (F)]' \
-    --ftp-ssl'[Try SSL/TLS for ftp transfer (F)]' \
-    --ftp-ssl-ccc'[Send CCC after authenticating (F)]' \
-    --ftp-ssl-ccc-mode'[Set CCC mode (F)]' \
-    --ftp-ssl-control'[Require SSL/TLS for ftp login, clear for transfer (F)]' \
-    --ftp-ssl-reqd'[Require SSL/TLS for ftp transfer (F)]' \
-    --hostpubmd5'[Hex encoded MD5 string of the host public key. (SSH)]' \
-    --ignore-content-length'[Ignore the HTTP Content-Length header]' \
-    --interface'[Specify network interface/address to use]' \
-    --keepalive-time'[Interval between keepalive probes]' \
-    --key'[Private key file name (SSL/SSH)]' \
-    --key-type'[Private key file type (DER/PEM/ENG) (SSL)]' \
-    --krb'[Enable Kerberos with specified security level (F)]' \
-    --libcurl'[Dump libcurl equivalent code of this command line]' \
-    --limit-rate'[Limit transfer speed to this rate]' \
-    --local-port'[Force use of these local port numbers]' \
-    --location-trusted'[Follow Location: and send auth to other hosts (H)]' \
-    --max-filesize'[Maximum file size to download (H/F)]' \
-    --max-redirs'[Maximum number of redirects allowed (H)]' \
-    --negotiate'[Use HTTP Negotiate Authentication (H)]' \
-    --netrc-optional'[Use either .netrc or URL; overrides -n]' \
-    --no-keepalive'[Disable keepalive use on the connection]' \
-    --no-sessionid'[Disable SSL session-ID reusing (SSL)]' \
-    --noproxy'[Comma-separated list of hosts which do not use proxy]' \
-    --ntlm'[Use HTTP NTLM authentication (H)]' \
-    --pass'[Pass phrase for the private key (SSL/SSH)]' \
-    --post301'[Do not switch to GET after following a 301 redirect (H)]' \
-    --post302'[Do not switch to GET after following a 302 redirect (H)]' \
-    --proxy-anyauth'[Pick "any" proxy authentication method (H)]' \
-    --proxy-basic'[Use Basic authentication on the proxy (H)]' \
-    --proxy-digest'[Use Digest authentication on the proxy (H)]' \
-    --proxy-negotiate'[Use Negotiate authentication on the proxy (H)]' \
-    --proxy-ntlm'[Use NTLM authentication on the proxy (H)]' \
-    --proxy1.0'[Use HTTP/1.0 proxy on given port]' \
-    --pubkey'[Public key file name (SSH)]' \
-    --random-file'[File for reading random data from (SSL)]' \
-    --raw'[Pass HTTP "raw", without any transfer decoding (H)]' \
-    --remote-name-all'[Use the remote file name for all URLs]' \
-    --retry'[times if transient problems occur]' \
-    --retry-delay'[When retrying, wait this many seconds between each]' \
-    --retry-max-time'[Retry only within this period]' \
-    --socks4'[SOCKS4 proxy on given host + port]' \
-    --socks4a'[SOCKS4a proxy on given host + port]' \
-    --socks5'[SOCKS5 proxy on given host + port]' \
-    --socks5-gssapi-nec'[Compatibility with NEC SOCKS5 server]' \
-    --socks5-gssapi-service'[SOCKS5 proxy service name for gssapi]' \
-    --socks5-hostname'[SOCKS5 proxy, pass host name to proxy]' \
-    --stderr'[Where to redirect stderr. - means stdout]' \
-    --tcp-nodelay'[Use the TCP_NODELAY option]' \
-    --trace'[Write a debug trace to the given file]' \
-    --trace-ascii'[Like --trace but without the hex output]' \
-    --trace-time'[Add time stamps to trace/verbose output]' \
-    --url'[Set URL to work with]' \
+    --anyauth --basic --cacert --capath --cert-type --ciphers --compressed \
+    --connect-timeout --create-dirs --crlf --crlfile --data-ascii --data-binary \
+    --data-urlencode --digest --disable-eprt --disable-epsv --egd-file --engine \
+    --form-string --ftp-account --ftp-alternative-to-user --ftp-create-dirs \
+    --ftp-method --ftp-pasv --ftp-skip-pasv-ip --ftp-ssl --ftp-ssl-ccc --ftp-ssl-ccc-mode \
+    --ftp-ssl-control --ftp-ssl-reqd --hostpubmd5 --ignore-content-length --interface \
+    --keepalive-time --key --key-type --krb --libcurl --limit-rate --local-port \
+    --location-trusted --max-filesize --max-redirs --negotiate --netrc-optional \
+    --no-keepalive --no-sessionid --noproxy --ntlm --pass --post301 --post302 \
+    --proxy-anyauth --proxy-basic --proxy-digest --proxy-negotiate --proxy-ntlm --proxy1.0 \
+    --pubkey --random-file --raw --remote-name-all --retry --retry-delay --retry-max-time \
+    --socks4 --socks4a --socks5 --socks5-gssapi-nec --socks5-gssapi-service \
+    --socks5-hostname --stderr --tcp-nodelay --trace --trace-ascii --trace-time --url \
     '*':'URL': \
