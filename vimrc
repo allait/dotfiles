@@ -75,6 +75,9 @@ set encoding=utf-8
 " When doing tab completion, give the following files lower priority
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
 
+" Exclude files from listing
+set wildignore+=*.pyc,*.o,*.out,*.aux
+
 " Use UNIX (\n) line endings for new files
 set fileformat=unix
 
