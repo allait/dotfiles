@@ -29,8 +29,8 @@ def install_remote_dotfiles():
 
 # Hosts
 
-def vagrant():
+def vagrant(path):
     env.user = 'vagrant'
     env.hosts = ['127.0.0.1:2222']
-    res = local('vagrant ssh_config | grep IdentityFile', capture=True)
+    res = local('cd %s && vagrant ssh_config | grep IdentityFile' % path, capture=True)
     env.key_filename = res.split()[1]
