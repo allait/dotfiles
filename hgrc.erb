@@ -13,6 +13,7 @@ bisect =
 record =
 rebase =
 progress =
+extdiff =
 
 [pager]
 pager = LESS='FSRX' less
@@ -21,7 +22,7 @@ attend = annotate, cat, diff, export, glog, help, log, qdiff, status, tip, l, gl
 [alias]
 l = log --template '\x1b[33m{rev}\x1b[0m - \x1b[34m{author|person}\x1b[0m - \x1b[31m{branches}\x1b[0m {desc|firstline} \x1b[32m({date|age})\x1b[0m\n'
 gl = l -G
-show = log --patch --rev 
+show = log --patch --rev
 
 # Do not track, but leave file
 untrack = rm -Af
@@ -34,3 +35,6 @@ track.current = True
 
 [diff]
 git = True
+
+[extdiff]
+cmd.opendiff = fmdiff
