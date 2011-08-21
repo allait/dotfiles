@@ -31,9 +31,6 @@
 [submodule "vim/bundle/pylint"]
 	path = vim/bundle/pylint
 	url = git://github.com/vim-scripts/pylint.vim.git
-[submodule "vim/bundle/taglist"]
-	path = vim/bundle/taglist
-	url = git://github.com/vim-scripts/taglist.vim.git
 [submodule "vim/bundle/vcscommand"]
 	path = vim/bundle/vcscommand
 	url = git://github.com/vim-scripts/vcscommand.vim.git
@@ -52,15 +49,9 @@
 [submodule "vim/bundle/indentpython"]
 	path = vim/bundle/indentpython
 	url = git://github.com/vim-scripts/indentpython.vim.git
-[submodule "vim/bundle/dbext"]
-	path = vim/bundle/dbext
-	url = git://github.com/vim-scripts/dbext.vim.git
 [submodule "vim/bundle/python-match"]
 	path = vim/bundle/python-match
 	url = git://github.com/vim-scripts/python_match.vim.git
-[submodule "vim/bundle/pythondo"]
-	path = vim/bundle/pythondo
-	url = git://github.com/vim-scripts/pythondo.git
 [submodule "vim/bundle/jsbeautify"]
 	path = vim/bundle/jsbeautify
 	url = git://github.com/vim-scripts/jsbeautify.git
@@ -151,3 +142,6 @@
 [submodule "vim/bundle/Rename"]
 	path = vim/bundle/Rename
 	url = git://github.com/vim-scripts/Rename.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
