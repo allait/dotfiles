@@ -28,8 +28,11 @@ set mouse=a
 " Disable modeline for security reasons
 set nomodeline
 
-" Keep cursor in the middle of the screen
-" set scrolloff=999
+" Scroll when cursor is n lines before window border
+" set scrolloff=1
+
+" Show current normal mode command
+set showcmd
 
 " Code and syntax options
 " =======================
@@ -126,7 +129,7 @@ set smartcase
 " ==================
 
 " Set textwidth for long line insertion. Will break lines over n characters long on space.
-" Allows to format comments with `gq` 
+" Allows to format comments with `gq`
 " This keeps breaking in HTML despite all fo-=t
 " set textwidth=80
 
@@ -227,7 +230,7 @@ au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
 " Folding options
 " ===============
 
-" Folding based on indentation: 
+" Folding based on indentation:
 set foldmethod=indent
 
 " Make folds open by default
@@ -251,6 +254,7 @@ noremap <C-q> <Nop>
 
 " Use <C-q> in GUI and <C-c> in shell as prefix for personal commands
 nmap <C-c> <C-q>
+vmap <C-c> <C-q>
 
 " Set backspace behavior
 set backspace=indent,eol,start
