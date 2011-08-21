@@ -372,22 +372,25 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:NERDSpaceDelims=1
 
 
-" TagList
+" TagBar
 " -------
 " Bind F3 to show/hide tag list
-map <silent><F3> :TlistToggle<CR>
+map <silent><F3> :TagbarToggle<CR>
 
-" Change focus to TagList on ToggleOpen
-let g:Tlist_GainFocus_On_ToggleOpen = 1
+" Show Tagbar window on the left
+let g:tagbar_left = 1
 
-" Fold inactive buffers taglists
-let g:Tlist_File_Fold_Auto_close = 1
+" Set tagbar window width
+let g:tagbar_width = 30
 
-" Show tags menu
-let g:Tlist_Show_Menu = 1
+" Change focus to Tagbar on open
+let g:tagbar_autofocus = 1
 
-" Django templates setting
-let g:tlist_htmldjango_settings = 'html;a:anchor;f:javascript function'
+" Don't sort tags by name
+let g:tagbar_sort = 0
+
+" Don't show help line
+let g:tagbar_compact = 1
 
 " TaskList
 " --------
