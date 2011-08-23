@@ -524,6 +524,12 @@ let g:vimwiki_list = [{'path': '~/wiki', 'ext': '.md', 'syntax':'markdown'}]
 " Use markdown filetype for files outside wiki path
 let g:vimwiki_global_ext = 0
 
+" Highlight headers
+let g:vimwiki_hl_headers = 1
+
+" Use Mac OS X `open` for external links
+let g:vimwiki_browsers = ['open']
+
 " Enable ctags markdown headers listing
 let g:tlist_vimwiki_settings = 'markdown;h:Headers'
 
