@@ -145,3 +145,6 @@
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
 	url = git://github.com/allait/vimwiki.git
+[submodule "vim/bundle/applescript"]
+	path = vim/bundle/applescript
+	url = git://github.com/vim-scripts/applescript.vim.git
