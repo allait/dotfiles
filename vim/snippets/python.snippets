@@ -24,7 +24,7 @@ endglobal
 
 snippet def "Simple Function snippet" !b
 def ${1:fname}(${2:`!p
- if not getattr(snip, "indent_level", 0):
+if not getattr(snip, "indent_level", 0):
     snip.indent_level=vim.eval("indent('.')")
 snip.rv = "self" if int(snip.indent_level) else ""
 `}):
