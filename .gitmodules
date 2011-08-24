@@ -19,9 +19,6 @@
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/bundle/tasklist"]
 	path = vim/bundle/tasklist
 	url = git://github.com/vim-scripts/TaskList.vim.git
@@ -148,3 +145,6 @@
 [submodule "vim/bundle/applescript"]
 	path = vim/bundle/applescript
 	url = git://github.com/vim-scripts/applescript.vim.git
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git

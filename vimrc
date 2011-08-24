@@ -366,12 +366,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " Change CWD on NERDTree root changes
 "let NERDTreeChDirMode=2
 
-" NERDCommenter
-" -------------
-" Add space after comment delimiter
-let g:NERDSpaceDelims=1
-
-
 " TagBar
 " -------
 " Bind F3 to show/hide tag list
