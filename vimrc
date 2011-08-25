@@ -187,15 +187,8 @@ set completeopt=menu,longest ",preview
 " Autohide preview window after selection
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-" Filetype-specific omnicompletion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 " Racket is scheme, and we have only syntax completion for scheme
 au BufRead,BufNewFile *.rkt set filetype=scheme
-autocmd FileType scheme set omnifunc=syntaxcomplete#Complete
 
 " We're using chicken scheme
 let g:is_chicken = 1
@@ -218,14 +211,6 @@ set softtabstop=4
 
 " Keep indentation level from previous line
 set autoindent
-
-" Filetype-specific indentation rules
-
-" Where filesize matters: js, html and css: 2-space indents
-au BufRead,BufNewFile *.html,*.css,*.js setlocal shiftwidth=2 softtabstop=2 tabstop=2
-
-" Number of spaces that a pre-existing tab is equal to
-au BufRead,BufNewFile *py,*pyw,*.c,*.h setlocal tabstop=8
 
 " Folding options
 " ===============
@@ -338,16 +323,11 @@ autocmd InsertLeave * match BadWhitespace /\s\+$/
 " Clear match when leaving buffer to avoid memory leaks
 autocmd BufWinLeave * call clearmatches()
 
-" Treat html files as Django templates. Breaks some stuff
-" autocmd FileType html set ft=html.htmldjango
-
 " Plugin-specific settings
 " ===============
 
 " Pylint
 " ------
-
-autocmd FileType python compiler pylint
 
 " Disable onwrite pylint checks
 let g:pylint_onwrite = 0
@@ -530,12 +510,6 @@ let g:tlist_vimwiki_settings = 'markdown;h:Headers'
 " Set up folding
 let g:vimwiki_folding = 1
 let g:vimwiki_fold_lists = 1
-
-" Set up lists
-au FileType vimwiki setl com=fb:*,fb:-,fb:+,n:>
-
-" Set up text wrapping
-au FileType vimwiki setl tw=100
 
 " Disable Tab mapping for table formatting
 let g:vimwiki_table_auto_fmt = 0
