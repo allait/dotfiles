@@ -1,23 +1,3 @@
-#####################
-# Utility functions #
-#####################
-
-global !p
-def get_args(arglist, snip):
-    args = [arg.split('=')[0].strip() for arg in arglist.split(',') if arg]
-    args = [arg for arg in args if arg and arg != "self"]
-
-    if args:
-        snip.rv = "" # Force update
-        snip >> 1
-        snip += "Arguments:"
-        snip += "----------"
-
-    for arg in args:
-        snip += "%s : TODO" % arg
-    return args
-endglobal
-
 ##############################
 # Function and Class Snippets #
 ##############################
@@ -29,7 +9,7 @@ if not getattr(snip, "indent_level", 0):
 snip.rv = "self" if int(snip.indent_level) else ""
 `}):
 	"""${3:TODO Docstring for $1}."""
-	$0
+	${4:pass}
 endsnippet
 
 snippet class "Simple class" !b
@@ -37,51 +17,7 @@ class ${1:MyClass}(${2:object}):
 	"""${3:TODO Docstring for $1}."""
 
 	def __init__(self$4):
-		$0
-endsnippet
-
-snippet defs "Smart Function snippet" b
-def ${1:fname}(${2:`!p
- if not getattr(snip, "indent_level", 0):
-    snip.indent_level=vim.eval("indent('.')")
-snip.rv = "self" if int(snip.indent_level) else ""
-`}):
-	"""${3:TODO Docstring for $1}${4:`!p
-args = get_args(t[2], snip)`}
-
-	"""
-	$0
-endsnippet
-
-snippet classs "smart class" b
-class ${1:MyClass}(${2:object}):
-	"""${3:TODO Docstring for $1}
-
-	"""${4:
-
-	def __init__(self$5):
-		"""${6:TODO: Fill me in}`!p
-snip.rv = ""
-snip >> 2
-
-args = get_args(t[5], snip)
-
-if args:
-    snip += '"""'
-else:
-    snip.rv += ' """'
-
-if t[2] != 'object':
-    snip += "super(%s, self).__init__()" % t[1]
-
-for arg in args:
-    snip += "self.%s = %s" % (arg, arg)
-`}
-    $0
-endsnippet
-
-snippet ld
-${1:var} = lambda ${2:vars} : ${3:action}
+		${5:pass}
 endsnippet
 
 ##################
@@ -112,7 +48,7 @@ endsnippet
 
 snippet with "Context manager" b
 with ${1:open(${2:file})} as ${3:f}:
-	$0
+	${4:pass}
 endsnippet
 
 snippet super "Create super object" b
