@@ -1,0 +1,93 @@
+# Class
+snippet class
+class ${1:name}
+	constructor: (${2:params...}) ->
+		${3:# body}
+endsnippet
+
+# Funcion
+snippet fun
+${1:function_name} = (${2:arguments}) ->
+	${3:# body}
+endsnippet
+
+# if
+snippet =if
+= ${1:valor} if ${2:condition}
+endsnippet
+
+# if
+snippet if
+if ${2:condition} then
+	${3:# code}
+endsnippet
+
+# or=
+snippet or=
+${1:options} or= ${2:defaults}
+endsnippet
+
+# for in
+snippet for
+for ${1:filename} in ${2:list}
+endsnippet
+
+# for of
+snippet forof
+for ${1:key}, ${2:value} of ${3:var}
+endsnippet
+
+# while
+snippet while
+while ${1:condition}
+endsnippet
+
+# until
+snippet until
+until ${1:condition}
+endsnippet
+
+# try
+snippet try
+try
+	${1:expresion}
+catch ${2:error}
+	${3:$2}
+endsnippet
+
+# finally
+snippet finally
+finally
+	${1:cleanAll()}
+endsnippet
+
+# ?=
+snippet ?=
+?= ${1:val_if_doesnt_exist}
+endsnippet
+
+# =?
+snippet =?
+= ${1:var} ? ${2:value_if_var_doesnt_exist}
+endsnippet
+
+# switch
+snippet switch
+switch ${1:var}
+	when ${2:val} then ${3:action}
+	else ${4:# default}
+endsnippet
+
+# ##
+snippet ##
+###
+${1:comment}
+###
+endsnippet
+
+# Heredocs
+snippet ''
+'''
+$0
+'''
+endsnippet
