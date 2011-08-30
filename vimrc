@@ -273,11 +273,11 @@ imap <down> <nop>
 " Color and gui options
 " =============
 
-" Set color scheme
-colorscheme prefect
 
 " Set gui-specific options
 if has("gui_running")
+    " Set color scheme
+    colorscheme prefect
     " Set gui font
     if !has("gui_macvim")
         set guifont=Droid\ Sans\ Mono\ Slashed\ 8
@@ -295,9 +295,8 @@ if has("gui_running")
     " Set gui window size
     set lines=80 columns=100
 else
-    " Set 256-colors mode for console vim
-    " set t_Co=256
-    colorscheme default
+    " Set color scheme
+    colorscheme jellybeans
 endif
 
 " Stretch window in fullscreen mode
