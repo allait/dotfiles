@@ -424,6 +424,10 @@ let g:yankring_persist = 0
 " Limit yank history
 let g:yankring_max_history=10
 
+" Gundo
+" -----
+map <silent><F7> :GundoToggle<CR>
+
 " ShowMarks
 " ---------
 let g:showmarks_enable=0
