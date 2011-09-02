@@ -1,6 +1,6 @@
 " Vimrc
 
-" Pathogen plugin setup
+" Pathogen plugin setup {{{1
 " =====================
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
@@ -8,7 +8,7 @@ filetype off
 " call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" VIM global options
+" VIM global options {{{1
 " ==================
 
 " No vim compatibility
@@ -34,7 +34,7 @@ set nomodeline
 " Show current normal mode command
 set showcmd
 
-" Code and syntax options
+" Code and syntax options {{{1
 " =======================
 
 " Set syntax highlighting
@@ -47,7 +47,7 @@ set synmaxcol=2048
 let python_highlight_all=1
 
 
-" History and swap options
+" History and swap options {{{1
 " ========================
 
 "Set maximum undo levels
@@ -69,8 +69,8 @@ set undoreload=10000
 " Enable backups
 set backup
 
-" File options
-" ===================
+" File options {{{1
+" ============
 
 " Set default file encoding to UTF-8
 set encoding=utf-8
@@ -79,7 +79,12 @@ set encoding=utf-8
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
 
 " Exclude files from listing
-set wildignore+=*.pyc,*.o,*.out,*.aux
+set wildignore+=.hg,.git,.svn " Version control
+set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico " binary images
+set wildignore+=*.pyc,*.luac " byte code
+set wildignore+=*.o,*.obj,*.manifest " compiled object files
+set wildignore+=*.DS_Store? " system files
 
 " Use UNIX (\n) line endings for new files
 set fileformat=unix
@@ -95,8 +100,8 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Viewport behavior options (buffers and windows)
-" =======================
+" Viewport behavior options (buffers and windows) {{{1
+" ===============================================
 
 " Do not warn when switching from unsaved buffer
 set hidden
@@ -110,7 +115,7 @@ noremap <C-right> :bn!<CR>
 "Switch window splits
 nmap <C-Tab> <C-w>w
 
-" Search Options
+" Search Options {{{1
 " ==============
 
 " Incremental search
@@ -125,7 +130,7 @@ set ignorecase
 " Case sensitive if search string contains uppercase letters
 set smartcase
 
-" Formatting options
+" Formatting options {{{1
 " ==================
 
 " Set textwidth for long line insertion. Will break lines over n characters long on space.
@@ -136,7 +141,7 @@ set smartcase
 " Configure autowrapping and auto comment leader insertion
 set formatoptions=croql
 
-" General view options
+" General view options {{{1
 " ====================
 
 " Show line numbers
@@ -152,7 +157,7 @@ set cursorline
 set list
 set listchars=tab:▸\ ",eol:¬
 
-" Status line options
+" Status line options {{{1
 " ===================
 
 " Always show statusline
@@ -171,8 +176,8 @@ if has('statusline')
     set statusline+={%n} "Buffer number
 endif
 
-" Completion options
-" =======================
+" Completion options {{{1
+" ==================
 
 " Enable menu at the bottom of vim window
 set wildmenu
@@ -194,7 +199,7 @@ au BufRead,BufNewFile *.rkt set filetype=scheme
 let g:is_chicken = 1
 
 
-" Indentation and tab options
+" Indentation and tab options {{{1
 " ===========================
 
 " Sane default tabstop:
@@ -212,7 +217,7 @@ set softtabstop=4
 " Keep indentation level from previous line
 set autoindent
 
-" Folding options
+" Folding options {{{1
 " ===============
 
 " Folding based on indentation:
@@ -222,8 +227,8 @@ set foldmethod=indent
 set nofoldenable
 
 
-" General keymappings
-" ===========================
+" General keymappings {{{1
+" ===================
 
 " Use <Cr> as alternative mapleader
 nmap <CR> <leader>
@@ -270,9 +275,8 @@ imap <left> <nop>
 imap <right> <nop>
 imap <down> <nop>
 
-" Color and gui options
-" =============
-
+" Color and gui options {{{1
+" =====================
 
 " Set gui-specific options
 if has("gui_running")
@@ -304,7 +308,7 @@ if has("gui_macvim")
    set fuoptions=maxvert,maxhorz
 endif
 
-" Specific highlight options
+" Specific highlight options {{{1
 " ==========================
 
 " Highlight group when displaying bad whitespace is desired.
@@ -322,16 +326,16 @@ autocmd InsertLeave * match BadWhitespace /\s\+$/
 " Clear match when leaving buffer to avoid memory leaks
 autocmd BufWinLeave * call clearmatches()
 
-" Plugin-specific settings
-" ===============
+" Plugin-specific settings {{{1
+" ========================
 
-" Pylint
+" Pylint {{{2
 " ------
 
 " Disable onwrite pylint checks
 let g:pylint_onwrite = 0
 
-" NERDTree
+" NERDTree {{{2
 " --------
 " Bind F2 to show/hide file browser
 map <silent><F2> :NERDTreeToggle<CR>
@@ -345,8 +349,8 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 " Change CWD on NERDTree root changes
 "let NERDTreeChDirMode=2
 
-" TagBar
-" -------
+" TagBar {{{2
+" ------
 " Bind F3 to show/hide tag list
 map <silent><F3> :TagbarToggle<CR>
 
@@ -365,12 +369,12 @@ let g:tagbar_sort = 0
 " Don't show help line
 let g:tagbar_compact = 1
 
-" TaskList
+" TaskList {{{2
 " --------
 " Bind F4 to show task list
 map <silent><F4> :TaskList<CR>
 
-" Command-T
+" Command-T {{{2
 " ---------
 " Bind F5 and \e to start command-t file search
 map <silent><F5> :CommandT<CR>
@@ -382,7 +386,7 @@ nmap <silent><leader>q :CommandTBuffer<CR>
 " Use Esc to close command-t window
 let g:CommandTCancelMap = ['<C-c>', '<ESC>']
 
-" SuperTab
+" SuperTab {{{2
 " --------
 
 " Set supertab to complete depending on text before cursor
@@ -397,7 +401,7 @@ let g:SuperTabMappingBackward ='<C-Tab>'
 " Disable cr to fix conflict with delimitmate
 let g:SuperTabCrMapping = '<C-CR>'
 
-" Syntastic
+" Syntastic {{{2
 " ---------
 
 " Enable syntax error signs, disable prewiew window with error list
@@ -407,7 +411,7 @@ let g:syntastic_auto_loc_list=0
 " Bind :Errors to hotkey
 nmap <silent> <leader>E :Errors<CR>
 
-" YankRing
+" YankRing {{{2
 " --------
 
 " Show yankring menu on F6
@@ -422,19 +426,19 @@ let g:yankring_persist = 0
 " Limit yank history
 let g:yankring_max_history=10
 
-" Gundo
+" Gundo {{{2
 " -----
 map <silent><F7> :GundoToggle<CR>
 
-" ShowMarks
+" ShowMarks {{{2
 " ---------
 let g:showmarks_enable=0
 
-" Rainbows
+" Rainbows {{{2
 " --------
 nmap <leader>R :RainbowParenthesesToggle<CR>
 
-" BufExplorer
+" BufExplorer {{{2
 " -----------
 
 " Map F1 to BufExplorer in all modes
@@ -443,19 +447,19 @@ nnoremap <silent><F1> :BufExplorer<CR>
 " Disable help string
 let g:bufExplorerDefaultHelp=0
 
-" Zencoding
+" Zencoding {{{2
 " ---------
 
 " Set <C-z> for insert mode only
 imap <C-z> <C-y>
 
-" VCScommand
+" VCScommand {{{2
 " ----------
 
 " Switch to \v to avoid conflict with nerdcommenter
 let g:VCSCommandMapPrefix = '<Leader>v'
 
-" Ropevim
+" Ropevim {{{2
 " -------
 
 " Change prefixes to <C-q>
@@ -465,11 +469,11 @@ let g:ropevim_global_prefix = "<C-q>p"
 " Disable shorcuts
 let g:ropevim_enable_shortcuts = 0
 
-" VimErl
+" VimErl {{{2
 " ------
 let g:erlangCompletionDisplayDoc = 0
 
-" UltiSnips
+" UltiSnips {{{2
 " ---------
 
 " Set jump forward key
@@ -490,7 +494,7 @@ let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]
 " Use hardtabs in snippets for agile sw handling
 au FileType snippets setl noexpandtab
 
-" Vimwiki
+" Vimwiki {{{2
 " -------
 
 " Default wiki with .md files and vimwiki_markdown syntax file
