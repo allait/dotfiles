@@ -1,4 +1,4 @@
-" Vim color file
+" prefect.vim color scheme
 
 set background=dark
 highlight clear
@@ -7,8 +7,9 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "prefect"
+let colors_name = "prefect"
 
+" Interface elements {{{1
 hi Cursor                       guifg=#000000   guibg=#fffd00   gui=NONE
 hi Visual                       guifg=NONE      guibg=#333333   gui=NONE
 hi CursorLine                   guifg=NONE      guibg=#1b1b1b   gui=NONE
@@ -26,35 +27,60 @@ hi SignColumn                   guifg=#A6E22E   guibg=#141414
 hi Directory                    guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi Folded                       guifg=#5f5a60   guibg=#141414   gui=NONE
 
-hi Normal                       guifg=#f8f8f8   guibg=#141414   gui=NONE
-hi Boolean                      guifg=#cf6a4c   guibg=NONE      gui=NONE
-hi Character                    guifg=#cf6a4c   guibg=NONE      gui=NONE
-hi Comment                      guifg=#5f5a60   guibg=NONE      gui=italic
-hi Conditional                  guifg=#728aa2   guibg=NONE      gui=NONE
-hi Constant                     guifg=#cf6a4c   guibg=NONE      gui=NONE
-hi Define                       guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi ErrorMsg                     guifg=NONE      guibg=NONE      gui=NONE
 hi WarningMsg                   guifg=NONE      guibg=NONE      gui=NONE
+hi NonText                      guifg=#4f4f4f   guibg=#1b1b1b   gui=NONE
+
+hi Title                        guifg=#f8f8f8   guibg=NONE      gui=bold
+hi SpecialKey                   guifg=#4f4f4f   guibg=#1b1b1b   gui=NONE
+
+" Syntax elements {{{1
+" Basic elements {{{2
+hi Normal                       guifg=#f8f8f8   guibg=#141414   gui=NONE
+hi Comment                      guifg=#5f5a60   guibg=NONE      gui=italic
+
+" Constants {{{2
+hi Constant                     guifg=#cf6a4c   guibg=NONE      gui=NONE
+hi Character                    guifg=#cf6a4c   guibg=NONE      gui=NONE
+hi Number                       guifg=#cf6a4c   guibg=NONE      gui=NONE
+hi Boolean                      guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi Float                        guifg=#cf6a4c   guibg=NONE      gui=NONE
+hi String                       guifg=#8f9d6a   guibg=NONE      gui=NONE
+
+" Identifiers {{{2
 hi Function                     guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi Identifier                   guifg=#b1d631   guibg=NONE      gui=NONE
-hi Keyword                      guifg=#728aa2   guibg=NONE      gui=NONE
-hi Label                        guifg=#8f9d6a   guibg=NONE      gui=NONE
-hi NonText                      guifg=#4f4f4f   guibg=#1b1b1b   gui=NONE
-hi Number                       guifg=#cf6a4c   guibg=NONE      gui=NONE
-hi Operator                     guifg=#728aa2   guibg=NONE      gui=NONE
+
+" Preprocessor instructions {{{2
+hi Define                       guifg=#cf6a4c   guibg=NONE      gui=NONE
+hi Include                      guifg=#728aa2   guibg=NONE      gui=NONE
 hi PreProc                      guifg=#728aa2   guibg=NONE      gui=NONE
-hi Special                      guifg=#f8f8f8   guibg=NONE      gui=NONE
-hi SpecialKey                   guifg=#4f4f4f   guibg=#1b1b1b   gui=NONE
+
+" Keywords {{{2
+hi Keyword                      guifg=#728aa2   guibg=NONE      gui=NONE
 hi Statement                    guifg=#728aa2   guibg=NONE      gui=NONE
-hi StorageClass                 guifg=#f9ee98   guibg=NONE      gui=NONE
-hi String                       guifg=#8f9d6a   guibg=NONE      gui=NONE
-hi Tag                          guifg=#cf6a4c   guibg=NONE      gui=NONE
-hi Title                        guifg=#f8f8f8   guibg=NONE      gui=bold
-hi Todo                         guifg=#5f5a60   guibg=NONE      gui=inverse,bold,italic
+hi Conditional                  guifg=#728aa2   guibg=NONE      gui=NONE
+hi Operator                     guifg=#728aa2   guibg=NONE      gui=NONE
+hi Label                        guifg=#8f9d6a   guibg=NONE      gui=NONE
+
+" Types {{{2
 hi Type                         guifg=#cf6a4c   guibg=NONE      gui=NONE
+hi StorageClass                 guifg=#f9ee98   guibg=NONE      gui=NONE
+
+" Special symbols {{{2
+hi Special                      guifg=#728aa2   guibg=NONE      gui=NONE
+hi SpecialChar                  guifg=#f8f8f8   guibg=NONE      gui=NONE
+hi SpecialComment               guifg=#f8f8f8   guibg=NONE      gui=NONE
+hi Delimiter                    guifg=#f8f8f8   guibg=NONE      gui=NONE
+hi Debug                        guifg=#f8f8f8   guibg=NONE      gui=NONE
+hi Tag                          guifg=#cf6a4c   guibg=NONE      gui=NONE
+
+" Extra attention {{{2
+hi Todo                         guifg=#5f5a60   guibg=NONE      gui=inverse,bold,italic
 hi Underlined                   guifg=NONE      guibg=NONE      gui=underline
 
+" Filetype highlighting {{{1
+" Ruby {{{2
 hi rubyClass                    guifg=#728aa2   guibg=NONE      gui=NONE
 hi rubyFunction                 guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi rubyInterpolationDelimiter   guifg=NONE      guibg=NONE      gui=NONE
@@ -73,26 +99,32 @@ hi rubyClassVariable            guifg=#7587a6   guibg=NONE      gui=NONE
 hi rubyOperator                 guifg=#728aa2   guibg=NONE      gui=NONE
 hi rubyException                guifg=#728aa2   guibg=NONE      gui=NONE
 hi rubyPseudoVariable           guifg=#7587a6   guibg=NONE      gui=NONE
+" Ruby on Rails {{{2
 hi rubyRailsUserClass           guifg=#9b859d   guibg=NONE      gui=NONE
 hi rubyRailsARAssociationMethod guifg=#dad085   guibg=NONE      gui=NONE
 hi rubyRailsARMethod            guifg=#dad085   guibg=NONE      gui=NONE
 hi rubyRailsRenderMethod        guifg=#dad085   guibg=NONE      gui=NONE
 hi rubyRailsMethod              guifg=#dad085   guibg=NONE      gui=NONE
+" ERB {{{2
 hi erubyDelimiter               guifg=NONE      guibg=NONE      gui=NONE
 hi erubyComment                 guifg=#5f5a60   guibg=NONE      gui=italic
 hi erubyRailsMethod             guifg=#dad085   guibg=NONE      gui=NONE
+" HTML {{{2
 hi htmlTag                      guifg=#ac885b   guibg=NONE      gui=NONE
 hi htmlEndTag                   guifg=#ac885b   guibg=NONE      gui=NONE
 hi htmlTagName                  guifg=#ac885b   guibg=NONE      gui=NONE
 hi htmlArg                      guifg=#ac885b   guibg=NONE      gui=NONE
 hi htmlSpecialChar              guifg=#cf6a4c   guibg=NONE      gui=NONE
+" JavaScript {{{2
 hi javaScriptFunction           guifg=#f9ee98   guibg=NONE      gui=NONE
 hi javaScriptRailsFunction      guifg=#dad085   guibg=NONE      gui=NONE
 hi javaScriptBraces             guifg=NONE      guibg=NONE      gui=NONE
+" YAML {{{2
 hi yamlKey                      guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi yamlAnchor                   guifg=#7587a6   guibg=NONE      gui=NONE
 hi yamlAlias                    guifg=#7587a6   guibg=NONE      gui=NONE
 hi yamlDocumentHeader           guifg=#8f9d6a   guibg=NONE      gui=NONE
+" CSS {{{2
 hi cssURL                       guifg=#7587a6   guibg=NONE      gui=NONE
 hi cssFunctionName              guifg=#dad085   guibg=NONE      gui=NONE
 hi cssColor                     guifg=#cf6a4c   guibg=NONE      gui=NONE
@@ -101,6 +133,7 @@ hi cssClassName                 guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssValueLength               guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssCommonAttr                guifg=#cf6a4c   guibg=NONE      gui=NONE
 hi cssBraces                    guifg=NONE      guibg=NONE      gui=NONE
-
-hi link                         pythonFunction                  Identifier
-hi link                         pythonBuiltinFunc               Statement
+" Python {{{2
+hi link pythonFunction Identifier
+hi link pythonBuiltinFunc Statement
+hi link pythonStrFormatting SpecialComment
