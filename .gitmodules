@@ -151,3 +151,6 @@
 [submodule "vim/bundle/rainbow"]
 	path = vim/bundle/rainbow
 	url = git://github.com/HelgeG/rainbow.git
+[submodule "vim/bundle/vimclojure"]
+	path = vim/bundle/vimclojure
+	url = git://github.com/vim-scripts/VimClojure.git
