@@ -436,7 +436,7 @@ let g:showmarks_enable=0
 
 " Rainbows {{{2
 " --------
-nmap <leader>R :RainbowParenthesesToggle<CR>
+nmap <leader>r :RainbowParenthesesToggle<CR>
 
 " BufExplorer {{{2
 " -----------
