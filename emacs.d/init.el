@@ -1,12 +1,25 @@
 ;; Adding ~/.emacs.d to load path
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/packages/")
 
-;; Load Vimpulse 
-;(require 'vimpulse)
+;; Load ELPA
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+;; Load evil (vim mode)
+(add-to-list 'load-path "~/.emacs.d/packages/evil/")
+(require 'evil)
+(evil-mode 1)
 
 ;; Load paredit
-(autoload 'enable-paredit-mode "paredit"
-    "Turn on paredit" t)
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
 
 ;; Load color-theme
 (require 'color-theme)
@@ -42,14 +55,3 @@
  "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
