@@ -337,8 +337,9 @@ let g:pylint_onwrite = 0
 
 " NERDTree {{{2
 " --------
-" Bind F2 to show/hide file browser
+" Bind show/hide file browser
 map <silent><F2> :NERDTreeToggle<CR>
+nmap <silent><leader>d :NERDTreeToggle<CR>
 
 " Ignore pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$']
@@ -351,8 +352,9 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " TagBar {{{2
 " ------
-" Bind F3 to show/hide tag list
+" Bind show/hide tag list
 map <silent><F3> :TagbarToggle<CR>
+nmap <silent><leader>f :TagbarToggle<CR>
 
 " Show Tagbar window on the left
 let g:tagbar_left = 1
