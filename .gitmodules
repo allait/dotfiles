@@ -148,3 +148,6 @@
 [submodule "emacs.d/packages/evil"]
 	path = emacs.d/packages/evil
 	url = git://gitorious.org/evil/evil.git
+[submodule "vim/bundle/showmarks"]
+	path = vim/bundle/showmarks
+	url = git://github.com/garbas/vim-showmarks.git
