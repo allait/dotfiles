@@ -63,7 +63,7 @@
 	url = git://github.com/mattn/zencoding-vim.git
 [submodule "vim/bundle/indexedsearch"]
 	path = vim/bundle/indexedsearch
-	url = git://github.com/vim-scripts/IndexedSearch.git
+	url = git://github.com/travisjeffery/IndexedSearch.git
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
@@ -150,4 +150,4 @@
 	url = git://gitorious.org/evil/evil.git
 [submodule "vim/bundle/showmarks"]
 	path = vim/bundle/showmarks
-	url = git://github.com/garbas/vim-showmarks.git
+	url = git://github.com/harleypig/ShowMarks.git
