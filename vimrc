@@ -411,21 +411,6 @@ let g:syntastic_auto_loc_list=0
 " Bind :Errors to hotkey
 nmap <silent> <leader>E :Errors<CR>
 
-" YankRing {{{2
-" --------
-
-" Show yankring menu on F6
-nmap <silent><F6> :YRShow<CR>
-
-" Store history file in tmp folder
-let g:yankring_history_dir = "~/tmp"
-
-" Don't store history between sessions
-let g:yankring_persist = 0
-
-" Limit yank history
-let g:yankring_max_history=10
-
 " Gundo {{{2
 " -----
 map <silent><F7> :GundoToggle<CR>
@@ -452,12 +437,6 @@ let g:bufExplorerDefaultHelp=0
 
 " Set <C-z> for insert mode only
 imap <C-z> <C-y>
-
-" VCScommand {{{2
-" ----------
-
-" Switch to \v to avoid conflict with nerdcommenter
-let g:VCSCommandMapPrefix = '<Leader>v'
 
 " Ropevim {{{2
 " -------

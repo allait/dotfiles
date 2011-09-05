@@ -28,18 +28,12 @@
 [submodule "vim/bundle/pylint"]
 	path = vim/bundle/pylint
 	url = git://github.com/vim-scripts/pylint.vim.git
-[submodule "vim/bundle/vcscommand"]
-	path = vim/bundle/vcscommand
-	url = git://github.com/vim-scripts/vcscommand.vim.git
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/yankring"]
-	path = vim/bundle/yankring
-	url = git://github.com/vim-scripts/YankRing.vim.git
 [submodule "vim/bundle/indentpython"]
 	path = vim/bundle/indentpython
 	url = git://github.com/vim-scripts/indentpython.vim.git
