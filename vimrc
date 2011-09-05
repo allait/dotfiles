@@ -369,15 +369,9 @@ let g:tagbar_sort = 0
 " Don't show help line
 let g:tagbar_compact = 1
 
-" TaskList {{{2
-" --------
-" Bind F4 to show task list
-map <silent><F4> :TaskList<CR>
-
 " Command-T {{{2
 " ---------
-" Bind F5 and \e to start command-t file search
-map <silent><F5> :CommandT<CR>
+" Bind \e to start command-t file search
 nmap <silent><leader>e :CommandT<CR>
 
 " \q to search for buffer name
@@ -413,7 +407,7 @@ nmap <silent> <leader>E :Errors<CR>
 
 " Gundo {{{2
 " -----
-map <silent><F7> :GundoToggle<CR>
+nmap <silent><leader>u :GundoToggle<CR>
 
 " ShowMarks {{{2
 " ---------
