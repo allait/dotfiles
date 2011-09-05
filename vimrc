@@ -413,7 +413,14 @@ nmap <silent><leader>u :GundoToggle<CR>
 
 " ShowMarks {{{2
 " ---------
+" Disable by default
 let g:showmarks_enable=0
+
+" Set saner sign colors
+hi ShowMarksHLl ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
+hi ShowMarksHLu ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
+hi ShowMarksHLo ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
+hi ShowMarksHLm ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
 
 " Rainbows {{{2
 " --------
