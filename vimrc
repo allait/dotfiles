@@ -500,3 +500,11 @@ let g:vimwiki_table_auto_fmt = 0
 
 " Disable wikiwords
 let g:vimwiki_camel_case = 0
+
+" Commentary {{{2
+" ----------
+
+" Map to \c
+xmap <leader>c <Plug>Commentary
+nmap <leader>c <Plug>Commentary
+nmap <leader>cc <Plug>CommentaryLine
