@@ -133,13 +133,8 @@ set smartcase
 " Formatting options {{{1
 " ==================
 
-" Set textwidth for long line insertion. Will break lines over n characters long on space.
-" Allows to format comments with `gq`
-" This keeps breaking in HTML despite all fo-=t
-" set textwidth=80
-
 " Configure autowrapping and auto comment leader insertion
-set formatoptions=croql
+set formatoptions=ctrqln
 
 " General view options {{{1
 " ====================

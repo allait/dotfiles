@@ -151,3 +151,6 @@
 [submodule "vim/bundle/showmarks"]
 	path = vim/bundle/showmarks
 	url = git://github.com/harleypig/ShowMarks.git
+[submodule "vim/bundle/vim-git"]
+	path = vim/bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
