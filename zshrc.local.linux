@@ -1,4 +1,0 @@
-export PATH=$PATH:/var/lib/gems/1.8/bin
-alias gsed="sed"
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
