@@ -249,16 +249,6 @@ task :install_macvim => [:create_build_dir] do
     %x[open #{macvim_path}/src/MacVim/build/Release/]
 end
 
-desc "Install iTerm2 config"
-task :setup_iterm_config do
-    if Dot::System == "darwin"
-        file = "com.googlecode.iterm2.plist"
-        puts "Copying file #{file}..."
-        %x[cp #{file} ~/Library/Preferences/]
-        %x[plutil -convert binary1 ~/Library/Preferences/#{file}]
-    end
-end
-
 desc "Setup common python packages"
 task :install_pip_tools do
     %x[pip install -U -r requirements.txt]
