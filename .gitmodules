@@ -61,9 +61,6 @@
 [submodule "vim/bundle/zencoding"]
 	path = vim/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "vim/bundle/indexedsearch"]
-	path = vim/bundle/indexedsearch
-	url = git://github.com/travisjeffery/IndexedSearch.git
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
