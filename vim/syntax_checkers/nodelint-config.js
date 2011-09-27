@@ -1,14 +1,16 @@
 // Nodelint config and reporter file for syntastic
 // https://github.com/tav/nodelint
 var options = {
-    adsafe: false,
-    bitwise: true,
-    forin: true,
-    white:false,
-    error_prefix: '',
-    error_suffix: ': ',
-    maxerr: 500,
-    onevar: false
+  adsafe: false,
+  bitwise: true,
+  node: true,
+  plusplus: true,
+  forin: true,
+  white: true,
+  error_prefix: '',
+  error_suffix: ': ',
+  maxerr: 500,
+  vars: true,
 };
 
 var sys = require('sys');
@@ -16,11 +18,11 @@ var sys = require('sys');
 function reporter(results) {
 
   var error_regexp = /^\s*(\S*(\s+\S+)*)\s*$/,
-      i,
-      len = results.length,
-      str = '',
-      file,
-      error;
+    i,
+    len = results.length,
+    str = '',
+    file,
+    error;
 
   if (len > 0) {
     for (i = 0; i < len; i += 1) {
