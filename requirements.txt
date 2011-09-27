@@ -24,6 +24,7 @@ Pygments
 
 # Common packages
 PIL
+simplejson
 
 # Django tools
 django-debug-toolbar
