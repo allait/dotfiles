@@ -28,18 +28,14 @@ setopt correct correctall
 unsetopt beep list_beep
 
 # Parse --help arguments completion for following commands
-compdef _gnu_generic nosetests
-compdef _gnu_generic trial
-compdef _gnu_generic mkvirtualenv
+compdef _gnu_generic nosetests trial
+compdef _gnu_generic virtualenv mkvirtualenv
 compdef _gnu_generic ack
 compdef _gnu_generic fab
 compdef _gnu_generic csi
 compdef _gnu_generic clang
-compdef _gnu_generic psql
-compdef _gnu_generic createdb
-compdef _gnu_generic dropdb
-compdef _gnu_generic pg_dump
-compdef _gnu_generic pg_config
+compdef _gnu_generic psql createdb dropdb pg_dump pg_config
+compdef _gnu_generic node coffee http-console nodelint
 
 # Complete MacVim alias and mvim
 compdef _vim Vim mvim
