@@ -34,7 +34,7 @@ compdef _gnu_generic ack
 compdef _gnu_generic fab
 compdef _gnu_generic csi
 compdef _gnu_generic clang
-compdef _gnu_generic psql createdb dropdb pg_dump pg_config
+compdef _gnu_generic psql createdb dropdb -p 'pg_*'
 compdef _gnu_generic node coffee http-console nodelint
 
 # Complete MacVim alias and mvim
