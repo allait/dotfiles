@@ -15,3 +15,6 @@ include /usr/local/share/doc/task/rc/dark-256.theme
 
 # Task sorting
 report.ls.sort=project+,priority-,description+
+
+# Don't show annotations in ls
+report.ls.annotations=none
