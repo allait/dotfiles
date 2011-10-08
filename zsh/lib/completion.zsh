@@ -29,7 +29,8 @@ unsetopt beep list_beep
 
 # Parse --help arguments completion for following commands
 compdef _gnu_generic nosetests trial
-compdef _gnu_generic virtualenv mkvirtualenv
+compdef _gnu_generic virtualenv mkvirtualenv lsvirtualenv
+compdef _gnu_generic open
 compdef _gnu_generic ack
 compdef _gnu_generic fab
 compdef _gnu_generic csi
