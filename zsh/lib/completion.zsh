@@ -16,6 +16,9 @@ setopt chase_dots
 # Make completion list smaller
 setopt list_packed
 
+# Don't print 'no matches found' error
+unsetopt nomatch
+
 # Complete from within word
 setopt complete_in_word
 # Jump to word end on successful completion
