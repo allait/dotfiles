@@ -79,7 +79,6 @@ set encoding=utf-8
 set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
 
 " Exclude files from listing
-set wildignore+=.hg,.git,.svn " Version control
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico " binary images
 set wildignore+=*.pyc,*.luac " byte code
