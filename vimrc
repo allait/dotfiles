@@ -366,16 +366,26 @@ let g:tagbar_sort = 0
 " Don't show help line
 let g:tagbar_compact = 1
 
-" Command-T {{{2
+" CtrlP {{{2
 " ---------
-" Bind \e to start command-t file search
-nmap <silent><leader>e :CommandT<CR>
+
+" \e to search for file name
+nmap <silent><leader>e :CtrlP<CR>
 
 " \q to search for buffer name
-nmap <silent><leader>q :CommandTBuffer<CR>
+nmap <silent><leader>q :CtrlPBuffer<CR>
 
-" Use Esc to close command-t window
-let g:CommandTCancelMap = ['<C-c>', '<ESC>']
+" Don't change the working directory
+let g:ctrlp_working_path_mode = 0
+
+" Disable most recently used files list
+let g:ctrlp_mru_files = 0
+
+" Don't seach for dotfiles/dirs
+let g:ctrlp_dotfiles = 0
+
+" Open new files in the current window
+let g:ctrlp_open_new_file = 0
 
 " SuperTab {{{2
 " --------

@@ -10,9 +10,6 @@
 [submodule "vim/bundle/conqueterm"]
 	path = vim/bundle/conqueterm
 	url = git://github.com/vim-scripts/Conque-Shell.git
-[submodule "vim/bundle/command_t"]
-	path = vim/bundle/command_t
-	url = git://github.com/wincent/Command-T.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -151,3 +148,6 @@
 [submodule "vim/bundle/vim-git"]
 	path = vim/bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git

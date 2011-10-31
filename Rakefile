@@ -192,7 +192,7 @@ task :cleanup => [:backup, :clean_tmp] do
 end
 
 desc "Execute full build for current machine"
-task :build => [:up, :update, :build_cmdt] do
+task :build => [:up, :update] do
 end
 
 desc "Setup wiki link"
@@ -201,18 +201,6 @@ task :wiki do
         puts "Setting up wiki..."
         %x[ln -s #{File.join(Dir.pwd, '..', 'wiki')} #{Dot::Dirs[:home] + '/wiki'}]
     end
-end
-
-desc "Build command-t ruby extension"
-task :build_cmdt do
-    puts "Building command-t..."
-    cmdt_path = File.join(Dot::Dirs[:bundle], 'command_t/ruby/command-t/')
-    %x[cd #{cmdt_path}; ruby extconf.rb]
-    # Default Makefile installs into site_ruby/ instead of site_ruby/command-t, which
-    # breaks the import.
-    %x[sed -i '' "s/target_prefix = /target_prefix = \\/command-t/g" #{File.join(cmdt_path, 'Makefile')}]
-    puts %x[cd #{cmdt_path}; make && sudo make install && make realclean]
-
 end
 
 desc "Create build dir"
