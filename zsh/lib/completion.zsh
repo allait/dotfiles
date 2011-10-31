@@ -47,13 +47,15 @@ compdef _vim Vim mvim
 # Ignore completion functions I don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
-# Completion system configuration
 # Immediately show completion menu
 zstyle ':completion:*' menu select
 # Remove trailing slash if using directory as completion
 zstyle ':completion:*' squeeze-slashes true
+# Set description style
 zstyle ':completion:*' format '%F{white}%d%f'
+# Use tag name as the name of the group
 zstyle ':completion:*' group-name ''
+
 # Perform case-insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
@@ -64,6 +66,8 @@ zstyle ':completion:*' complete-options true
 # Cache completions for commands that support it
 zstyle ':completion:*' use-cache true
 
+# Complete only given users
+zstyle ':completion:*' users root $(whoami)
 
 # Zsh completion control functions
 zstyle ':completion:*' completer _oldlist _complete _match _ignored _list
