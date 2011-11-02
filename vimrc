@@ -224,9 +224,6 @@ set nofoldenable
 " General keymappings {{{1
 " ===================
 
-" Use <Cr> as alternative mapleader
-nmap <CR> <leader>
-
 " Reset highlighting on Space
 nmap <silent><Space> :nohlsearch<Bar>:echo<CR>
 
