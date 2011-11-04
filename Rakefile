@@ -271,7 +271,7 @@ task :install_npm_tools do
     puts "Installing npm packages..."
     packages = [
         "http-console",
-        "nodelint",
+        "jshint",
         "coffee-script"
     ]
     packages.each do |pack|
