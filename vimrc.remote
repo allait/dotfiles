@@ -17,6 +17,9 @@ set mouse=a
 " Disable modeline for security reasons
 set nomodeline
 
+" Show current normal mode command
+set showcmd
+
 " Code and syntax options
 " =======================
 
@@ -158,9 +161,6 @@ set nofoldenable
 
 " General keymappings
 " ===========================
-
-" Use <Cr> as alternative mapleader
-nmap <CR> <leader>
 
 " Reset highlighting on Space
 nmap <silent><Space> :nohlsearch<Bar>:echo<CR>
