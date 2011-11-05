@@ -37,14 +37,14 @@ Features
 * Support for joining files from different parts, depending on the current system:
   e.g. `*.local.darwin` for OS X specific options and `*.local.linux` for Linux specific.
 * Rake tasks to automate some environment setup tasks
+* Fabric task to install bare bones versions of config files on remote servers
 
 ### Vim
-* `syntastic.vim` syntax checkers for erlang and javascript (using `nodelint`)
+* `syntastic.vim` syntax checkers for erlang
 * New color scheme: `prefect.vim`
 * Some snippets for `UltiSnips`: python, puppet, sql and more
-* Extended javascript completion with support for jQuery and underscore.js 
+* Extended javascript completion with support for jQuery and underscore.js
 
 ### Rake tasks
 * `install_pip_tools` to install python packages from `requirements.txt`
 * `install_macvim` to build macvim with current python version
-* `build_cmdt` to build and install command-t ruby extension
