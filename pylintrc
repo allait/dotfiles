@@ -35,7 +35,7 @@ load-plugins=
 # C0302: Too many lines in module (N)
 # R0902: Too many instance attributes (N/7)
 # W6501: Specify string format arguments as logging function parameters
-disable=C0302,R0902,W6501
+disable=C0302,R0902
 
 
 [REPORTS]

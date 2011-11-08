@@ -24,7 +24,7 @@
 	url = git://github.com/tpope/vim-abolish.git
 [submodule "vim/bundle/pylint"]
 	path = vim/bundle/pylint
-	url = git://github.com/vim-scripts/pylint.vim.git
+	url = git://github.com/rygwdn/vim-pylint.git
 [submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = git://github.com/vim-scripts/matchit.zip.git
