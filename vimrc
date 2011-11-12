@@ -81,7 +81,7 @@ set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
 " Exclude files from listing
 set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico " binary images
-set wildignore+=*.pyc,*.luac " byte code
+set wildignore+=*.pyc,*.luac,*.beam " byte code
 set wildignore+=*.o,*.obj,*.manifest " compiled object files
 set wildignore+=*.DS_Store? " system files
 
