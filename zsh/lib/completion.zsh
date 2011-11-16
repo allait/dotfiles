@@ -31,7 +31,7 @@ setopt correct correctall
 unsetopt beep list_beep
 
 # Parse --help arguments completion for following commands
-compdef _gnu_generic nosetests trial
+compdef _gnu_generic nosetests trial 'py.test'
 compdef _gnu_generic virtualenv mkvirtualenv lsvirtualenv
 compdef _gnu_generic open
 compdef _gnu_generic ack
