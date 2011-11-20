@@ -11,9 +11,9 @@ bindkey ' ' magic-space
 # ^U to delete line to beginning instead of whole line
 bindkey "^U" backward-kill-line
 
-# Search history for current line contents
-bindkey "\er" history-beginning-search-backward
-bindkey "\es" history-beginning-search-forward
+# Search history for current line contents with up/down keys
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
 # Push multiline commands too
 bindkey "^Q" push-input
