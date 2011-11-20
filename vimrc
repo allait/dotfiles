@@ -5,7 +5,6 @@
 " http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
 filetype off
-" call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " VIM global options {{{1
@@ -13,9 +12,6 @@ call pathogen#runtime_append_all_bundles()
 
 " No vim compatibility
 set nocompatible
-
-" Disable intro message
-" set shortmess+=I
 
 " No bell sounds
 set noerrorbells
@@ -28,13 +24,13 @@ set mouse=a
 " Disable modeline for security reasons
 set nomodeline
 
-" Scroll when cursor is n lines before window border
-" set scrolloff=1
-
 " Show current normal mode command
 set showcmd
 
-" Code and syntax options {{{1
+" Set window title to current file name
+set title
+
+" Syntax options {{{1
 " =======================
 
 " Set syntax highlighting
@@ -75,16 +71,6 @@ set backup
 " Set default file encoding to UTF-8
 set encoding=utf-8
 
-" When doing tab completion, give the following files lower priority
-set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
-
-" Exclude files from listing
-set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico " binary images
-set wildignore+=*.pyc,*.luac,*.beam " byte code
-set wildignore+=*.o,*.obj,*.manifest " compiled object files
-set wildignore+=*.DS_Store? " system files
-
 " Use UNIX (\n) line endings for new files
 set fileformat=unix
 
@@ -111,10 +97,16 @@ set autoread
 noremap <C-left> :bp!<CR>
 noremap <C-right> :bn!<CR>
 
-"Switch window splits
+" Switch window splits
 nmap <C-Tab> <C-w>w
 
-" Search Options {{{1
+" Create new split window below the current one
+set splitbelow
+
+" Create vertical split window right of the current one
+set splitright
+
+" Search and Movement Options {{{1
 " ==============
 
 " Incremental search
@@ -128,6 +120,16 @@ set ignorecase
 
 " Case sensitive if search string contains uppercase letters
 set smartcase
+
+" Alias tab to %
+map <Tab> %
+
+" Don't move on *
+nnoremap * *<C-o>
+
+" Use Emacs C-A and C-E behavior in insert mode
+inoremap <C-a> <Esc>I
+inoremap <C-e> <Esc>A
 
 " Formatting options {{{1
 " ==================
@@ -189,9 +191,18 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " Racket is scheme, and we have only syntax completion for scheme
 au BufRead,BufNewFile *.rkt set filetype=scheme
 
-" We're using chicken scheme
-let g:is_chicken = 1
+" When doing tab completion, give the following files lower priority
+set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.loi,.pyc
 
+" Exclude files from listing
+set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico " binary images
+set wildignore+=*.pyc,*.luac,*.beam " byte code
+set wildignore+=*.o,*.obj,*.manifest " compiled object files
+set wildignore+=*.DS_Store? " system files
+
+" Using chicken scheme
+let g:is_chicken = 1
 
 " Indentation and tab options {{{1
 " ===========================
@@ -204,6 +215,9 @@ set expandtab
 
 " What to use for an >> and << indent.
 set shiftwidth=4
+
+" Round indent to multiple of shiftwidth
+set shiftround
 
 " Set soft tab length
 set softtabstop=4
