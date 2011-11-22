@@ -27,9 +27,6 @@ set nomodeline
 " Show current normal mode command
 set showcmd
 
-" Set window title to current file name
-set title
-
 " Syntax options {{{1
 " =======================
 
@@ -120,9 +117,6 @@ set ignorecase
 
 " Case sensitive if search string contains uppercase letters
 set smartcase
-
-" Alias tab to %
-map <Tab> %
 
 " Don't move on *
 nnoremap * *<C-o>
