@@ -36,9 +36,8 @@ syntax on
 " Limit highlighting to x columns to increase speed with long lines
 set synmaxcol=2048
 
-" Python full highliting
+" Python full highlighting
 let python_highlight_all=1
-
 
 " History and swap options {{{1
 " ========================
