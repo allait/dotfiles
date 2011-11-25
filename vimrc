@@ -313,17 +313,27 @@ endif
 " Highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
 
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
-match BadWhitespace /\s\+$/
-" Highlight whitespace on open buffer
-autocmd BufWinEnter * match BadWhitespace /\s\+$/
-" Don't highlight while typing
-autocmd InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match BadWhitespace /\s\+$/
-" Clear match when leaving buffer to avoid memory leaks
-autocmd BufWinLeave * call clearmatches()
+fun! s:MatchBadWhitespace(current)
+    if exists('b:hide_bad_whitespace')
+        match none
+        return
+    endif
+    if a:current
+        match BadWhitespace /\s\+$/
+    else
+        match BadWhitespace /\s\+\%#\@<!$/
+    endif
+endfun
+
+augroup WhitespaceMatch
+    " Highlight whitespace on open buffer
+    autocmd BufWinEnter * call s:MatchBadWhitespace(1)
+    " Don't highlight while typing
+    autocmd InsertEnter * call s:MatchBadWhitespace(0)
+    autocmd InsertLeave * call s:MatchBadWhitespace(1)
+    " Clear match when leaving buffer to avoid memory leaks
+    autocmd BufWinLeave * call clearmatches()
+augroup END
 
 " Plugin-specific settings {{{1
 " ========================
