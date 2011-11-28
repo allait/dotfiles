@@ -287,6 +287,12 @@ imap <left> <nop>
 imap <right> <nop>
 imap <down> <nop>
 
+" Helper commands {{{1
+" ===============
+
+" Sudo to save file
+cmap w!! w !sudo tee % >/dev/null
+
 " Color and gui options {{{1
 " =====================
 
