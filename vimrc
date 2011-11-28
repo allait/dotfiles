@@ -24,9 +24,6 @@ set mouse=a
 " Disable modeline for security reasons
 set nomodeline
 
-" Show current normal mode command
-set showcmd
-
 " Syntax options {{{1
 " =======================
 
@@ -118,6 +115,13 @@ nnoremap * *<C-o>
 inoremap <C-a> <Esc>I
 inoremap <C-e> <Esc>A
 
+" Don't skip wrap lines
+nnoremap j gj
+nnoremap k gk
+
+" Show ↪ at the beginning of wrapped lines
+let &showbreak = nr2char(8618)
+
 " Formatting options {{{1
 " ==================
 
@@ -139,6 +143,12 @@ set cursorline
 " Show invisible symbols
 set list
 set listchars=tab:▸\ ",eol:¬
+
+" Show current normal mode command
+set showcmd
+
+" Don't display line numbers
+set nonumber
 
 " Status line options {{{1
 " ===================
