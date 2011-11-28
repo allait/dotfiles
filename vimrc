@@ -300,10 +300,6 @@ cmap w!! w !sudo tee % >/dev/null
 if has("gui_running")
     " Set color scheme
     colorscheme prefect
-    " Set gui font
-    if !has("gui_macvim")
-        set guifont=Droid\ Sans\ Mono\ Slashed\ 8
-    endif
     " Disable toolbar
     set guioptions-=T
     " Disable left scrollbar
@@ -372,11 +368,17 @@ nmap <silent><leader>d :NERDTreeToggle<CR>
 " Ignore pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
+" Show arrows instead of + ~ chars
+let NERDTreeDirArrows=1
+
+" Hide help header text
+let NERDTreeMinimalUI=1
+
 " Close panel after opening file
-"let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=1
 
 " Change CWD on NERDTree root changes
-"let NERDTreeChDirMode=2
+let NERDTreeChDirMode=2
 
 " TagBar {{{2
 " ------
