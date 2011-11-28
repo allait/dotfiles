@@ -231,12 +231,18 @@ set foldmethod=indent
 " Make folds open by default
 set nofoldenable
 
+" Close higher-level folds on foldenable
+set foldlevel=1
 
 " General keymappings {{{1
 " ===================
 
-" Reset highlighting on Space
-nmap <silent><Space> :nohlsearch<Bar>:echo<CR>
+" Reset highlighting
+nmap <silent><BS> :nohlsearch<Bar>:echo<CR>
+
+" Toggle folds with Space
+nnoremap <Space> za
+vnoremap <Space> za
 
 " Use <M-CR> to continue current line
 imap <M-CR> \<CR>
