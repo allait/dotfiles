@@ -86,15 +86,9 @@ endif
 
 " Do not warn when switching from unsaved buffer
 set hidden
+
 " Autoreload file when changed outside of vim
 set autoread
-
-" Set forced buffer rotation on Ctrl+arrows
-noremap <C-left> :bp!<CR>
-noremap <C-right> :bn!<CR>
-
-" Switch window splits
-nmap <C-Tab> <C-w>w
 
 " Create new split window below the current one
 set splitbelow
