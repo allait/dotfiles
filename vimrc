@@ -244,6 +244,10 @@ nmap <silent><BS> :nohlsearch<Bar>:echo<CR>
 nnoremap <Space> za
 vnoremap <Space> za
 
+" Set map leaders
+let mapleader = ","
+let maplocalleader = "\\"
+
 " Use <M-CR> to continue current line
 imap <M-CR> \<CR>
 
