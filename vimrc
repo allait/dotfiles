@@ -238,7 +238,7 @@ set foldlevel=1
 " ===================
 
 " Reset highlighting
-nmap <silent><BS> :nohlsearch<Bar>:echo<CR>
+nmap <silent>K :nohlsearch<Bar>:echo<CR>
 
 " Toggle folds with Space
 nnoremap <Space> za
