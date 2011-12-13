@@ -1,7 +1,6 @@
 # Taskwarrior program configuration file.
 
 # Files
-data.location=~/wiki/tasks
 edit.verbose=no
 
 # Date
