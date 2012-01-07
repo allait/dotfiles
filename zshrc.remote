@@ -1,15 +1,26 @@
 autoload colors; colors;
+
+HISTFILE=~/.histfile
+HISTSIZE=5000
+SAVEHIST=5000
+setopt hist_ignore_space
+
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export PAGER=less
+export LESS="-eiRX"
+export EDITOR="vim"
 
 bindkey -e
 setopt prompt_subst
 alias ls="ls --color=auto"
 alias l="ls -lAh"
-alias sudo-z="sudo -s /bin/zsh"
+alias g="git"
 
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
 bindkey "^[[3~" delete-char
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
 
 PROMPT='%{$fg[red]%}%m%{$reset_color%} %{$fg[blue]%}%c%{$reset_color%} %{$fg[yellow]%}%%%{$reset_color%} '
 RPROMPT='[%T]'
