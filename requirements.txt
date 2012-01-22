@@ -4,8 +4,7 @@ Fabric
 mercurial
 
 # Test tools
-nose
-rednose
+pytest
 pyflakes
 pylint
 coverage
