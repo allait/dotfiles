@@ -1,0 +1,39 @@
+" General {{{1
+
+" Set statusline options
+set guioptions=s
+
+" Follow selected hint on <CR>
+set followhints=1
+
+" Show tab bar only when there are multiple tabs
+set showtabline=multitab
+
+" Show link destination in command line when hovering
+set showstatuslinks=command
+
+" Highlight all search matches, not just the first.
+set hlfind
+
+" Disable beep
+javascript dactyl.beep = function() { return false; }
+
+" Keys {{{1
+
+" Set leader
+set mapleader=','
+
+" Faster scrolling
+nnoremap j 3j
+nnoremap k 3k
+
+" Switch tabs with J and K
+nnoremap J gT
+nnoremap K gt
+
+" Don't go back in history on Del
+nnoremap <bs> <nop>
+
+" Clear search highlighting and normal highlighting.
+nnoremap <Leader><space> <esc>:noh<CR>
+
