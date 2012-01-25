@@ -291,7 +291,7 @@ imap <down> <nop>
 " ===============
 
 " Sudo to save file
-cmap w!! w !sudo tee % >/dev/null
+command! Sudow w !sudo tee % >/dev/null
 
 " Color and gui options {{{1
 " =====================
