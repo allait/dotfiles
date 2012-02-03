@@ -1,0 +1,45 @@
+desc "Install common tools from homebrew packages"
+task :brew do
+    puts "Installing Homebrew packages..."
+    packages = [
+        "git",
+        "ack",
+        "ctags",
+        "gnu-sed",
+        "par",
+        "irssi",
+        "proctools",
+        "wget",
+        "w3m",
+    ]
+    packages.each do |pack|
+        system %Q[brew install #{pack}]
+    end
+    system %Q[brew link ctags]
+    system %Q[brew cleanup]
+end
+
+desc "Install common tools from npm packages"
+task :npm do
+    puts "Installing npm packages..."
+    packages = [
+        "http-console",
+        "jshint",
+        "coffee-script"
+    ]
+    packages.each do |pack|
+        system %Q[npm install -g #{pack}]
+    end
+end
+
+desc "Install common gems"
+task :gems do
+    packages = [
+        "cheat",
+        "facter"
+    ]
+    packages.each do |pack|
+        system %Q[gem install #{pack}]
+    end
+end
+

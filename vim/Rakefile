@@ -1,0 +1,22 @@
+desc "Build latest macvim from github"
+task :macvim do
+    `mkdir -p $PWD/build`
+    puts "Cloning macvim..."
+    macvim_path = "#{ENV["PWD"]}/build/macvim"
+    if File.exists?(macvim_path)
+        system %Q[cd #{macvim_path}; git pull]
+    else
+        system %Q[git clone git://github.com/b4winckler/macvim.git #{macvim_path}]
+        system %Q[cd #{macvim_path}/src/MacVim/icons; curl http://cloud.github.com/downloads/b4winckler/macvim/MacVim-docicon-pack.tbz | tar xj]
+    end
+    system %Q[cd #{macvim_path}/src; ./configure --with-features=huge \
+          --enable-rubyinterp \
+          --enable-pythoninterp \
+          --enable-perlinterp \
+          --enable-cscope \
+          --with-macarchs=x86_64 \
+          --with-macsdk=10.6 ]
+    system %Q[cd #{macvim_path}/src; make]
+    `cp #{macvim_path}/src/MacVim/mvim /usr/local/bin/`
+    `open #{macvim_path}/src/MacVim/build/Release/`
+end

@@ -1,0 +1,24 @@
+require 'dotfiles'
+
+task :install do
+  linkables("python").each do |item|
+    next if item == "python/requirements.txt"
+    install_item(item)
+    # TODO setup ipython files instead of symlinking ~/.ipython
+  end
+end
+
+desc "Setup common python packages"
+task :install_pip_tools do
+    system %Q[pip install -U -r python/requirements.txt]
+end
+
+desc "Install python interpreter"
+task :install_python do
+    system %Q[brew install python --framework]
+    `sudo rm /Library/Frameworks/Python.framework/Versions`
+    `sudo ln -is $(find /usr/local/Cellar/python -type l -name Current) /Library/Frameworks/Python.framework/Versions`
+    system %Q[/usr/local/share/python/easy_install pip]
+    system %Q[/usr/local/share/python/pip install --upgrade distribute]
+    system %Q[brew cleanup]
+end
