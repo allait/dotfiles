@@ -9,6 +9,8 @@ end
 
 desc "Install dotfiles to $HOME"
 task :install => [:info] do
+  puts "Initializing submodules..."
+  `git submodule update --init`
   components().each do |component|
     if Rake::Task.task_defined? "#{component}:install"
       Rake::Task["#{component}:install"].invoke
@@ -18,7 +20,6 @@ task :install => [:info] do
       end
     end
   end
-  system %Q[git submodule update --init]
 end
 
 desc "Remove installed dotfiles and restore from backup"
