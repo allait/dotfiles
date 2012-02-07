@@ -1,8 +1,8 @@
 import os
-import StringIO
+import tempfile
+import shutil
 
 from fabric.api import local, env, run, put
-from fabric.context_managers import cd
 
 def transfer_gpg_keys():
     local("gpg --export-secret-keys > ~/tmp/gpg.sec")
@@ -19,18 +19,15 @@ def upload_ssh_key():
     run("echo '%s' >> ~/.ssh/authorized_keys && chmod 644 ~/.ssh/authorized_keys" % key)
 
 def install_remote_dotfiles():
-    put("zshrc.remote", ".zshrc")
-    put("vimrc.remote", ".vimrc")
-    put("screenrc", ".screenrc")
-    gitconfig = local("erb gitconfig.erb", capture=True)
-    put(StringIO.StringIO(gitconfig), ".gitconfig")
-    hgrc = local("erb hgrc.erb", capture=True)
-    put(StringIO.StringIO(hgrc), ".hgrc")
+    tmp_dir = tempfile.mkdtemp()
+    local("HOME=%s rake install components=vim,zsh,git,tools remote=linux" % tmp_dir)
+    put("%s/.*" % tmp_dir, "")
+    shutil.rmtree(tmp_dir)
 
 # Hosts
 
 def vagrant(path):
     env.user = 'vagrant'
     env.hosts = ['127.0.0.1:2222']
-    res = local('cd %s && vagrant ssh_config | grep IdentityFile' % path, capture=True)
+    res = local('cd %s && vagrant ssh-config | grep IdentityFile' % path, capture=True)
     env.key_filename = res.split()[1]
