@@ -28,7 +28,7 @@ RPROMPT='${vcs_prompt_info_status_}[%T]'
 PROMPT='%F{blue}$(prompt_pwd)%f${vcs_info_msg_0_} %F{yellow}%%%f '
 
 # Vi mode indicators
-VI_NORMAL_MODE="%{$fg_bold[red]%}⚙%{$reset_color%}"
+VI_NORMAL_MODE='%F{red}⚙%f'
 VI_INSERT_MODE=$RPROMPT
 
 autoload zle-line-init zle-keymap-select
