@@ -22,6 +22,7 @@ def install_remote_dotfiles():
     tmp_dir = tempfile.mkdtemp()
     local("HOME=%s rake install components=vim,zsh,git,tools remote=linux" % tmp_dir)
     put("%s/.*" % tmp_dir, "")
+    put("%s/*" % tmp_dir, "")
     shutil.rmtree(tmp_dir)
 
 # Hosts
