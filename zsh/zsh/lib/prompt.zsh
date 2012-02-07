@@ -16,6 +16,7 @@ zstyle ':vcs_info:*' formats '@%F{yellow}%b%f'
 # Execute function before every command
 function precmd () {
     vcs_info
+    vcs_prompt_info
 }
 
 VCS_PROMPT_UNTRACKED="%F{blue}● %f"
@@ -23,7 +24,7 @@ VCS_PROMPT_UNSTAGED="%B%F{red}● %b%f"
 VCS_PROMPT_UNCOMMITED="%F{red}● %f"
 VCS_PROMPT_CLEAN="%F{green}● %f"
 
-RPROMPT='$(vcs_prompt_info)[%T]'
+RPROMPT='${vcs_prompt_info_status_}[%T]'
 PROMPT='%F{blue}$(prompt_pwd)%f${vcs_info_msg_0_} %F{yellow}%%%f '
 
 # Vi mode indicators
