@@ -7,15 +7,18 @@ components().each do |component|
   end
 end
 
-desc "Install dotfiles to user HOME"
+desc "Install dotfiles to $HOME"
 task :install => [:info] do
-  install(components(), :local)
+  components().each do |component|
+    if Rake::Task.task_defined? "#{component}:install"
+      Rake::Task["#{component}:install"].invoke
+    else
+      linkables(component).each do |linkable|
+        install_item(linkable)
+      end
+    end
+  end
   system %Q[git submodule update --init]
-end
-
-desc "Install minimal set of dotfiles"
-task :remote => [:info] do
-  install([:vim, :git, :zsh], :remote)
 end
 
 desc "Remove installed dotfiles and restore from backup"
@@ -29,10 +32,10 @@ task :uninstall do
       end
     end
   end
-  `rm -rf $HOME/{tmp,wiki}`
+  `rm -rf $HOME/{.backup,tmp,wiki}`
 end
 
-# task :default => 'install'
+task :default => 'install'
 
 desc "Clean tmp backup and swap files"
 task :cleanup do
@@ -40,10 +43,10 @@ task :cleanup do
   `mkdir -p $HOME/tmp/{swap,backup,undo}`
 end
 
-desc "Create info files"
+desc "Create tmp dirs and info files"
 task :info do
   next if File.exists?("#{ENV["HOME"]}/tmp/info")
-  `mkdir -p $HOME/tmp/info`
+  `mkdir -p $HOME/tmp/{info,swap,backup,undo}`
   print "Name: "
   name = STDIN.gets.chomp
   `echo '#{name}' > $HOME/tmp/info/name`

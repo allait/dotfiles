@@ -3,6 +3,7 @@ require 'erb'
 STRIP_EXTENSIONS = /\.erb/
 
 def components
+  return ENV["components"].split(",") if ENV["components"]
   Dir.glob('*/').map do |component|
     component.split("/").last
   end
@@ -14,48 +15,47 @@ def linkables(component)
   end
 end
 
-def install(components, type)
-  `mkdir -p $HOME/.backup/` if not File.directory?("#{ENV["HOME"]}/.backup")
-  `mkdir -p $HOME/tmp/{swap,backup,undo}`
-  components.each do |component|
-    if Rake::Task.task_defined? "#{component}:install"
-      Rake::Task["#{component}:install"].invoke
-    else
-      linkables(component).each do |linkable|
-        install_item(linkable, nil, type)
-      end
-    end
-  end
+def remote?
+  ENV["remote"]
 end
 
-def install_item(item, target=nil, type=:local)
+def install_item(item, target=nil)
   file = item.split('/').last.split(STRIP_EXTENSIONS).last
   target = target || "#{ENV["HOME"]}/.#{file}"
   backup_target = "#{ENV["HOME"]}/.backup/.#{file}"
 
   if File.exists?(target) || File.symlink?(target)
     if not File.exists?(backup_target)
+      `mkdir -p $HOME/.backup/` if not File.directory?("#{ENV["HOME"]}/.backup")
       `mv "$HOME/.#{file}" "#{backup_target}"`
     else
       FileUtils.rm_rf(target)
     end
   end
-  link_item(item, target, type)
+  link_item(item, target)
 end
 
-def link_item(item, target, type)
-  system_name = `uname -s`.strip.downcase
-  parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.#{type}{.#{system_name},}")
+def link_item(item, target)
+  if remote?
+    system_name = ENV["remote"]
+    parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.remote{.#{system_name},}")
+    cmd = "cp -rf"
+    puts "Copying #{target}..."
+  else
+    system_name = `uname -s`.strip.downcase
+    parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.local{.#{system_name},}")
+    cmd = "ln -s"
+    puts "Linking #{target}..."
+  end
 
-  puts "Linking #{target}..."
-  return `ln -s $PWD/#{item} #{target}` if File.directory?(item)
+  return `#{cmd} $PWD/#{item} #{target}` if File.directory?(item)
 
   if item =~ /.erb$/
       File.open("#{target}", 'w') do |render_file|
           render_file.write ERB.new(File.read(item)).result(binding)
       end
   elsif parts.empty?
-      `ln -s $PWD/#{item} #{target}`
+      `#{cmd} $PWD/#{item} #{target}`
   else
       `cp $PWD/#{item} #{target}`
   end
@@ -71,7 +71,8 @@ def uninstall_item(item)
     target = "#{ENV["HOME"]}/.#{file}"
 
     if File.exists?(target)
-      FileUtils.rm(target)
+      puts "Removing #{target}..."
+      FileUtils.rm_rf(target)
     end
 
     # Restore any backups made during installation
