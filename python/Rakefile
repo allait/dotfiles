@@ -3,8 +3,26 @@ require 'dotfiles'
 task :install do
   linkables("python").each do |item|
     next if item == "python/requirements.txt"
-    install_item(item)
-    # TODO setup ipython files instead of symlinking ~/.ipython
+    if item == 'python/ipython'
+      target = "#{ENV["HOME"]}/.ipython"
+      `mkdir -p #{target}/profile_default`
+      install_item 'python/ipython/virtualenv.py', "#{target}/virtualenv.py"
+      install_item 'python/ipython/ipython_config.py', "#{target}/profile_default/ipython_config.py"
+    else
+      install_item item
+    end
+  end
+end
+
+task :uninstall do
+  linkables("python").each do |item|
+    if item == 'python/ipython'
+      target = "#{ENV["HOME"]}/.ipython"
+      uninstall_item 'python/ipython/virtualenv.py', "#{target}/virtualenv.py"
+      uninstall_item 'python/ipython/ipython_config.py', "#{target}/profile_default/ipython_config.py"
+    else
+      uninstall_item item
+    end
   end
 end
 

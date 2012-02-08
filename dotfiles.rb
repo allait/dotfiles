@@ -21,13 +21,14 @@ end
 
 def install_item(item, target=nil)
   file = item.split('/').last.split(STRIP_EXTENSIONS).last
+  backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}" if target
   target = target || "#{ENV["HOME"]}/.#{file}"
-  backup_target = "#{ENV["HOME"]}/.backup/.#{file}"
+  backup_target = backup_target || "#{ENV["HOME"]}/.backup/.#{file}"
 
   if File.exists?(target) || File.symlink?(target)
     if not File.exists?(backup_target)
       `mkdir -p $HOME/.backup/` if not File.directory?("#{ENV["HOME"]}/.backup")
-      `mv "$HOME/.#{file}" "#{backup_target}"`
+      `mv "#{target}" "#{backup_target}"`
     else
       FileUtils.rm_rf(target)
     end
@@ -35,18 +36,14 @@ def install_item(item, target=nil)
   link_item(item, target)
 end
 
+
 def link_item(item, target)
-  if remote?
-    system_name = ENV["remote"]
-    parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.remote{.#{system_name},}")
-    cmd = "cp -rf"
-    puts "Copying #{target}..."
-  else
-    system_name = `uname -s`.strip.downcase
-    parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.local{.#{system_name},}")
-    cmd = "ln -s"
-    puts "Linking #{target}..."
-  end
+  type = (remote?)? "remote":"local"
+  system_name = ENV["remote"] || `uname -s`.strip.downcase
+  parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.#{type}{.#{system_name},}")
+  cmd = (remote?)? "cp -rf":"ln -s"
+
+  puts "#{cmd} #{target}..."
 
   return `#{cmd} $PWD/#{item} #{target}` if File.directory?(item)
 
@@ -66,9 +63,11 @@ def link_item(item, target)
   end
 end
 
-def uninstall_item(item)
+def uninstall_item(item, target=nil)
     file = item.split('/').last.split(STRIP_EXTENSIONS).last
-    target = "#{ENV["HOME"]}/.#{file}"
+    backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}" if target
+    target = target || "#{ENV["HOME"]}/.#{file}"
+    backup_target = backup_target || "#{ENV["HOME"]}/.backup/.#{file}"
 
     if File.exists?(target)
       puts "Removing #{target}..."
@@ -76,7 +75,7 @@ def uninstall_item(item)
     end
 
     # Restore any backups made during installation
-    if File.exists?("#{ENV["HOME"]}/.backup/.#{file}")
-      `mv "$HOME/.backup/.#{file}" "$HOME/.#{file}"`
+    if File.exists?(backup_target)
+      `mv "#{backup_target}" "#{target}"`
     end
 end
