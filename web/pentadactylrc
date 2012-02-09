@@ -31,6 +31,10 @@ nnoremap k 3k
 nnoremap J gT
 nnoremap K gt
 
+" Move tabs with ^j and ^k
+nnoremap <C-j> :tabm -1<CR>
+nnoremap <C-k> :tabm +1<CR>
+
 " Don't go back in history on Del
 nnoremap <bs> <nop>
 
