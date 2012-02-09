@@ -1,0 +1,26 @@
+require 'dotfiles'
+
+task :install do
+  linkables("web").each do |item|
+    if item == 'web/pentadactyl'
+      target = "#{ENV["HOME"]}/.pentadactyl"
+      `mkdir -p #{target}/`
+      install_item 'web/pentadactyl/colors', "#{target}/colors"
+      install_item 'web/pentadactyl/plugins', "#{target}/plugins"
+    else
+      install_item item
+    end
+  end
+end
+
+task :uninstall do
+  linkables("python").each do |item|
+    if item == 'web/pentadactyl'
+      target = "#{ENV["HOME"]}/.pentadactyl"
+      uninstall_item 'web/pentadactyl/colors', "#{target}/colors"
+      uninstall_item 'web/pentadactyl/plugins', "#{target}/plugins"
+    else
+      uninstall_item item
+    end
+  end
+end

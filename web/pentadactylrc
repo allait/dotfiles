@@ -37,3 +37,5 @@ nnoremap <bs> <nop>
 " Clear search highlighting and normal highlighting.
 nnoremap <Leader><space> <esc>:noh<CR>
 
+" Set colorscheme
+colorscheme light
