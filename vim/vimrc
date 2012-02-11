@@ -59,6 +59,9 @@ endif
 " Enable backups
 set backup
 
+" Store netrw file in ~/tmp/
+let g:netrw_home= expand("$HOME/tmp")
+
 " File options {{{1
 " ============
 
