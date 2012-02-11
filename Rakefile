@@ -8,9 +8,7 @@ components().each do |component|
 end
 
 desc "Install dotfiles to $HOME"
-task :install => [:info] do
-  puts "Initializing submodules..."
-  `git submodule update --init`
+task :install => [:info, :pull] do
   components().each do |component|
     if Rake::Task.task_defined? "#{component}:install"
       Rake::Task["#{component}:install"].invoke
@@ -19,6 +17,16 @@ task :install => [:info] do
         install_item(linkable)
       end
     end
+  end
+end
+
+task :pull do
+  next if ENV["skip"] && ENV["skip"].include?("pull")
+  `git pull`
+  puts "Initializing submodules..."
+  `git submodule update --init`
+  Dir['.git/modules/vim/vim/bundle/*'].each do |mod|
+    `echo "doc/tags" > '#{mod}/info/exclude'`
   end
 end
 
