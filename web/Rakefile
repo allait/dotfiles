@@ -4,6 +4,7 @@ task :install do
   linkables("web").each do |item|
     if item == 'web/pentadactyl'
       target = "#{ENV["HOME"]}/.pentadactyl"
+      backup target
       `mkdir -p #{target}/`
       install_item 'web/pentadactyl/colors', "#{target}/colors"
       install_item 'web/pentadactyl/plugins', "#{target}/plugins"
@@ -14,11 +15,12 @@ task :install do
 end
 
 task :uninstall do
-  linkables("python").each do |item|
+  linkables("web").each do |item|
     if item == 'web/pentadactyl'
       target = "#{ENV["HOME"]}/.pentadactyl"
       uninstall_item 'web/pentadactyl/colors', "#{target}/colors"
       uninstall_item 'web/pentadactyl/plugins', "#{target}/plugins"
+      restore target
     else
       uninstall_item item
     end

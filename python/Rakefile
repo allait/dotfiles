@@ -5,6 +5,7 @@ task :install do
     next if item == "python/requirements.txt"
     if item == 'python/ipython'
       target = "#{ENV["HOME"]}/.ipython"
+      backup target
       `mkdir -p #{target}/profile_default`
       install_item 'python/ipython/virtualenv.py', "#{target}/virtualenv.py"
       install_item 'python/ipython/ipython_config.py', "#{target}/profile_default/ipython_config.py"
@@ -20,6 +21,7 @@ task :uninstall do
       target = "#{ENV["HOME"]}/.ipython"
       uninstall_item 'python/ipython/virtualenv.py', "#{target}/virtualenv.py"
       uninstall_item 'python/ipython/ipython_config.py', "#{target}/profile_default/ipython_config.py"
+      restore target
     else
       uninstall_item item
     end
