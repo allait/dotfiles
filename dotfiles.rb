@@ -21,10 +21,14 @@ end
 
 def install_item(item, target=nil)
   file = item.split('/').last.split(STRIP_EXTENSIONS).last
-  backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}" if target
   target = target || "#{ENV["HOME"]}/.#{file}"
-  backup_target = backup_target || "#{ENV["HOME"]}/.backup/.#{file}"
 
+  backup target
+  link_item item, target
+end
+
+def backup(target)
+  backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}"
   if File.exists?(target) || File.symlink?(target)
     if not File.exists?(backup_target)
       `mkdir -p $HOME/.backup/` if not File.directory?("#{ENV["HOME"]}/.backup")
@@ -33,9 +37,7 @@ def install_item(item, target=nil)
       FileUtils.rm_rf(target)
     end
   end
-  link_item(item, target)
 end
-
 
 def link_item(item, target)
   type = (remote?)? "remote":"local"
@@ -64,18 +66,22 @@ def link_item(item, target)
 end
 
 def uninstall_item(item, target=nil)
-    file = item.split('/').last.split(STRIP_EXTENSIONS).last
-    backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}" if target
-    target = target || "#{ENV["HOME"]}/.#{file}"
-    backup_target = backup_target || "#{ENV["HOME"]}/.backup/.#{file}"
+  file = item.split('/').last.split(STRIP_EXTENSIONS).last
+  target = target || "#{ENV["HOME"]}/.#{file}"
 
-    if File.exists?(target)
-      puts "Removing #{target}..."
-      FileUtils.rm_rf(target)
-    end
+  if File.exists?(target)
+    puts "Removing #{target}..."
+    FileUtils.rm_rf(target)
+  end
 
-    # Restore any backups made during installation
-    if File.exists?(backup_target)
-      `mv "#{backup_target}" "#{target}"`
-    end
+  restore target
+end
+
+def restore(target)
+  backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}"
+
+  if File.exists?(backup_target)
+    FileUtils.rm_rf(target) if File.exists?(target)
+    `mv "#{backup_target}" "#{target}"`
+  end
 end
