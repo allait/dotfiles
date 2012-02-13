@@ -9,12 +9,11 @@ fpath=(~/.zsh/completions $fpath)
 if [[ $TERM != "dumb" ]]; then
     for config_file (~/.zsh/lib/*.zsh) source $config_file
     unset config_file
+
+    # Load plugins
+    for plugin_file (~/.zsh/plugins/*.zsh) source $plugin_file
+    unset plugin_file
 fi
-
-# Load plugins
-for plugin_file (~/.zsh/plugins/*.zsh) source $plugin_file
-unset plugin_file
-
 
 # Use vim for git commits and stuff
 export EDITOR="vim"
