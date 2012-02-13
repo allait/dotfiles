@@ -354,6 +354,12 @@ augroup WhitespaceMatch
     autocmd BufWinLeave * call clearmatches()
 augroup END
 
+" Netrw options {{{1
+" =============
+
+" Disable netrw banner
+let g:netrw_banner=0
+
 " Plugin-specific settings {{{1
 " ========================
 
@@ -383,6 +389,9 @@ let NERDTreeQuitOnOpen=1
 
 " Change CWD on NERDTree root changes
 let NERDTreeChDirMode=2
+
+" Don't try to replace netrw
+let NERDTreeHijackNetrw=0
 
 " TagBar {{{2
 " ------
