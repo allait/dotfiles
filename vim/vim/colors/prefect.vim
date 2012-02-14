@@ -75,6 +75,12 @@ hi Delimiter                    guifg=#f8f8f8   guibg=NONE      gui=NONE
 hi Debug                        guifg=#f8f8f8   guibg=NONE      gui=NONE
 hi Tag                          guifg=#cf6a4c   guibg=NONE      gui=NONE
 
+" Diff {{{2
+hi DiffAdd                      guibg=#1e4313
+hi DiffChange                   guifg=#89807D guibg=#322F2D
+hi DiffDelete                   guifg=#ff0088 guibg=#1B1E1F
+hi DiffText                     guibg=#4A4340 gui=italic,bold
+
 " Extra attention {{{2
 hi Todo                         guifg=#5f5a60   guibg=NONE      gui=inverse,bold,italic
 hi Underlined                   guifg=NONE      guibg=NONE      gui=underline
@@ -137,3 +143,5 @@ hi cssBraces                    guifg=NONE      guibg=NONE      gui=NONE
 hi link pythonFunction Identifier
 hi link pythonBuiltinFunc Statement
 hi link pythonStrFormatting SpecialComment
+
+
