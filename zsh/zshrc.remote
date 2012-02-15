@@ -3,7 +3,6 @@ RPROMPT='[%T]'
 
 export WORKON_HOME=$HOME/.virtualenvs/
 export VIRTUALENV_USE_DISTRIBUTE=true
-export VI_INSERT_MODE="(NORMAL)"
 
 if $(which virtualenvwrapper.sh >&-); then
     source $(which virtualenvwrapper.sh)
