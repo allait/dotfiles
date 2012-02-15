@@ -12,3 +12,5 @@ export LANGUAGE=en
 # Load RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Disable software flow control with ^S/^Q
+stty -ixon
