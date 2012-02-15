@@ -9,4 +9,6 @@ export NODE_PATH=/usr/local/lib/node_modules
 export ERL_LIBS=$HOME/erl_libs
 export LANGUAGE=en
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session. 
+# Load RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
