@@ -42,7 +42,7 @@ end
 def link_item(item, target)
   type = (remote?)? "remote":"local"
   system_name = ENV["remote"] || `uname -s`.strip.downcase
-  parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.#{type}{.#{system_name},}")
+  parts = Dir.glob("#{item.split(STRIP_EXTENSIONS).last}.#{type}{.#{system_name},}{.erb,}")
   cmd = (remote?)? "cp -rf":"ln -s"
 
   puts "#{cmd} #{target}..."
@@ -50,18 +50,24 @@ def link_item(item, target)
   return `#{cmd} $PWD/#{item} #{target}` if File.directory?(item)
 
   if item =~ /.erb$/
-      File.open("#{target}", 'w') do |render_file|
-          render_file.write ERB.new(File.read(item)).result(binding)
-      end
+    File.open("#{target}", 'w') do |render_file|
+      render_file.write ERB.new(File.read(item)).result(binding)
+    end
   elsif parts.empty?
-      `#{cmd} $PWD/#{item} #{target}`
+    `#{cmd} $PWD/#{item} #{target}`
   else
-      `cp $PWD/#{item} #{target}`
+    `cp $PWD/#{item} #{target}`
   end
 
   parts.each do |part|
-      puts "Appending #{part} to #{item}..."
+    puts "Appending #{part} to #{item}..."
+    if part =~ /.erb/
+      File.open("#{target}", 'a') do |render_file|
+        render_file.write ERB.new(File.read(part)).result(binding)
+      end
+    else
       `cat #{part} >> #{target}`
+    end
   end
 end
 
