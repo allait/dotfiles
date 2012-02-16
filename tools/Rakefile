@@ -1,3 +1,10 @@
+desc "Update installed packages"
+task :update do
+  system %Q[brew update && brew outdated]
+  system %Q[brew upgrade]
+  system %Q[brew cleanup]
+end
+
 desc "Install common tools from homebrew packages"
 task :brew do
     puts "Installing Homebrew packages..."
