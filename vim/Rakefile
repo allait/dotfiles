@@ -14,8 +14,7 @@ task :macvim do
           --enable-pythoninterp \
           --enable-perlinterp \
           --enable-cscope \
-          --with-macarchs=x86_64 \
-          --with-macsdk=10.6 ]
+          --with-macarchs=x86_64 ]
     system %Q[cd #{macvim_path}/src; make]
     `cp #{macvim_path}/src/MacVim/mvim /usr/local/bin/`
     `ln -s /usr/local/bin/mvim /usr/local/bin/vim`
