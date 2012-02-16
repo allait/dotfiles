@@ -1,5 +1,4 @@
-export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+export EDITOR=vim
 
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_USE_DISTRIBUTE=true

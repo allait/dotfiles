@@ -18,5 +18,7 @@ task :macvim do
           --with-macsdk=10.6 ]
     system %Q[cd #{macvim_path}/src; make]
     `cp #{macvim_path}/src/MacVim/mvim /usr/local/bin/`
+    `ln -s /usr/local/bin/mvim /usr/local/bin/vim`
+    `ln -s /usr/local/bin/mvim /usr/local/bin/vimdiff`
     `open #{macvim_path}/src/MacVim/build/Release/`
 end
