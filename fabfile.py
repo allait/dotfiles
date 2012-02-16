@@ -18,12 +18,16 @@ def upload_ssh_key():
     run('mkdir -p ~/.ssh && chmod 700 ~/.ssh')
     run("echo '%s' >> ~/.ssh/authorized_keys && chmod 644 ~/.ssh/authorized_keys" % key)
 
-def install_remote_dotfiles():
+def install_remote_dotfiles(*args):
     tmp_dir = tempfile.mkdtemp()
     local("HOME=%s rake install components=vim,zsh,git,tools remote=linux" % tmp_dir)
     local('find %s -name ".git" -delete' % tmp_dir)
-    put("%s/.*" % tmp_dir, "")
-    put("%s/*" % tmp_dir, "")
+    if args:
+        for arg in args:
+            put("%s/%s" % (tmp_dir, arg), "")
+    else:
+        put("%s/.*" % tmp_dir, "")
+        put("%s/*" % tmp_dir, "")
     shutil.rmtree(tmp_dir)
 
 # Hosts
