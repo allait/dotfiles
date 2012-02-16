@@ -76,10 +76,13 @@ hi Debug                        guifg=#f8f8f8   guibg=NONE      gui=NONE
 hi Tag                          guifg=#cf6a4c   guibg=NONE      gui=NONE
 
 " Diff {{{2
-hi DiffAdd                      guibg=#1e4313
-hi DiffChange                   guifg=#89807D guibg=#322F2D
-hi DiffDelete                   guifg=#ff0088 guibg=#1B1E1F
-hi DiffText                     guibg=#4A4340 gui=italic,bold
+hi DiffAdd                      guifg=#D2EBBE guibg=#437019
+hi DiffDelete                   guifg=#40000A guibg=#700009
+hi DiffChange                   guibg=#2B5B77
+hi DiffText                     guifg=#8FBFDC guibg=#000000 gui=reverse
+
+hi! link diffRemoved Constant
+hi! link diffAdded String
 
 " Extra attention {{{2
 hi Todo                         guifg=#5f5a60   guibg=NONE      gui=inverse,bold,italic
