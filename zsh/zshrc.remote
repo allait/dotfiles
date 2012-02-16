@@ -9,3 +9,6 @@ if $(which virtualenvwrapper.sh >&-); then
 fi
 
 function precmd() {}
+
+# For Debian and it's curious naming scheme
+which ack-grep >&- && alias ack=ack-grep
