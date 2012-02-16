@@ -47,7 +47,8 @@ end
 task :default => 'install'
 
 desc "Clean tmp backup and swap files"
-task :cleanup do
+task :clean do
+  `rm -rf $PWD/build`
   `rm -rf $HOME/tmp/{swap,backup,undo}`
   `mkdir -p $HOME/tmp/{swap,backup,undo}`
 end
