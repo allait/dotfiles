@@ -102,7 +102,7 @@
 	url = git://github.com/allait/ultisnips.git
 [submodule "vim/vim/bundle/rope-vim"]
 	path = vim/vim/bundle/rope-vim
-	url = git://github.com/sontek/rope-vim.git
+	url = git://github.com/klen/rope-vim.git
 [submodule "vim/vim/bundle/vim-coffee-script"]
 	path = vim/vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
