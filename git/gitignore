@@ -3,3 +3,4 @@
 
 # Python
 *.py[co]
+.ropeproject
