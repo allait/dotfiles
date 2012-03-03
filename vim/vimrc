@@ -566,3 +566,9 @@ let g:vimwiki_camel_case = 0
 xmap <leader>c <Plug>Commentary
 nmap <leader>c <Plug>Commentary
 nmap <leader>cc <Plug>CommentaryLine
+
+" Slime {{{2
+" -----
+
+" Use tmux instead of screen
+let g:slime_target = "tmux"
