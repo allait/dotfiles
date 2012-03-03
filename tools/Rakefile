@@ -16,6 +16,8 @@ task :brew do
         "proctools",
         "wget",
         "w3m",
+        "tmux",
+        "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste"
     ]
     packages.each do |pack|
         system %Q[brew install #{pack}]
