@@ -10,6 +10,13 @@ call pathogen#runtime_append_all_bundles()
 " VIM global options {{{1
 " ==================
 
+" Don't timeout key sequences
+set notimeout
+
+" Timeout key codes (don't wait after Esc)
+set ttimeout
+set timeoutlen=10
+
 " No vim compatibility
 set nocompatible
 
