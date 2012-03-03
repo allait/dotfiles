@@ -335,6 +335,15 @@ if has("gui_macvim")
    set fuoptions=maxvert,maxhorz
 endif
 
+" Default statusline color when entering Vim
+hi statusline ctermbg=253 guibg=#e0e0e0
+
+" Change status line color in insert mode
+if version >= 700
+  au InsertEnter * hi StatusLine ctermbg=38 guibg=#6ac3d8
+  au InsertLeave * hi StatusLine ctermbg=253 guibg=#e0e0e0
+endif
+
 " Specific highlight options {{{1
 " ==========================
 
