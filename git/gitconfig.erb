@@ -43,7 +43,8 @@
     smu = submodule update --init
     ci = commit
     chout = checkout
-    gl = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
+    gl = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    gla = !git gl --all
     l = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     lf = !git l --follow -p
     ls = !git l -G
