@@ -21,10 +21,5 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{40}%-w%{.bW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a "
 
-# Bind F1 and F2 to next/prev window
-bindkey -k k1 prev
-bindkey -k k2 next
-bindkey -k k3 title
-
 # Disable session-initiated window resizing
 termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
