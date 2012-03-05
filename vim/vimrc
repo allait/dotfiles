@@ -378,6 +378,9 @@ augroup END
 " Disable netrw banner
 let g:netrw_banner=0
 
+" Disable mouse maps
+let g:netrw_mousemaps=0
+
 " Plugin-specific settings {{{1
 " ========================
 
