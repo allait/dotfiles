@@ -259,6 +259,13 @@ vnoremap <Space> za
 let mapleader = ","
 let maplocalleader = "\\"
 
+" Yank to system clipboard
+noremap <leader>y "*y
+
+" Paste from system clipboard
+noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
+noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
+
 " Use <M-CR> to continue current line
 imap <M-CR> \<CR>
 
