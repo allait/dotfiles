@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+# Simplified version of defunkt/repl in POSIX shell
+#
+# repl is an interactive program which tenderly wraps another,
+# non-interactive program.
+
+# Use the real thing if available
+if which repl &> /dev/null; then
+    exec repl $@
+fi
+
+# Apply rlwrap if available
+if which rlwrap &> /dev/null && [[ -z $__RLWRAP ]]; then
+    export __RLWRAP=1
+    exec rlwrap $0 $*
+fi
+
+
+while true; do
+    read -p "$1 >> " line
+    if [[ -n $line ]]; then
+        $@ $line
+    fi
+done
