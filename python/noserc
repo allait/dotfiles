@@ -1,5 +1,2 @@
 [nosetests]
-verbosity=2
 with-color=1
-with-doctest=1
-exe=1
