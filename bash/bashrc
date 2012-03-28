@@ -1,0 +1,72 @@
+# GENERAL {{{1
+# =======
+
+# Add .bin and local/bin to PATH
+export PATH="$HOME/.bin:/usr/local/bin:$PATH"
+
+# Use vim for everything
+export EDITOR="vim"
+
+# If not running interactively, do nothing
+[ -z "$PS1" ] && return
+
+# Ignore extensions in file completion
+FIGNORE="~:#:.pyc"
+
+# Update the values of LINES and COLUMNS after each command
+shopt -s checkwinsize
+
+# Enable bash completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+# Setup virtualenv
+VIRUTALENV_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh 2>&-
+
+# Setup LESS options
+export LESS='-eiRX'
+
+# HISTORY {{{1
+# =======
+
+# Do not save lines starting with a space and duplicates
+export HISTCONTROL=ignoreboth
+
+# Save lines to history
+export HISTFILESIZE=10000
+
+# PROMPT {{{1
+# ======
+
+RED="\[\033[0;31m\]"
+GREY="\[\033[1;30m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+PS_CLEAR="\[\033[0m\]"
+
+export PS1="${RED}\h${PS_CLEAR} ${BLUE}\w${PS_CLEAR} ${YELLOW}\$${PS_CLEAR} "
+
+# KEYBINDINGS {{{1
+# ===========
+
+# Up/down cycles through history commands starting with current prefix
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
+
+# ALIASES {{{1
+# =======
+
+# Color command output
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+
+# ls shortcut
+alias l="ls -lAh"
+
+# Git shortcut
+alias g="git"
+
+# Attach to existing tmux session
+alias attach="tmux attach"
