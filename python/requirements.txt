@@ -2,6 +2,7 @@
 ipython
 Fabric
 mercurial
+httpie
 
 # Test tools
 pytest
