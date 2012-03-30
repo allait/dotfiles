@@ -601,3 +601,10 @@ nmap <leader>cc <Plug>CommentaryLine
 
 " Use tmux instead of screen
 let g:slime_target = "tmux"
+
+" Smartinput {{{2
+" ----------
+
+" Expand [] and () with Enter
+call smartinput#define_rule({'at': '(\%#)', 'char': '<Enter>', 'input': '<Enter>X<Enter><Up><End><C-t><BS>'})
+call smartinput#define_rule({'at': '\[\%#\]', 'char': '<Enter>', 'input': '<Enter>X<Enter><Up><End><C-t><BS>'})
