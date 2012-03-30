@@ -49,9 +49,6 @@
 [submodule "vim/vim/bundle/liquid-syntax"]
 	path = vim/vim/bundle/liquid-syntax
 	url = git://github.com/tpope/vim-liquid.git
-[submodule "vim/vim/bundle/rails"]
-	path = vim/vim/bundle/rails
-	url = git://github.com/tpope/vim-rails.git
 [submodule "vim/vim/bundle/vim-ruby"]
 	path = vim/vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
@@ -106,9 +103,6 @@
 [submodule "vim/vim/bundle/vim-coffee-script"]
 	path = vim/vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/vim/bundle/clang_complete"]
-	path = vim/vim/bundle/clang_complete
-	url = git://github.com/Rip-Rip/clang_complete.git
 [submodule "vim/vim/bundle/vim-virtualenv"]
 	path = vim/vim/bundle/vim-virtualenv
 	url = git://github.com/jmcantrell/vim-virtualenv.git
