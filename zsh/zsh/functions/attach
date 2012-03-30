@@ -1,0 +1,7 @@
+local session=$(basename $PWD)
+
+if tmux has-session -t $session &> /dev/null; then
+    tmux attach -t $session
+else
+    tmux new -s $session
+fi
