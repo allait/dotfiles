@@ -251,6 +251,9 @@ set foldlevel=1
 " Reset highlighting
 nmap <silent>K :nohlsearch<Bar>:echo<CR>
 
+" Make Y behave like others do
+nnoremap Y y$
+
 " Toggle folds with Space
 nnoremap <Space> za
 vnoremap <Space> za
