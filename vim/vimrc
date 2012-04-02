@@ -262,6 +262,10 @@ vnoremap <Space> za
 let mapleader = ","
 let maplocalleader = "\\"
 
+" Switch fold method with ,zs and ,zm
+noremap <leader>zs :set foldmethod=syntax<CR>
+noremap <leader>zm :set foldmethod=marker<CR>
+
 " Yank to system clipboard
 noremap <leader>y "*y
 
