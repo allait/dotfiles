@@ -96,7 +96,7 @@
 	url = git://github.com/vim-scripts/VOoM.git
 [submodule "vim/vim/bundle/ultisnips"]
 	path = vim/vim/bundle/ultisnips
-	url = git://github.com/allait/ultisnips.git
+	url = git://github.com/vim-scripts/UltiSnips.git
 [submodule "vim/vim/bundle/rope-vim"]
 	path = vim/vim/bundle/rope-vim
 	url = git://github.com/klen/rope-vim.git
