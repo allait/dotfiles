@@ -612,3 +612,10 @@ let g:slime_target = "tmux"
 " Expand [] and () with Enter
 call smartinput#define_rule({'at': '(\%#)', 'char': '<Enter>', 'input': '<Enter>X<Enter><Up><End><C-t><BS>'})
 call smartinput#define_rule({'at': '\[\%#\]', 'char': '<Enter>', 'input': '<Enter>X<Enter><Up><End><C-t><BS>'})
+
+" Don't autoclose in front of a word or quote
+call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"]', 'char': '(', 'input': '('})
+call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"]', 'char': '[', 'input': '['})
+call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"]', 'char': '{', 'input': '{'})
+call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\"]', 'char': '''', 'input': ''''})
+call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '"', 'input': '"'})
