@@ -24,7 +24,7 @@ task :pull do
   next if ENV["skip"] && ENV["skip"].include?("pull")
   `git pull`
   puts "Initializing submodules..."
-  `git submodule update --init`
+  `git submodule update --init --rebase`
   Dir['.git/modules/vim/vim/bundle/*'].each do |mod|
     `echo "doc/tags" > '#{mod}/info/exclude'`
   end
