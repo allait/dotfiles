@@ -23,7 +23,3 @@ export PAGER=less
 
 # Setup default less options
 export LESS="-eiRX"
-
-# Get emacs keybindings
-bindkey -e
-

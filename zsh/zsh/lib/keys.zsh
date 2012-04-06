@@ -1,3 +1,6 @@
+# Get emacs keybindings
+bindkey -e
+
 # Disable ^S/^Q start/stop
 unsetopt flowcontrol
 
