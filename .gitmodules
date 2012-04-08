@@ -124,9 +124,6 @@
 [submodule "vim/vim/bundle/gundo"]
 	path = vim/vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "vim/vim/bundle/rainbow"]
-	path = vim/vim/bundle/rainbow
-	url = git://github.com/HelgeG/rainbow.git
 [submodule "vim/vim/bundle/vimclojure"]
 	path = vim/vim/bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
@@ -145,3 +142,6 @@
 [submodule "vim/vim/bundle/smartinput"]
 	path = vim/vim/bundle/smartinput
 	url = git://github.com/kana/vim-smartinput.git
+[submodule "vim/vim/bundle/rainbow_parentheses"]
+	path = vim/vim/bundle/rainbow_parentheses
+	url = git://github.com/kien/rainbow_parentheses.vim.git
