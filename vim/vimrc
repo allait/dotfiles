@@ -215,20 +215,17 @@ let g:is_chicken = 1
 " Indentation and tab options {{{1
 " ===========================
 
-" Sane default tabstop:
-set tabstop=4
-
 " Always convert tabs to spaces
 set expandtab
+
+" Use shiftwidth value for softtabstop
+set smarttab
 
 " What to use for an >> and << indent.
 set shiftwidth=4
 
 " Round indent to multiple of shiftwidth
 set shiftround
-
-" Set soft tab length
-set softtabstop=4
 
 " Keep indentation level from previous line
 set autoindent
