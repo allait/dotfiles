@@ -1,4 +1,4 @@
-require 'dotfiles'
+require './dotfiles'
 
 task :install do
   linkables("python").each do |item|

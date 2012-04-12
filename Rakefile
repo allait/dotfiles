@@ -1,5 +1,5 @@
 require 'rake'
-require 'dotfiles'
+require './dotfiles'
 
 components().each do |component|
   namespace component do

@@ -1,4 +1,4 @@
-require 'dotfiles'
+require './dotfiles'
 
 task :install do
   linkables("web").each do |item|
