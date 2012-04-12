@@ -18,7 +18,7 @@ VCS_PROMPT_UNCOMMITED="%F{red}● %f"
 VCS_PROMPT_CLEAN="%F{green}● %f"
 
 # Left prompt
-PROMPT='%F{25}$(prompt_pwd)%f${vcs_info_msg_0_} %F{yellow}%#%f '
+PROMPT='%F{25}$(prompt_pwd)%f${vcs_info_msg_0_} %F{221}%#%f '
 
 # Right prompt
 RPROMPT='%1(j,%F{blue}● %f,)%(?,,%F{red}[%?]%f)[%T]'
