@@ -82,8 +82,8 @@ end
 desc "Install rbenv and ruby"
 task :install_ruby do
     system %Q[brew install rbenv ruby-build]
-    system %Q[ruby-build 1.9.2-p290 ~/.rbenv/versions/1.9.2-p290]
-    system %Q[rbenv global 1.9.2-p290]
+    system %Q[rbenv install 1.9.3-p125]
+    system %Q[rbenv global 1.9.3-p125]
     system %Q[brew cleanup]
 end
 
