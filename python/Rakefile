@@ -43,9 +43,9 @@ end
 desc "Install python interpreter"
 task :install_python do
     system %Q[brew install python --framework]
-    `sudo rm /Library/Frameworks/Python.framework/Versions`
-    `sudo ln -is $(find /usr/local/Cellar/python -type l -name Current) /Library/Frameworks/Python.framework/Versions`
+    system %Q[brew cleanup]
+    `sudo rm /Library/Frameworks/Python.framework`
+    `sudo ln -s $(find /usr/local/Cellar/python -name Python.framework) /Library/Frameworks/Python.framework`
     system %Q[/usr/local/share/python/easy_install pip]
     system %Q[/usr/local/share/python/pip install --upgrade distribute]
-    system %Q[brew cleanup]
 end
