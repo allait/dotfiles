@@ -8,8 +8,8 @@ export NODE_PATH=/usr/local/lib/node_modules
 export ERL_LIBS=$HOME/erl_libs
 export LANGUAGE=en
 
-# Load RVM into a shell session.
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Load rbenv into a shell session.
+eval "$(rbenv init -)"
 
 # Disable software flow control with ^S/^Q
 stty -ixon

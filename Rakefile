@@ -79,12 +79,12 @@ task :wiki do
   `ln -s "$PWD/../wiki" "$HOME/wiki"` if not File.symlink?("#{ENV["HOME"]}/wiki")
 end
 
-desc "Install rvm and ruby"
+desc "Install rbenv and ruby"
 task :install_ruby do
-    system %Q[curl -sk https://rvm.beginrescueend.com/install/rvm | bash]
-    `source ~/.rvm/scripts/rvm`
-    system %Q[rvm install 1.8.7]
-    system %Q[rvm use --default 1.8.7]
+    system %Q[brew install rbenv ruby-build]
+    system %Q[ruby-build 1.9.2-p290 ~/.rbenv/versions/1.9.2-p290]
+    system %Q[rbenv global 1.9.2-p290]
+    system %Q[brew cleanup]
 end
 
 desc "Install node.js and npm"
