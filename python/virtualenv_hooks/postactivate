@@ -1,0 +1,4 @@
+#!/bin/zsh
+# This hook is run after every virtualenv is activated.
+
+PS1="[`basename \"$VIRTUAL_ENV\"`] $_OLD_VIRTUAL_PS1"
