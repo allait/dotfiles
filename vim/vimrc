@@ -590,14 +590,6 @@ let g:vimwiki_table_auto_fmt = 0
 " Disable wikiwords
 let g:vimwiki_camel_case = 0
 
-" Commentary {{{2
-" ----------
-
-" Map to \c
-xmap <leader>c <Plug>Commentary
-nmap <leader>c <Plug>Commentary
-nmap <leader>cc <Plug>CommentaryLine
-
 " Slime {{{2
 " -----
 
@@ -621,3 +613,18 @@ call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '"', 'inp
 " Don't autoclose ` on either end of a word
 call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '`', 'input': '`'})
 call smartinput#define_rule({'at': '[-a-zA-Z0-9_.,=+*\'']\%#', 'char': '`', 'input': '`'})
+
+" YankRing {{{2
+" --------
+
+" Show yankring menu on ,c
+nmap <silent><leader>c :YRShow<CR>
+
+" Store history file in tmp folder
+let g:yankring_history_dir = "~/tmp"
+
+" Don't store history between sessions
+let g:yankring_persist = 0
+
+" Limit yank history
+let g:yankring_max_history=30
