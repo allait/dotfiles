@@ -1,0 +1,18 @@
+require './dotfiles'
+
+task :install do
+  `mkdir -p .w3m/`
+  linkables("w3m").each do |item|
+    target = "#{ENV["HOME"]}/.#{item}"
+    backup target
+    install_item item, target
+  end
+end
+
+task :uninstall do
+  linkables("w3m").each do |item|
+    target = "#{ENV["HOME"]}/.#{item}"
+    uninstall_item item, target
+    restore target
+  end
+end

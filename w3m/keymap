@@ -1,0 +1,75 @@
+# w4m keymap
+#
+# Ctrl  : C-, ^
+# Escape: ESC-, M-, ^[
+# Space : SPC, ' '
+# Tab   : TAB, ^i, ^I
+# Delete: DEL, ^?
+# Up    : UP, ^[[A
+# Down  : DOWN, ^[[B
+# Right : RIGHT, ^[[C
+# Left  : LEFT, ^[[D
+
+# Page/Cursor motion {{{1
+# ==================
+
+# Scroll display
+keymap C-f NEXT_PAGE
+keymap C-b PREV_PAGE
+
+# System {{{1
+# ======
+
+# Open main menu
+keymap ` MENU
+
+# Enter command-mode with :
+keymap : COMMAND
+
+# Browsing {{{1
+# =======
+
+# Go to URL
+keymap o GOTO
+
+# Submit form with M-CR
+keymap ESC-C-j SUBMIT
+
+# Refresh page
+keymap r RELOAD
+
+# Open link in external browser
+keymap O EXTERN_LINK
+
+# Go back in history
+keymap H PREV
+keymap L NEXT
+
+# List all URLs
+keymap f LIST_MENU
+keymap F LIST
+
+# List all buffers
+keymap S SELECT
+
+# Open current document in editor
+keymap E EDIT_SCREEN
+
+# Set mark with m
+keymap m MARK
+
+# Tabs {{{1
+# ====
+
+# Open link in new tab
+keymap T TAB_LINK
+
+# Create new tab
+keymap t NEW_TAB
+
+# Close tab
+keymap d CLOSE_TAB
+
+# Switch tab
+keymap K NEXT_TAB
+keymap J PREV_TAB
