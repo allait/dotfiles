@@ -4,3 +4,6 @@
 # Python
 *.py[co]
 .ropeproject
+
+# ctags
+tags
