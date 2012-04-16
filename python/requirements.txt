@@ -9,6 +9,7 @@ pytest
 pyflakes
 pylint
 coverage
+pdbpp
 
 # Package installation
 pip
