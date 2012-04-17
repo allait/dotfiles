@@ -1,4 +1,5 @@
 " General {{{1
+" =======
 
 " Set statusline options
 set guioptions=s
@@ -18,7 +19,24 @@ set hlfind
 " Disable beep
 javascript dactyl.beep = function() { return false; }
 
+" Set colorscheme
+colorscheme light
+
+" Set external editor to MacVim
+set editor='/usr/local/bin/mvim -f +<line> <file>'
+
+" Use home row letters for hints instead of numbers
+set hintkeys=asdfg;lkjh
+
+" Smart case-sensitive search
+set findcase=smart
+
+" Regular expression search by default (\R to turn off)
+set findflags='r'
+
+
 " Keys {{{1
+" ====
 
 " Set leader
 set mapleader=','
@@ -41,5 +59,18 @@ nnoremap <bs> <nop>
 " Clear search highlighting and normal highlighting.
 nnoremap <Leader><space> <esc>:noh<CR>
 
-" Set colorscheme
-colorscheme light
+" Render page with Evernote Clearly
+nnoremap e :emenu Tools.Clearly<CR>
+
+" Toggle Web Console
+nnoremap <C-s> <M-A-k><Esc>
+inoremap <C-s> <Esc><M-A-k><Esc>
+
+" Searches {{{2
+" --------
+
+" Default search
+nnoremap ss :open google<Space>
+
+" Search python docs
+nnoremap sp :py<Space>
