@@ -88,9 +88,6 @@
 [submodule "vim/vim/bundle/zoomwin"]
 	path = vim/vim/bundle/zoomwin
 	url = git://github.com/vim-scripts/ZoomWin.git
-[submodule "vim/vim/bundle/extradite"]
-	path = vim/vim/bundle/extradite
-	url = git://github.com/int3/vim-extradite.git
 [submodule "vim/vim/bundle/vim-voom"]
 	path = vim/vim/bundle/vim-voom
 	url = git://github.com/vim-scripts/VOoM.git
@@ -148,3 +145,6 @@
 [submodule "vim/vim/bundle/yankring"]
 	path = vim/vim/bundle/yankring
 	url = git://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/vim/bundle/gitv"]
+	path = vim/vim/bundle/gitv
+	url = git://github.com/gregsexton/gitv.git
