@@ -13,6 +13,7 @@ task :brew do
         "ack",
         "ctags",
         "par",
+        "grc",
         "proctools",
         "wget",
         "w3m",
