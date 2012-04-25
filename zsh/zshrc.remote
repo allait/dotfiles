@@ -1,13 +1,6 @@
 PROMPT='%F{red}%m%f %F{blue}%c%f %F{yellow}%%%f '
 RPROMPT='[%T]'
 
-export WORKON_HOME=$HOME/.virtualenvs/
-export VIRTUALENV_USE_DISTRIBUTE=true
-
-if $(which virtualenvwrapper.sh >&-); then
-    source $(which virtualenvwrapper.sh)
-fi
-
 function precmd() {}
 
 # For Debian and it's curious naming scheme
