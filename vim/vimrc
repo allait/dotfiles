@@ -610,9 +610,8 @@ call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"]', 'char': '{', 'in
 call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\"]', 'char': '''', 'input': ''''})
 call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '"', 'input': '"'})
 
-" Don't autoclose ` on either end of a word
-call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '`', 'input': '`'})
-call smartinput#define_rule({'at': '[-a-zA-Z0-9_.,=+*\'']\%#', 'char': '`', 'input': '`'})
+" Don't ever autoclose `
+call smartinput#define_rule({'at': '\%#', 'char': '`', 'input': '`'})
 
 " YankRing {{{2
 " --------
