@@ -1,14 +1,35 @@
 #compdef brew
-#autoload
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for brew (https://github.com/mxcl/homebrew).
+#
+#  Source: https://github.com/mxcl/homebrew/blob/master/Library/Contributions/brew_zsh_completion.zsh
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * kulakowski (https://github.com/kulakowski)
+#  * Gabe Berke-Williams (https://github.com/gabebw)
+#  * James Conroy-Finn (https://github.com/jcf)
+#  * Daniel Schauenberg (https://github.com/mrtazz)
+#  * Adam Vandenberg (https://github.com/adamv)
+#  * Erik Kastner (https://github.com/kastner)
+#
+# ------------------------------------------------------------------------------
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+# ------------------------------------------------------------------------------
 
-# imported from the latest homebrew contributions
 
 _brew_all_formulae() {
-  formulae=(`brew search`)
+  formulae=(`brew search`) # FIXME _call_program should be used here
 }
 
 _brew_installed_formulae() {
-  installed_formulae=(`brew list`)
+  installed_formulae=(`brew list`) # FIXME _call_program should be used here
 }
 
 local -a _1st_arguments
@@ -25,8 +46,8 @@ _1st_arguments=(
   'link:link a formula'
   'list:list files in a formula or not-installed formulae'
   'log:git commit log for a formula'
-  'missing:check all installed formuale for missing dependencies.'
-  'outdated:list formulas for which a newer version is available'
+  'missing:check all installed formulae for missing dependencies.'
+  'outdated:list formulae for which a newer version is available'
   'prune:remove dead links'
   'remove:remove a formula'
   'search:search for a formula (/regex/ or string)'
@@ -34,7 +55,7 @@ _1st_arguments=(
   'unlink:unlink a formula'
   'update:freshen up links'
   'upgrade:upgrade outdated formulae'
-  'uses:show formulas which depend on a formula'
+  'uses:show formulae which depend on a formula'
 )
 
 local expl
