@@ -8,11 +8,6 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
-;; Load evil (vim mode)
-(add-to-list 'load-path "~/.emacs.d/packages/evil/")
-(require 'evil)
-(evil-mode 1)
-
 ;; Load paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
@@ -55,3 +50,8 @@
  "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+;; Load evil (vim mode)
+(add-to-list 'load-path "~/.emacs.d/packages/evil/")
+(require 'evil)
+(evil-mode 1)
