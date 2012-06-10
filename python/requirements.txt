@@ -5,6 +5,7 @@ mercurial
 httpie
 
 # Test tools
+flake8
 pytest
 pyflakes
 pylint
