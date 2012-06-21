@@ -451,7 +451,7 @@ let g:tagbar_compact = 1
 " ---------
 
 " \e to search for file name
-nmap <silent><leader>e :CtrlP<CR>
+let g:ctrlp_map = '<leader>e'
 
 " \q to search for buffer name
 nmap <silent><leader>q :CtrlPBuffer<CR>
@@ -616,17 +616,9 @@ call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '"', 'inp
 " Don't ever autoclose `
 call smartinput#define_rule({'at': '\%#', 'char': '`', 'input': '`'})
 
-" YankRing {{{2
+" YankStack {{{2
 " --------
 
-" Show yankring menu on ,c
-nmap <silent><leader>c :YRShow<CR>
-
-" Store history file in tmp folder
-let g:yankring_history_dir = "~/tmp"
-
-" Don't store history between sessions
-let g:yankring_persist = 0
-
-" Limit yank history
-let g:yankring_max_history=30
+" Cycle through yank history with <C-p> and <C-n>
+nmap <C-p> <Plug>yankstack_substitute_older_paste
+nmap <C-n> <Plug>yankstack_substitute_newer_paste
