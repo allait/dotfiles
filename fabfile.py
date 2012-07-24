@@ -4,6 +4,7 @@ import shutil
 
 from fabric.api import local, env, run, put
 
+
 def transfer_gpg_keys():
     local("gpg --export-secret-keys > ~/tmp/gpg.sec")
     local("gpg --export-secret-subkeys > ~/tmp/gpg.sub")
@@ -12,11 +13,13 @@ def transfer_gpg_keys():
     run('gpg --import ~/gpg.s* &> /dev/null || rm ~/gpg.sub ~/gpg.sec*')
     local('rm ~/tmp/gpg.sub ~/tmp/gpg.sec')
 
-def upload_ssh_key():
-    with open(os.path.expanduser('~/.ssh/id_rsa.pub')) as fd:
+
+def upload_ssh_key(name='id_rsa'):
+    with open(os.path.expanduser('~/.ssh/%s.pub' % name)) as fd:
         key = fd.readline().strip()
     run('mkdir -p ~/.ssh && chmod 700 ~/.ssh')
     run("echo '%s' >> ~/.ssh/authorized_keys && chmod 644 ~/.ssh/authorized_keys" % key)
+
 
 def install_remote_dotfiles(*args):
     tmp_dir = tempfile.mkdtemp()
@@ -29,6 +32,7 @@ def install_remote_dotfiles(*args):
         put("%s/.*" % tmp_dir, "")
         put("%s/*" % tmp_dir, "")
     shutil.rmtree(tmp_dir)
+
 
 # Hosts
 
