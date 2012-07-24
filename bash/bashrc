@@ -28,6 +28,9 @@ source /usr/local/bin/virtualenvwrapper.sh 2>&-
 # Setup LESS options
 export LESS='-eiRX'
 
+# Color BSD ls output
+export CLICOLOR=1
+
 # HISTORY {{{1
 # =======
 
@@ -59,7 +62,6 @@ bind '"\e[B"':history-search-forward
 # =======
 
 # Color command output
-alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 
 # ls shortcut

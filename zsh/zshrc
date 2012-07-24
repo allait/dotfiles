@@ -23,3 +23,6 @@ export PAGER=less
 
 # Setup default less options
 export LESS="-eiRX"
+
+# Color BSD ls output
+export CLICOLOR=1

@@ -1,6 +1,5 @@
 # Enable color output
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 
 # Shortcuts
 alias l='ls -lAh'
