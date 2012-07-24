@@ -151,6 +151,9 @@ set cursorline
 " Highlight column
 " set colorcolumn=85
 
+" Set interface elements symbols
+set fillchars=vert:│
+
 " Show invisible symbols
 set list
 set listchars=tab:▸\ ",eol:¬
