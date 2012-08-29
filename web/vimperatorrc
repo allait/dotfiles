@@ -1,0 +1,67 @@
+" General {{{1
+" =======
+
+" Hide everything except tabbar
+set gui=none,tabs
+
+" Disable bell
+javascript liberator.beep = function() { return false; }
+
+" Follow selected hint on <CR>
+set followhints=1
+
+" Hide scrollbars
+set noscrollbars
+
+" Set colorscheme
+colorscheme light
+
+" Set external editor to MacVim
+set editor='/usr/local/bin/mvim -f'
+
+" Hide messages after 1 second
+set messagetimeout=1000
+
+" Enable animation
+set animations
+
+" Keys {{{1
+" ====
+
+" Set mapleader
+let mapleader=','
+
+" Fast smooth scroll
+nnoremap j <Down><Down><Down>
+nnoremap k <Up><Up><Up>
+
+" Switch tabs with J and K
+nnoremap J :bp<CR>
+nnoremap K :bn<CR>
+
+" Move tabs with ^j and ^k
+nnoremap <C-j> :tabm -1<CR>
+nnoremap <C-k> :tabm +1<CR>
+
+" Enter pass-through mode with I
+nnoremap I <S-Esc>
+
+" Don't go back in history on Del
+nnoremap <bs> <nop>
+
+" Clear search highlighting and normal highlighting.
+nnoremap <Leader><space> :noh<CR>
+
+" Render page with Evernote Clearly
+nnoremap e :emenu Tools.Clearly<CR>
+
+" Toggle Web Console
+nnoremap <C-s> <M-A-k><Esc>
+inoremap <C-s> <Esc><M-A-k><Esc>
+
+
+" Searches {{{2
+" --------
+
+" Default search
+nnoremap ss :open google<Space>

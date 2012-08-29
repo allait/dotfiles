@@ -1,0 +1,12 @@
+" Set white semi-transparent background
+hi Normal background: rgba(255, 255, 255, 0.9);
+
+" Menu group title
+hi Title color: #1B81E0; font-weight: bold;
+
+" Hints
+hi Hint    color:white; background: rgba(0,0,0,0.8); border-radius: 3px;
+hi -a Hint font-size: 12px; padding: 0 3px; font-weight: bold;
+
+hi HintElem    color:#000; background: rgba(204, 224, 82, 0.7); font-size:inherit;
+hi HintActive  color:#000; background:rgba(27, 168, 224, 0.8); font-size:inherit;

@@ -26,8 +26,8 @@ var search_engines = [
   },
 ];
 
-/*global dactyl */
+/*global liberator */
 
 for (var i=0; i < search_engines.length; i++) {
-  dactyl.execute('silent bmark -title "' + search_engines[i].title + '" -keyword ' + search_engines[i].key + ' ' + search_engines[i].url);
+  liberator.execute('silent bmark -title "' + search_engines[i].title + '" -keyword ' + search_engines[i].key + ' ' + search_engines[i].url);
 }
