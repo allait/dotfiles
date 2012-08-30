@@ -249,7 +249,11 @@ set foldlevel=1
 " ===================
 
 " Reset highlighting
-nmap <silent>K :nohlsearch<Bar>:echo<CR>
+nmap <silent>Q :nohlsearch<Bar>:echo<CR>
+
+" Jump to next window
+nmap <silent>K <C-w>w
+
 
 " Make Y behave like others do
 nnoremap Y y$
