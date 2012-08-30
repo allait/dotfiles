@@ -49,8 +49,8 @@ nnoremap I <S-Esc>
 " Don't go back in history on Del
 nnoremap <bs> <nop>
 
-" Clear search highlighting and normal highlighting.
-nnoremap <Leader><space> :noh<CR>
+" Clear search highlighting
+nnoremap Q :noh<CR>
 
 " Render page with Evernote Clearly
 nnoremap e :emenu Tools.Clearly<CR>
