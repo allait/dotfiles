@@ -18,7 +18,12 @@ VCS_PROMPT_UNCOMMITED="%F{red}● %f"
 VCS_PROMPT_CLEAN="%F{green}● %f"
 
 # Left prompt
-PROMPT='%F{25}$(prompt_pwd)%f${vcs_info_msg_0_} %F{221}%#%f '
+if [[ $(tput colors) == 256 ]]; then
+    PROMPT='%F{25}$(prompt_pwd)%f${vcs_info_msg_0_} %F{221}%#%f '
+else
+    PROMPT='%F{blue}$(prompt_pwd)%f${vcs_info_msg_0_} %F{yellow}%#%f '
+fi
+
 
 # Right prompt
 RPROMPT='%1(j,%F{blue}● %f,)%(?,,%F{red}[%?]%f)[%T]'
