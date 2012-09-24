@@ -23,7 +23,7 @@ def upload_ssh_key(name='id_rsa'):
 
 def install_remote_dotfiles(*args):
     tmp_dir = tempfile.mkdtemp()
-    local("HOME=%s rake install components=vim,zsh,git,tools,bash remote=linux" % tmp_dir)
+    local("HOME=%s rake install components=vim,zsh,git,tools,bash,tmux remote=linux" % tmp_dir)
     local('find %s -name ".git" -delete' % tmp_dir)
     if args:
         for arg in args:
