@@ -41,7 +41,7 @@ task :uninstall do
       end
     end
   end
-  `rm -rf $HOME/{.backup,tmp,wiki}`
+  `rm -rf $HOME/.backup $HOME/tmp $HOME/wiki`
 end
 
 task :default => 'install'
@@ -49,14 +49,14 @@ task :default => 'install'
 desc "Clean tmp backup and swap files"
 task :clean do
   `rm -rf $PWD/build`
-  `rm -rf $HOME/tmp/{swap,backup,undo}`
-  `mkdir -p $HOME/tmp/{swap,backup,undo}`
+  `rm -rf $HOME/tmp/swap $HOME/tmp/backup $HOME/tmp/undo`
+  `mkdir -p $HOME/tmp/swap $HOME/tmp/backup $HOME/tmp/undo`
 end
 
 desc "Create tmp dirs and info files"
 task :info do
   next if File.exists?("#{ENV["HOME"]}/tmp/info")
-  `mkdir -p $HOME/tmp/{info,swap,backup,undo}`
+  `mkdir -p $HOME/tmp/info $HOME/tmp/swap $HOME/tmp/backup $HOME/tmp/undo`
   print "Name: "
   name = STDIN.gets.chomp
   `echo '#{name}' > $HOME/tmp/info/name`
