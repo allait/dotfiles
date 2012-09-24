@@ -1,7 +1,7 @@
 require './dotfiles'
 
 task :install do
-  `mkdir -p .w3m/`
+  `mkdir -p $HOME/.w3m/`
   linkables("w3m").each do |item|
     target = "#{ENV["HOME"]}/.#{item}"
     backup target
