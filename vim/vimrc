@@ -463,6 +463,9 @@ let g:ctrlp_map = '<leader>e'
 " \q to search for buffer name
 nmap <silent><leader>q :CtrlPBuffer<CR>
 
+" \a to search for tag in all open buffers
+nmap <silent><leader>a :CtrlPBufTagAll<CR>
+
 " Don't change the working directory
 let g:ctrlp_working_path_mode = 0
 
