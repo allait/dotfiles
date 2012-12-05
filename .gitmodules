@@ -148,3 +148,6 @@
 [submodule "vim/vim/bundle/yankstack"]
 	path = vim/vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
+[submodule "vim/vim/bundle/vim-foreplay"]
+	path = vim/vim/bundle/vim-foreplay
+	url = git://github.com/tpope/vim-foreplay.git
