@@ -523,7 +523,7 @@ hi ShowMarksHLm ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
 
 " Rainbows {{{2
 " --------
-nmap <leader>r :RainbowParenthesesToggle<CR>
+nmap <leader>r :RainbowToggle<CR>
 
 " BufExplorer {{{2
 " -----------

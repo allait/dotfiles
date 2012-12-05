@@ -139,9 +139,6 @@
 [submodule "vim/vim/bundle/smartinput"]
 	path = vim/vim/bundle/smartinput
 	url = git://github.com/kana/vim-smartinput.git
-[submodule "vim/vim/bundle/rainbow_parentheses"]
-	path = vim/vim/bundle/rainbow_parentheses
-	url = git://github.com/kien/rainbow_parentheses.vim.git
 [submodule "vim/vim/bundle/gitv"]
 	path = vim/vim/bundle/gitv
 	url = git://github.com/gregsexton/gitv.git
@@ -151,3 +148,6 @@
 [submodule "vim/vim/bundle/vim-foreplay"]
 	path = vim/vim/bundle/vim-foreplay
 	url = git://github.com/tpope/vim-foreplay.git
+[submodule "vim/vim/bundle/rainbow_parentheses"]
+	path = vim/vim/bundle/rainbow_parentheses
+	url = git://github.com/dbarsam/vim-rainbow-parentheses.git
