@@ -19,6 +19,7 @@ task :brew do
         "w3m",
         "repl",
         "tmux",
+        "ncdu",
         "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste"
     ]
     packages.each do |pack|
