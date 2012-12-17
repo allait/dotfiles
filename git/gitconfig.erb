@@ -36,8 +36,10 @@
 [alias]
     st = status
     d = diff
-    dfm = difftool -y -t FileMerge
-    dv = difftool -y -t vimdiff
+    vdiff = difftool -t vimdiff
+    vmerge = mergetool -t vimdiff
+    kdiff = difftool -y -t Kaleidoscope
+    kmerge = mergetool -y -t Kaleidoscope
     ds = diff --staged
     sm = submodule
     smu = submodule update --init --rebase
@@ -51,3 +53,8 @@
 
 [difftool "FileMerge"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
