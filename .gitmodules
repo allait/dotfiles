@@ -124,9 +124,6 @@
 [submodule "vim/vim/bundle/vimclojure"]
 	path = vim/vim/bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "emacs/emacs.d/packages/evil"]
-	path = emacs/emacs.d/packages/evil
-	url = git://gitorious.org/evil/evil.git
 [submodule "vim/vim/bundle/showmarks"]
 	path = vim/vim/bundle/showmarks
 	url = git://github.com/harleypig/ShowMarks.git
