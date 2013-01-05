@@ -1,7 +1,5 @@
 export EDITOR=vim
 
-export NODE_PATH=/usr/local/lib/node_modules
-export ERL_LIBS=$HOME/erl_libs
 export LANGUAGE=en
 
 # Load rbenv into a shell session.
