@@ -1,8 +1,9 @@
-vim/spell
-tags
-.DS_Store
-build
-*.private
-*.elc
 *~
+*.elc
 *.pyc
+.DS_Store
+tags
+
+build/
+vim/spell/
+emacs/emacs.d/elpa/
