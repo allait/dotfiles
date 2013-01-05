@@ -20,6 +20,9 @@
 (setq backup-directory-alist `(("." . "~/tmp/backup")))
 (setq auto-save-file-name-transforms `((".*" "~/tmp/swap")))
 
+;; Show matching parentheses
+(show-paren-mode 1)
+
 ;; Activate Org-mode
 (require 'org-install)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
