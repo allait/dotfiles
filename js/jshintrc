@@ -60,6 +60,6 @@
     "sub"           : true,  // Tolerate all forms of subscript notation besides dot notation.
     "trailing"      : true,   // Prohibit trailing whitespaces.
     "white"         : false,   // Check against strict whitespace and indentation rules.
-    "indent"        : 4       // Specify indentation spacing
+    "indent"        : 2       // Specify indentation spacing
 }
 
