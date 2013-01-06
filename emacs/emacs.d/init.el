@@ -1,5 +1,6 @@
 ;; Adding ~/.emacs.d to load path
 (add-to-list 'load-path "~/.emacs.d/")
+(load "~/.emacs.d/macros.el")
 
 ;; Set font size
 (set-face-attribute 'default nil :height 110)

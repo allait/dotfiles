@@ -56,6 +56,12 @@
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
+;; Use [[link|Text]] syntax for Wiki links
+(setq markdown-wiki-link-alias-first nil)
+
+(after 'markdown-mode
+       (define-key markdown-mode-map (kbd "<backtab>") 'markdown-shifttab))
+
 ;; Setup deft
 (require 'deft)
 (setq deft-extension "md")
@@ -75,5 +81,6 @@
 ;; Rebind M-x to ";"
 (define-key evil-normal-state-map ";" 'execute-extended-command)
 
+;; Set markdown-mode keys
 (evil-define-key 'normal markdown-mode-map "\C-m" 'markdown-enter-key)
 
