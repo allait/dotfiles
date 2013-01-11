@@ -10,7 +10,6 @@ task :brew do
     puts "Installing Homebrew packages..."
     packages = [
         "zsh",
-        "zsh-completions",
         "git",
         "ack",
         "ctags",

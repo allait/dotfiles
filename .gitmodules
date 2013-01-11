@@ -148,3 +148,6 @@
 [submodule "vim/vim/bundle/rainbow_parentheses"]
 	path = vim/vim/bundle/rainbow_parentheses
 	url = git://github.com/dbarsam/vim-rainbow-parentheses.git
+[submodule "zsh/zsh/bundle/zsh-completions"]
+	path = zsh/zsh/bundle/zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git
