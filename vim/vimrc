@@ -2,10 +2,8 @@
 
 " Pathogen plugin setup {{{1
 " =====================
-" http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
-filetype off
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 " VIM global options {{{1
 " ==================
