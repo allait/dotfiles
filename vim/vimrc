@@ -407,30 +407,6 @@ let g:netrw_mousemaps=0
 " Disable onwrite pylint checks
 let g:pylint_onwrite = 0
 
-" NERDTree {{{2
-" --------
-" Bind show/hide file browser
-map <silent><F2> :NERDTreeToggle<CR>
-nmap <silent><leader>d :NERDTreeToggle<CR>
-
-" Ignore pyc files
-let NERDTreeIgnore=['\.pyc$', '\~$']
-
-" Show arrows instead of + ~ chars
-let NERDTreeDirArrows=1
-
-" Hide help header text
-let NERDTreeMinimalUI=1
-
-" Close panel after opening file
-let NERDTreeQuitOnOpen=1
-
-" Change CWD on NERDTree root changes
-let NERDTreeChDirMode=2
-
-" Don't try to replace netrw
-let NERDTreeHijackNetrw=0
-
 " TagBar {{{2
 " ------
 " Bind show/hide tag list
