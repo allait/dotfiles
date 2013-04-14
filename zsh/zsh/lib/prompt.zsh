@@ -1,29 +1,15 @@
 # Parameter expantion and substitution performed in prompts
 setopt prompt_subst
 
-# Load vcs_info
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable hg git
-zstyle ':vcs_info:*' formats ' on %F{yellow}%b%f'
-
-# Execute function before every command
-function precmd () {
-    vcs_info
-}
-
-# Vcs flags to use in vcs_prompt_info function
-VCS_PROMPT_UNTRACKED="%F{blue}● %f"
-VCS_PROMPT_UNSTAGED="%B%F{red}● %b%f"
-VCS_PROMPT_UNCOMMITED="%F{red}● %f"
-VCS_PROMPT_CLEAN="%F{green}● %f"
+VCS_PROMPT_PREFIX=" on %F{yellow}"
+VCS_PROMPT_SUFFIX="%b%f"
 
 # Left prompt
 if [[ $(tput colors) == 256 ]]; then
-    PROMPT='%F{25}$(prompt_pwd)%f${vcs_info_msg_0_} %F{221}%#%f '
+    PROMPT='%F{25}$(prompt_pwd)%f$(vcs_prompt_info) %F{221}%#%f '
 else
-    PROMPT='%F{blue}$(prompt_pwd)%f${vcs_info_msg_0_} %F{yellow}%#%f '
+    PROMPT='%F{blue}$(prompt_pwd)%f$(vcs_prompt_info) %F{yellow}%#%f '
 fi
-
 
 # Right prompt
 RPROMPT='%1(j,%F{blue}● %f,)%(?,,%F{red}[%?]%f)[%T]'
