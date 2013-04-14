@@ -1,14 +1,35 @@
 # Parameter expantion and substitution performed in prompts
 setopt prompt_subst
 
-VCS_PROMPT_PREFIX=" on %F{yellow}"
-VCS_PROMPT_SUFFIX="%b%f"
+function prompt_vcs_info() {
+    local ref
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+    ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+
+    echo "$1${ref#refs/heads/}$2"
+}
+
+function prompt_host {
+   if [[ $HOST == *.local ]]; then
+       return
+   else
+       echo "$1%m$2"
+   fi
+}
+
+function prompt_pwd {
+    if [[ $PWD != $HOME ]]; then
+        print `echo $PWD|sed -e "s|^$HOME|~|" -e 's-/\([^/]\)\([^/]*\)-/\1-g'``echo $PWD|sed -e 's-.*/[^/]\([^/]*$\)-\1-'`
+    else
+        print '~'
+    fi
+}
 
 # Left prompt
 if [[ $(tput colors) == 256 ]]; then
-    PROMPT='%F{25}$(prompt_pwd)%f$(vcs_prompt_info) %F{221}%#%f '
+    PROMPT=$(prompt_host "%F{202}" "%f ")'%f%F{25}$(prompt_pwd)%f$(prompt_vcs_info " on %F{yellow}" %f) %F{221}%#%f '
 else
-    PROMPT='%F{blue}$(prompt_pwd)%f$(vcs_prompt_info) %F{yellow}%#%f '
+    PROMPT=$(prompt_host "%F{red}" "%f ")'%F{blue}$(prompt_pwd)%f$(prompt_vcs_info " on %F{yellow}" %f) %F{yellow}%#%f '
 fi
 
 # Right prompt
