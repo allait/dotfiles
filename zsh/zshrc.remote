@@ -1,5 +1,0 @@
-PROMPT='%F{red}%m%f %F{blue}%c%f %F{yellow}%%%f '
-RPROMPT='[%T]'
-
-# For Debian and it's curious naming scheme
-which ack-grep >&- && alias ack=ack-grep
