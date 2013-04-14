@@ -3,15 +3,15 @@ compinit -Ci
 
 # Treat #~^ as part of patterns
 setopt extendedglob
+
 # Cd on directory name
 setopt autocd
+
 # Show list on ambiguous completion
 setopt auto_list
+
 # Add trailing slash to directory names
 setopt auto_param_slash
-
-# /foo/.. -> /
-setopt chase_dots
 
 # Make completion list smaller
 setopt list_packed
@@ -21,12 +21,13 @@ unsetopt nomatch
 
 # Complete from within word
 setopt complete_in_word
+
 # Jump to word end on successful completion
 setopt always_to_end
+
 # Perform implicit tees or cats on redirections
 setopt multios
-# Turn on command correction
-setopt correct correctall
+
 # Keep silent, literally
 unsetopt beep list_beep
 
@@ -47,20 +48,26 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # Immediately show completion menu
 zstyle ':completion:*' menu select
+
 # Remove trailing slash if using directory as completion
 zstyle ':completion:*' squeeze-slashes true
+
 # Set description style
 zstyle ':completion:*' format '%F{white}%d%f'
+
 # Use tag name as the name of the group
 zstyle ':completion:*' group-name ''
 
 # Perform case-insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' keep-prefix
+
 # Disallow remote connections for completion functions
 zstyle ':completion:*' remote-access false
+
 # Complete options for commands after directory stack for cd, pushd, ...
 zstyle ':completion:*' complete-options true
+
 # Cache completions for commands that support it
 zstyle ':completion:*' use-cache true
 

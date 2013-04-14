@@ -1,8 +1,11 @@
 # Get emacs keybindings
 bindkey -e
 
-# Disable ^S/^Q start/stop
-unsetopt flowcontrol
+# Disable ^S/^Q start/stop in ZLE
+unsetopt flow_control
+
+# Disable software flow control with ^S/^Q
+stty -ixon
 
 # Home/End/Delete keys
 bindkey "^[OH" beginning-of-line

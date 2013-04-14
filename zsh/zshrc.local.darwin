@@ -1,9 +1,0 @@
-export EDITOR=vim
-
-export LANGUAGE=en
-
-# Load rbenv into a shell session.
-eval "$(rbenv init -)"
-
-# Disable software flow control with ^S/^Q
-stty -ixon

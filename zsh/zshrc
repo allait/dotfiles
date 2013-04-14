@@ -18,11 +18,6 @@ fi
 # Use vim for git commits and stuff
 export EDITOR="vim"
 
-# Less is more
+# Setup PAGER and less options
 export PAGER=less
-
-# Setup default less options
 export LESS="-eiRX"
-
-# Color BSD ls output
-export CLICOLOR=1
