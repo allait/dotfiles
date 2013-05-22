@@ -15,7 +15,7 @@ alias po='popd'
 
 # Python aliases
 alias pdt='python -m doctest -v'
-alias serve='python -m SimpleHTTPServer'
+serve() {(cd $1; python -m SimpleHTTPServer)}
 
 # Git alias
 alias g='git'
