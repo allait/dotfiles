@@ -28,7 +28,8 @@
 
 ;; Save backup files to ~/tmp
 (setq backup-directory-alist `(("." . "~/tmp/backup")))
-(setq auto-save-file-name-transforms `((".*" "~/tmp/swap")))
+(setq auto-save-list-file-prefix nil)
+(setq auto-save-file-name-transforms `((".*" "~/tmp/swap/" t)))
 
 ;; Show matching parentheses
 (show-paren-mode 1)
