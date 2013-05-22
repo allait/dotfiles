@@ -34,15 +34,23 @@
 ;; Show matching parentheses
 (show-paren-mode 1)
 
-;; Activate Org-mode
-(require 'org-install)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
+;; Enable ido-mode
+(require 'ido)
+(ido-mode t)
+
+;; Enable fuzzy matching
+(setq ido-enable-flex-matching t)
+(ido-everywhere t)
 
 ;; take the short answer, y/n is yes/no
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Set window size
+(if (window-system)
+  (set-frame-size (selected-frame) 100 50))
+
+;; Don't ask for confirmation in ibuffer
+(setq ibuffer-expert t)
 
 ;; Load config parts
 (load "~/.emacs.d/packages.el")

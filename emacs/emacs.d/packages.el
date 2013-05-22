@@ -7,17 +7,25 @@
 ;; Set the package sources.
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 
+
 ;; Setup packages
 (setq elpa-packages
-      '(clojure-mode
-        deft
-        evil
-        markdown-mode
+      '(evil
         paredit
+        flycheck
+        autopair
+        deft
+        surround ;; evil-surround
+        clojure-mode
+        markdown-mode
+        adaptive-wrap
+        ido-ubiquitous
+        find-file-in-repository
         ))
 
 ;; Initialize the package system.
@@ -36,6 +44,12 @@
 ;; Package configuration
 ;; ---------------------
 
+;; Add themes/ to deftheme list
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
+;; Set color theme
+(load-theme 'gruber-darker t)
+
 ;; Load paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
@@ -43,24 +57,6 @@
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-
-;; Add themes/ to deftheme list
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
-;; Set color theme
-(load-theme 'gruber-darker t)
-
-;; Associate markdown-mode with md files
-(autoload 'markdown-mode "markdown-mode.el"
- "Major mode for editing Markdown files" t)
-(setq auto-mode-alist
-      (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
-;; Use [[link|Text]] syntax for Wiki links
-(setq markdown-wiki-link-alias-first nil)
-
-(after 'markdown-mode
-       (define-key markdown-mode-map (kbd "<backtab>") 'markdown-shifttab))
 
 ;; Setup deft
 (require 'deft)
@@ -71,16 +67,16 @@
 
 (global-set-key [f1] 'deft)
 
-;; Load evil (vim mode)
-(add-to-list 'load-path "~/.emacs.d/packages/evil/")
-(require 'evil)
-(evil-mode 1)
+;; Enable flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; Configure evil-mode keys
+;; Enable autopair
+(require 'autopair)
+(autopair-global-mode)
 
-;; Rebind M-x to ";"
-(define-key evil-normal-state-map ";" 'execute-extended-command)
+;; Enable ido-ubiquitous
+(ido-ubiquitous 1)
 
-;; Set markdown-mode keys
-(evil-define-key 'normal markdown-mode-map "\C-m" 'markdown-enter-key)
-
+(load "~/.emacs.d/evil.el")
+(load "~/.emacs.d/org.el")
+(load "~/.emacs.d/markdown.el")
