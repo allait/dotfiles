@@ -19,6 +19,10 @@
 ;; Disable toolbar
 (tool-bar-mode -1)
 
+;; Disable menu bar when running from terminal
+(when (not (display-graphic-p))
+  (menu-bar-mode 0))
+
 ;; No startup message
 (setq inhibit-startup-message t)
 
@@ -42,4 +46,3 @@
 ;; Load config parts
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/keys.el")
-
