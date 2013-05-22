@@ -2,6 +2,11 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (load "~/.emacs.d/macros.el")
 
+;; Get PATH variable value from shell
+(let ((path-from-shell (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+  (setenv "PATH" path-from-shell)
+  (setq exec-path (split-string path-from-shell path-separator)))
+
 ;; Set font size
 (set-face-attribute 'default nil :height 110)
 
