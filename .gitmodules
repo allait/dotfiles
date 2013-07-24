@@ -115,9 +115,6 @@
 [submodule "vim/vim/bundle/gundo"]
 	path = vim/vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
-[submodule "vim/vim/bundle/vimclojure"]
-	path = vim/vim/bundle/vimclojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "vim/vim/bundle/showmarks"]
 	path = vim/vim/bundle/showmarks
 	url = git://github.com/harleypig/ShowMarks.git
@@ -136,12 +133,15 @@
 [submodule "vim/vim/bundle/yankstack"]
 	path = vim/vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
-[submodule "vim/vim/bundle/vim-foreplay"]
-	path = vim/vim/bundle/vim-foreplay
-	url = git://github.com/tpope/vim-foreplay.git
 [submodule "vim/vim/bundle/rainbow_parentheses"]
 	path = vim/vim/bundle/rainbow_parentheses
 	url = git://github.com/dbarsam/vim-rainbow-parentheses.git
 [submodule "zsh/zsh/bundle/zsh-completions"]
 	path = zsh/zsh/bundle/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "vim/vim/bundle/clojure-static"]
+	path = vim/vim/bundle/clojure-static
+	url = git://github.com/guns/vim-clojure-static.git
+[submodule "vim/vim/bundle/fireplace"]
+	path = vim/vim/bundle/fireplace
+	url = git://github.com/tpope/vim-fireplace.git
