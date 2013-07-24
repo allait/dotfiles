@@ -145,3 +145,6 @@
 [submodule "vim/vim/bundle/fireplace"]
 	path = vim/vim/bundle/fireplace
 	url = git://github.com/tpope/vim-fireplace.git
+[submodule "vim/vim/bundle/dispatch"]
+	path = vim/vim/bundle/dispatch
+	url = git://github.com/tpope/vim-dispatch.git
