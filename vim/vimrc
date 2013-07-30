@@ -38,9 +38,6 @@ syntax on
 " Limit highlighting to x columns to increase speed with long lines
 set synmaxcol=2048
 
-" Python full highlighting
-let python_highlight_all=1
-
 " History and swap options {{{1
 " ========================
 
@@ -532,6 +529,17 @@ let g:ropevim_global_prefix = "<C-q>p"
 
 " Disable shorcuts
 let g:ropevim_enable_shortcuts = 0
+
+" Python syntax {{{2
+" -------------
+
+" Python full highlighting
+let g:python_highlight_all = 1
+let g:python_version_2 = 1
+
+" Highlight print as keyword
+let g:python_print_as_function = 0
+
 
 " VimErl {{{2
 " ------

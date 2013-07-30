@@ -142,3 +142,6 @@
 [submodule "vim/vim/bundle/bufexplorer"]
 	path = vim/vim/bundle/bufexplorer
 	url = git://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "vim/vim/bundle/python-syntax"]
+	path = vim/vim/bundle/python-syntax
+	url = git://github.com/hdima/python-syntax.git
