@@ -7,6 +7,11 @@ unsetopt flow_control
 # Disable software flow control with ^S/^Q
 stty -ixon
 
+# Make word commands stop before and after dots and /
+bindkey "^W" vi-backward-kill-word
+bindkey "^[b" vi-backward-word
+bindkey "^[f" vi-forward-word
+
 # Home/End/Delete keys
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
