@@ -413,8 +413,13 @@ let g:pylint_onwrite = 0
 " TagBar {{{2
 " ------
 " Bind show/hide tag list
-map <silent><F3> :TagbarToggle<CR>
-nmap <silent><leader>f :TagbarToggle<CR>
+nmap <silent><leader>t :TagbarToggle<CR>
+
+" TaskList {{{2
+" --------
+" Bind ,T to show tasklist
+nmap <silent><leader>T <Plug>TaskList
+
 
 " Show Tagbar window on the left
 let g:tagbar_left = 1
