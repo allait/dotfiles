@@ -248,11 +248,15 @@ set foldlevel=1
 " General keymappings {{{1
 " ===================
 
+" Set map leaders
+let mapleader = ","
+let maplocalleader = "\\"
+
 " Reset highlighting
 nmap <silent>Q :nohlsearch<Bar>:echo<CR>
 
-" Jump to next window
-nmap <silent>K <C-w>w
+" Jump to previous buffer with Q
+noremap <silent>Q <C-^>
 
 
 " Make Y behave like others do
@@ -261,10 +265,6 @@ nnoremap Y y$
 " Toggle folds with Space
 nnoremap <Space> za
 vnoremap <Space> za
-
-" Set map leaders
-let mapleader = ","
-let maplocalleader = "\\"
 
 " Switch fold method with ,zs and ,zm
 noremap <leader>zs :set foldmethod=syntax<CR>
