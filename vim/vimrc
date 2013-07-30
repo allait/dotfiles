@@ -610,3 +610,9 @@ call smartinput#define_rule({'at': '\%#', 'char': '`', 'input': '`'})
 " Cycle through yank history with <C-p> and <C-n>
 nmap <C-p> <Plug>yankstack_substitute_older_paste
 nmap <C-n> <Plug>yankstack_substitute_newer_paste
+
+" Dispatch {{{2
+" --------
+
+" Run async command with ,d
+nmap <leader>d :Dispatch!
