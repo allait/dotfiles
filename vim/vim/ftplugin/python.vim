@@ -5,6 +5,9 @@ compiler pylint
 " Setup proper function folding
 setlocal foldmethod=syntax
 
+" Map K to get documentation from rope
+nmap <buffer>K :call RopeShowDoc()<CR>
+
 " Match function and class definitions
 syn region pythonFunctionFold start="^\z(\s*\)\%(def\|class\)\>"
     \ end="\ze\%(\s*\n\)\+\%(\z1\s\)\@!." fold transparent
