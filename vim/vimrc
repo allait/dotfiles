@@ -253,11 +253,13 @@ let mapleader = ","
 let maplocalleader = "\\"
 
 " Reset highlighting
-nmap <silent>Q :nohlsearch<Bar>:echo<CR>
+nmap <leader><Space> :nohlsearch<CR>
 
 " Jump to previous buffer with Q
 noremap <silent>Q <C-^>
 
+" Jump between opening/closing pair with Tab
+noremap <Tab> %
 
 " Make Y behave like others do
 nnoremap Y y$
@@ -309,15 +311,14 @@ nmap <silent> <C-F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name"
      \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
      \ . ">"<CR>h
 
-" No more arrows
-map <up> <nop>
-map <left> <nop>
-map <right> <nop>
-map <down> <nop>
-imap <up> <nop>
-imap <left> <nop>
-imap <right> <nop>
-imap <down> <nop>
+" Disable F1
+nnoremap <F1> <nop>
+
+" Navigate lists with arrows
+nnoremap <left>  :cprev<cr>zvzz
+nnoremap <right> :cnext<cr>zvzz
+nnoremap <up>    :lprev<cr>zvzz
+nnoremap <down>  :lnext<cr>zvzz
 
 " Helper commands {{{1
 " ===============
