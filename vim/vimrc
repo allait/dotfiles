@@ -489,8 +489,14 @@ nmap <silent><leader>u :GundoToggle<CR>
 
 " ShowMarks {{{2
 " ---------
+
 " Disable by default
-let g:showmarks_enable=0
+let g:showmarks_enable = 0
+
+" Don't show anything except the marks
+let g:showmarks_textlower="\t"
+let g:showmarks_textupper="\t"
+let g:showmarks_textother="\t"
 
 " Set saner sign colors
 hi ShowMarksHLl ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
