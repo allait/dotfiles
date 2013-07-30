@@ -453,6 +453,10 @@ let g:ctrlp_dotfiles = 0
 " Open new files in the current window
 let g:ctrlp_open_new_file = 0
 
+" Add more filetypes to CtrlPBufTagAll
+let g:ctrlp_buftag_types = {'clojure': ''}
+
+
 " SuperTab {{{2
 " --------
 
