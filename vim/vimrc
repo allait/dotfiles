@@ -277,26 +277,23 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 " Use <M-CR> to continue current line
 imap <M-CR> \<CR>
 
-" Unbind <C-Q> from "visual block"
-noremap <C-q> <Nop>
-
 " Use <C-q> in GUI and <C-c> in shell as prefix for personal commands
-nmap <C-c> <C-q>
-vmap <C-c> <C-q>
+nmap <C-q> <C-c>
+vmap <C-q> <C-c>
 
 " Set backspace behavior
 set backspace=indent,eol,start
 
 " Clean whitespace
-map <C-q>w mw:%s/\s\+$//<cr>:let @/=''<CR>`w
+map <C-c>w mw:%s/\s\+$//<cr>:let @/=''<CR>`w
 
 " Call par reformater on paragraph with textwidth 100
-map <C-q>f {v}!par w100<CR>
+map <C-c>f {v}!par w100<CR>
 
 " Call par reformater on selection with textwidth 100
-vmap <C-q>f !par w100<CR>
+vmap <C-c>f !par w100<CR>
 
-nnoremap <C-q>t :silent !/usr/local/bin/ctags -R .<CR><C-L>
+nnoremap <C-c>t :silent !/usr/local/bin/ctags -R .<CR><C-L>
 
 " Show the name of highlightning group under cursor - usefull for syntax theme
 " editing
@@ -525,9 +522,9 @@ imap <C-z> <C-y>
 " Ropevim {{{2
 " -------
 
-" Change prefixes to <C-q>
-let g:ropevim_local_prefix = "<C-q>r"
-let g:ropevim_global_prefix = "<C-q>p"
+" Change prefixes to <C-c>
+let g:ropevim_local_prefix = "<C-c>r"
+let g:ropevim_global_prefix = "<C-c>p"
 
 " Disable shorcuts
 let g:ropevim_enable_shortcuts = 0
