@@ -501,8 +501,10 @@ hi ShowMarksHLm ctermbg=NONE guibg=NONE guifg=#1C9BEE ctermfg=blue
 " BufExplorer {{{2
 " -----------
 
-" Map F1 to BufExplorer in all modes
-nnoremap <silent><F1> :BufExplorer<CR>
+" Map to ,b
+nmap <Plug>BufExplorerVerticalSplit :BufExplorerVerticalSplit
+nmap <Plug>BufExplorerHorizontalSplit :BufExplorerHorizontalSplit
+nnoremap <silent><leader>b :BufExplorer<CR>
 
 " Disable help string
 let g:bufExplorerDefaultHelp=0
