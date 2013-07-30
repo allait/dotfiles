@@ -34,9 +34,6 @@
 [submodule "vim/vim/bundle/ragtag"]
 	path = vim/vim/bundle/ragtag
 	url = git://github.com/tpope/vim-ragtag.git
-[submodule "vim/vim/bundle/django-template"]
-	path = vim/vim/bundle/django-template
-	url = git://github.com/vim-scripts/django.vim.git
 [submodule "vim/vim/bundle/markdown"]
 	path = vim/vim/bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
@@ -106,9 +103,6 @@
 [submodule "vim/vim/bundle/vimwiki"]
 	path = vim/vim/bundle/vimwiki
 	url = git://github.com/allait/vimwiki.git
-[submodule "vim/vim/bundle/applescript"]
-	path = vim/vim/bundle/applescript
-	url = git://github.com/vim-scripts/applescript.vim.git
 [submodule "vim/vim/bundle/vim-commentary"]
 	path = vim/vim/bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
@@ -133,9 +127,6 @@
 [submodule "vim/vim/bundle/yankstack"]
 	path = vim/vim/bundle/yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
-[submodule "vim/vim/bundle/rainbow_parentheses"]
-	path = vim/vim/bundle/rainbow_parentheses
-	url = git://github.com/dbarsam/vim-rainbow-parentheses.git
 [submodule "zsh/zsh/bundle/zsh-completions"]
 	path = zsh/zsh/bundle/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
@@ -148,3 +139,6 @@
 [submodule "vim/vim/bundle/dispatch"]
 	path = vim/vim/bundle/dispatch
 	url = git://github.com/tpope/vim-dispatch.git
+[submodule "vim/vim/bundle/bufexplorer"]
+	path = vim/vim/bundle/bufexplorer
+	url = git://github.com/vim-scripts/bufexplorer.zip.git
