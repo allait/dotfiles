@@ -239,11 +239,8 @@ set autoindent
 " Folding based on indentation:
 set foldmethod=indent
 
-" Make folds open by default
-set nofoldenable
-
-" Close higher-level folds on foldenable
-set foldlevel=1
+" Open all folds in new buffer
+au BufRead * normal zR
 
 " General keymappings {{{1
 " ===================
