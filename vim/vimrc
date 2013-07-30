@@ -120,9 +120,11 @@ set smartcase
 " Don't move on *
 nnoremap * *<C-o>
 
-" Use Emacs C-A and C-E behavior in insert mode
+" Use Emacs C-A and C-E behavior in insert and command mode
 inoremap <C-a> <Esc>I
 inoremap <C-e> <Esc>A
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " Don't skip wrap lines
 nnoremap j gj
