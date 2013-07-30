@@ -12,3 +12,5 @@
 --regex-javascript=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\[/\1/v,array/
 --regex-javascript=/([^= ]+)[ \t]*=[ \t]*[^"]'[^']*/\1/v,string/
 --regex-javascript=/([^= ]+)[ \t]*=[ \t]*[^']"[^"]*/\1/v,string/
+
+--langmap=Lisp:+.clj
