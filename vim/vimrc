@@ -434,14 +434,14 @@ let g:tagbar_compact = 1
 " CtrlP {{{2
 " ---------
 
-" \e to search for file name
+" ,e to search for file name
 let g:ctrlp_map = '<leader>e'
 
-" \q to search for buffer name
+" ,q to search for buffer name
 nmap <silent><leader>q :CtrlPBuffer<CR>
 
-" \a to search for tag in all open buffers
-nmap <silent><leader>a :CtrlPBufTagAll<CR>
+" ,/ to search for tag in all open buffers
+nmap <silent><leader>/ :CtrlPBufTagAll<CR>
 
 " Don't change the working directory
 let g:ctrlp_working_path_mode = 0
