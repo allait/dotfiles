@@ -2,9 +2,6 @@ setlocal omnifunc=pythoncomplete#Complete
 setlocal tabstop=8
 compiler pylint
 
-" Setup proper function folding
-setlocal foldmethod=syntax
-
 " Map K to get documentation from rope
 nmap <buffer>K :call RopeShowDoc()<CR>
 
