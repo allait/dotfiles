@@ -5,7 +5,7 @@ alias grep='grep --color=auto'
 ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
 
 # ack fix for Debian and it's curious naming scheme
-which ack-grep >&- && alias ack=ack-grep
+which ack-grep >/dev/null && alias ack=ack-grep
 
 # Shortcuts
 alias l='ls -lAh'
@@ -15,7 +15,7 @@ alias po='popd'
 
 # Python aliases
 alias pdt='python -m doctest -v'
-serve() {(cd $1; python -m SimpleHTTPServer)}
+serve() {(cd ${1-.}; python -m SimpleHTTPServer)}
 
 # Git alias
 alias g='git'
