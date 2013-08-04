@@ -408,6 +408,12 @@ let g:pylint_onwrite = 0
 " Bind show/hide tag list
 nmap <silent><leader>t :TagbarToggle<CR>
 
+" Additional filetype support
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : ['h:headings'],
+    \ 'sort' : 0}
+
 " TaskList {{{2
 " --------
 " Bind ,T to show tasklist
@@ -454,7 +460,10 @@ let g:ctrlp_dotfiles = 0
 let g:ctrlp_open_new_file = 0
 
 " Add more filetypes to CtrlPBufTagAll
-let g:ctrlp_buftag_types = {'clojure': ''}
+let g:ctrlp_buftag_types = {
+    \ 'clojure': '',
+    \ 'markdown': '',
+    \ }
 
 
 " SuperTab {{{2
