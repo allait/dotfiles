@@ -1,4 +1,8 @@
-local session=$(basename $PWD)
+if [[ -z $1 ]]; then
+    local session=$(basename $PWD)
+else
+    local session=$1
+fi
 
 if tmux has-session -t $session &> /dev/null; then
     tmux attach -t $session

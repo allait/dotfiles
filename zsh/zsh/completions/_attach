@@ -1,0 +1,15 @@
+#compdef attach
+
+local context state state_descr line
+typeset -A opt_args
+
+function __attach_tmux_sessions() {
+    local expl
+    local -a sessions
+    sessions=( ${${(f)"$(command tmux 2> /dev/null list-sessions)"}/:[ $'\t']##/:} )
+    _describe -t session 'tmux session' sessions "$@"
+}
+
+
+_arguments '1':'tmux session':__attach_tmux_sessions
+
