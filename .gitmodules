@@ -43,9 +43,6 @@
 [submodule "vim/vim/bundle/vim-ruby"]
 	path = vim/vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/vim/bundle/zencoding"]
-	path = vim/vim/bundle/zencoding
-	url = git://github.com/mattn/zencoding-vim.git
 [submodule "vim/vim/bundle/repeat"]
 	path = vim/vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
@@ -145,3 +142,6 @@
 [submodule "vim/vim/bundle/python-syntax"]
 	path = vim/vim/bundle/python-syntax
 	url = git://github.com/hdima/python-syntax.git
+[submodule "vim/vim/bundle/emmet"]
+	path = vim/vim/bundle/emmet
+	url = git://github.com/mattn/emmet-vim.git

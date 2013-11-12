@@ -526,12 +526,6 @@ nnoremap <silent><leader>b :BufExplorer<CR>
 " Disable help string
 let g:bufExplorerDefaultHelp=0
 
-" Zencoding {{{2
-" ---------
-
-" Set <C-z> for insert mode only
-imap <C-z> <C-y>
-
 " Ropevim {{{2
 " -------
 
