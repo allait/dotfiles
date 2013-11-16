@@ -115,7 +115,7 @@ set ignorecase
 set smartcase
 
 " Don't move on *
-nnoremap * *<C-o>
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*<c-o>:call winrestview(stay_star_view)<cr>
 
 " Use Emacs C-A and C-E behavior in insert and command mode
 inoremap <C-a> <Esc>I
@@ -254,6 +254,9 @@ noremap <silent>Q <C-^>
 
 " Jump between opening/closing pair with Tab
 noremap <Tab> %
+
+" Since <Tab> == <C-i>, bind jumplist forward to <C-n>
+nnoremap <C-n> <C-i>
 
 " Make Y behave like others do
 nnoremap Y y$
@@ -629,9 +632,8 @@ call smartinput#define_rule({'at': '\%#', 'char': '`', 'input': '`'})
 " YankStack {{{2
 " --------
 
-" Cycle through yank history with <C-p> and <C-n>
+" Cycle through yank history with <C-p>
 nmap <C-p> <Plug>yankstack_substitute_older_paste
-nmap <C-n> <Plug>yankstack_substitute_newer_paste
 
 " Dispatch {{{2
 " --------
