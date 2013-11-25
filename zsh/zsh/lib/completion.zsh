@@ -4,6 +4,10 @@ compinit -Ci
 # Treat #~^ as part of patterns
 setopt extendedglob
 
+# Don't remove space after completion and before &|
+export ZLE_REMOVE_SUFFIX_CHARS="\t\n;";
+export ZLE_SPACE_SUFFIX_CHARS=$'&|'
+
 # Cd on directory name
 setopt autocd
 
