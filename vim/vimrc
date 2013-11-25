@@ -640,3 +640,13 @@ nmap <C-p> <Plug>yankstack_substitute_older_paste
 
 " Run async command with ,d
 nmap <leader>d :Dispatch!
+
+
+" Paredit {{{2
+" -------
+
+" Disable shortmaps
+let g:paredit_shortmaps = 0
+
+" Set paredit leader
+let g:paredit_leader = '<C-c>p'

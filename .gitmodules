@@ -145,3 +145,6 @@
 [submodule "vim/vim/bundle/emmet"]
 	path = vim/vim/bundle/emmet
 	url = git://github.com/mattn/emmet-vim.git
+[submodule "vim/vim/bundle/paredit"]
+	path = vim/vim/bundle/paredit
+	url = git://github.com/vim-scripts/paredit.vim
