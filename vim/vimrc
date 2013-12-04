@@ -632,6 +632,9 @@ call smartinput#define_rule({'at': '\%#', 'char': '`', 'input': '`'})
 " YankStack {{{2
 " --------
 
+" Initialize yankstack mappings before surround
+call yankstack#setup()
+
 " Cycle through yank history with <C-p>
 nmap <C-p> <Plug>yankstack_substitute_older_paste
 

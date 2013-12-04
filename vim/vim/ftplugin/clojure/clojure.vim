@@ -16,6 +16,8 @@ noremap <buffer> ) ])
 " Wrap symbol or S-exp
 nnoremap <buffer> (w :<C-u>call PareditWrap("(", ")")<CR>
 nnoremap <buffer> )w :<C-u>call PareditWrap("(", ")")<CR>
+vnoremap <buffer> (w :<C-u>call PareditWrapSelection("(", ")")<CR>
+vnoremap <buffer> )w :<C-u>call PareditWrapSelection("(", ")")<CR>
 
 " Splice (unwrap)
 nnoremap <buffer> (u :<C-u>call PareditSplice()<CR>
