@@ -21,6 +21,9 @@
 (define-key evil-normal-state-map ",e" 'find-file-in-repository)
 (define-key evil-normal-state-map ",q" 'ido-switch-buffer)
 
+;; Buffer list
+(define-key evil-normal-state-map ",b" 'ibuffer)
+
 ;; Rebind M-x to ";"
 (define-key evil-normal-state-map ";" 'execute-extended-command)
 (define-key evil-normal-state-map "\C-wq" 'delete-window)

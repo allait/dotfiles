@@ -65,8 +65,6 @@
 (setq deft-directory "~/wiki/scratch/")
 (setq deft-use-filename-as-title t)
 
-(global-set-key [f1] 'deft)
-
 ;; Enable flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
