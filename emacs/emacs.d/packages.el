@@ -73,8 +73,17 @@
 (require 'autopair)
 (autopair-global-mode)
 
+;; Set ido next-previous match keys
+(add-hook 'ido-setup-hook (lambda ()
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)))
+
 ;; Enable ido-ubiquitous
 (ido-ubiquitous 1)
+
+;; Reenable ido for M-x
+(setq ido-ubiquitous-command-overrides
+  (cons '(enable exact "execute-extended-command") (cdr ido-ubiquitous-default-command-overrides)))
 
 (load "~/.emacs.d/evil.el")
 (load "~/.emacs.d/org.el")
