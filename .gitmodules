@@ -148,3 +148,6 @@
 [submodule "vim/vim/bundle/paredit"]
 	path = vim/vim/bundle/paredit
 	url = git://github.com/vim-scripts/paredit.vim
+[submodule "vim/vim/bundle/vinegar"]
+	path = vim/vim/bundle/vinegar
+	url = git://github.com/tpope/vim-vinegar.git
