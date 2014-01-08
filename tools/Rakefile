@@ -9,7 +9,9 @@ desc "Install common tools from homebrew packages"
 task :brew do
     puts "Installing Homebrew packages..."
     packages = [
-        "zsh",
+        "zsh --enable-etcdir",
+        "vim",
+        "emacs --cocoa --srgb",
         "git",
         "ack",
         "ctags",
