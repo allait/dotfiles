@@ -645,11 +645,11 @@ nmap <C-p> <Plug>yankstack_substitute_older_paste
 nmap <leader>d :Dispatch!
 
 
-" Paredit {{{2
+" Vim-sexp {{{2
 " -------
 
-" Disable shortmaps
-let g:paredit_shortmaps = 0
+" Disable insert mode maps
+let g:sexp_enable_insert_mode_mappings = 0
 
-" Set paredit leader
-let g:paredit_leader = '<C-c>p'
+" Don't enter insert mode
+let g:sexp_insert_after_wrap = 0

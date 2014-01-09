@@ -7,33 +7,27 @@ setlocal foldmethod=expr
 let g:clojure_fold_extra = []
 
 " Quicker jumps to opening and closing paren
-noremap <buffer> ( [(
-noremap <buffer> ) ])
+nmap <buffer> ( <Plug>(sexp_move_to_prev_bracket)
+nmap <buffer> ) <Plug>(sexp_move_to_next_bracket)
 
 " Paredit
 " --------
 
 " Wrap symbol or S-exp
-nnoremap <buffer> (w :<C-u>call PareditWrap("(", ")")<CR>
-nnoremap <buffer> )w :<C-u>call PareditWrap("(", ")")<CR>
-vnoremap <buffer> (w :<C-u>call PareditWrapSelection("(", ")")<CR>
-vnoremap <buffer> )w :<C-u>call PareditWrapSelection("(", ")")<CR>
+nmap <buffer> (w <Plug>(sexp_round_head_wrap_element)
+nmap <buffer> )w <Plug>(sexp_round_tail_wrap_element)
+vmap <buffer> (w <Plug>(sexp_round_head_wrap_element)
+vmap <buffer> )w <Plug>(sexp_round_tail_wrap_element)
 
 " Splice (unwrap)
-nnoremap <buffer> (u :<C-u>call PareditSplice()<CR>
-nnoremap <buffer> )u :<C-u>call PareditSplice()<CR>
+nmap <buffer> (u <Plug>(sexp_splice_list)
+nmap <buffer> )u <Plug>(sexp_splice_list)
 
 " Move paren
-nnoremap <buffer> (h :<C-u>call PareditMoveLeft()<CR>
-nnoremap <buffer> )h :<C-u>call PareditMoveLeft()<CR>
-nnoremap <buffer> (l :<C-u>call PareditMoveRight()<CR>
-nnoremap <buffer> )l :<C-u>call PareditMoveRight()<CR>
-
-" Join and split
-nnoremap <buffer> (j :<C-u>call PareditJoin()<CR>
-nnoremap <buffer> )j :<C-u>call PareditJoin()<CR>
-nnoremap <buffer> (s :<C-u>call PareditSplit()<CR>
-nnoremap <buffer> )s :<C-u>call PareditSplit()<CR>
+nmap <buffer> (h <Plug>(sexp_capture_prev_element)
+nmap <buffer> )h <Plug>(sexp_emit_tail_element)
+nmap <buffer> (l <Plug>(sexp_emit_head_element)
+nmap <buffer> )l <Plug>(sexp_capture_next_element)
 
 " Fireplace
 " ---------
