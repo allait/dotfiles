@@ -16,18 +16,26 @@ function up ()
 
 function catup ()
 {
-    TARGET=`up $1`
+    local TARGET=`up $1`
     test "$TARGET" != "" && cat $TARGET
+}
+
+function vimup ()
+{
+    local TARGET=`up $1`
+    test "$TARGET" != "" && vim $TARGET
+
 }
 
 function lsup ()
 {
-    TARGET=`up $*`
+    local TARGET=`up $*`
     test "$TARGET" != "" && ls -l $TARGET
 }
 
 function cdup ()
 {
+    local TARGET
     if [ "$1" != "" ]; then
         TARGET=$*
     else
