@@ -7,29 +7,7 @@ end
 
 desc "Install common tools from homebrew packages"
 task :brew do
-    puts "Installing Homebrew packages..."
-    packages = [
-        "zsh --enable-etcdir",
-        "vim",
-        "emacs --cocoa --srgb",
-        "git",
-        "ack",
-        "ctags",
-        "par",
-        "grc",
-        "proctools",
-        "wget",
-        "w3m",
-        "repl",
-        "tmux",
-        "ncdu",
-        "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste"
-    ]
-    packages.each do |pack|
-        system %Q[brew install #{pack}]
-    end
-    system %Q[brew link ctags]
-    system %Q[brew cleanup]
+    system %Q[brew bundle tools/Brewfile]
 end
 
 desc "Install common tools from npm packages"

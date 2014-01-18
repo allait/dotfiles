@@ -1,0 +1,32 @@
+# Make sure we’re using the latest Homebrew
+update
+
+# Upgrade any already-installed formulae
+upgrade
+
+# Install packages
+install git
+install ack
+
+install zsh --enable-etcdir
+install tmux
+
+install vim
+install emacs --cocoa --srgb
+
+install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
+
+install ctags
+install grc
+install par
+install z
+
+install proctools
+install wget
+install w3m
+install repl
+install ncdu
+install jq
+
+# Remove outdated versions from the cellar
+cleanup
