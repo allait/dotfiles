@@ -151,3 +151,6 @@
 [submodule "vim/vim/bundle/sexp"]
 	path = vim/vim/bundle/sexp
 	url = git://github.com/guns/vim-sexp
+[submodule "vim/vim/bundle/scala"]
+	path = vim/vim/bundle/scala
+	url = git://github.com/derekwyatt/vim-scala.git
