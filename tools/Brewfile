@@ -8,7 +8,7 @@ upgrade
 install git
 install ack
 
-install zsh --enable-etcdir
+install zsh
 install tmux
 
 install vim
