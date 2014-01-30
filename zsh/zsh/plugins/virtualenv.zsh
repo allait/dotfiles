@@ -49,3 +49,6 @@ eval "$v() { load_virtualenv $v \"\$@\"; }"
 
   unset v
 fi
+
+# Enable simple workon completion before virtualenv load
+compctl -g $WORKON_HOME'/*(/:t)' workon
