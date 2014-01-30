@@ -28,5 +28,8 @@ install repl
 install ncdu
 install jq
 
+install chruby
+install ruby-install
+
 # Remove outdated versions from the cellar
 cleanup

@@ -79,14 +79,6 @@ task :wiki do
   `ln -s "$PWD/../wiki" "$HOME/wiki"` if not File.symlink?("#{ENV["HOME"]}/wiki")
 end
 
-desc "Install rbenv and ruby"
-task :install_ruby do
-    system %Q[brew install rbenv ruby-build]
-    system %Q[rbenv install 1.9.3-p125]
-    system %Q[rbenv global 1.9.3-p125]
-    system %Q[brew cleanup]
-end
-
 desc "Install node.js and npm"
 task :install_node do
     system %Q[brew install node]
