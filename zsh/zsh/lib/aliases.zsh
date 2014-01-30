@@ -19,6 +19,3 @@ serve() {(cd ${1-.}; python -m SimpleHTTPServer)}
 
 # Git alias
 alias g='git'
-
-# Vim alias
-alias v='vim'
