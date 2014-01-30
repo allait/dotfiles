@@ -46,4 +46,6 @@ echo "Error loading virtualenvwrapper, sorry" >&2
   for v in "${virtualenv_funcs[@]}"; do
 eval "$v() { load_virtualenv $v \"\$@\"; }"
   done
+
+  unset v
 fi
