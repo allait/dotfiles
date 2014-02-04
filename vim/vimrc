@@ -136,6 +136,9 @@ let &showbreak = nr2char(8618)
 " Configure autowrapping and auto comment leader insertion
 set formatoptions=ctrqln
 
+" Insert only one space when joining lines at sentence end
+set nojoinspaces
+
 " General view options {{{1
 " ====================
 
