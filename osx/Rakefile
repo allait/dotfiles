@@ -7,12 +7,15 @@ task :install do
       backup target
       `mkdir -p #{target}/`
       install_item 'osx/DefaultKeyBinding.dict', "#{target}/DefaultKeyBinding.dict"
-    elsif item == 'osx/defaults.sh'
-      `bash osx/defaults.sh`
-    else
+    elsif item != 'osx/defaults.sh'
       install_item item
     end
   end
+end
+
+desc "Setup OS X configuration settings"
+task :defaults do
+  `bash osx/defaults.sh`
 end
 
 task :uninstall do
