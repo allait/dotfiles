@@ -24,7 +24,7 @@
     filemode = false
     precomposeunicode = true
     excludesfile = ~/.gitignore
-    pager = less -+$LESS -S
+    pager = less -S
 
 [color]
     status = auto
@@ -35,23 +35,29 @@
     pager = true
 
 [alias]
-    pull = pull --ff-only
     st = status
+    ci = commit
+    chout = checkout
+
     d = diff
+    ds = diff --cached
+
+    pull = pull --ff-only
+    pr = pull --rebase
+
     vdiff = difftool -t vimdiff
     vmerge = mergetool -t vimdiff
     ksdiff = difftool -y -t Kaleidoscope
     ksmerge = mergetool -y -t Kaleidoscope
-    ds = diff --staged
+
     sm = submodule
     smu = submodule update --init --rebase
-    ci = commit
-    chout = checkout
-    gl = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    l = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+    # aliasing "la = !git l" results in "died of signal 13" warning
+    <% log_args = "--graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative" %>
+    l = log <%= log_args %>
+    la = log <%= log_args %> --all
     lf = !git l --follow -p
-    ls = !git l -G
-    pr = pull --rebase
 
 [difftool "FileMerge"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
