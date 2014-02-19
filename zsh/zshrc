@@ -20,4 +20,4 @@ export EDITOR="vim"
 
 # Setup PAGER and less options
 export PAGER=less
-export LESS="-eiRX"
+export LESS="-FiRX"
