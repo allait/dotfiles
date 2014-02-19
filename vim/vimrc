@@ -210,7 +210,7 @@ set wildignore+=*.aux,*.out,*.toc " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.ico " binary images
 set wildignore+=*.pyc,*.luac,*.beam " byte code
 set wildignore+=*.o,*.obj,*.manifest " compiled object files
-set wildignore+=*.DS_Store? " system files
+set wildignore+=.DS_Store " system files
 
 " Using chicken scheme
 let g:is_chicken = 1
@@ -464,6 +464,9 @@ let g:ctrlp_dotfiles = 0
 
 " Open new files in the current window
 let g:ctrlp_open_new_file = 0
+
+" Add paths to CtrlP ignore
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
 
 " Add more filetypes to CtrlPBufTagAll
 let g:ctrlp_buftag_types = {
