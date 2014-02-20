@@ -1,5 +1,5 @@
 autoload -U compinit
-compinit -Ci
+compinit -i
 
 # Treat #~^ as part of patterns
 setopt extendedglob
