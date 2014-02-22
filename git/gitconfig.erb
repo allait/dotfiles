@@ -48,6 +48,7 @@
     vdiff = difftool -t vimdiff
     vmerge = mergetool -t vimdiff
     ksdiff = difftool -y -t Kaleidoscope
+    ksshow = "!sh -c 'git ksdiff $1^..$1;' -"
     ksmerge = mergetool -y -t Kaleidoscope
 
     sm = submodule
