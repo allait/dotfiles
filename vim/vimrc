@@ -497,8 +497,20 @@ let g:SuperTabCrMapping = '<C-CR>'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
 
+function! g:ToggleErrors()
+    redir =>buflist
+    silent! ls
+    redir END
+    for bufnum in filter(split(buflist, '\n'), 'v:val =~ "Location List"')
+        lclose
+        return
+    endfor
+    Errors
+endfunction
+
+
 " Bind :Errors to hotkey
-nmap <silent> <leader>E :Errors<CR>
+nmap <silent> <leader>E :call g:ToggleErrors()<CR>
 
 " Ignore line-too-long errors with flake8
 let g:syntastic_python_flake8_args = '--ignore=E501'
