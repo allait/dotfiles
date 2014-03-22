@@ -585,10 +585,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 let g:UltiSnipsListSnippets = "<F1>"
 
 " Set UltiSnips edit snippet directory
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsSnippetsDir = '~/.vim/usnippets'
 
 " Set UltiSnips folder names
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "usnippets"]
 
 " Use hardtabs in snippets for agile sw handling
 au FileType snippets setl noexpandtab
