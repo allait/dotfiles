@@ -662,7 +662,6 @@ nmap <C-p> <Plug>yankstack_substitute_older_paste
 " Run async command with ,d
 nmap <leader>d :Dispatch!
 
-
 " Vim-sexp {{{2
 " -------
 
@@ -671,3 +670,9 @@ let g:sexp_enable_insert_mode_mappings = 0
 
 " Don't enter insert mode
 let g:sexp_insert_after_wrap = 0
+
+" Emmet {{{2
+" -----
+
+" Use <C-c>e for expansion
+let g:user_emmet_expandabbr_key = "<C-c>e"
