@@ -19,7 +19,7 @@ install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 install ctags
 install grc
 install par
-install z
+install fasd
 
 install proctools
 install wget
