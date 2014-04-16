@@ -4,35 +4,40 @@
     email = <%= `cat ~/tmp/info/email`.chomp %>
 
 [advice]
-    pushNonFastForForward = false
+    # Don't show status actions advice
     statusHints = false
 
 [diff]
+    # Detect file renames and copies
     renames = copies
+    # Show names of things being compared in diff prefix: (i)ndex, (c)ommit, etc.
     mnemonicprefix = true
+    # Use a slower but better diff algorithm
+    algorithm = patience
 
-[merge]
-    stat = true
+[fetch]
+    # Remove deleted branches on fetch
+    prune = true
 
 [push]
-    default = upstream
+    # Push to upstream or to the branch with the same name
+    default = simple
 
 [apply]
+    # Fix whitespace when applying patches
     whitespace = fix
 
 [core]
-    filemode = false
+    # Fix unicode filenames between OS X and Linux
     precomposeunicode = true
+    # Use global excludes file
     excludesfile = ~/.gitignore
+    # Don't wrap long lines in less
     pager = less -S
 
 [color]
-    status = auto
-    branch = auto
-    interactive = auto
-    diff = auto
-    ui = true
-    pager = true
+    # Color command output when appropriate
+    ui = auto
 
 [alias]
     st = status
