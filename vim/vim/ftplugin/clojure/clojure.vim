@@ -23,11 +23,21 @@ vmap <buffer> )w <Plug>(sexp_round_tail_wrap_element)
 nmap <buffer> (u <Plug>(sexp_splice_list)
 nmap <buffer> )u <Plug>(sexp_splice_list)
 
+" Insert at points
+nmap <buffer> (i  <Plug>(sexp_insert_at_list_head)
+nmap <buffer> )i  <Plug>(sexp_insert_at_list_tail)
+
+" Move forms/elements
+nmap <buffer> (f  <Plug>(sexp_swap_list_backward)
+nmap <buffer> )f  <Plug>(sexp_swap_list_forward)
+nmap <buffer> (e  <Plug>(sexp_swap_element_backward)
+nmap <buffer> )e  <Plug>(sexp_swap_element_forward)
+
 " Move paren
-nmap <buffer> (h <Plug>(sexp_capture_prev_element)
-nmap <buffer> )h <Plug>(sexp_emit_tail_element)
-nmap <buffer> (l <Plug>(sexp_emit_head_element)
-nmap <buffer> )l <Plug>(sexp_capture_next_element)
+nmap <buffer> (< <Plug>(sexp_capture_prev_element)
+nmap <buffer> )< <Plug>(sexp_emit_tail_element)
+nmap <buffer> (> <Plug>(sexp_emit_head_element)
+nmap <buffer> )> <Plug>(sexp_capture_next_element)
 
 " Fireplace
 " ---------
