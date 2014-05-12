@@ -67,7 +67,7 @@ end
 
 desc "Update pathogen and sumbodules"
 task :update do
-    `curl https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > vim/vim/autoload/pathogen.vim`
+    `curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim > vim/vim/autoload/pathogen.vim`
     `git submodule foreach git pull origin master`
     `git submodule foreach git fetch`
     system %Q[git status]
