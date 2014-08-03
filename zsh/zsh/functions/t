@@ -28,8 +28,8 @@ else
             fi
         ;;
         (a*|l*s*|next|com*|cou*|new*|old*|)
-            command task pro:$active_project $* ;;
-        (*) command task $* ;;
+            command task $1 project:$active_project ${@:2} ;;
+        (*) command task $@ ;;
     esac
 fi
 
