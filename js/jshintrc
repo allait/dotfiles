@@ -59,7 +59,7 @@
     "plusplus"      : false,  // Prohibit use of `++` & `--`.
     "sub"           : true,  // Tolerate all forms of subscript notation besides dot notation.
     "trailing"      : true,   // Prohibit trailing whitespaces.
-    "white"         : false,   // Check against strict whitespace and indentation rules.
+    "white"         : true,   // Check against strict whitespace and indentation rules.
     "indent"        : 2       // Specify indentation spacing
 }
 
