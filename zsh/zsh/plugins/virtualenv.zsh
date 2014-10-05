@@ -7,7 +7,6 @@
 
 # Set up virtualenv variables
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENV_USE_DISTRIBUTE=true
 
 # Python virtualenvwrapper loads really slowly, so load it on demand.
 if [[ $(type -w workon) != "workon: function" ]]; then
