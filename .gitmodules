@@ -160,3 +160,6 @@
 [submodule "vim/vim/bundle/endwise"]
 	path = vim/vim/bundle/endwise
 	url = git://github.com/tpope/vim-endwise.git
+[submodule "vim/vim/bundle/idris"]
+	path = vim/vim/bundle/idris
+	url = git://github.com/idris-hackers/idris-vim.git
