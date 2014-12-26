@@ -36,7 +36,7 @@ end
 
 desc "Install ruby"
 task :install_ruby do
-    system %Q[ruby-install -s build ruby stable]
+    system %Q[ruby-install -c -s build -i ~/.rubies/default ruby]
     system %Q[rm -rf build]
 end
 

@@ -5,4 +5,4 @@ source /usr/local/opt/chruby/share/chruby/chruby.sh 2> /dev/null
 compctl -g '~/.rubies/*(:t)' chruby
 
 # Set default ruby if chruby is installed
-type chruby >/dev/null && chruby ruby-2.1.1
+type chruby >/dev/null && chruby default
