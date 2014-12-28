@@ -7,6 +7,10 @@ task :install do
       backup target
       `mkdir -p #{target}/`
       install_item 'osx/DefaultKeyBinding.dict', "#{target}/DefaultKeyBinding.dict"
+    elsif item == 'osx/keyremap'
+      target = "\"#{ENV["HOME"]}/Library/Application Support/Karabiner\""
+      `mkdir -p #{target}/`
+      install_item "osx/keyremap/private.xml", "#{target}/private.xml"
     elsif item != 'osx/defaults.sh'
       install_item item
     end
