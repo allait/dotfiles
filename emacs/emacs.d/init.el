@@ -1,5 +1,3 @@
-;; Adding ~/.emacs.d to load path
-(add-to-list 'load-path "~/.emacs.d/")
 (load "~/.emacs.d/macros.el")
 
 ;; Get PATH variable value from shell
