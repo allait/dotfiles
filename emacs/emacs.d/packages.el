@@ -66,8 +66,9 @@
 (setq deft-directory "~/wiki/scratch/")
 (setq deft-use-filename-as-title t)
 
-;; Enable flycheck
+;; Enable flycheck to autocheck on load and save
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(setq flycheck-check-syntax-automatically '(save mode-enabled))
 
 ;; Enable autopair
 (require 'autopair)
