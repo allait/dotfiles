@@ -515,6 +515,9 @@ nmap <silent> <leader>E :call g:ToggleErrors()<CR>
 " Ignore line-too-long errors with flake8
 let g:syntastic_python_flake8_args = '--ignore=E501'
 
+" Prefer rubocop over mri
+let g:syntastic_ruby_checkers = ['rubocop', 'rubylint', 'mri']
+
 " Gundo {{{2
 " -----
 nmap <silent><leader>u :GundoToggle<CR>
