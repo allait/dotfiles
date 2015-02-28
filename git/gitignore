@@ -5,5 +5,8 @@
 *.py[co]
 .ropeproject
 
+# Ruby
+.bundle
+
 # ctags
 tags
