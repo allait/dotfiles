@@ -10,7 +10,7 @@ function prompt_vcs_info() {
 }
 
 function prompt_host {
-   if [[ $HOST == *.local ]]; then
+   if [[ $HOST == *.local || $HOST == *.home ]]; then
        return
    else
        echo "$1%m$2"
