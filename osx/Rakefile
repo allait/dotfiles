@@ -2,11 +2,11 @@ require './dotfiles'
 
 task :install do
   linkables("osx").each do |item|
-    if item == 'osx/DefaultKeyBinding.dict'
+    if item == 'osx/DefaultKeyBinding.dict.erb'
       target = "#{ENV["HOME"]}/Library/KeyBindings"
       backup target
       `mkdir -p #{target}/`
-      install_item 'osx/DefaultKeyBinding.dict', "#{target}/DefaultKeyBinding.dict"
+      install_item 'osx/DefaultKeyBinding.dict.erb', "#{target}/DefaultKeyBinding.dict"
     elsif item == 'osx/keyremap'
       target = "\"#{ENV["HOME"]}/Library/Application Support/Karabiner\""
       `mkdir -p #{target}/`
