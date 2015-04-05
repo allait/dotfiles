@@ -1,64 +1,90 @@
-desc "Update installed packages"
+desc 'Update installed packages'
 task :update do
-  system %Q[brew update && brew outdated]
-  system %Q[brew upgrade]
-  system %Q[brew cleanup]
+  system %(brew update && brew outdated)
+  system %(brew upgrade)
+  system %(brew cleanup)
+  system %(brew cask cleanup)
 end
 
-desc "Install common tools from homebrew packages"
+desc 'Install common tools from homebrew packages'
 task :brew do
-    puts "Installing Homebrew packages..."
-    packages = [
-        "zsh --enable-etcdir",
-        "vim",
-        "emacs --cocoa --srgb",
-        "git",
-        "ack",
-        "ctags",
-        "par",
-        "grc",
-        "proctools",
-        "wget",
-        "w3m",
-        "repl",
-        "tmux",
-        "ncdu",
-        "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste"
-    ]
-    packages.each do |pack|
-        system %Q[brew install #{pack}]
-    end
-    system %Q[brew link ctags]
-    system %Q[brew cleanup]
+  puts 'Installing Homebrew packages...'
+  packages = [
+    'git',
+    'zsh',
+    'vim',
+    'emacs --cocoa --srgb',
+    'tmux',
+    'reattach-to-user-namespace --wrap-pbcopy-and-pbpaste',
+
+    'ack',
+    'ag',
+    'ctags',
+    'fasd',
+    'grc',
+    'jq',
+    'mtr',
+    'ncdu',
+    'ngrep',
+    'par',
+    'proctools',
+    'repl',
+    'wget',
+    'w3m',
+
+    'chruby',
+    'ruby-install',
+
+    'caskroom/cask/brew-cask',
+  ]
+
+  casks = [
+    'virtualbox',
+    'vagrant',
+    'lighttable',
+    'karabiner',
+  ]
+
+  system %(brew update)
+
+  packages.each do |pack|
+    system %(brew install #{pack})
+  end
+
+  casks.each do |cask|
+    system %(brew cask install #{cask})
+  end
+
+  system %(brew cleanup)
+  system %(brew cask cleanup)
 end
 
-desc "Install common tools from npm packages"
+desc 'Install common tools from npm packages'
 task :npm do
-    puts "Installing npm packages..."
-    packages = [
-        "http-console",
-        "jshint",
-        "coffee-script"
-    ]
-    packages.each do |pack|
-        system %Q[npm install -g #{pack}]
-    end
+  puts 'Installing npm packages...'
+  packages = [
+    'http-console',
+    'jshint',
+    'coffee-script'
+  ]
+  packages.each do |pack|
+    system %(npm install -g #{pack})
+  end
 end
 
-desc "Install common gems"
+desc 'Install common gems'
 task :gems do
-    packages = [
-      "pry",
-      "bundler"
-    ]
-    packages.each do |pack|
-        system %Q[gem install #{pack}]
-    end
+  packages = [
+    'pry',
+    'bundler'
+  ]
+  packages.each do |pack|
+    system %(gem install #{pack})
+  end
 end
 
-desc "Install ruby"
+desc 'Install ruby'
 task :install_ruby do
-    system %Q[ruby-install -c -s build -i ~/.rubies/default ruby]
-    system %Q[rm -rf build]
+  system %(ruby-install -c -s build -i ~/.rubies/default ruby)
+  system %(rm -rf build)
 end
-
