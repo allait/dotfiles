@@ -490,6 +490,9 @@ let g:SuperTabCrMapping = '<C-CR>'
 " Syntastic {{{2
 " ---------
 
+" Don't show error in the command window
+let g:syntastic_echo_current_error = 0
+
 " Enable syntax error signs, disable prewiew window with error list
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=0
