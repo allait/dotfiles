@@ -145,8 +145,9 @@ set nojoinspaces
 " Show line numbers
 set nu
 
-" Highlight current line
-set cursorline
+" Don't highlight current line
+" (highlighting slows down j/k on filetypes with slow syntax hl, e.g. ruby)
+set nocursorline
 
 " Highlight column
 " set colorcolumn=85
