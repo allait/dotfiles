@@ -19,6 +19,10 @@
     # Remove deleted branches on fetch
     prune = true
 
+[pull]
+    # Always use pull --rebase
+    rebase = true
+
 [push]
     # Push to upstream or to the branch with the same name
     default = simple
@@ -46,9 +50,6 @@
 
     d = diff
     ds = diff --cached
-
-    pull = pull --ff-only
-    pr = pull --rebase
 
     vdiff = difftool -t vimdiff
     vmerge = mergetool -t vimdiff
