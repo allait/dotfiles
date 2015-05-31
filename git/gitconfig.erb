@@ -55,6 +55,8 @@
     d = diff
     ds = diff --cached
 
+    pa = "!git push origin HEAD:$@ #"
+
     vdiff = difftool -t vimdiff
     vmerge = mergetool -t vimdiff
     ksdiff = difftool -y -t Kaleidoscope
