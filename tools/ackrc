@@ -2,4 +2,5 @@
 --type-set=django=.py,.html
 --type-set=front=.html,.js,.css
 --type-set=markdown=.md,.mdown,.markdown
---ignore-dir=.bundle
+--ignore-directory=is:.bundle
+--ignore-directory=is:bower_components
