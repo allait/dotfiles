@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# System
+# ======
+
+# Fix /etc/zshenv misconfiguration
+move /etc/zshenv /etc/zprofile
+
 # General UX
 # ==========
 
