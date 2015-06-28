@@ -275,11 +275,14 @@ noremap <leader>zm :set foldmethod=marker<CR>
 noremap <leader>zi :set foldmethod=indent<CR>
 
 " Yank to system clipboard
+vmap <leader>y "*y
 noremap <leader>y "*y
 
 " Paste from system clipboard
-noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
+vmap <leader>p "*p
+vmap <leader>P "*P
+noremap <leader>p "*p
+noremap <leader>P "*P
 
 " Use <M-CR> to continue current line
 imap <M-CR> \<CR>
