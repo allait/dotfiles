@@ -13,6 +13,10 @@ task :install do
       target = "#{ENV["WORKON_HOME"]}"
       `mkdir -p #{target}`
       install_item 'python/virtualenv_hooks/postactivate', "#{target}/postactivate"
+    elsif item == 'python/flake8'
+      target = "#{ENV["HOME"]}/.config"
+      `mkdir -p #{target}`
+      install_item 'python/flake8', "#{target}/flake8"
     else
       install_item item
     end
@@ -29,6 +33,9 @@ task :uninstall do
       next if not ENV["WORKON_HOME"]
       target = "#{ENV["WORKON_HOME"]}"
       uninstall_item 'python/virtualenv_hooks/postactivate', "#{target}/postactivate"
+    elsif item == 'python/flake8'
+      target = "#{ENV["HOME"]}/.config"
+      uninstall_item 'python/flake8', "#{target}/flake8"
     else
       uninstall_item item
     end
