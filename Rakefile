@@ -82,6 +82,5 @@ end
 desc 'Install node.js and npm'
 task :install_node do
   system %(brew install node)
-  system %(curl http://npmjs.org/install.sh | sh)
   system %(brew cleanup)
 end
