@@ -163,3 +163,9 @@
 [submodule "vim/vim/bundle/idris"]
 	path = vim/vim/bundle/idris
 	url = https://github.com/idris-hackers/idris-vim.git
+[submodule "vim/vim/bundle/vim-test"]
+	path = vim/vim/bundle/vim-test
+	url = https://github.com/janko-m/vim-test.git
+[submodule "vim/vim/bundle/vim-ledger"]
+	path = vim/vim/bundle/vim-ledger
+	url = https://github.com/ledger/vim-ledger.git
