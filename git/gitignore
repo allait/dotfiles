@@ -4,6 +4,7 @@
 # Python
 *.py[co]
 .ropeproject
+.cache
 
 # Ruby
 .bundle
