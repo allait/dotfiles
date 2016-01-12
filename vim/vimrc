@@ -663,3 +663,9 @@ let g:sexp_insert_after_wrap = 0
 
 " Use <C-c>e for expansion
 let g:user_emmet_expandabbr_key = "<C-c>e"
+
+" Neovim settings {{{1
+" ===============
+
+" Always use global system python packages (with neovim installed)
+let g:python_host_prog='/usr/local/bin/python'
