@@ -1,3 +1,13 @@
+task :install do
+  linkables("tools").each do |item|
+    if item == "tools/ssh_config"
+      install_item 'tools/ssh_config', "#{ENV["HOME"]}/.ssh/config"
+    else
+      install_item item
+    end
+  end
+end
+
 desc 'Update installed packages'
 task :update do
   system %(brew update && brew outdated)
