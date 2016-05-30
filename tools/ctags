@@ -14,3 +14,6 @@
 --regex-javascript=/([^= ]+)[ \t]*=[ \t]*[^']"[^"]*/\1/v,string/
 
 --langmap=Lisp:+.clj
+
+--exclude=node_modules
+--exclude=bower_components
