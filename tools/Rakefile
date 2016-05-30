@@ -31,6 +31,7 @@ task :brew do
     'ag',
     'ctags',
     'fasd',
+    'fzf',
     'grc',
     'jq',
     'mtr',
@@ -49,9 +50,7 @@ task :brew do
   ]
 
   casks = [
-    'virtualbox',
     'vagrant',
-    'lighttable',
     'karabiner',
   ]
 
