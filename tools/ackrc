@@ -2,5 +2,6 @@
 --type-set=django=.py,.html
 --type-set=front=.html,.js,.css
 --type-set=markdown=.md,.mdown,.markdown
+--ignore-file=is:tags
 --ignore-directory=is:.bundle
 --ignore-directory=is:bower_components
