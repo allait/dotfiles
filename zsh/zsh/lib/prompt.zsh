@@ -36,6 +36,9 @@ else
     PROMPT=$PROMPT'%(?,%F{yellow},%F{red})%#%f '
 fi
 
+# iTerm prompt integration
+PROMPT=%{$(printf "\033]133;A\007")%}$PROMPT%{$(printf "\033]133;B\007")%}
+
 # Right prompt
 RPROMPT='%1(j,%F{blue}● %f,)%(?,,%F{red}[%?]%f)[%T]'
 
