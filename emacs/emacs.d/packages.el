@@ -22,6 +22,7 @@
         deft
         surround ;; evil-surround
         clojure-mode
+        ledger-mode
         markdown-mode
         adaptive-wrap
         ido-ubiquitous
@@ -89,3 +90,6 @@
 (load "~/.emacs.d/evil.el")
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/markdown.el")
+
+(autoload 'ledger-mode "ledger-mode" "A major mode for Ledger" t)
+(add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
