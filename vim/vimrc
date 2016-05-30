@@ -537,6 +537,9 @@ nnoremap <silent><leader>b :BufExplorer<CR>
 " Disable help string
 let g:bufExplorerDefaultHelp=0
 
+" Show paths relative to the current directory
+let g:bufExplorerShowRelativePath=1
+
 " Ropevim {{{2
 " -------
 
