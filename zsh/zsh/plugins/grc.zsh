@@ -4,7 +4,6 @@ colourify () {
 
 configure () {colourify ./configure $@}
 diff () {colourify diff $@}
-make () {colourify make $@}
 gcc () {colourify gcc $@}
 g++ () {colourify g++ $@}
 as () {colourify as $@}
