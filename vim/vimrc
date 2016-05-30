@@ -670,6 +670,12 @@ let g:sexp_insert_after_wrap = 0
 " Use <C-c>e for expansion
 let g:user_emmet_expandabbr_key = "<C-c>e"
 
+" Vim-test {{{2
+" --------
+
+" Run nearest test with ,,
+map <leader>, :TestNearest<CR>
+
 " Neovim settings {{{1
 " ===============
 
