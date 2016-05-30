@@ -28,10 +28,12 @@ function prompt_pwd {
 # Left prompt
 if [[ $(tput colors) == 256 ]]; then
     PROMPT=$(prompt_host "%F{202}" "%f ")
-    PROMPT=$PROMPT'%f%F{25}$(prompt_pwd)%f$(prompt_vcs_info " on %F{yellow}" %f) %F{221}%#%f '
+    PROMPT=$PROMPT'%f%F{25}$(prompt_pwd)%f$(prompt_vcs_info " on %F{yellow}" %f) '
+    PROMPT=$PROMPT'%(?,%F{221},%F{red})%#%f '
 else
     PROMPT=$(prompt_host "%F{red}" "%f ")
-    PROMPT=$PROMPT'%F{blue}$(prompt_pwd)%f$(prompt_vcs_info " on %F{yellow}" %f) %F{yellow}%#%f '
+    PROMPT=$PROMPT'%F{blue}$(prompt_pwd)%f$(prompt_vcs_info " on %F{yellow}" %f) '
+    PROMPT=$PROMPT'%(?,%F{yellow},%F{red})%#%f '
 fi
 
 # Right prompt
