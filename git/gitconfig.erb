@@ -26,6 +26,12 @@
     # Always use pull --rebase
     rebase = true
 
+[rebase]
+    # Auto squash/fixup commits created with --fixup/--squash
+    autoSquash = true
+    # Stash local changes to apply after rebase
+    autoStash = true
+
 [push]
     # Push to upstream or to the branch with the same name
     default = simple
