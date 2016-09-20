@@ -169,3 +169,6 @@
 [submodule "vim/vim/bundle/vim-ledger"]
 	path = vim/vim/bundle/vim-ledger
 	url = https://github.com/ledger/vim-ledger.git
+[submodule "vim/vim/bundle/vim-elm"]
+	path = vim/vim/bundle/vim-elm
+	url = https://github.com/ElmCast/elm-vim.git
