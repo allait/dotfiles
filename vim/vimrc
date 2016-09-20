@@ -676,6 +676,15 @@ let g:user_emmet_expandabbr_key = "<C-c>e"
 " Run nearest test with ,,
 map <leader>, :TestNearest<CR>
 
+" Vim commentary {{{2
+" --------------
+
+" Restore deprecated commentary mappings
+xmap \\  <Plug>Commentary<CR>
+nmap \\  <CR><Plug>Commentary
+nmap \\\ <Plug>CommentaryLine<CR>
+
+
 " Neovim settings {{{1
 " ===============
 
