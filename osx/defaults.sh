@@ -4,7 +4,7 @@
 # ======
 
 # Fix /etc/zshenv misconfiguration
-move /etc/zshenv /etc/zprofile
+# mv /etc/zshenv /etc/zprofile
 
 # General UX
 # ==========
@@ -26,7 +26,14 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Trackpad & Mouse
+# ================
+
+defaults write -g com.apple.mouse.scaling -int 3
+defaults write -g com.apple.trackpad.scaling -int 3
 
 # Finder
 # ======
