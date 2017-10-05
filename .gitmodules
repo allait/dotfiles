@@ -172,3 +172,9 @@
 [submodule "vim/vim/bundle/vim-elm"]
 	path = vim/vim/bundle/vim-elm
 	url = https://github.com/ElmCast/elm-vim.git
+[submodule "vim/vim/bundle/terraform"]
+	path = vim/vim/bundle/terraform
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "vim/vim/bundle/solarized"]
+	path = vim/vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
