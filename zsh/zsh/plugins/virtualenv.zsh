@@ -8,6 +8,9 @@
 # Set up virtualenv variables
 export WORKON_HOME=$HOME/.virtualenvs
 
+# Set default python to Python 3
+export VIRTUALENV_PYTHON=python3
+
 # Python virtualenvwrapper loads really slowly, so load it on demand.
 if [[ $(type -w workon) != "workon: function" ]]; then
 virtualenv_funcs=( workon deactivate mkvirtualenv )
