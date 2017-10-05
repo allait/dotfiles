@@ -6,6 +6,7 @@
 .ropeproject
 .cache
 .coverage
+htmlcov
 
 # Ruby
 .bundle
