@@ -21,3 +21,6 @@ export EDITOR="vim"
 # Setup PAGER and less options
 export PAGER=less
 export LESS="-FiRX"
+
+# Load per-system config if present
+source ~/.zshrc.local 2>/dev/null
