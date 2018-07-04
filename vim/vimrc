@@ -424,12 +424,6 @@ let g:tagbar_type_markdown = {
     \ 'kinds' : ['h:headings'],
     \ 'sort' : 0}
 
-" TaskList {{{2
-" --------
-" Bind ,T to show tasklist
-nmap <silent><leader>T <Plug>TaskList
-
-
 " Show Tagbar window on the left
 let g:tagbar_left = 1
 
@@ -445,6 +439,12 @@ let g:tagbar_sort = 0
 " Don't show help line
 let g:tagbar_compact = 1
 
+" TaskList {{{2
+" --------
+" Bind ,T to show tasklist
+nmap <silent><leader>T <Plug>TaskList
+
+
 " CtrlP {{{2
 " ---------
 
@@ -455,7 +455,7 @@ let g:ctrlp_map = '<leader>e'
 nmap <silent><leader>q :CtrlPBuffer<CR>
 
 " Search for tag in all open buffers
-nmap <silent><leader>a :CtrlPBufTagAll<CR>
+nmap <silent><leader>A :CtrlPBufTagAll<CR>
 
 " Search for tag in generated tags file
 nmap <silent><leader>r :CtrlPTag<CR>
@@ -673,8 +673,25 @@ let g:user_emmet_expandabbr_key = "<C-c>e"
 " Vim-test {{{2
 " --------
 
+" let test#strategy = "dispatch"
+
 " Run nearest test with ,,
 map <leader>, :TestNearest<CR>
+
+" Run file tests with ,f
+map <leader>f :TestFile<CR>
+
+
+" Vim-ack {{{2
+" -------
+
+" Set ag as the :Ack executable
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Search the word under cursor
+noremap <Leader>a :Ack <cword><cr>
 
 " Vim commentary {{{2
 " --------------
