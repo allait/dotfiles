@@ -81,6 +81,8 @@
     la = log <%= log_args %> --all
     lf = !git l --follow -p
 
+    pr-desc = "!git log --pretty=format:'### %s%n%n%b' --reverse origin/master..HEAD | par -w9000"
+
 [difftool "FileMerge"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 
