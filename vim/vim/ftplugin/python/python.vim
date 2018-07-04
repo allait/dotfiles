@@ -20,4 +20,3 @@ syntax region  pythonCommentFold start="^\z(\s*\)#\%(!\|\s*-\*-\)\@!.*$"
 
 syn region pythonFold matchgroup=pythonComment
     \ start='#.*{{{.*$' end='#.*}}}.*$' fold transparent
-
