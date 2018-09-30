@@ -6,4 +6,5 @@ tags
 
 build/
 vim/spell/
+vim/vim/bundle
 emacs/emacs.d/elpa/

@@ -65,9 +65,9 @@ task :info do
   `echo '#{email}' > $HOME/tmp/info/email`
 end
 
-desc 'Update pathogen and sumbodules'
+desc 'Update plug.vim and sumbodules'
 task :update do
-  `curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim > vim/vim/autoload/pathogen.vim`
+  `curl https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > vim/vim/autoload/plug.vim`
   `git submodule foreach git pull origin master`
   `git submodule foreach git fetch`
   system %(git status)

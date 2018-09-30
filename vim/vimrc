@@ -1,9 +1,97 @@
 " Vimrc
 
-" Pathogen plugin setup {{{1
+" Plug.vim plugin setup {{{1
 " =====================
 
-execute pathogen#infect()
+call plug#begin('~/.vim/bundle')
+
+" Syntax and language support {{{2
+
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-markdown'
+Plug 'pangloss/vim-javascript'
+
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'jpalardy/vim-slime'
+
+Plug 'hdima/python-syntax'
+Plug 'vim-scripts/indentpython.vim'
+
+Plug 'oscarh/vimerl'
+Plug 'ElmCast/elm-vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-liquid'
+Plug 'leshill/vim-json'
+Plug 'ledger/vim-ledger'
+Plug 'juvenn/mustache.vim'
+
+" File and buffer management {{{2
+
+Plug 'vim-scripts/bufexplorer.zip'
+Plug 'vim-scripts/Rename'
+
+Plug 'kien/ctrlp.vim'
+
+" Completion and mappings {{{1
+
+Plug 'ervandew/supertab'
+
+Plug 'tpope/vim-surround'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'tpope/vim-ragtag'
+Plug 'mattn/emmet-vim'
+
+Plug 'kana/vim-smartinput'
+Plug 'tpope/vim-endwise'
+
+" Git {{{2
+
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
+
+" Test helpers {{{2
+
+Plug 'scrooloose/syntastic'
+
+Plug 'rygwdn/vim-pylint'
+
+Plug 'janko-m/vim-test'
+
+" Other tools {{{2
+Plug 'vim-scripts/TaskList.vim'
+Plug 'tpope/vim-abolish'
+Plug 'vim-scripts/matchit.zip'
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/python_match.vim'
+Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/scratch.vim'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-unimpaired'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/VOoM'
+Plug 'majutsushi/tagbar'
+Plug 'allait/vimwiki'
+Plug 'tpope/vim-commentary'
+Plug 'sjl/gundo.vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-vinegar'
+Plug 'guns/vim-sexp'
+Plug 'Konfekt/FastFold'
+Plug 'google/vim-searchindex'
+
+" Color themes {{{2
+
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
 
 " VIM global options {{{1
 " ==================
