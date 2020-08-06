@@ -1,11 +1,24 @@
+# direnv
+.envrc
+
 # Global OS X
 .DS_Store
 
+# Editors
+.vscode
+.code-workspace
+
 # Python
+*.egg-info
 *.py[co]
-.ropeproject
 .cache
 .coverage
+.eggs
+.hypothesis
+.mypy_cache
+.pytest_cache
+__pycache__
+coverage.xml
 htmlcov
 
 # Ruby
