@@ -71,8 +71,9 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
-# Automatically hide and show the Dock
+# Automatically hide and show the Dock and reduce delay
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.Dock autohide-delay -float 0; killall Dock
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
