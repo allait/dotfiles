@@ -29,7 +29,7 @@ end
 
 def backup(target)
   backup_target = "#{ENV["HOME"]}/.backup/#{target.split('/').last}"
-  if File.exists?(target) || File.symlink?(target)
+  if File.exists?(target) && !File.symlink?(target)
     if not File.exists?(backup_target)
       `mkdir -p $HOME/.backup/` if not File.directory?("#{ENV["HOME"]}/.backup")
       `mv "#{target}" "#{backup_target}"`
