@@ -68,12 +68,7 @@
 
     vdiff = difftool -t vimdiff
     vmerge = mergetool -t vimdiff
-    kdiff = difftool -y -t Kaleidoscope
-    kshow = "!sh -c 'git kdiff ${1:-HEAD}^..${1:-HEAD};' -"
-    kmerge = mergetool -y -t Kaleidoscope
-
-    sm = submodule
-    smu = submodule update --init --rebase
+    vshow = "!sh -c 'git vdiff ${1:-HEAD}^..${1:-HEAD};' -"
 
     # aliasing "la = !git l" results in "died of signal 13" warning
     <% log_args = "--graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative" %>
@@ -82,11 +77,3 @@
     lf = !git l --follow -p
 
     pr-desc = "!git log --pretty=format:'### %s%n%n%b' --reverse origin/master..HEAD | par -w9000"
-
-[difftool "FileMerge"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-
-[difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
