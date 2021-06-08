@@ -11,6 +11,10 @@ task :install do
       target = "\"#{ENV["HOME"]}/Library/Application Support/Karabiner\""
       `mkdir -p #{target}/`
       install_item "osx/keyremap/private.xml", "#{target}/private.xml"
+    elsif item == 'osx/karabiner.json'
+      target = "\"#{ENV["HOME"]}/.config/karabiner\""
+      `mkdir -p #{target}/`
+      install_item "osx/karabiner.json", "#{target}/karabiner.json"
     elsif item != 'osx/defaults.sh'
       install_item item
     end
