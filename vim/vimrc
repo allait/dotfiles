@@ -364,6 +364,9 @@ nnoremap Y y$
 nnoremap <Space> za
 vnoremap <Space> za
 
+" Search current visual selection with //
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+
 " Switch fold method with ,zs and ,zm
 noremap <leader>zs :set foldmethod=syntax<CR>
 noremap <leader>zm :set foldmethod=marker<CR>
