@@ -11,12 +11,16 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-markdown'
 Plug 'pangloss/vim-javascript'
 
+Plug 'leafgarland/typescript-vim'
+
 Plug 'guns/vim-clojure-static'
 Plug 'tpope/vim-fireplace'
 Plug 'jpalardy/vim-slime'
 
 Plug 'hdima/python-syntax'
-Plug 'vim-scripts/indentpython.vim'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tmhedberg/SimpylFold'
+Plug 'davidhalter/jedi-vim'
 
 Plug 'oscarh/vimerl'
 Plug 'ElmCast/elm-vim'
@@ -27,12 +31,14 @@ Plug 'leshill/vim-json'
 Plug 'ledger/vim-ledger'
 Plug 'juvenn/mustache.vim'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " File and buffer management {{{2
 
-Plug 'vim-scripts/bufexplorer.zip'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/Rename'
 
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 
 " Completion and mappings {{{1
 
@@ -46,18 +52,16 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-ragtag'
 Plug 'mattn/emmet-vim'
 
-Plug 'kana/vim-smartinput'
-Plug 'tpope/vim-endwise'
+Plug 'cohama/lexima.vim'
 
 " Git {{{2
 
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv'
 
 " Test helpers {{{2
 
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 Plug 'rygwdn/vim-pylint'
 
@@ -86,6 +90,9 @@ Plug 'tpope/vim-vinegar'
 Plug 'guns/vim-sexp'
 Plug 'Konfekt/FastFold'
 Plug 'google/vim-searchindex'
+Plug 'PeterRincker/vim-argumentative'
+
+Plug 'itchyny/lightline.vim'
 
 " Color themes {{{2
 
@@ -533,39 +540,23 @@ let g:tagbar_compact = 1
 nmap <silent><leader>T <Plug>TaskList
 
 
-" CtrlP {{{2
+" FZF {{{2
 " ---------
 
+" Add a prefix to all commands
+let g:fzf_command_prefix = 'Fzf'
+
 " ,e to search for file name
-let g:ctrlp_map = '<leader>e'
+nmap <silent><leader>e :FzfGFiles<CR>
 
 " ,q to search for buffer name
-nmap <silent><leader>q :CtrlPBuffer<CR>
+nmap <silent><leader>q :FzfBuffers<CR>
 
-" Search for tag in all open buffers
-nmap <silent><leader>A :CtrlPBufTagAll<CR>
+" Search for tag in open buffer
+nmap <silent><leader>A :FzfBTags<CR>
 
 " Search for tag in generated tags file
-nmap <silent><leader>r :CtrlPTag<CR>
-
-" Don't change the working directory
-let g:ctrlp_working_path_mode = 0
-
-" Disable most recently used files list
-let g:ctrlp_mru_files = 0
-
-" Open new files in the current window
-let g:ctrlp_open_new_file = 0
-
-" Add paths to CtrlP ignore
-let g:ctrlp_custom_ignore = 'node_modules'
-
-" Add more filetypes to CtrlPBufTagAll
-let g:ctrlp_buftag_types = {
-    \ 'clojure': '',
-    \ 'markdown': '',
-    \ }
-
+nmap <silent><leader>r :FzfTags<CR>
 
 " SuperTab {{{2
 " --------
@@ -582,17 +573,13 @@ let g:SuperTabMappingBackward ='<C-Tab>'
 " Disable cr to fix conflict with delimitmate
 let g:SuperTabCrMapping = '<C-CR>'
 
-" Syntastic {{{2
+" ALE {{{2
 " ---------
 
-" Don't show error in the command window
-let g:syntastic_echo_current_error = 0
+" Only run on file save
+let g:ale_lint_on_text_changed = 'never'
 
-" Enable syntax error signs, disable prewiew window with error list
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=0
-
-function! g:ToggleErrors()
+function! g:ToggleLocList()
     redir =>buflist
     silent! ls
     redir END
@@ -600,26 +587,27 @@ function! g:ToggleErrors()
         lclose
         return
     endfor
-    Errors
+   lopen
 endfunction
 
 
-" Bind :Errors to hotkey
-nmap <silent> <leader>E :call g:ToggleErrors()<CR>
-
-" Prefer rubocop over mri
-let g:syntastic_ruby_checkers = ['rubocop', 'rubylint', 'mri']
+" Bind loclist toggle to hotkey
+nmap <silent> <leader>E :call g:ToggleLocList()<CR>
 
 " Gundo {{{2
 " -----
 nmap <silent><leader>u :GundoToggle<CR>
 
+" Fix gundo with python3 interpreter
+let g:gundo_prefer_python3 = 1
+
 " BufExplorer {{{2
 " -----------
 
+" Disable default mappings
+let g:bufExplorerDisableDefaultKeyMapping = 1
+
 " Map to ,b
-nmap <Plug>BufExplorerVerticalSplit :BufExplorerVerticalSplit
-nmap <Plug>BufExplorerHorizontalSplit :BufExplorerHorizontalSplit
 nnoremap <silent><leader>b :BufExplorer<CR>
 
 " Disable help string
@@ -711,22 +699,18 @@ let g:slime_target = "tmux"
 " Use IPython cpaste
 let g:slime_python_ipython = 1
 
-" Smartinput {{{2
+" lexima {{{2
 " ----------
 
-" Expand [] and () with Enter
-call smartinput#define_rule({'at': '(\%#)', 'char': '<Enter>', 'input': '<Enter>X<Enter><Up><End><C-t><BS>'})
-call smartinput#define_rule({'at': '\[\%#\]', 'char': '<Enter>', 'input': '<Enter>X<Enter><Up><End><C-t><BS>'})
-
 " Don't autoclose in front of a word or quote
-call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"([{]', 'char': '(', 'input': '('})
-call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"([{]', 'char': '[', 'input': '['})
-call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"([{]', 'char': '{', 'input': '{'})
-call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\"]', 'char': '''', 'input': ''''})
-call smartinput#define_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '"', 'input': '"'})
+call lexima#add_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"([{]', 'char': '('})
+call lexima#add_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"([{]', 'char': '['})
+call lexima#add_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\''"([{]', 'char': '{'})
+call lexima#add_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\"]', 'char': ''''})
+call lexima#add_rule({'at': '\%#[-a-zA-Z0-9_.,=+*\'']', 'char': '"'})
 
 " Don't ever autoclose `
-call smartinput#define_rule({'at': '\%#', 'char': '`', 'input': '`'})
+call lexima#add_rule({'at': '\%#', 'char': '`'})
 
 " YankStack {{{2
 " --------
@@ -779,7 +763,10 @@ if executable('ag')
 endif
 
 " Search the word under cursor
-noremap <Leader>a :Ack <cword><cr>
+nnoremap <Leader>a :Ack! <cword><cr>
+
+" Use dispatch to run search in the background
+" let g:ack_use_dispatch = 1
 
 " Vim commentary {{{2
 " --------------
@@ -789,6 +776,11 @@ xmap \\  <Plug>Commentary<CR>
 nmap \\  <CR><Plug>Commentary
 nmap \\\ <Plug>CommentaryLine<CR>
 
+
+" Fugitive {{{2
+" --------
+
+nmap <leader>s :Gdiff
 
 " Neovim settings {{{1
 " ===============
