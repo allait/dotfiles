@@ -35,18 +35,6 @@ setopt multios
 # Keep silent, literally
 unsetopt beep list_beep
 
-# Parse --help arguments completion for following commands
-compdef _gnu_generic nosetests trial 'py.test'
-compdef _gnu_generic virtualenv mkvirtualenv lsvirtualenv
-compdef _gnu_generic open
-compdef _gnu_generic csi
-compdef _gnu_generic clang
-compdef _gnu_generic psql createdb dropdb -p 'pg_*'
-compdef _gnu_generic node coffee http-console nodelint
-
-# Complete MacVim alias and mvim
-compdef _vim Vim mvim
-
 # Ignore completion functions I don't have
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
