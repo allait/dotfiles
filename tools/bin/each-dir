@@ -1,0 +1,9 @@
+#!/usr/local/bin/zsh
+
+while read dir
+do
+    echo "---------- ${dir} ----------"
+    cd ${dir}
+    eval $@
+    cd ..
+done
