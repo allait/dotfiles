@@ -446,9 +446,8 @@ if has("gui_running")
     set lines=80 columns=100
 else
     " Set color scheme
-    let g:jellybeans_background_color_256 = "232"
-    let g:jellybeans_overrides = {"MatchParen": {'256ctermbg': '63'}}
-    colorscheme jellybeans
+    set background=light
+    colorscheme solarized
 endif
 
 " Stretch window in fullscreen mode
