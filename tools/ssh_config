@@ -1,2 +1,4 @@
 Host *
   UseRoaming no
+  ServerAliveInterval 30
+  ServerAliveCountMax 2
