@@ -1,0 +1,8 @@
+#!/bin/zsh -e
+
+git-fzf-ref() {
+  git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+      fzf --ansi --no-sort --reverse --tiebreak=index --preview='git show $(echo {} | cut -d" " -f1)'| cut -d' ' -f1
+}
+
+git commit --fixup $(git-fzf-ref HEAD...origin/main)
